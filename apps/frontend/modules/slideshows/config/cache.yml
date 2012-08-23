@@ -1,0 +1,9 @@
+_groups:
+  enabled: on
+  contextual: true
+  lifetime: 900
+  
+_recipes_slideshows:
+  enabled: on
+  contextual: true
+  lifetime: 7200

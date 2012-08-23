@@ -1,0 +1,8 @@
+default:
+  javascripts:
+    - jquery-1.6.2.min.js
+    - jquery.cycle.all.js
+    - jquery.jlembed.js
+    - betterrecipes.js
+    - s_code_betterrecipesH.js
+    - jquery-ui-1.8.14.custom.min.js

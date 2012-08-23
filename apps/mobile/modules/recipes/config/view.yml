@@ -1,0 +1,16 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+detailSuccess:
+  stylesheets:    [ui-darkness/jquery-ui-1.8.14.custom.css]
+  
+  javascripts:    [jquery-1.6.2.min.js, jquery-ui-1.8.14.custom.min.js]
+
+
+photosSuccess:
+  stylesheets:    [ui-darkness/jquery-ui-1.8.14.custom.css, recipe-photo-popup.css]
+
+  javascripts:    [jquery-1.6.2.min.js, jquery-ui-1.8.14.custom.min.js]
+
+  has_layout:     true
+  layout:         layout_bare

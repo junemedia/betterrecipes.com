@@ -1,0 +1,133 @@
+dev:
+  gigya:
+    api_key:          2_0a30HA11W_7nyJ_au9mpqTYZ1Oy1um_21jcAWBFjqiL49yM0G1xtcPeWdKk_R5K0  # *.resolute.com (staging)
+    partner_id:       1754801
+    secret_key:       Dm9Uk24en4lGxl5aPzUw2nNlG/djisE9ADMcCpYN7Kg=
+  regservices:
+    url:              secure.recipes.betterrecipes.com
+    user:             betterrecipes
+    pass:             TXV5r6wH#v
+    clientcode:       1023
+  adcopy:
+    challenge_key:    -UiGuJh36qy9xacVg5VB8qBGun9ZnQ3g
+    verification_key: yKKkq1jO7-fSXPFl6szWx-DdESMMvOGP
+    hash_key:         3nBAcdUnnIT6zclTwsZWC4jw0HOkkKI-
+
+prod:
+  gigya:
+    api_key:          2_t7ugJniPXN32-uUr2BkBDPmTa-oo6VVzt2Gl2MFyw-N8bgqbxzpADm4C1F_6gD51  # *.betterrecipes.com (prod)
+    partner_id:       1754801
+    secret_key:       Dm9Uk24en4lGxl5aPzUw2nNlG/djisE9ADMcCpYN7Kg=
+  regservices:
+    url:              secure.recipes.betterrecipes.com
+    user:             betterrecipes
+    pass:             TXV5r6wH#v
+    clientcode:       1023
+  adcopy:
+    challenge_key:    Vh1y5TEidP5lYG52HkgMMsVkHSzCxb-1
+    verification_key: 9TPC5aqQ8.VIsGUsK55ljY.EoApJH7Rh
+    hash_key:         UryBhEva5GhYTzZo-NY7WsDikB6kPl-D
+
+all:
+  baynote:
+    cn:               meredith
+    cc:               betrec
+    apiurl:           http://meredith-betrec.baynote.net/baynote/socialsearch?
+    timeout:          5
+
+  omniture:
+    tracker: page.track
+    defaults: 
+      server: www.betterrecipes.com
+      prop18: betterrecipes
+      prop19: Food
+
+  RegServices:
+    subscriptions:
+      - {name: "Better Recipes Community Favorites", bundle_id: 67,      newsletter_id: 4200003,  precheck: true}
+      - {name: "Daily Recipe",                       bundle_id: 28,      newsletter_id: 2400003,  precheck: false}
+      - {name: "Your Weekly Dish - Recipe.com",      bundle_id: 3900003, newsletter_id: 10800002, precheck: false}
+
+    topper_dir: /uploads/toppers
+
+    toppers:
+      8251: BR_reg_4762_RecipesContestTopper.jpg   # Add a Recipe
+      8253: BR_reg_4762_ShareYourThoughts.jpg      # Comment/Rate Recipe
+      8256: BR_reg_4762_ShareYourThoughts.jpg      # Join/Create Group
+      8260: BR_reg_4762_JoinNow.jpg                # ?
+      8261: BR_reg_4762_RecipeNLs.jpg              # ?
+      8264: BR_reg_4762_ShareMy.jpg                # Add Photo/Video/Poll
+      8273: BR_reg_4762_JoinNow.jpg                # Become a Member
+      8278: BR_reg_4762_ShareYourThoughts.jpg      # Start/Reply to Discussion
+      8291: BR_reg_4762_InviteMy.jpg               # Invite Friends
+      8292: BR_reg_4762_ViewAllSlides.jpg          # See All Thumbnails/Slides
+
+    source_codes: 
+      # use preg_match agains referrer to get associated regSource code
+      # ordering matter. First match is used
+      '+recipes/new+':                            8251 # Add a Recipe              Done
+      '+(comment/create)|(recipes/rate)+':        8253 # Comment/Rate Recipe       Done
+      '+(groups)/(create|new|join)+':             8256 # Join/Create Group         Done
+      '+(photos|videos|polls)/(create|upload)+':  8264 # Add Photo/Video/Poll      Done
+      '+(discussions)/(createthread)+':           8278 # Start/Reply to Discussion TBD (ajax)
+      '+(groups)/(invite)+':                      8291 # Invite Friends            Done
+      '+(thumbnails)+':                           8292 # See All Thumbnails/Slides TBD (ask Toros)
+      # catch all - means user becomes a member without being redirected
+      '+(.*)+':                                   8273 # Become a Member
+
+    source_names:
+      # Used for fall back in case the regSource has not passed its name
+      8251: "Add a Recipe"
+      8253: "Comment/Rate Recipe"
+      8256: "Join/Create Group"
+      8264: "Add Photo/Video/Poll"
+      8278: "Start/Reply to Sicussion"
+      8291: "Invite Friends"
+      8292: "See All Thumbnails/Slides"
+      8273: "Become a Member"
+      8260: "Join Now"
+
+  dailydish:
+    url:             http://blogs.mydevstaging.com/blogs/daily-dish/
+
+  cache:
+    time:            120
+    path:            %SF_CACHE_DIR%/onesite/
+
+  memcache:
+    config:
+      prefix:        betterrecipes
+      servers:
+        - { host: mmc, port: 11211, persistent: true }
+    keys:
+      user_data: user/%id%/data
+
+  resize:
+    path:            "/srv/bin/resize"
+    command:         "/srv/bin/resize"
+
+  uploads:
+    tmp:             %SF_UPLOAD_DIR%/tmp
+    max_width:       800
+    max_height:      800
+    levels:          2
+    photo:
+      dir:           %SF_UPLOAD_DIR%/photo
+      sizes:         [400x300,280x205]
+    category:
+      dir:           %SF_UPLOAD_DIR%/category
+      sizes:         [200x200]
+    article:
+      dir:           %SF_UPLOAD_DIR%/article
+      sizes:         [200x200,100x100]
+
+  dreammail:
+    servername:      dm17
+    clientname:      Meredith_BetterRecip
+    username:        bsanders
+    password:        AppL3TReE7645
+    sitename:        Meredith_BetterRecip
+    campaign:        11_PhotoFaves
+    mailing:         BR_Photos_11
+    mailing_kellogs: BR_Photos_11_Kelloggs
+    dmurl:           http://rtm.na.epidm.net/weblet/weblet.dll

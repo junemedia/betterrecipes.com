@@ -1,0 +1,3 @@
+<!-- 
+I thought we needed this, but once I tried to get to /advertise/index, the page worked. So this is probably unnecesary...
+-->

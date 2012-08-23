@@ -1,0 +1,16 @@
+default:
+
+  stylesheets:
+    - betterrecipes.css
+    - print.css: { media: print }
+    - /js/shadowbox/shadowbox.css
+    
+  javascripts:
+    - jquery-1.6.2.min.js
+    - jquery.jlembed.js
+    - /ckeditor/ckeditor.js
+    - /ckfinder/ckfinder.js
+    - /js/shadowbox/shadowbox.js
+    - betterrecipes.js
+    - s_code_betterrecipesH.js
+    

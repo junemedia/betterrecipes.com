@@ -1,0 +1,120 @@
+OMNITURE
+
+Please take a number and mark it as STARTED so no one else will work on it.
+Then mark it DONE afterwards.
+
+
+Global TBD:
+  * eVar26 - "party ID" - spec says to leave blank if none is available
+  * DONE (BK) - eVar18 - Registration Source, Traffic - Pass the original registration source value onto the FIRST PAGE of all visits OR UPON LOGIN. The format should be #RegSource#: #YYYY#: #MM# where the Year and Month are the date associated with the individual's registration date in the database. If no registration source exists, do not pass a value. (Can this be passed through Registration Services?)
+  * DONE (BK) - eVar32 - Profile ID - but it says to set it only after a signup or signin - need to set flash event similar to event8 and event9 (see global/_omniture.php)
+
++-----+--------------------+
+| 5   | DONE - BK          | - contains TBD's
++-----+--------------------+
+| 6   | DONE - BK          | - TBD : in addition to regSource it wants source name? Not sure how to get source name.  \  |  /  
++-----+--------------------+                                                                                          - <+> -  sample : "8274:Page1: DailySweepstakes:SignUp" or "8260:Page1: BR - General"
+| 7   | DONE - BK          | - TBD : lots of regSource + source name stuff                                            /  |  \  
++-----+--------------------+
+| 8   | DONE - Larry       |
++-----+--------------------+
+| 9   | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 10  | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 11  | DONE - BK          |
++-----+--------------------+
+| 12  | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 13  | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 14  | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 16  | DONE - Toros       | - contains TBD's
++-----+--------------------+
+| 18  | DONE - Toros       | - contains TBD's (Excel sheet is not accurate - subcategories are not applicable in this section)
++-----+--------------------+
+| 20  | DONE - Toros       | - contains TBD's (Excel sheet is not accurate - we are not allowing to print individual slides - no page numbers)
++-----+--------------------+
+| 21  | DONE - Larry       | - page not completed yet
++-----+--------------------+
+| 22  | DONE - Larry       | - page not completed yet
++-----+--------------------+
+| 23  | Larry              | - Page not built yet
++-----+--------------------+
+| 24  | DONE - BK          |
++-----+--------------------+
+| 25  | DONE - Larry       
++-----+--------------------+
+| 26  | DONE - Larry       |             
++-----+--------------------+
+| 27  | DONE - Larry       |
++-----+--------------------+
+| 28  | DONE - Larry       |
++-----+--------------------+
+| 29  | Larry              | - page not built yet
++-----+--------------------+ 
+| 30  | Larry              | - page not built yet
++-----+--------------------+
+| 31  | DONE - Larry       |
++-----+--------------------+  
+| 32  | DONE - Larry       |
++-----+--------------------+
+| 33  | DONE - Larry       |
++-----+--------------------+
+| 34  | DONE - Larry       |
++-----+--------------------+
+| 35  | DONE - Larry       |
++-----+--------------------+
+| 36  | DONE - Larry       |
++-----+--------------------+
+| 37  | DONE - Larry       |
++-----+--------------------+
+| 39  | DONE - Larry       |
++-----+--------------------+
+| 40  | DONE - Larry       |
++-----+--------------------+
+| 41  | DONE - BK          |
++-----+--------------------+
+| 42  | DONE - Larry       |
++-----+--------------------+
+| 43  | DONE - BK          |
++-----+--------------------+
+| 44  | DONE - BK          |
++-----+--------------------+
+| 45  | DONE - BK          |
++-----+--------------------+
+| 46  | DONE - BK          |
++-----+--------------------+
+| 47  | DONE - BK          |  
++-----+--------------------+
+| 48  | DONE - BK          |
++-----+--------------------+
+| 49  | BK                 | TBD - dont have page yet
++-----+--------------------+
+| 50  | DONE - BK          |
++-----+--------------------+
+| 51  | DONE - BK          | -> added PhotoUpload
++-----+--------------------+
+| 52  | DONE - BK          | -> added VideoUpload
++-----+--------------------+
+| 53  | DONE - BK          | -> we don't have a rewards detail page
++-----+--------------------+
+| 54  | DONE - BK          |
++-----+--------------------+
+| 55  | DONE - BK          |
++-----+--------------------+
+| 56  | DONE - BK          |
++-----+--------------------+
+| 57  | DONE - BK          |
++-----+--------------------+
+| 58  | DONE - BK          |
++-----+--------------------+
+| 59  | DONE - BK          |
++-----+--------------------+
+| 60  | DONE - Larry       |
++-----+--------------------+
+| 61  | DONE - Larry       |
++-----+--------------------+
+| 62  | BK                 |
++-----+--------------------+

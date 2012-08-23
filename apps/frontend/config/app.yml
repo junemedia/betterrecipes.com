@@ -1,0 +1,78 @@
+dev:
+  facebook:
+    appid:            120653551405606
+    appsecret:        '393055708641dedc2d8ca7e5b6cf84a4'
+    appnamespace:     'betterrecipes_dev'
+    admins:           '24408765'
+
+  
+all:
+  trending_days_back: 2
+  session_ttl:        1209600 # 15 days
+  ckeditor:
+    basePath:         '/ckeditor/'
+  ckfinder:
+    basePath:         '/ckfinder/'
+    active:           true
+  memcache:
+    keys:
+      user_groups:    user_groups/%user_id%
+      fb_friends:     facebook_friends/%facebook_id%
+  facebook:
+    appid:            175775159784
+    appsecret:        'c6f0bb8083071736ae1ffeab9a7365b7'
+    appnamespace:     'betterrecipes'
+    admins:           '1485626684,612918441,1257621649,24408765'
+  meta:
+    article:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    recipe:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    category:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    recipes:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    contests:     
+      title:          'Online Contests | Recipe Contests | Online Recipes | Better Recipes'
+      description:    'Do you have prize-winning online recipes? Enter your favorite recipe in one of our weekly online recipe contests for a chance to win cash prizes!'
+      keywords:       'recipe contests, online recipes, online contests'
+    mixing-bowl:     
+      title:          'Online Recipes | Share Recipes | Recipe Community | Better Recipes'
+      description:    'Enjoy online recipes from members of the Mixing Bowl recipe community at Better Recipes. Rate and share recipes, interact with members and more.'
+      keywords:       'online recipes, share recipes, recipe community'
+    groups:     
+      title:          'Group Recipes | Share Recipes | Online Recipes | Recipe Community | Better Recipes'
+      description:    'Swap online recipes and cooking tips with the members of our recipe community. Discuss group recipes and share recipes for all your favorite meals!'
+      keywords:       'group recipes, share recipes, online recipes, cooking tips, recipe community'
+    cooks:     
+      title:          'Cooks | Recipe Community | Share Recipes | Online Recipes | Better Recipes'
+      description:    'Learn more about the cooks in our recipe community on this page. Connect with the Better Recipes cooks, share recipes, trade cooking tips and more.'
+      keywords:       'share recipes, recipe community, online recipes, cooking tips'
+    discussions:     
+      title:          'Better Recipes Discussions | Online Recipes | Cooking Tips | Better Recipes'
+      description:    'Share your thoughts on online recipes or cooking topics or ask fellow cookers, bakers and eaters for their cooking tips. Join in the discussion today!'
+      keywords:       'online recipes, recipe community, cooking tips'
+    photos:     
+      title:          'Recipe Photos | Food Photos | Online Recipes | Share Recipes  | Better Recipes'
+      description:    'Share your amazing meals with recipe photos. Post your creations from our collection of online recipes or browse through food photos from others.'
+      keywords:       'food photos, online recipes, recipes, share recipes, recipe photos'
+    videos:     
+      title:          'Cooking Videos | Online Videos | Share Recipes | Online Recipes | Better Recipes'
+      description:    'Post your cooking videos preparing favorite online recipes and offering cooking tips or enjoy one of the videos here for new inspiration.'
+      keywords:       'cooking videos, online videos, online recipes, share recipes, cooking tips'
+    rewards:     
+      title:          'Rewards | Recipe Community | Share Recipes | Online Recipes | Better Recipes'
+      description:    'Rewards are our way of saying thanks you as we work together to make Better Recipes the premier community for online recipes and social sharing.'
+      keywords:       'online recipes, recipe rewards, recipe community, share recipes'
+    journals:     
+      title:          'Journals | Food Journal | Share Recipes | Recipe Community | Better Recipes'
+      description:    'Get the latest scoop from the Better Recipes community, share recipes, your thoughts, cooking tips and more. Start your food journal today!'
+      keywords:       'food journal, recipe community, recipes, cooking tips, share recipes'

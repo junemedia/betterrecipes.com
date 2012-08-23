@@ -1,0 +1,5734 @@
+@charset "UTF-8";
+/*----- BEGIN: reset -----*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+ol.bullets, ul.bullets {
+  list-style: disc;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+:focus {
+  outline: 0;
+}profile-photo-toggles
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.display-none {
+  display:none;
+}
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary, video { 
+  display:block;
+}
+.group:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+/*----- END: reset -----*/
+/*-----
+BASIC LAYOUT & CROSS SITE ITEMS
+-----*/
+body {
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size:13px;
+  color:#666666;
+  line-height:1.3em;
+  /*background:url(/img/bg-theme-avacado.jpg) no-repeat center 250px #f4f3f3;*/
+}
+a {
+  color:#660066;
+  text-decoration:none;
+  cursor:pointer;
+}
+a.no-link {
+  cursor:text !important;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration:underline;
+  cursor:pointer;
+}
+.purple {
+  color:#660066;
+}
+.gray {
+  color:#666;
+}
+.green {
+  color:#83af1b;
+}
+.white {
+  color:#FFF;
+}
+.bold {
+  font-weight:bold;
+}
+.clearfix,
+.clear,
+#cke_journaladd_body,
+#cke_comment_comment {
+  clear:both!important;
+}
+.clri {
+  clear:right!important;
+}
+#main-header,
+#main-content,
+#main-footer {
+  width:100%;
+}
+.wrapper {
+  width:1020px;
+  margin:0 auto;
+}
+#main-header {
+  background:url(/img/bg-mh.jpg) repeat-x top left;
+}
+#main-header .wrapper {
+  background:url(/img/bg-mc.png) repeat-y top left;
+}
+#main-header .wrapper .sign-in {
+  background:url(/img/bg-mh-signin.jpg) repeat-y top left;
+  width:100%;
+  height:30px;
+}
+#main-header .wrapper .logo-space {
+  background:url(/img/bg-mh-wrap.png) repeat-y top left;
+  width:100%;
+  height:90px;
+  overflow:hidden; /* ------ */
+}
+#main-header .wrapper .search-bar {
+  background:url(/img/bg-mh-searchbar.jpg) repeat-y top left;
+  width:100%;
+  height:46px;
+}
+#main-content {
+  clear:both;
+}
+#main-content .wrapper {
+  /* background:url(/img/bg-mc.png) repeat-y top left; */
+}
+#main-content-footer .wrapper {
+  background:url(/img/bg-mc.png) repeat-y top left;
+  padding:35px 0 15px;
+  *background:url(/img/bg-mc.png) repeat-y center top;
+}
+#main-footer {
+  background:#e6dae5 url(/img/bg-mf.png) repeat-x top left;
+  clear:both;
+}
+#main-footer .wrapper {
+  background:url(/img/bg-mf-wrapper.png) repeat-y top left;
+}
+.imgleft li .hornav li,
+.hornav li {
+  float:left;
+  display:inline-block;
+  clear:none;
+}
+#main-content-footer {
+  clear:both;
+}
+/*-----
+MAIN HEADER ITEMS
+-----*/
+.sign-in ul li,
+.sign-in ul li a {
+  font-size:12px;
+  color:#666;
+  height:30px;
+  line-height:30px;
+  text-align:left;
+  display:block;
+}
+ul.members {
+  margin:0 0 0 282px;
+}
+ul.members li {
+}
+ul.members li a {
+  height:100%;
+  display:block;
+  background:url(/img/cta-membersorb.png) no-repeat center right;
+  padding:0 16px 0 0;
+}
+ul.members li.message-count a {
+  background: url(/img/icon-email-14x14.jpg) no-repeat center right;
+  margin:0 9px 0 0;
+}
+ul.members li.message-count a span {
+  padding: 0px 4px;
+}
+ul.members li.message-count a span.highlight {
+  background: orange;
+  color: white;
+}
+ul.members li a.first {
+  margin:0 9px 0 0;
+}
+ul.social {
+  float:right;
+  margin:0 20px 0 0;
+}
+ul.social li.bdrt {
+  border-right:#eaeaea solid 1px;
+}
+ul.social li .cta-fb {
+  background:url(/img/cta-fb.png) center no-repeat;
+  width:26px;
+  text-indent:-9999px;
+  display:block;
+}
+ul.social li .cta-tw {
+  background:url(/img/cta-tw.png) center no-repeat;
+  text-indent:-9999px;
+  width:27px;
+  margin-right:5px;
+  display:block;
+}
+ul.social li .cta-nl {
+  background:url(/img/cta-nl.png) no-repeat center left;
+  padding:0 0 0 24px;
+  margin:0 0 0 10px;
+}
+.logo-space h1 {
+  height:100%;
+  width:272px;
+  float:left;
+  margin-left:10px;
+}
+.logo-space h1 a {
+  height:100%;
+  width:100%;
+  display:block;
+  /*
+      text-indent:-9999px;
+      background:url(/img/logo-betterrecipes.png) no-repeat top left;
+  */
+}
+.logo-space .hd-ad {
+  float:left;
+}
+.ad728x90 {
+  height:90px;
+}
+.search-bar form {
+  float:left;
+  width:272px;
+  margin-left:10px;
+}
+
+.side-bar form {
+  float:left;
+  width:272px;
+  margin:20px 0;
+}
+
+#sharebar .wrapper {
+  line-height: 32px;
+  height: 32px;
+}
+#gigya-footer {
+  height: 32px;
+}
+#sharebar form#ft-search {
+  position: relative;
+  top: -9px;
+  *float:left;
+  *top:0;
+}
+#main-footer .search-bar {
+  position:relative;
+}
+#main-footer .search-bar form {
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:-25px 0 0 -169px;
+}
+.search-bar form input[type=text],
+#sharebar form input[type=text], .side-bar form input[type=text] {
+  height:27px;
+  line-height:27px;
+  width:162px;
+  *width:135px;
+  background:url(/img/bg-search-text.png) no-repeat top left;
+  border:none;
+  font-size:12px;
+  color:#838383;
+  padding:0 5px;
+}
+.search-bar form input[type=text] {
+  margin:10px 0 0 21px;
+  *margin:10px 0 0 13px;
+  float:left;
+}
+
+.side-bar form input[type=text] {
+  margin:0;
+  float:left;
+}
+
+#sharebar form input[type=text] {
+  float: none;
+  display: inline-block;
+  margin: 0;
+}
+#sharebar .br_logo {
+  margin: 0 20px 0 30px;
+  position: relative;
+  top: -5px;
+  *float:left;
+  *margin: 10px 20px 0 30px;
+}
+#inlinesharebar-reaction2-icon_img,
+#gigya-footer-reaction2-icon_img,
+#dailydish-sharebar #inlinesharebar-reaction3-icon img,
+.hide_stumble .gig-button-container-stumbleupon,
+.hide_stumble #gigya-footer-reaction3-icon {
+  display: none!important;
+}
+#inlinesharebar-reaction2-text .gig-share-button-text,
+#gigya-footer-reaction2-text .gig-share-button-text,
+#dailydish-sharebar #inlinesharebar-reaction3-text .gig-share-button-text,
+#dailydish-sharebar #gigya-footer-reaction3-text .gig-share-button-text,
+.hide_stumble #inlinesharebar-reaction3-text .gig-share-button-text,
+.hide_stumble #gigya-footer-reaction3-text .gig-share-button-text {
+  color: #606;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.search-bar form input[type=submit] {
+  float:left;
+  margin:10px 0 0 0;
+  max-width:78px;
+  padding:3px 6px;
+  background:#ebebeb url(/img/copy-search.png) no-repeat center;
+  text-indent:-9999px;
+  width:55px;
+  filter:none;
+  -ms-filter:none;
+}
+#hd-search .btn-grey28,
+#ft-search .btn-grey28, .side-bar form .btn-grey28 {
+  background:url(/img/btn-search.jpg) no-repeat top left;
+  border:none;
+  width:53px;
+  height:28px;
+  text-indent:-9999px;
+  padding:0;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+.search-bar ul .recipes {
+  margin-left:29px;
+}
+.searchbar ul li,
+.search-bar ul li a {
+  height:46px;
+  line-height:46px;
+  color:#FFF;
+  font-size:25px;
+  display:block;
+}
+.search-bar ul li a {
+  text-indent:-9999px;
+}
+.search-bar ul li a:hover,
+.search-bar ul li a.selected {
+  background-position:center -46px;
+}
+.search-bar .recipes a {
+  background:url(/img/cta-recipes.png) no-repeat top center;
+  width:127px;
+}
+.search-bar .dd a {
+  background:url(/img/cta-dd.png) no-repeat top center;
+  width:198px;
+}
+.search-bar .contests a {
+  background:url(/img/cta-contests.png) no-repeat top center;
+  width:141px;
+}
+.search-bar .sweeps a {
+  background:url(/img/cta-sweeps.png) no-repeat top center;
+  width:183px;
+}
+.mb-nav {
+  height:38px;
+  width:300px;
+}
+.mb-nav li,
+.mb-nav li a {
+  height:46px;
+  line-height:46px;
+  display:block;
+}
+.mb-nav li a {
+  background:url(/img/bg-mbnav-sprite.png) no-repeat top left;
+  text-indent:-9999px;
+}
+.mb-nav .logo a {
+  background-position:0 0;
+  width:177px;
+}
+.mb-nav .groups a {
+  background-position:-177px 0;
+  width:76px;
+}
+.mb-nav .cooks a {
+  background-position:-253px 0;
+  width:66px;
+}
+.mb-nav .polls a {
+  background-position:-319px 0;
+  width:61px;
+}
+.mb-nav .disc a {
+  background-position:-380px 0;
+  width:106px;
+}
+.mb-nav .photos a {
+  background-position:-486px 0;
+  width:74px;
+}
+.mb-nav .videos a {
+  background-position:-560px 0;
+  width:71px;
+}
+.mb-nav .rewards a {
+  background-position:-631px 0;
+  width:81px;
+}
+.mb-nav .journals a {
+  background-position:-712px 0;
+  width:81px;
+}
+.mb-nav .groups a:hover,
+.mb-nav .groups a.selected {
+  background-position:-177px -45px;
+}
+.mb-nav .cooks a:hover,
+.mb-nav .cooks a.selected {
+  background-position:-253px -45px;
+}
+.mb-nav .polls a:hover,
+.mb-nav .polls a.selected {
+  background-position:-319px -45px;
+}
+.mb-nav .disc a:hover,
+.mb-nav .disc a.selected {
+  background-position:-380px -45px;
+}
+.mb-nav .photos a:hover,
+.mb-nav .photos a.selected {
+  background-position:-486px -45px;
+  width:74px;
+}
+.mb-nav .videos a:hover,
+.mb-nav .videos a.selected {
+  background-position:-560px -45px;
+  width:71px;
+}
+.mb-nav .rewards a:hover,
+.mb-nav .rewards a.selected {
+  background-position:-631px -45px;
+  width:81px;
+}
+.mb-nav .journals a:hover,
+.mb-nav .journals a.selected {
+  background-position:-712px -45px;
+  width:81px;
+}
+.mb-nav .journals {
+  margin-right:11px;
+}
+.mb-nav .add a {
+  background:url(/img/cta-addrecipe.jpg) no-repeat top left;
+  width:300px;
+  height:38px;
+}
+.mb-nav .add a:hover {
+  background-position:0 -38px;
+}
+#main-header .banner {
+  width:1000px;
+  margin:0 0 0 10px;
+  background-color:#e5e5e5;
+  height:45px;
+  display:inline-block;
+}
+#main-header .banner p {
+  height:45px;
+  line-height:45px;
+  padding-left:20px;
+}
+/*-----
+MAIN CONTENT ITEMS
+-----*/
+#main-content .section {
+  margin:0 10px;
+  background:url(/img/bg-mb-content.jpg) repeat-x top left;
+  overflow:hidden;
+}
+#main-content .article {
+  width:660px;
+  float:left;
+  margin:15px 0 20px 20px;
+  min-height:300px;
+}
+#main-content .article.create-group,
+#main-content .article.fullwidth {
+  width:960px;
+}
+#main-content .sidebar {
+  float:right;
+  width:300px;
+  margin:15px 0 0 0;
+}
+#main-content form {
+  position:relative;
+}
+#main-content form fieldset.sidebar {
+  width:300px;
+  /* WHY DID YOU COMMENT THIS OUT? ARE YOU JUST MESSING WITH ME? If you can't figure out what's going on, please ask JASON! Do you like getting ETs twice? I don't. */
+  position:absolute;
+  top:0;
+  right:-320px;
+  margin:0
+}
+#main-content form fieldset.sidebar.newRecipe {
+  /* Groups appearing in middle of page, do not know why - needs fix*/ 
+  right: -740px;
+  right:-300px\9;
+}
+#main-content form fieldset.sidebar div,
+#main-content form fieldset.sidebar ul {
+  margin:0;
+}
+#main-content.has-breadcrumbs .sidebar {
+  margin-top:-12px;
+}
+#main-content .title {
+  font-size:18px;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  line-height:22px;
+  font-weight:normal;
+}
+#main-content .title a {
+  /* *margin-top:-22px; */
+}
+#main-content .title span.fs11 {
+  float:right;
+  color:#666;
+  text-transform:capitalize;
+}
+#main-content .cta-more {
+  width:100%;
+  text-align:right;
+  clear:both;
+}
+#main-content .photos .cta-more,
+#main-content .videos .cta-more {
+  width:88%;
+}
+#main-content .sidebar .cta-more a {
+  padding-right:10px;
+}
+#main-content a {
+  color:#660066;
+  cursor:pointer;
+}
+#main-content a.inactive {
+  color:#666666;
+  cursor:text;
+  text-decoration: none;
+}
+#main-content .article a:visited {
+  color:#660066;
+}
+/*-----
+MAIN CONTENT FOOTER
+-----*/
+#main-content-footer .banner {
+  height:70px;
+  width:660px;
+  margin:0 0 0 30px;
+  clear:both;
+  background-color:#d8d7d7;
+}
+#main-content-footer .banner p {
+  color:#FFF;
+  font-size:18px;
+  width:100%;
+  text-align:center;
+  height:70px;
+  line-height:70px;
+}
+/*-----
+MAIN FOOTER ITEMS
+-----*/
+#main-footer {
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:12px;
+}
+#main-footer a {
+  color:#666;
+}
+#main-footer .header {
+  height:52px;
+  background:url(/img/bg-mf-wr-head.png) no-repeat top left;
+}
+#main-footer .nav {
+  clear:both;
+  font-size:0.9em
+}
+#main-footer .nav .links {
+  float:left;
+  width: 710px;
+}
+#main-footer .nav .title {
+  font-weight: bolder;
+  text-align: right;
+  width: 220px;
+  margin: 0 20px 0 30px;
+}
+#main-footer .nav div, #main-footer ul li {
+  float:left;
+}
+#main-footer .nav ul li {
+  height:24px;
+}
+#main-footer .lower {
+  height:25px;
+}
+#main-footer .copyright {
+  margin-top:30px;
+  margin-bottom:5px;
+}
+#main-footer p img {
+  margin-bottom:-12px;
+  margin-right:10px;
+}
+#main-footer p a {
+  text-decoration:underline;
+}
+/*-----
+HOMEPAGE: GALLERY
+-----*/
+#gallery {
+  position:relative;
+  z-index:1;
+  height:225px;
+  margin-bottom:25px;
+  /* BEGIN IE8 */
+  height:235px\9;
+  background:url(/img/bg-IE-slideshow.jpg) no-repeat top left\9;
+  /* BEGIN IE7 */
+  *height:235px;
+  *background:url(/img/bg-IE-slideshow.jpg) no-repeat top left;
+}
+#gallery .picture {
+  height:100%;
+  width:300px;
+  overflow:hidden;
+  float:left;
+  position:relative;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  border:#FFF solid 6px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin:4px\9;
+  *width:288px;
+  *height:213px;
+  *margin:8px;
+}
+#gallery .picture .picts {
+  height:100%;
+  width:2400px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:10;
+}
+#gallery .picture .picts img {
+  float:left;
+  width:300px;
+  height:auto;
+}
+#gallery .marker,
+.featured-gallery .marker {
+  background:url(/img/btn-galleryarrow.png) no-repeat top left;
+  width:15px;
+  height:38px;
+  position:absolute;
+  top:10px;
+  left:300px;
+  z-index:20;
+  left:304px\9;
+}
+#gallery ul {
+  width:340px;
+  float:right;
+  font-size:18px;
+  margin-top:10px;
+}
+#gallery ul li {
+  margin-bottom:30px;
+}
+#gallery ul li a,
+#gallery ul li a:link,
+#gallery ul li a:hover,
+#gallery ul li a:visited {
+  color:#666!important;
+  line-height:1.0em;
+}
+#gallery ul li a.current,
+#gallery ul li a.current:link,
+#gallery ul li a.current:hover,
+#gallery ul li a.current:visited {
+  color:#606!important;
+}
+/*-----
+MAIN: breadcrumbs
+-----*/
+#breadcrumbs {
+  height:27px;
+  line-height:27px;
+  padding-left:20px;
+  width:980px;
+  font-size:11px;
+}
+#breadcrumbs a {
+  color:#660066;
+}
+#breadcrumbs .last {
+  color:#666;
+  text-decoration: none;
+  cursor: default; 
+}
+/*-----
+MAIN: popular groups & sponsored groups
+-----*/
+#popular-groups,
+#sponsored-groups,
+#my-friends,
+#new-groups {
+  width:100%;
+  clear:both;
+  margin-bottom:10px;
+  position:relative;
+}
+#popular-groups ul,
+#sponsored-groups ul,
+.sidebar #my-groups ul,
+#new-groups ul {
+  margin-top:15px;
+  line-height:1.1em;
+  width: 680px;
+}
+#popular-groups ul li,
+#sponsored-groups ul li,
+#new-groups ul li {
+  width:150px;
+  float:left;
+  display: inline;
+  position:relative;
+  z-index:1;
+  margin:0 20px 10px 0;
+}
+#sponsored-groups ul li {
+  padding-bottom:30px;
+}
+#popular-groups ul li.last,
+#sponsored-groups ul li.last,
+#new-groups ul li.last,
+#popular-groups ul li:nth-child(4n+0),
+#sponsored-groups ul li:nth-child(4n+0),
+#new-groups ul li:nth-child(4n+0) {
+  margin-right:0;
+}
+#popular-groups ul li p,
+#sponsored-groups ul li p,
+#new-groups ul li p {
+  position:absolute;
+  top:117px;
+  left:6px;
+  width:138px;
+  z-index:20;
+  font-size:13px;
+}
+#popular-groups ul li p span.name,
+#sponsored-groups ul li p span.name,
+#new-groups ul li p span.name {
+  display: block;
+  max-height: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis-word;
+}
+#popular-groups ul li p span.count,
+#sponsored-groups ul li p span.count,
+#new-groups ul li p span.count {
+  font-size:11px;
+}
+#popular-groups ul li p a,
+#sponsored-groups ul li p a,
+#new-groups ul li p a {
+  color:#FFF!important;
+}
+#popular-groups ul li p img,
+#sponsored-groups ul li p img,
+#new-groups ul li p img {
+  float:right;
+}
+#popular-groups ul li div,
+#sponsored-groups ul li div,
+#new-groups ul li div {
+  background-color:#74a500;
+  width:100%;
+  height:39px;
+  position:absolute;
+  left:0;
+  top:111px;
+  filter:alpha(opacity=90);   /* Internet Explorer       */
+  -moz-opacity:0.9;           /* Mozilla 1.6 and below   */
+  opacity: 0.9;               /* newer Mozilla and CSS-3 */
+  z-index:10;
+}
+#sponsored-groups ul li .sponsor {
+  font-size:11px;
+  position:absolute;
+  left:0;
+  top:160px;
+}
+div#group_sponsor {
+  /*position:relative;*/
+  float:right;
+}
+/*
+div#group_sponsor div.sponsor-container {
+  position:absolute;
+  top:-27px;
+  left:535px;
+}
+*/
+
+/*-----
+MAIN: top discussions
+&
+SIDEBAR: recipes
+-----*/
+#top-discussions {
+  float:left;
+  width:300px;
+  margin-right:40px;
+}
+#sidebar-recipes ul li p {
+  height:40px;
+  line-height:40px;
+}
+#sidebar-recipes ul li {
+  border-bottom:#ebebeb solid 1px;
+}
+#featured-discussion span{
+  font-size:13px;
+}
+/*-----
+MAIN: today's poll
+-----*/
+#todays-poll {
+  float:left;
+}
+#todays-poll a {
+  color:#660066;
+}
+#todays-poll ul li {
+  float:left;
+  width:100px;
+  margin-right:45px;
+  margin-top: 20px;
+}
+#todays-poll ul li.last {
+  margin-right:0;
+}
+#todays-poll ul li p {
+  width:100%;
+  text-align:center;
+}
+
+#todays-poll .rec_votebtn {
+  margin:10px auto;
+}
+#todays-poll .rec_votebtn a.vote {
+  padding:4px 6px;
+  text-align:center;
+  display:inline-block;
+  background-color:#ebebeb;
+  border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+  border-style:solid;
+  border-width:1px;
+  -moz-box-shadow: 1px 1px 0px #262626;
+  -webkit-box-shadow: 1px 1px 0px #262626;
+  box-shadow: 1px 1px 0px #262626;
+}
+#todays-poll .social_icons {
+  width:320px;
+  clear:both;
+  padding:20px 0;
+}
+#todays-poll .social_icons .fb-like {
+  margin-right:20px;
+}
+.poll_questions li {
+  display: block;
+  float: none;
+  margin-bottom: 15px;
+}
+/*-----
+MAIN: popular cooks & recent photos
+-----*/
+#popular-cooks,
+#recent-photos {
+  width:100%;
+  clear:both;
+}
+#popular-cooks ul li,
+.photoList ul li, 
+#recent-photos ul li {
+  float:left;
+  width:100px;
+  margin-right:20px;
+}
+#popular-cooks ul li.last,
+#recent-photos ul li.last {
+  margin-right:0;
+}
+ul li p a,
+ul li p a {
+  color:#660066;
+  word-wrap: break-word
+}
+/*-----
+MAIN: featured contests
+-----*/
+.article #featured-contest {
+  background-color:#dae2c7;
+  padding:20px 15px 20px 20px;
+  width:285px;
+  float:right;
+  margin-top:40px;
+  clear:right;
+}
+.article #featured-contest p {
+  float:right;
+  width:140px;
+}
+.article #featured-contest .purple {
+  color:#660066;
+  font-size:18px;
+  line-height:1.5em;
+}
+.article #featured-contest img {
+  float:left;
+  margin:4px 20px 20px 4px;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+}
+.article #featured-contest .cta {
+  clear:both;
+  float:none;
+}
+.article #featured-contest .cta a  {
+  background:url(/img/bg-btn-purple-wide.png) no-repeat center bottom;
+  width:265px;
+  padding-top:5px;
+}
+.article .contest-winners ul li {
+  width:100px;
+}
+/*-----
+MAIN: editorials
+-----*/
+#editorials, #pop_stories {
+  margin-top:40px;
+}
+#editorials > div{
+  float:left;
+  width:310px;
+  margin-bottom:10px;
+}
+#pop_stories > div{
+  float:left;
+  width:285px;
+  margin-bottom:10px;
+}
+#editorials img, #pop_stories img {
+  float:left;
+  margin:0 20px 20px 0;
+}
+#editorials ul,
+#editorials p, #pop_stories p {
+  margin-left:120px;
+  margin-bottom:10px;
+}
+/*-----
+MAIN: vote box 
+-----*/
+/*
+#vote-box {
+    background-color:#f2f7e7;
+    width:100%;
+    height:88px;
+    margin-left:-20px;
+    padding-left:20px;
+}
+*/
+#vote-box {
+  background-color: #F2F7E7;
+  bottom: 26px;
+  height:100px;
+  margin-left: -20px;
+  padding:15px 0 0 0;
+  position: fixed;
+  width:690px;
+  z-index: 1000;
+  text-align:center;
+}
+#vote-box p {
+  font-size:18px;
+  color:#660066;
+  font-weight:bold;
+  margin:0 0 15px 0;
+  padding:10px 0 0 0;
+  width:auto;
+  text-align:center;
+  *margin:0 0 15px 20px;
+}
+#vote-box ul {
+  font-size:16px;
+  color:#660066;
+  text-align:center;
+  padding:0 0 0 25px;
+  *margin:0 0 0 150px;
+}
+#vote-box ul li {
+  float:none;
+  *float:left;
+}
+#vote-box .cta-vote {
+  margin-right:20px;
+}
+#vote-box .cta-vote a, #vote-box .cta-vote span {
+  background:url(/img/bg-btn-purple-167x35.png) no-repeat center;
+  height:35px;
+  width:167px;
+  line-height:35px;
+  text-align:center;
+  display:block;
+  color:#FFF!important;
+  font-size:18px;
+}
+#vote-box .share {
+  background:url(/img/bg-btn-gray-132x25.jpg) no-repeat top left;
+  height:25px;
+  line-height:25px;
+  width:112px;
+  padding:0 10px;
+  color:#660066;
+  margin-right:277px;
+}
+#vote-box .share ul,
+#recipe-detail .recipe-meta ul li ul {
+  float:right;
+  margin-top:5px;
+}
+#vote-box .share ul li,
+#recipe-detail .recipe-meta ul li ul li {
+  margin-left:3px;
+}
+#vote-box .share ul li a,
+#recipe-detail .recipe-meta ul li ul li a {
+  height:16px;
+  width:16px;
+  display:block;
+  text-indent:-99999px;
+}
+#vote-box .share ul .cta-facebook a,
+#recipe-detail .recipe-meta ul li ul .cta-facebook a {
+  background:url(/img/icon-facebook-14x14.jpg) no-repeat center;
+}
+#vote-box .share ul .cta-twitter a,
+#recipe-detail .recipe-meta ul li ul .cta-twitter a {
+  background:url(/img/icon-twitter-16x16.jpg) no-repeat center;
+}
+#vote-box .share ul .cta-email a {
+  background:url(/img/icon-email-14x14.jpg) no-repeat center;
+}
+#vote-box .nav,
+#vote-box .nav a,
+#vote-box ul li {
+  height:35px;
+  line-height:35px;
+}
+#vote-box .nav a {
+  color:#660066!important;
+}
+#vote-box .previous {
+  background:url(/img/btn-nav-prev-arrow.png) no-repeat top left;
+  padding-left:15px;
+}
+#vote-box .next {
+  background:url(/img/btn-nav-next-arrow.png) no-repeat top right;
+  padding-right:15px;
+}
+#vote-box .previous:visited {
+  background-position:bottom left;
+}
+#vote-box .next:visited {
+  background-position:bottom right;
+}
+#vote-box .nav a:visited {
+  color:#666;
+}
+
+/* ----- Poll Creation ----- */
+fieldset.poll { position: relative; width: 600px;  }
+fieldset.poll.title { height: 20px; }
+fieldset.poll label { margin-right: 5px;  }
+/*-----
+THEME: facts
+-----*/
+.theme-facts {
+  display:none;
+  position:absolute;
+  top:300px;
+  left:50%;
+  margin:0 0 0 535px;
+  height:110px;
+  width:100px;
+  background:url(/img/bg-themefacts.png) no-repeat top left;
+  z-index:2;
+  text-align:center;
+  padding:25px 0 0 0;
+}
+.theme-facts p span,
+.theme-facts p a {
+  width:100px;
+  height:16px;
+  display:block;
+  text-indent:-9999px;
+  margin:0 0 6px 0;
+}
+.theme-facts p .first {
+  background:url(/img/bg-theme-1.png) no-repeat top left;
+}
+.theme-facts p .second {
+  background:url(/img/bg-theme-2.png) no-repeat top left;
+}
+.theme-facts p .third {
+  background:url(/img/bg-theme-3.png) no-repeat top left;
+}
+.theme-facts p a:hover {
+  background-position:0 -16px;
+}
+
+/*-----
+THEME: body background
+-----*/
+#main-content {
+  background:url(/img/bg-mc.png) repeat-y center top;
+}
+#theme-wrap {
+  width:100%;
+  /* background:url(/img/bg-theme-avacado.jpg) no-repeat center top; */
+}
+#theme-wrap.show-cabbage {
+  background-image:url(/img/bg-theme-cabbage.jpg);
+}
+#theme-wrap.show-pom {
+  background-image:url(/img/bg-theme-pom.jpg);
+}
+/*-----
+SIDEBAR: sign in block
+-----*/
+#signin {
+  height:115px;
+  width:100%;
+  background-color:#efe5ef;
+}
+#user-profile {
+  background-color:#efe5ef;
+  padding:7px 0;
+  margin:0 0 10px 0!important;
+  min-height:100px;
+  border: 1px solid gray;
+}
+#user-profile img {
+  float:left;
+  margin-right:10px;
+}
+#user-profile .user-controls img {
+  width: inherit !important;
+}
+#user-profile .ttupp a {
+  color: #666666;
+}
+#user-profile .ttupp {
+  margin:10px 0 3px 0;
+}
+#user-profile .ttupp img.profile-img {
+  width:60px;
+}
+#user-profile .ttupp {
+  text-transform:capitalize;
+}
+#user-profile .cta {
+  width:100%;
+  text-align:right;
+}
+#signin img {
+  margin:10px 0 10px 18px;
+  width:263px;
+}
+#signin .title {
+  font-size:24px;
+  padding:10px 0 5px 0;
+  width:100%;
+  text-align:center;
+  color:#83af1b;
+}
+#signin p {
+  width:220px;
+  margin:0 auto;
+  text-align:center;
+}
+#signin a {
+  margin:5px auto;
+  /* the rest of this buttons style are mashed in with another purple button below */
+}
+/*-----
+SIDEBAR: Kellogs push
+-----*/
+#kellogs-push {
+  height:46px;
+  clear:both;
+}
+#kellogs-push img {
+  float:left;
+  width:81px;
+}
+#kellogs-push p {
+  float:left;
+  width:165px;
+  margin:0 6px;
+  font-size:10px;
+}
+#kellogs-push a {
+  color:#660066;
+  font-size:14px;
+  width:36px;
+  height:31px;
+  background:url(/img/bg-btn-gray-small.jpg) no-repeat center;
+  display:block;
+  float:left;
+  text-align:center;
+  line-height:31px;
+}
+/*-----
+SIDEBAR: ad 300 x 250
+-----*/
+.ad300x250 {
+  margin-top:10px;
+  overflow:hidden;
+  /* the stupid google ads are spilling out of the box... */
+
+}
+/*-----
+SIDEBAR: newsletter & sweeps
+-----*/
+#newsletter p,
+#sweeps p {
+  height:40px;
+  line-height:40px;
+  width:100%;
+  text-align:center;
+  background-color:#e5e5e5;
+}
+/*-----
+SIDEBAR: recipes (parts of this are also above with the Top Discussions stuff
+-----*/
+#sidebar-recipes,
+#sidebar-recipes ul {
+  clear:both;
+  margin-top:10px;
+}
+.sidebar #sidebar-recipes ul,
+.sidebar #sidebar-recipes .title {
+  margin:0;
+}
+.sidebar div {
+  margin-top:20px;
+}
+.sidebar #sponsor {
+  margin-top:0;
+}
+.sidebar #user-profile,
+.sidebar .ad300x250,
+.sidebar #featured-contest,
+.sidebar #signin {
+  margin-top:10px;
+}
+.sidebar #sweeps {
+  margin:0 0 10px 0!important;
+}
+/*-----
+SIDEBAR: featured contest
+-----*/
+#featured-contest .cta a,
+#signin a {
+  background:url(/img/bg-btn-purple.png) no-repeat center;
+  height:28px;
+  line-height:28px;
+  width:144px;
+  text-align:center;
+  color:#FFF!important;
+  font-size:13px;
+  display:block;
+}
+/*-----
+SIDEBAR: sponsor block
+-----*/
+#sidebar-brandcontest img {
+  float:left;
+}
+#sidebar-brandcontest p {
+  float:right;
+  width:205px;
+  margin-right:10px;
+}
+/*-----
+SIDEBAR: top cooks
+-----*/
+#top-cooks ul li {
+  min-height:50px;
+  *margin-bottom:20px;	
+}
+#top-cooks ul > li:last-child img {
+  margin-bottom:0;
+}
+/*-----
+SIDEBAR: popular groups & my groups
+-----*/
+.sidebar #popular-groups a {
+  color:#660066;
+}
+.sidebar #popular-groups ul li,
+.sidebar #my-groups ul li {
+  float:none;
+  clear:both;
+  width:auto;
+  margin:0;
+}
+.sidebar #my-groups ul li {
+  min-height:50px;
+}
+.sidebar #popular-groups ul li img {
+  float:left;
+  margin:0 20px 20px 0;
+}
+.sidebar #my-groups ul > li:last-child img {
+  margin-bottom:0;
+}
+.sidebar #popular-groups ul li p,
+.sidebar #my-groups ul li p {
+  position:relative;
+  top:auto;
+  left:auto;
+  width:auto;
+}
+.sidebar #popular-groups ul li .group-title {
+  padding-top:30px;
+}
+.sidebar #my-groups ul li .group-title {
+  padding-top:10px;
+}
+.sidebar #my-groups ul li .fs11 + .group-title {
+  padding-top:0;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Mixing Bowl Page CSS >>>>>=============================-------------------------------------*/
+.mixing-bowl .wrapper .section {
+}
+#mb-header {
+  height:36px;
+  width:100%;
+  margin-bottom:15px;
+}
+#mb-header img {
+  float:left;
+  margin-right:10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Detail Page CSS >>>>>>=============================-------------------------------------*/
+/*-----
+some of this is above with #vote-box
+-----*/
+
+.recipeHeader { margin-bottom: 20px;  }
+.recipeHeader .utility { float: right; }
+.recipeHeader .utility li { float: left; display: inline; font-size: 14px; margin-right: 5px; }
+.recipeHeader p { margin-top: 20px; }
+.recipeHeader .utility a.grey, .recipeHeader .utility a.grey:hover { color: #666666 !important; }
+#madeContainer { position: relative; }
+#madeContainer .madeMoreFeatures { z-index:1; padding: 20px 0 0 20px; position: absolute; top: 35px; left: -65px; width: 210px; height: 102px; background: url('/img/madeMoreFeaturesBg.png') 0 0 no-repeat; }
+#madeContainer .madeMoreFeatures a { margin-top: 1px; float: left; clear: left; font-size: 13px;  }
+
+#recipe-sharebar {
+  position:relative;
+  height:32px;
+  border-bottom: #ebebeb solid 1px;
+  margin-bottom: 10px;
+}
+#recipe-sharebar div,
+#recipe-sharebar p {
+  display:inline-block;
+}
+#recipe-sharebar p {
+  position:absolute;
+  top:3px;
+  right:0;
+}
+#recipe-detail p { font-size: 14px; }
+#recipe-detail .images {
+  width:320px;
+  float:left;
+  margin:0 20px 20px 0;
+}
+#recipe-detail .images p {
+  width:100%;
+  text-align:center;
+  margin-top:10px;
+}
+#recipe-detail .recipe-meta {
+  float:left;
+  width:320px;
+  position: relative;
+}
+#recipe-detail .recipe-meta #activityRecipeDetailContainer { position: absolute; left: 0; top: 190px; }
+#recipe-detail .recipe-meta #activityRecipeDetailContainer p { font-size: 13px; margin-bottom: 5px; }
+#recipe-detail .recipe-meta #activityRecipeDetailContainer ul li { float: left; display: inline; margin-right: 5px; width: 30px; height: 30px; }
+#recipe-detail .recipe-meta #activityRecipeDetailContainer ul li a { width: 100%; height: 30px;  overflow: hidden; }
+#recipe-detail .recipe-meta #activityRecipeDetailContainer ul li img { display: block; width: 100%; height: auto; }
+
+.main-image {
+  width:300px;
+  /*  height:205px;*/
+  overflow:hidden;
+  border:#FFF solid 10px;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  *background:none;
+  *padding:0;
+  *border:none;
+}
+.main-image img {
+  width:300px;
+  height:auto;
+  display:block;
+}
+#public-profile .main-image {
+  width:150px;
+}
+#public-profile .main-image img {
+  width:150px;
+}
+#recipe-detail .images ul {
+  margin-top:20px;
+}
+#recipe-detail .images ul li.last a img {
+  margin-left:5px;
+}
+#recipe-detail .images ul li a span {
+  height:100px;
+  line-height:64px;
+  display:block;
+  float:left;
+  width:47px;
+  text-align:left;
+}
+#recipe-detail .images ul li.last a span {
+  text-align:right;
+  margin-bottom:5px;
+}
+#recipe-detail .images ul li a img {
+  width:100px;
+  height:auto;
+  float:left;
+}
+#recipe-detail .cta-addaphoto {
+  background:url(/img/bg-btn-gray-206x31.jpg) no-repeat top left;
+  height:31px;
+  line-height:31px;
+  width:205px;
+  text-align:center;
+  margin:0 auto;
+  font-size:18px;
+  display:block;
+  clear:both;
+}
+#recipe-detail .recipe-meta .recipe-options {
+  color:#660066;
+  height:22px;
+  line-height:22px;
+  margin-bottom:10px;
+}
+#recipe-detail .recipe-meta .recipe-options > li {
+  margin-right:10px;
+}
+#recipe-detail .recipe-meta ul .last {
+  margin-right:0;
+}
+#recipe-detail .recipe-meta .recipe-options > li > a {
+  background:url(/img/bg-btn-gray-72x22.jpg) no-repeat center;
+  height:22px;
+  width:72px;
+  line-height:22px;
+  text-align:center;
+  display:block;
+  color:#660066;
+}
+#recipe-detail .recipe-meta .recipe-options .share {
+  background:url(/img/bg-btn-gray-86x22.jpg) no-repeat top left;
+  width:76px;
+  height:22px;
+  line-height:22px;
+  padding:0 5px;
+  color:#660066;
+}
+#recipe-detail .recipe-meta .recipe-options li ul {
+  margin-top:3px;
+}
+#recipe-detail .recipe-meta iframe {
+  float:left;
+}
+#recipe-detail .recipe-meta .rating,
+#recipe-comments .rating,
+#subcat-recipes .rating {
+  width:168px;
+  background:url(/img/bg-rating-empty.png) no-repeat top right;
+  margin:0 15px 10px 0;
+  position:relative;
+}
+#recipe-comments .rating {
+  margin-top:5px;
+}
+#recipe-detail .recipe-meta .rating p span,
+#recipe-comments .rating p span,
+#subcat-recipes .rating p span {
+  background:url(/img/bg-rating-full.png) no-repeat top left;
+  width:26px;
+  height:20px;
+  display:block;
+  position:absolute;
+  top:0;
+  left:80px;
+}
+#recipe-detail .recipe-meta .addrate {
+  position: absolute;
+  top:  0; 
+  left: 210px;
+  background: url('/img/comment_bubble.png') 0 0 no-repeat;
+  width: 150px;
+  height: 26px;
+}
+#recipe-detail .recipe-meta .addrate a {
+  display: block;
+  margin-left: 24px;
+  color: #666666;
+}
+#recipe-detail .recipe-meta .author-meta {
+  font-size:11px;
+  color:#666;
+  float:left;
+  width:160px;
+  margin:0 0 20px 0;
+}
+#recipe-detail .recipe-meta .author-meta.first {
+  margin-right:17px;
+}
+#recipe-detail .recipe-meta .author-meta li {
+  margin:0;
+}
+#recipe-detail .meal-info {
+  clear:both;
+  width:100%;
+  background-color:#efe5ef;
+  color:#660066;
+  font-size:14px;
+  font-weight:bold;
+  padding:0 0 0 10px;
+  margin:0 0 20px 0;
+  overflow:hidden;
+}
+#recipe-detail .meal-info li {
+  margin:10px 15px 10px 0;
+  padding:0 15px 0 0;
+  border-right:#660066 solid 2px;
+  text-align:center;
+  text-transform:uppercase;
+}
+#recipe-detail .meal-info li:last-child,
+#recipe-detail .meal-info li.last {
+  padding:0;
+  margin:10px 0;
+  border:none;	
+}
+#recipe-detail .love {
+  background:url(/img/img-heart.png) no-repeat left center;
+  padding-left:20px;
+  clear:both;
+}
+#recipe-detail .love a {
+  background:url(/img/bg-btn-purple-162x31.png) no-repeat top left;
+  height:31px;
+  line-height:31px;
+  width:162px;
+  text-align:center;
+  color:#FFF;
+  display:block;
+  float:right;	
+}
+#recipe-comments {
+  position:relative;
+  clear: both;
+}
+#recipe-comments .title {
+  width:50%;
+}
+#recipe-comments .cta-comments {
+  position:absolute;
+  top:0px;
+  right:0;
+}
+#recipe-comments .cta-comments li a {
+  width:136px;
+}
+#recipe-comments .comments {
+  clear:both;
+  margin-top:20px;
+}
+#recipe-comments .comments li {
+  clear:both;
+}
+#recipe-comments .comments li p {
+  margin-left:120px;
+}
+#recipe-comments .comments li p.fs11,
+#discussions-detail-list #recipe-comments.replies-list .comments li p.fs11 {
+  clear:both;
+  padding-top:20px;
+}
+#discussions-detail-list #recipe-comments .comments li p.fs11,
+#dailyDish #recipe-comments .comments li p.fs11 {
+  clear:none;
+  padding-top:20px;
+}
+#recipe-comments .comments li .hornav {
+  margin-left:110px;
+}
+#recipe-comments .comments li .hornav li {
+  clear:none;
+  color:#660066;
+  margin-bottom:20px;
+}
+#recipe-comments .comments li .hornav li.last {
+  float:right;
+}
+#recipe-comments .comments li img {
+  float: left;
+  padding:0;
+  margin:0 0 20px;
+}
+#polls #recipe-comments {
+  border:none;
+  padding:0;
+  margin:20px 0 0 0;
+}
+#recipe-comments form,
+#my-raves form {
+  width:100%;
+  clear:both;
+  overflow:hidden;
+  padding-bottom:10px;
+}
+#recipe-comments form p.title,
+#my-raves form p.title {
+  font-size:13px;
+}
+#recipe-comments form textarea,
+#my-raves form textarea,
+.article form textarea,
+.polls-details form textarea {
+  border:#959595 solid 1px;
+  background-color:#FFF;
+  width:99%;
+  height:163px;
+  margin-bottom:10px;
+}
+#my-raves form textarea {
+  width:96%;
+}
+#recipe-comments form input[type="submit"],
+#my-raves form input[type="submit"] {
+  width:156px;
+  float:right;
+}
+#recipe-detail .author-info .flare {
+  height:21px;
+}
+#recipe-detail .author-info .flare li {
+  margin:10px 5px 20px 0;
+}
+#recipe-detail .author-info .flare li img {
+  margin:0;
+}
+#recipe-detail .author-info p,
+#recipe-detail .author-info ul {
+  margin-left:120px;
+}
+#savedModalContainer { position: relative; }
+#savedModal { z-index: 1; position: absolute; top: 25px; left: -345px; width: 544px; height: 430px; background: url('/img/savedModal.png') no-repeat 0 0; padding: 20px; }
+#savedModal p { font-size: 16px; margin-bottom: 25px }
+#savedModal ul li { margin-bottom: 15px; width: 495px; clear: both; }
+#savedModal ul li a.img { float: left; width: 60px; height: 60px; overflow: hidden; }
+#savedModal ul li div.img { float: left; width: 60px; height: 60px; display: block; }
+#savedModal ul li a.img img { display: block; height: auto; width: 100%; }
+#savedModal ul li div.info { float: left; margin-left: 10px; width: 270px; }
+#savedModal ul li div.info p { margin-top: 0 !important; }
+#savedModal ul li div.info p.big { font-size: 14px; margin-bottom: 8px; }
+#savedModal ul li div.info p.small { font-size: 12px; margin-bottom: 0!important;  }
+#savedModal ul li div.action { float: right; }
+#savedModal #closeSavedModal { position: absolute; top: 38px; left: 485px; }
+
+
+/*-------------------------------------=============================<<<<< BEGIN: Comments CSS >>>>>>=============================-------------------------------------*/
+.comments .comment ol,
+.journal-detail .journal ol {
+  list-style:decimal;
+  margin-left:130px;
+}
+.comments .comment ul,
+.journal-detail .journal ul {
+  list-style:disc;
+  margin-left:130px;
+}
+.journal-detail .journal ol,
+.journal-detail .journal ul {
+  margin-left:20px;
+}
+.comments .comment ul li,
+.comments .comment ol li,
+journal-detail .journal ul li,
+journal-detail .journal ol li {
+  padding:0 0 0 5px;;
+  margin:0;
+  line-height:normal;
+}
+.comments .comment img,
+.journal-detail .journal img {
+  max-width:320px;
+  max-height:240px;
+  height:auto;
+  width:auto;  
+}
+
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Upload Page CSS >>>>>>=============================-------------------------------------*/
+#newRecipeUpload fieldset label { margin-right: 5px; }
+#newRecipeUpload fieldset.doublewide input { margin-left: 0px; }
+#newRecipeUpload fieldset.doublewide fieldset.first input { margin-right: 13px;  }
+#newRecipeUpload fieldset.doublewide fieldset.last.second { width: 243px !important }
+#newRecipeUpload fieldset input[type="file"] { margin-left: 0; }
+#newRecipeUpload input[type="submit"] { margin-right: 86px; }
+#newRecipeUpload fieldset span.required { right: 75px; }
+
+/*-------------------------------------=============================<<<<< BEGIN: Group Detail Page CSS >>>>>>=============================-------------------------------------*/
+#group-detail .main-image {
+  float:left;
+  margin-right:20px;
+}
+#group-detail .title {
+  text-transform:none;
+  color:#7fac14;
+  clear:right;
+}
+#group-detail p,
+#group-detail h3 {
+  margin-left:324px;
+}
+#group-detail .mt35 a,
+#group-landing .cta-join {
+  width:206px;
+}
+#group-tabs {
+  width:100%;
+  clear:both;
+  padding-top:20px;
+}
+#group-tabs .section-wrap {
+  clear:both;
+  display:none;
+  margin-bottom:20px;	
+}
+#group-tabs .tabbednav,
+#group-tabs .active {
+  display:block;
+}
+#group-tabs table {
+  margin:20px 0;
+}
+#group-tabs table tbody tr {
+  border-bottom:#ebebeb solid 1px;
+}
+#group-tabs table tbody td {
+  padding:20px 0 15px 0;
+}
+#group-tabs table th,
+#group-tabs table td {
+  text-align:left;
+}
+#group-tabs table th a {
+  background:url(/img/bg-table-sort-arrow.jpg) no-repeat center right;
+  padding:0 12px 0 0;
+  color:#666!important;
+}
+.comment-list li {
+  position:relative;
+}
+#group-tabs table tbody td .comment,
+.comment-list .comment {
+  margin:5px 0 10px 0;
+  width:445px;
+}
+#group-tabs table tbody td .replies,
+.comment-list .replies {
+  color:#FFF;
+  width:100%;
+  text-align:center;
+  background:url(/img/bg-group-replies.jpg) no-repeat center center;
+  height:23px;
+  line-height:20px;
+}
+.comment-list .replies {
+  position:absolute;
+  width:25px;
+  top:0px;
+  left:455px;
+}
+.comment-list .reply-details {
+  position:absolute;
+  top:0px;
+  right:0;
+  width:150px;
+}
+.empty {
+  color:#FFF;
+}
+#group-tabs table tfoot .pager {
+  display:block;
+  float:right;
+  margin-top:10px;
+}
+#group-tabs #photos .content li {
+  margin:0 30px 20px 0;
+}
+#group-tabs #members ul li {
+  float:left;
+  margin:0 20px 20px 0;
+}
+/*-----
+GROUP RECIPES
+-----*/
+#group-recipes {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  clear:both;
+}
+#group-recipes .section-wrap ul li {
+  clear:both;
+  margin-bottom:20px;
+}
+#group-recipes .section-wrap ul > li:last-child {
+  margin-bottom:0;
+}
+#group-recipes .section-wrap ul li img {
+  float:left;
+  margin:0 20px 20px 0;
+}
+#group-recipes .section-wrap ul li p {
+  margin:0 0 5px 0;
+}
+/*-----
+GROUP MEMBERS
+-----*/
+/* Form Box for changing group member roles */
+.groupMembers.editForm { 
+  position: fixed;
+  top: 43%; 
+  left: 47%;
+  background: #F8F8F8;
+  width: 190px; 
+  height: 150px;
+  display:none;
+  background: url(/img/bg-group-edit-form.png) no-repeat top left;
+  -moz-box-shadow: 0px 0px 4px #888; 
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+}
+.groupMembers.editForm input, .groupMembers.editForm label, .groupMembers.editForm select {
+  margin: 15px 0 0 30px; 
+  width: 130px;
+  clear:left;
+  float:left;
+}
+.groupMembers.editForm label { margin-top: 40px; height: 20px;  }
+.groupMembers.editForm select { textborder:#acacac solid 1px; background:url(/img/bg-select.png) repeat-x top left; }
+.groupMembers.editForm input { margin-left: 55px; height: 22px; width: 80px; font-size: 12px;  }
+
+.groupMembers.editForm #closeEdit {
+  margin:10px 0 0 165px; 
+  height: 15px;
+  width: 15px; 
+  display: block; 
+  cursor: pointer; 
+  background: url("/css/ui-darkness/images/ui-icons_cccccc_256x240.png") repeat scroll -94px -128px transparent;
+}
+.groupMembers.editForm #closeEdit:hover { background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; }
+/*-----
+SIDEBAR: Member activity
+-----*/
+#member-activity .section-wrap ul li,
+#recent-activity ul li {
+  clear:both;
+  position:relative;
+}
+#recent-activity ul li.has-img {
+  min-height:75px;
+}
+.article #recent-activity ul li.has-img {
+  min-height:100px;
+}
+#member-activity .section-wrap ul li img {
+  float:left;
+  margin:0 10px 10px 0;
+}
+#member-activity .section-wrap ul li .mem-name,
+.article #recent-activity ul li.has-img .mem-name {
+  padding-top:25px;
+}
+#member-activity .section-wrap ul li .mem-title {
+  position:absolute;
+  top:10px;
+  left:85px;
+}
+#sidebar-activity ul li img {
+  margin-bottom:0;
+}
+#sidebar-activity ul li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+#sidebar-activity ul .hasimg p {
+  margin-left:70px;
+}
+/*-----
+SIDEBAR: recipe poll
+-----*/
+#recipe-poll {
+  margin-bottom:20px;
+}
+#recipe-poll ul li {
+  width:50%;
+  float:left;
+}
+#recipe-poll ul li img {
+  width:100px;
+  height:auto;
+  margin:5px 25px;
+}
+#recipe-poll ul li p {
+  text-align:center;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+#recipe-poll ul li .cta-vote a {
+  background:url(/img/bg-btn-gray-97x31.png) no-repeat top left;
+  height:31px;
+  line-height:31px;
+  width:97px;
+  margin:5px auto;
+  display:block;
+}
+#recipe-poll .social_icons {
+  margin:10px auto;
+  padding:0 10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Group Landing Page & Recipe category CSS >>>>>>=============================-------------------------------------*/
+#group-landing {
+  min-height:340px;
+}
+#group-landing .summary {
+  margin-bottom:20px;
+}
+#group-landing .main-image,
+#recipe-category .main-image,
+#featured .main-image {
+  float:left;
+  margin-right:20px;
+}
+#featured {
+  min-height:230px;
+  padding-bottom:20px;
+}
+#group-landing .cta-join {
+  margin-top:35px;
+  display:inline-block;
+}
+#recipe-category .cta-upload {
+  width:136px;
+}
+#recipe-category ul li {
+  width:210px;
+  margin-bottom:5px;
+  *width:200px
+}
+#recipe-category ul > li:last-child {
+  margin-bottom:20px;
+}
+#recipe-category {
+  min-height:208px;
+}
+.summary .btn-grey28 {
+  float:right;
+  margin-left:20px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Public Profile Page CSS >>>>>>=============================-------------------------------------*/
+#friend-reqest p {
+  margin:10px 0;
+  font-size:13px;
+  color:#666;
+  width:340px;
+  text-transform:none;
+}
+#public-profile {
+  /* margin-top:-40px; */
+}
+.edit_img img {
+  margin-bottom:10px!important;
+}
+#public-profile .main-image {
+  float:left;
+  margin:0 20px 20px 0;
+  *margin:0 12px 20px 0;
+}
+#public-profile .interests li {
+  margin:0 15px 5px 0;
+}
+#public-profile .flare li {
+  margin:20px 5px 0 0;
+}
+#recent-recipes,
+#recent-recipes li {
+  clear:both;
+}
+#recent-recipes li {
+  margin-bottom:20px;
+}
+#recent-recipes ul > li:last-child {
+  margin-bottom:0;
+}
+#recent-recipes li img {
+  float:left;
+  margin:0 10px 20px 0;
+}
+.message-list table thead tr > th:last-child {
+  border-right:1px solid #CCC;
+}
+/*-----
+MY DISCUSSIONS
+-----*/
+#my-discussions ul li,
+#my-journals ul li {
+  margin-bottom:20px;
+}
+#my-discussions ul > li:last-child,
+#my-journals ul > li:last-child {
+  margin:0;
+}
+#my-discussions ul li p,
+#my-journals ul li p {
+  margin-bottom:10px;
+}
+/*-----
+Contest Entries
+-----*/
+#contest-entries ul li ul li {
+  margin-right:20px;
+  width:100px;
+}
+#contest-entries .winner {
+  position:relative;
+}
+#contest-entries .winner .star {
+  background:url(/img/img-winnerstar.png) no-repeat top left;
+  height:37px;
+  width:39px;
+  position:absolute;
+  top:-16px;
+  left:78px;
+}
+/*-----
+MY POLLS
+-----*/
+#my-polls ul li {
+  position:relative;
+}
+#my-polls ul > li:last-child {
+  margin-bottom:0;
+}
+#my-polls ul li .meta span,
+#group-tabs #polls table tbody tr td .meta span,
+#polls .poll-detail .meta span {
+  background:url(/img/bg-poll-check.png) no-repeat top left;
+  height:17px;
+  padding-left:23px;
+  display:inline-block;
+}
+#group-tabs #polls table {
+  margin-bottom:0;
+}
+#group-tabs #polls table thead tr td a {
+  color:#666;
+  text-transform:uppercase;
+  background:url(/img/bg-table-sort-arrow.jpg) no-repeat right 3px;
+  padding-right:15px;
+}
+/*-----
+POLL DETAIL
+-----*/
+#polls .poll-detail {
+  margin:0 0 20px 0;
+  position:relative;
+}
+#polls .poll-detail img {
+  float:left;
+  margin-right:20px;
+}
+#polls .poll-detail .date {
+  position:absolute;
+  top:0;
+  right:0;
+}
+#polls .poll-detail p {
+  margin-bottom:10px;
+}
+#vote-bar {
+  width:650px;
+  padding:10px 10px 10px 0;
+  display: block;
+  margin-bottom: 20px;
+}
+#vote-bar form:after,
+#vote-bar form ul:after {
+  content: " ";
+  clear: both;
+  visibility: hidden;
+  display: block;
+  height: 1px;
+}
+#vote-bar form label {
+  margin:0 10px;
+}
+#vote-bar ul li {
+  margin-right:20px;
+  *margin-right:20px;
+}
+#vote-bar form ul li input[type="radio"] {
+  margin:0 5px 0 0;
+}
+#vote-bar form label,
+#vote-bar ul li {
+  font-size:14px;
+  height:35px;
+  line-height:35px;
+}
+#vote-bar form label,
+#vote-bar form ul {
+}
+#vote-bar form input[type="submit"] {
+  width:111px;
+  margin:2px 2px 0 0;
+  clear: both;
+}
+#vote-bar form input[type="button"] {
+  clear: both;
+}
+#vote-bar ul li span {
+  color:#74a500;
+}
+#polls li .btn-grey28 {
+  width:94px;
+  margin-right:15px;
+}
+#polls li img {
+  vertical-align:middle;
+}
+/*-----
+MY RAVES
+-----*/
+#my-raves .cta-writerave {
+  width:100%;
+}
+#my-raves .cta-writerave a {
+  width:115px;
+  float:right;
+  margin-right:10px;
+}
+#my-raves ul li,
+#my-friends ul li {
+  margin-bottom:10px;
+  clear:both;
+}
+#my-raves ul > li:first-child {
+  padding-bottom:10px;
+  border-bottom:#ebebeb solid 1px;
+}
+#my-raves ul li .rave-title {
+  clear:both;
+}
+/*-----
+MY FRIENDS
+-----*/
+#my-friends .btn-grey28 {
+  position:absolute;
+  top:0;
+  right:10px;
+  width:115px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: SERP Page CSS >>>>>>=============================-------------------------------------*/
+#main-content .serp-sidebar {
+  float:right;
+  width:218px;
+  margin:20px 0 0 0!important;
+}
+#main-content .serp-article {
+  float:right;
+  margin-right:56px;
+  margin-left:46px;
+}
+#main-content .serp-sidebar .underlined li {
+  height:24px;
+  line-height:24px;	
+}
+#main-content .serp-sidebar .underlined li.current a {
+  background-color: #efefef;
+}
+
+#main-content .serp-sidebar .underlined li a,
+#main-content .serp-sidebar .underlined li a:hover {
+  padding-left:20px;
+  width:218px;
+  border-bottom:#ebebeb solid 1px;
+  display:block;
+  margin-left:-20px;
+  text-decoration:none;
+}
+#main-content .serp-sidebar .stars > li:first-child a,
+#main-content .serp-sidebar .stars > li:first-child a:hover {
+  display:inline;
+  float:right;
+  width:auto;
+  padding:0;
+  margin:0;
+  border:none;
+  background:none;
+}
+#main-content .serp-sidebar .underlined > li:last-child a,
+#main-content .serp-sidebar .underlined > li:last-child a:hover {
+  border:none;
+}
+#main-content .serp-sidebar #recipe-filter .categories {
+  height:120px;
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+ul.stars li a,
+#serp-results .results-list .rating {
+  background:url(/img/bg-rating-empty.png) no-repeat 20px center;
+}
+#serp-results .results-list .rating {
+  background:url(/img/bg-rating-empty.png) no-repeat left center;
+  text-indent:-99999px;
+  width:88px;
+  position:absolute;
+  top:-3px;
+  right:0;
+  height:17px;
+}
+#serp-results .results-list .rating span {
+  background:url(/img/bg-rating-full.png) no-repeat center left;
+  height:100%;
+  display:block;
+}
+.rating p span.fivestar,
+p.rating span.fivestar, p.rating span.rate5 {
+  width:88px;
+}
+.rating p span.fourstar,
+p.rating span.fourstar p.rating span.rate4 {
+  width:70px;
+}
+.rating p span.threestar,
+p.rating span.threestar, p.rating span.rate3 {
+  width:54px;
+}
+.rating p span.twostar,
+p.rating span.twostar, p.rating span.rate2 {
+  width:36px;
+}
+.rating p span.onestar,
+p.rating span.onestar, p.rating span.rate1 {
+  width:18px;
+}
+.rating p span.zerostar,
+p.rating span.zerostar, p.rating span.rate0 {
+  width:0;
+}
+.rating .hornav {
+  position:absolute;
+  top:0;
+  left:80px;
+  *width:88px;
+}
+.rating .hornav li {
+  *width:17px!important;
+  *display:inline-block;
+  *background:url(/img/bg-rating-empty.png) no-repeat left center;
+}
+.rating .hornav li a {
+  text-indent:-99999px;
+  background:none;
+  height:16px;
+  width:17px!important;
+  display:inline-block;
+  *display:block;
+}
+.rating .hornav li a:hover,
+.rating .hornav li a.active {
+  background:url(/img/bg-rating-full.png) no-repeat top left;
+}
+ul.stars li a span {
+  display:inline-block;
+  text-indent:-99999px;
+  background:url(/img/bg-rating-full.png) no-repeat center left;
+  height:24px;
+  width:88px;
+  *display:block;
+  *float:left;
+}
+ul.stars .fourstars a span {
+  width:70px;
+  margin-right:18px;
+}
+ul.stars .threestars a span {
+  width:52px;
+  margin-right:36px;
+}
+ul.stars .twostars a span {
+  width:36px;
+  margin-right:52px;
+}
+ul.stars .onestar a span {
+  width:18px;
+  margin-right:70px;
+}
+form .no-style {
+  border:none;
+  background:none;
+  color:#660066;
+  font-family:Georgia, "Times New Roman", Times, serif;
+}
+#main-content .serp-sidebar form .no-style {
+  float:right;
+}
+#main-content .serp-sidebar form label {
+  height:20px;
+  display:inline-block;
+}
+#main-content .serp-sidebar form input[type="text"] {
+  color:#838383;
+  background-color:#FFF;
+  border:#dedede solid 1px;
+  width:169px;
+  height:23px;
+  line-height:23px;
+  padding-left:5px;
+  border-right:none;
+}
+#main-content .serp-sidebar form input[type="submit"] {
+  color:#660066;
+  background:url(/img/bg-serp-form-go.png) no-repeat top left;
+  width:38px;
+  height:28px;
+  line-height:27px;
+  border:none;
+  float:left;
+  cursor:pointer;
+}
+#serp-results .header {
+  margin-top:30px;
+  /*border-bottom:#ebebeb solid 1px;*/
+}
+.sorting {
+  height:18px;
+  margin:20px 0;
+  clear:both;
+}
+.sorting p {
+  float:left;
+}
+.sorting .pager {
+  float:right;
+}
+.sorting.shift-right {
+  margin-top:-20px;
+}
+.sorting.topright {
+  margin:0;
+}
+#serp-results .results-list li p {
+  margin-bottom:5px;
+}
+#serp-results .results-list li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  clear:both;
+  position:relative;
+}
+#serp-results .results-list > li:last-child {
+  border:none;
+  margin-bottom:0;
+  padding-bottom:0;
+}
+#serp-results .results-list li img {
+  float:left;
+  margin-right:20px;
+}
+#serp-results .results-list li.has-img {
+  min-height:100px;
+}
+#serp-results .results-list li.has-img p {
+  margin-left:120px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: SLIDESHOW Page CSS >>>>>>=============================-------------------------------------*/
+#slideshow-wrap .actions {
+  height:22px;
+}
+#slideshow-wrap .actions li {
+  margin-right:10px;
+}
+#slideshow-wrap .actions li a {
+  background:url(/img/bg-btn-gray-72x22.jpg) no-repeat top left;
+  width:72px;
+}
+#slideshow-wrap #slideshow {
+  padding:20px;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  border: 1px solid #bbb;
+  *background:url(/img/bg-feat-moms.png) center no-repeat;
+  *padding:6px;
+  position:relative;
+  clear:both;
+  margin-bottom:20px;
+}
+#slideshow-wrap #slideshow .slides,
+#slideshow-wrap #slideshow .slides .slide {
+  height:180px;
+}
+#slideshow-wrap #slideshow .slide .green {
+  margin-top:50px;
+}
+#slideshow-wrap #slideshow .slide img {
+  float:left;
+  margin:-50px 20px 0 0;
+  *margin:15px 20px 0 0;
+}
+#slideshow-wrap #slideshow .hornav {
+  position:absolute;
+  top:20px;
+  left:340px;
+  z-index:1000;
+}
+#slideshow-wrap #slideshow .hornav .cta a {
+  width:92px;
+}
+#slideshow-wrap #slideshow .hornav #caption1 {
+  height:28px;
+  line-height:28px;
+  width:87px;
+  text-align:center;
+}
+#slideshow-wrap #slideshow .cta-more {
+  text-align:left;
+  margin-top:5px;
+}
+
+#slideshow-wrap {
+  position:relative;
+}
+#slideshow-wrap .view-thumbnails {
+  float:right;
+  margin-top:20px;
+}
+#slidesshowthumbs {
+  width: 648px;
+  top: 160px;
+  border:1px solid #BBBBBB;
+  box-shadow: 0 0 4px #888888;
+  padding:10px 5px;
+  z-index: 9999;
+  position:absolute;
+  overflow:visible;
+  background-color: #FFFFFF;
+  float:left;
+}
+#slidesshowthumbs > li {
+  overflow:visible;
+  margin-bottom:20px;
+}
+#slidesshowthumbs li.slide {
+  display:inline-block;
+  float:left;
+  margin: 10px 13px 10px 14px;
+  width: 135px;
+  height: 150px;
+}
+#slidesshowthumbs li.slide img {
+  height:auto;
+}
+#slidesshowprintbtn {
+  padding-top:7px;
+  padding-bottom:5px
+}
+/*-------------------------------------=============================<<<<< BEGIN: ARTICLE DETAIL Page CSS >>>>>>=============================-------------------------------------*/
+#article-detail p {
+  margin-bottom:10px;
+}
+/*-----
+POPULAR RECIPES
+-----*/
+.recipe-category #popular-recipes,
+.recipe-category #popular-groups {
+  border-top:#ebebeb solid 1px;
+  padding-top:20px;
+}
+#popular-recipes {
+  margin-top:20px;
+  clear:both;
+}
+#popular-recipes ul li {
+  width:330px;
+  float:left;
+  margin-bottom:20px;
+  min-height:60px;
+}
+#popular-recipes ul li img {
+  float:left;
+  margin:0 10px 10px 0;
+}
+#popular-recipes ul li p {
+  padding-right:10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: RECIPE SUB CATEGORY Page CSS >>>>>>=============================-------------------------------------*/
+#subcat-recipes ul li {
+  position:relative;
+}
+#subcat-recipes ul li .rating {
+  position:absolute;
+  top:0;
+  right:0;
+}
+#recland-list .subcats {
+  width:528px;
+  margin-left:132px;
+}
+#recland-list > ul > li {
+  min-height:120px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: COOKS Page CSS >>>>>>=============================-------------------------------------*/
+#cooks p .btn-grey28 {
+  float:right;
+  width:115px;
+  margin-left:20px;
+}
+#cooks .main-image,
+.contests .main-image,
+#poll-detail .main-image {
+  float:left;
+  margin:0 25px 20px 0;
+}
+#cooks .flare li {
+  margin:20px 5px 0 0;
+}
+#most-decorated-cooks {
+  clear:both;
+  border-bottom:#ebebeb solid 1px;
+  border-top:#ebebeb solid 1px;
+  margin:20px 0;
+  padding:20px 0;
+}
+#most-decorated-cooks ul li {
+  width:33%;
+  position:relative;
+}
+#most-decorated-cooks ul li .flare {
+  position:absolute;
+  bottom:0;
+  left:110px;
+}
+#most-decorated-cooks .flare li {
+  width:auto;
+}
+#most-decorated-cooks ul li .imgmask100 {
+  float:left;
+  margin:0 10px 0 0;	
+}
+#most-active-cooks .title {
+  float:left;
+}
+#most-active-cooks .pager {
+  float:right;
+}
+#most-active-cooks .imgleft li {
+  width:33%;
+  clear:none;
+  *margin-bottom:20px;
+}
+/*-----
+CONTEST DETAILS
+-----*/
+#contest-detail {
+  padding-bottom:20px;
+}
+#contest-detail ul li {
+  margin-bottom:10px;
+}
+#featured-contests ul li.sponsored {
+  position:relative;
+}
+#featured-contests ul li.sponsored .imgmask100:after {
+  content:"";
+  background:url("/img/img-winnerstar.png") no-repeat scroll left top transparent;
+  height:40px;
+  width:40px;
+  position:absolute;
+  top:-16px;
+  left:81px;
+}
+#featured-contests ul li .title {
+  *margin-top:-22px;
+}
+#gigya-post-vote-wrapper {
+  margin:35px 4px;
+}
+#gigya-post-vote-wrapper p {
+  margin:0 0 10px 0;
+  padding:0 10px;
+  border:none;
+}
+#gigya-post-vote-wrapper .gig-button-container-google-plusone,
+#gigya-post-vote-wrapper .gig-button-container-facebook-like 
+{
+  display:none!important;
+}
+#gigya-post-vote-wrapper #gigya-post-vote {
+  margin:50px 0 0 90px;
+  position: relative; 
+}
+#gigya-post-vote .gig-bar-container img {
+  width: 60px!important;
+  height: auto; 
+  display: inline-block!important;
+}
+
+#gigya-post-vote .gig-share-bar-container .gig-button-container-share,
+#gigya-post-vote .gig-share-bar-container .gig-button-container-twitter,
+#gigya-post-vote .gig-share-bar-container .gig-button-container-email
+{
+  position: absolute;
+}
+#gigya-post-vote .gig-share-bar-container .gig-button-container-share {
+  left:55px; 
+  top:-40px;
+}
+#gigya-post-vote .gig-share-bar-container .gig-button-container-twitter {
+  left:55px; 
+  top:35px;
+}
+#gigya-post-vote .gig-share-bar-container .gig-button-container-email {
+  left: 55px; 
+  top: 110px;
+}
+/*-----
+TOP PHOTOS
+-----*/
+#top-photos {
+  width:300px;/*  */
+  float:left;
+  margin:0 20px 20px 0;
+}
+#top-photos ul li {
+  clear:both;
+}
+/*-----
+TOP VIDEOS
+-----*/
+#top-videos {
+  width:300px;
+  float:left;
+}
+#top-videos ul li {
+  clear:both;
+}
+#player {
+  display:block;
+  text-align:center;
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+} 
+/*-----
+TOP STORIES
+-----*/
+#top-stories {
+  margin-top:20px;
+  padding-top:20px;
+  border-top:#ebebeb solid 1px;
+  clear:both;
+}
+#top-stories ul li {
+  clear:both;
+}
+#top-stories ul li p {
+  margin-bottom:5px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: CREATE GROUP Pages CSS >>>>>>=============================-------------------------------------*/
+.checknames {
+  position:relative;
+}
+.checknames #checkName {
+  position:absolute;
+  top:0;
+  left:410px;
+}
+#groupCreateOne textarea {
+  padding:10px;
+  width:370px;
+}
+#groupCreateOne textarea,
+#groupCreateOne select,
+#groupCreateOne input[type="text"] {
+  margin-left:16px;
+  float:none;
+}
+#groupCreateOne span.required {
+  position:absolute;
+  top:0;
+  right:365px;
+}
+.create-group form {
+  margin-top:15px;
+}
+.ui-multiselect-filter input {
+  width:175px!important;
+  color:#666!important;
+  margin-right:10px!important;
+}
+.ui-icon {
+  margin-right:0 5px!important;
+}
+.create-group form fieldset,
+form.standard-form fieldset {
+  clear:both;
+  margin-bottom:5px;
+  position:relative;
+}
+form.standard-form fieldset span.required {
+  position:absolute;
+  top:0;
+  right:55px;
+  color:#660066;
+}
+span.required {
+  color:#660066;
+}
+.create-group form fieldset label,
+form.standard-form label,
+form.standard-form legend {
+  float:left;
+  width:175px;
+  text-align:right;
+  font-size:14px;
+  text-transform:uppercase;
+  height:25px;
+  line-height:25px;
+}
+form.reg-form label {
+  width:115px;
+  text-align:left;
+}
+form.standard-form legend,
+form.standard-form p.legend {
+  width:100%;
+  border-bottom:#ebebeb solid 1px;
+  text-align:left;
+  margin-bottom:20px;
+  margin-left:0;
+  padding-bottom:10px;
+  font-size:14px;
+}
+form.standard-form p {
+  clear:both;
+  margin-left:195px;
+}
+#main-content form fieldset.sidebar label,
+#main-content form fieldset.sidebar p {
+  margin-left:0;
+  width:100%;
+  text-align:left;
+}
+form.standard-form td {
+  text-align:center;
+  padding:10px 0;
+}
+form.standard-form .cke_skin_kama table tr td {
+  text-align: left;
+  padding: 0;
+}
+.standard-form tr > td:first-child {
+  text-align:left;
+}
+form.standard-form fieldset .error_list {
+  /*
+      clear:both;
+      margin:0 0 0 193px;
+      padding:10px 0 0 0;
+  */
+  height:20px;
+  line-height:20px;
+  /* height:20px;
+  line-height:20px;  this was done for ET#5448, hopefully there are any unforseen complications... */
+}
+form.reg-form fieldset .error_list {
+  /*margin:0 0 0 115px;*/
+  float: left; display: block; margin: 0;
+}
+form.reg-form fieldset .error_list li { margin-bottom: 10px; }
+form.standard-form fieldset.user-details .error_list {
+  margin:10px 0 10px 150px;
+}
+form .inline-changes p {
+  margin:3px 10px 0 10px;
+  float:left;
+  clear:none;
+  width:390px;
+}
+form.standard-form .user-image {
+  width:100px;
+  margin-right:20px;
+}
+form.standard-form .user-image p {
+  margin:0 0 10px 0;
+  width:100%;
+}
+form.standard-form .user-image input[type="file"] {
+  margin:20px 0;
+  width:100px;
+}
+form.standard-form .user-details {
+  width:540px;
+  clear:none;
+}
+form.standard-form .user-details label {
+  width:115px;
+  margin-right:10px;
+}
+form.standard-form .user-details .edit_img {
+  width:380px;
+  clear:none;
+  margin:0;
+}
+form.standard-form .user-details .edit_img img,
+form.standard-form .user-details .edit_img input,
+form.standard-form .user-details .edit_img label {
+  float:none;
+  width:auto;
+  margin:0;
+  float:none;
+}
+form.standard-form .profile-photo.action,
+form.standard-form .profile-photo fieldset {
+  float:right;
+  width:380px;
+  padding: 0 5px;
+  line-height: 21px;
+  clear: none;
+}
+form.standard-form .profile-photo.hidden {
+  display:none;
+}
+form.standard-form .profile-photo-toggles .action span,
+form.standard-form .profile-photo-toggles .action span label,
+form.standard-form .profile-photo-toggles .action span input[type="radio"] {
+  float:left;
+  margin-right: 10px;
+  width: auto;
+}
+form.standard-form .profile-photo-toggles .avatar-list {
+  width: 300px;
+}
+form.standard-form .profile-photo-toggles .avatar-list li {
+  float:left;
+  width:75px
+}
+form.standard-form .profile-photo-toggles .avatar-list li img {
+  width:50px;
+}
+form.standard-form #user_fb_share {
+  display:none;
+}
+form.standard-form .profile-photo-choices ul {
+  float: left;
+  width: 100%;
+  max-height: 400px;
+  overflow: auto;
+  *max-height:none;
+}
+form.standard-form .profile-photo-choices ul:after {
+  clear:both;
+}
+form.standard-form .profile-photo-choices li {
+  float: left;
+  position: relative;
+  margin:1px;
+}
+form.standard-form .profile-photo-choices li label,
+form.standard-form .profile-photo-choices li img {
+  width: 100px;
+  height: 100px;
+}
+form.standard-form .profile-photo-choices li input {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  z-index: 1;
+  *right:9px;
+  *bottom:4px;
+}
+form.standard-form .user-details fieldset.areas ul {
+  float: right;
+  width: 416px;
+}
+form.standard-form .user-details fieldset.areas li {
+  float: left;
+  width: 206px;
+  margin-right: 2px;
+}
+form.standard-form .user-details fieldset.areas li:nth-child(even) {
+  margin-right: 0;
+  margin-left: 2px;
+}
+form.standard-form .user-details fieldset.areas li input {
+  float: left;
+}
+form.standard-form .user-details fieldset.areas label {
+  float: left;
+  margin-bottom: 0;
+  width: auto;
+}
+form.standard-form .w50per p,
+form.standard-form .areas p {
+  width:auto;
+  margin:0;
+  clear:none;
+}
+form.standard-form .areas label {
+  width:33%;
+  float:left;
+  margin-bottom:10px;
+  text-align:left;
+}
+#photoUpload fieldset {
+  position:relative;
+}
+#photoUpload .error_list {
+  position:absolute;
+  left:120px;
+  top:20px;
+}
+form.standard-form fieldset.doublewide fieldset {
+  clear:none;
+  float:left;
+  margin:0;
+  width:330px!important;
+}
+form.standard-form fieldset.doublewide fieldset input{
+  float:right;
+  border:#acacac solid 1px;
+  height:21px;
+  line-height:21px;
+  width:125px;
+  padding:0 5px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left;
+  margin:0 0 0 18px;
+}
+form.standard-form fieldset.doublewide fieldset.last {
+  width:255px!important;
+  padding:0;
+  border:none;
+}
+.relative .required_sentence {
+  position:absolute;
+  top:0;
+  right:75px;
+}
+form.standard-form fieldset.doublewide fieldset.last label {
+  width:100px;
+}
+.registration form fieldset {
+  width:370px;
+}
+.registration form fieldset.profile-photo fieldset,
+.registration form fieldset.about-me .cke_skin_kama {
+  width: 370px;
+  margin-right: 0;
+}
+/*
+.profile-photo,
+.profile-photo .profile-photo-fields,
+.profile-photo .profile-photo-fields .profile-photo-choices {
+        *overflow:hidden;
+}
+*/
+.radio_list {
+  *height:auto;
+  *max-height:none;
+}
+.registration form fieldset.fineprint p,
+.registration form fieldset.fineprint label {
+  width:100%;
+  margin:0;
+  height:auto;
+  line-height:normal;
+}
+.registration form fieldset.fineprint label input {
+  float:left;
+}
+.registration form .gigya {
+  margin:30px 0 20px 0;
+  *overflow:hidden;
+  *padding-bottom:20px
+}
+/* ----- Step 2 Form Registration ----- */
+#main-content .registration.reg-two #signup_step_2 .article { width: 800px; min-height: 150px; }
+#main-content .registration.reg-two #signup_step_2 .article label { width: 100px; margin-right: 5px; }
+#main-content .registration.reg-two #signup_step_2 .article input { width: 215px; }
+#main-content .registration.reg-two #signup_step_2 .article .required { right: 28px;  }
+#main-content .registration.reg-two #signup_step_2 .article .first { clear:none; float: left; }
+#main-content .registration.reg-two #signup_step_2 .article .second { clear:none; float: right; }
+#main-content .registration.reg-two #signup_step_2 .sidebar { float: left; margin-top: 0; width: 400px; }
+#main-content .registration.reg-two #signup_step_2 .sidebar .profile-photo .edit_img .delete_btn label { margin-left : 12px; }
+#main-content .registration.reg-two #signup_step_2 .about-me { clear: none; float: left; width: 400px; }
+#main-content .registration.reg-two #signup_step_2 .about-me label { margin-left: -110px; }
+#main-content .registration.reg-two #signup_step_2 .about-me textarea { width: 350px; }
+textarea {
+  resize: none;
+}
+.create-group .summary {
+  width:47%;
+}
+.create-group form fieldset input[type="text"],
+.create-group form fieldset input[type="email"],
+.create-group form fieldset textarea,
+form.standard-form fieldset input[type="text"],
+form.standard-form fieldset input[type="email"],
+form.standard-form fieldset textarea,
+form.standard-form fieldset input[type="password"] {
+  /*  float:right;
+    margin-right:375px;*/
+  border:#acacac solid 1px;
+  height:21px;
+  line-height:21px;
+  width:380px;
+  padding:0 5px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left;
+}
+form.profile-edit-form fieldset input[type="text"],
+form.profile-edit-form fieldset input[type="email"],
+form.profile-edit-form fieldset input[type="password"] {
+  width:334px!important;
+}
+form.profile-edit-form fieldset select {
+  width:345px!important;
+}
+form.profile-edit-form fieldset textarea {
+  width:323px!important;
+}
+fieldset .cke_skin_kama {
+  float:right;
+  margin-right:375px;
+  line-height:21px;
+  width:382px;
+}
+#group-tabs fieldset .cke_skin_kama,
+#addComment #cke_userComment {
+  width:98%;
+  margin:0;
+  float:none;
+}
+#group-tabs fieldset .cke_skin_kama .cke_editor {
+  margin:0;
+}
+form.standard-form fieldset.inner-options fieldset {
+  float:right;
+  width:392px;
+  clear:none;
+  margin-right:75px;
+}
+form.standard-form fieldset.inner-options fieldset input[type="text"] {
+  width:200px;
+  float:none;
+  margin-right:10px;
+}
+form.standard-form fieldset.inner-options fieldset input[type="button"] {
+  margin:0;
+  float:none;
+}
+input[type="button"].stripped {
+  border:none;
+  background:none;
+  cursor:pointer;
+  color:#660066;
+}
+form.standard-form fieldset input[type="text"],
+form.standard-form fieldset input[type="email"],
+form.standard-form fieldset textarea,
+form.standard-form fieldset input[type="password"] {
+  margin-right:75px;
+}
+form.reg-form fieldset input[type="text"],
+form.reg-form fieldset input[type="email"],
+form.reg-form fieldset textarea,
+form.reg-form fieldset input[type="password"] {
+  /* margin-right:0;
+  float:left; this was done for ET#5448, hopefully there are any unforseen complications... */
+  width:230px;
+  margin-left:0;
+
+  float: right;
+  margin-right: 13px;
+}
+form.standard-form fieldset.user-details input[type="text"],
+form.standard-form fieldset.user-details input[type="email"],
+form.standard-form fieldset.user-details textarea,
+form.standard-form fieldset.user-details input[type="password"],
+form.standard-form fieldset.user-details select {
+  margin-right:0;
+}
+form.standard-form fieldset.user-details .cke_skin_kama {
+  float:right;
+  line-height:21px;
+  width:378px;
+  margin-right: 0;
+}
+form.standard-form fieldset.user-details textarea {
+  padding:10px;
+}
+form.standard-form fieldset.newsletter {
+  position:absolute;
+  top:0;
+  right:0;
+  width:250px;
+}
+form.standard-form fieldset.newsletter input,
+form.standard-form fieldset.newsletter label {
+  float:none;
+}
+form.standard-form fieldset.newsletter p {
+  float:none;
+  margin:0 0 10px 0;
+}
+form.standard-form fieldset select {
+  /*  float:right;*/
+  margin:0 75px 0 0;
+  width:390px;
+}
+.registration form fieldset.city-state input[type="text"],
+form.standard-form fieldset input[type="file"] {
+  float:left;
+  width:185px !important;
+  margin-left:23px;
+}
+form.standard-form fieldset input[type="file"] {
+  margin-left:19px;
+}
+form.standard-form input[type="submit"] {
+  float:right;
+  margin-right:75px;
+}
+form.reg-form input[type="submit"] {
+  float:none;
+}
+form.standard-form input[type="button"] {
+  float:right;
+  margin-right:75px;
+}
+fieldset.poll input { margin-bottom: 10px; }
+.registration form fieldset.city-state select {
+  float:left;
+  width:auto!important;
+}
+form.reg-form label {
+  font-size:12px;
+}
+#main-content .article.reg-two {
+  width:960px;
+}
+#main-content .registration.reg-two form fieldset.article,
+#main-content .registration.reg-two form fieldset.sidebar {
+  margin:0;
+  width:50%;
+  clear:none;
+}
+#main-content .registration.reg-two form fieldset.sidebar {
+  position:static;
+  top:auto;
+  right:auto;
+}
+#main-content .registration.reg-two form fieldset.sidebar {
+  width:50%;
+}
+#main-content .registration.reg-two form fieldset.sidebar p {
+  width:auto;
+  margin:0;
+}
+.registration.reg-two form fieldset.article label {
+  width:80px;
+  text-align:left;
+}
+.registration.reg-two form fieldset.article input[type="text"],
+.registration.reg-two form fieldset.article input[type="password"],
+.registration.reg-two form fieldset.article select {
+  margin-right:0;
+  width:213px;
+}
+.registration.reg-two form fieldset.article select {
+  width:225px;
+}
+fieldset.userimg {
+  position:relative;
+  margin:0;
+}
+fieldset.userimg label,
+fieldset.about-me label {
+  color:#83af1b;
+}
+fieldset.userimg .delete_btn {
+  position:absolute;
+  top:-36px;
+  right:-20px;
+  width:auto;
+  white-space: nowrap;
+}
+fieldset.userimg .delete_btn label {
+  color:#666;
+  float: none;
+}
+fieldset.userimg .upload_btn {
+  position:absolute;
+  top:2px;
+  right:32px;
+  width:auto;
+}
+fieldset.about-me textarea {
+  padding:10px!important;
+  color:#666;
+}
+#main-content .registration.reg-two form fieldset.sidebar label {
+  width:auto;
+  margin:0 10px 10px 0;
+}
+#main-content .registration.reg-two form fieldset.sidebar .about-me label,
+#main-content .registration.reg-two form fieldset.sidebar .about-me textarea {
+  width:100%;
+  text-align:left;
+  margin:0;
+  float:none;
+}
+#main-content .registration.reg-two form fieldset.sidebar .about-me textarea {
+  height:100px;
+}
+#main-content .registration.reg-two form fieldset.sidebar p.tar {
+  height:28px;
+  line-height:28px;
+}
+#main-content .registration.reg-two form fieldset.sidebar p.tar input[type="submit"] {
+  margin:0;
+  float:right;
+  margin-left:20px;
+}
+.create-group form fieldset textarea,
+form.standard-form fieldset textarea {
+  height:148px;
+  line-height:normal;
+}
+.create-group form fieldset select {
+  width:390px;
+  float:right;
+  margin-right:375px;
+  border:#acacac solid 1px;
+  height:23px;
+  line-height:23px;
+  background:url(/img/bg-select.png) repeat-x top left;
+}
+.create-group form fieldset p,
+.create-group form fieldset ul,
+.create-group form fieldset .wrapper {
+  width:478px;
+  float:right;
+  background:none!important;
+  margin-right:290px;
+}
+.create-group form fieldset .hornav li {
+  width:33%;
+  margin-bottom:10px;
+}
+.create-group form fieldset .wrapper .photo_preview {
+  height:100px;
+  width:100px;
+  float:left;
+  background:#666 url(/img/img-creategroup1.png) no-repeat top left;
+  margin-right:20px;
+}
+.create-group form fieldset.grp-addphoto .wrapper a,
+.create-group form#add-a-recipe fieldset.addrec-addphoto .wrapper a {
+  width:100%;
+  margin:15px 0 20px 0;
+  display:block;
+  text-transform:uppercase;
+}
+.create-group form fieldset.grp-notif ul {
+  width:290px;
+  margin-right:188px;
+}
+.create-group form fieldset.grp-notif ul li {
+  width:50%;
+}
+.create-group form fieldset.last {
+  padding-top:20px;
+  border-top:#eaeaea solid 1px;
+  text-align:right;
+}
+.create-group form fieldset .cta-cancel,
+form.standard-form fieldset .cta-cancel {
+  padding:none;
+  border:none;
+  background:none;
+  color:#660066;
+  font-size:14px;
+  text-transform:capitalize;
+  height:28px;
+  margin-right:20px;
+  line-height:28px;
+}
+form.standard-form fieldset .cta-cancel {
+  float:right;
+  margin-right:20px;
+  height:28px;
+  line-height:28px;
+}
+.create-group form fieldset input[type="submit"] {
+  float:right;
+}
+.ui-multiselect-checkboxes,
+.ui-helper-reset {
+  width:100%!important;
+  margin-right:0!important;
+}
+#existingRecipeList,
+#existingRecipeList button,
+#existingRecipeList div,
+#add-recipes .last {
+  width:520px!important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#existingRecipeList {
+  margin-top:20px;
+}
+.create-group3 form fieldset p {
+  margin-right:75px;
+  width:390px!important;
+  margin-left:0;
+}
+#add-a-recipe p.info, #add-a-recipe fieldset.buttons {
+  margin-left:192px;
+  float:left;
+}
+#add-a-recipe fieldset fieldset.tac.flri {
+  float:left !important;
+}
+#add-a-recipe fieldset.buttons p.tac {
+  width:auto !important;
+  float:left;
+}
+#add-a-recipe textarea, #add-a-recipe input[type="text"], #add-a-recipe input[type="email"], #add-a-recipe input[type="password"], #add-a-recipe select {
+  margin-left: 18px;
+  float: left;
+}
+#add-a-recipe span.required {
+  left: 593px;
+}
+#add-a-recipe img {
+  margin-bottom:10px;
+  width:370px;
+}
+#add-recipes-input {
+  /*  position:absolute;
+    top:43px;
+    right:250px;*/
+}
+.create-group3 form fieldset select {
+  margin-right:75px;
+}
+.searchrecipes {
+  margin:20px 0;
+}
+.searchrecipes ul {
+  float:none!important;
+  margin:0 20px 0 0;
+}
+.searchrecipes ul li {
+  width:auto!important;
+}
+/*-----
+SIDEBAR REGISTRATION FORMS
+-----*/
+.sidebar .login label,
+.sidebar .forgot-password label {
+  width:100%;
+  font-size:14px;
+  text-transform:uppercase;
+  height:25px;
+  line-height:25px;
+  display:block;
+}
+.sidebar .login input[type="text"],
+.sidebar .login input[type="email"],
+.sidebar .login input[type="password"],
+.sidebar .forgot-password input[type="text"] {
+  border:#acacac solid 1px;
+  height:21px;
+  line-height:21px;
+  width:75%;
+  padding:0 5px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left;
+  margin-bottom:20px;
+}
+.sidebar .login .error_list {
+  margin-top:-15px;
+  margin-bottom:10px;
+}
+/*----------
+FORM: add friends
+----------*/
+.create-group form.add-friends fieldset {
+  width:50%;
+  float:left;
+  clear:none;
+  *width:465px;
+}
+.create-group form.add-friends fieldset p,
+.create-group form.add-friends fieldset ul,
+.create-group form.add-friends fieldset label {
+  width:auto;
+  float:none;
+  text-align:left;
+}
+.create-group form.add-friends fieldset.last {
+  width:867px;
+}
+.create-group form.add-friends fieldset textarea {
+  width:375px;
+  margin:0;
+  float:none;
+  height:97px;
+}
+.create-group form.add-friends fieldset.drag-from {
+  border:#a6a6a6 solid 1px;
+  width:298px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left;
+  margin-right:20px;
+}
+.create-group form.add-friends fieldset.drag-from p {
+  border:#a6a6a6 solid 1px;
+  width:294px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left!important;
+  height:27px;
+  line-height:27px;
+  margin:2px;
+}
+.create-group form.add-friends fieldset.drag-from ul li,
+.create-group form.add-friends fieldset .drag-to ul li,
+form#add-recipes .recipe-list li {
+  height:20px;
+  line-height:20px;
+  padding-left:10px;
+}
+.create-group form.add-friends fieldset.drag-from ul li:hover,
+.create-group form.add-friends fieldset .drag-to ul li:hover,
+form#add-recipes .recipe-list li:hover {
+  background-color:#efefef;
+}
+.create-group form.add-friends fieldset .drag-to ul {
+  height:97px;
+  width:298px;
+  border:#a6a6a6 solid 1px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left!important;
+}
+/*----------
+FORM: add recipes
+----------*/
+form#add-recipes .search {
+  width:410px;
+  border:#a6a6a6 solid 1px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left!important;
+  height:29px;
+  line-height:29px;
+  padding:0 5px;
+  color: #666;
+}
+form#add-recipes .recipe-list {
+  clear:both;
+  border:#a6a6a6 solid 1px;
+  background:#fff url(/img/bg-input-text.png) repeat-x top left!important;
+  padding:10px 0;
+}
+.create-group3 form fieldset.last {
+  margin-top:225px;
+}
+form#add-recipes fieldset.last {
+  border:0;
+}
+form#add-a-recipe fieldset.double label {
+  margin-right:9px;
+}
+form#add-a-recipe fieldset.double label.second {
+  width:94px;
+}
+form#add-a-recipe fieldset.double input {
+  width:132px;
+  float:left;
+  margin-right:0;
+}
+.add-recipes form {
+  display:none;
+}
+.add-recipes form.active {
+  display:block;
+}
+.create-group .tooltip {
+  position:absolute;
+  top:0;
+  right:63px;
+}
+.create-group .tooltip.shift {
+  top:20px;
+}
+.create-group .tooltip a {
+  font-size:18px;
+  height:25px;
+  line-height:25px;
+  width:25px;
+  display:block;
+  text-align:center;
+  color:#666!important;
+}
+.create-group .tooltip a p {
+  display:none;
+  position:absolute;
+  top:-12px;
+  left:50px;
+  font-size:13px;
+  padding:10px;
+  background-color:#FFF;
+  border:#c6c6c6 solid 1px;
+  width:210px;
+  line-height:normal;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+}
+.create-group .tooltip a p .point {
+  border-color:transparent #FFF transparent transparent;
+  border-style: solid;
+  border-width: 10px;
+  height:0;
+  width:0;
+  position:absolute;
+  top:15px;
+  left:-20px;
+}
+.create-group .tooltip a p .point-shadow {
+  border-color:transparent #c6c6c6 transparent transparent;
+  border-style: solid;
+  border-width: 13px;
+  height:0;
+  width:0;
+  position:absolute;
+  top:12px;
+  left:-26px;
+}
+.create-group .tooltip a:hover p {
+  display:block;
+}
+/*-----
+WINNERS GALLERY
+-----*/
+#winners-gallery {
+  clear:both;
+  position:relative;
+}
+#winners-gallery .title {
+  float:left;
+}
+#winners-gallery ul {
+  clear:both;
+}
+#winners-gallery ul li {
+  margin:0 20px 20px 0;
+}
+#winners-gallery .pager {
+  float:right;
+}
+#winners-gallery .pager.topnav {
+  position:absolute;
+  top:0;
+  right:0;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Journal Page CSS >>>>>>=============================-------------------------------------*/
+#journals #recent ul.imgleft li, #journals #popular ul.imgleft li {
+  clear:both;
+}
+/*#add-journal #journalAdd label {
+  width:auto;
+}
+#add-journal #journalAdd input[type='text'] {
+  margin-right:0;
+  width:520px;
+}
+#add-journal #journalAdd #cke_journaladd_body, #cke_comment_comment {
+  float:right;
+  width:520px;
+}
+#add-journal #journalAdd input[type='submit'] {
+  margin-right:0;
+}*/
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Landing Page CSS >>>>>>=============================-------------------------------------*/
+#recipe-landing {
+  margin-bottom:20px;
+}
+#recipe-landing p a {
+  float:right;	
+}
+#recipe-landing p a.kLink {
+  float:none;	
+}
+#recland-list > ul > li .imgmask100 {
+  margin-top:3px!important;
+}
+#recland-list ul li ul li {
+  width:31%;
+  margin-bottom:5px;
+  margin-right:2%;
+}
+/*-----
+FEATURE: grey button basics || the width and background are assigned specifically in it's section
+-----*/
+.btn-grey28,
+.daily-dish #commentsform input[type="submit"],
+.btn-purple28 {
+  padding:4px 6px;
+  text-align:center;
+  display:inline-block;
+  background-color:#ebebeb;
+  border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+  border-style:solid;
+  border-width:1px;
+  -moz-box-shadow: 1px 1px 0px #262626;
+  -webkit-box-shadow: 1px 1px 0px #262626;
+  box-shadow: 1px 1px 0px #262626;
+  /* the below is added for the submit button in Daily Dish, it could mess up other pages, if yes, seperate */
+  color:#660066;
+  cursor:pointer;
+  font-size:14px;
+  text-transform:uppercase;
+  font-weight:bold;
+  width:auto;
+  margin:0;
+}
+.btn-purple28 {
+  background-color:#660066;
+  color:#FFF!important;
+  border-color:#995599 #522a52 #480048 #9e729e;
+}
+input.btn-grey28 {
+  padding:2px 5px 4px 5px;
+}
+.w120 {
+  width:120px;
+}
+.w140 {
+  width:140px;
+}
+/*-----
+FEATURE: tabbed navs
+-----*/
+.tabbednav {
+  height:33px;
+  margin:20px 0;
+  background:url(/img/bg-tabbed-nav.png) repeat-x bottom left;
+}
+.sidebar .tabbednav {
+  width:299px;
+  border-right:none;
+}
+.tabbednav li a {
+  height:32px;
+  line-height:33px;
+  padding:0 20px;
+  text-transform:uppercase;
+  display:block;
+  color:#660066;
+  border-left:#e1e1e1 solid 1px;
+  border-top:#e1e1e1 solid 1px;
+  border-right:#e1e1e1 solid 1px;
+  background:#FFF url(/img/bg-tabbednav.png) repeat-x top left;
+}
+.serp-article .tabbednav li a {
+  padding:0 10px;
+}
+.tabbednav .last a {
+}
+.tabbednav .active {
+  background-color:#FFF;
+  margin-top:-4px;
+  margin-left:-1px;
+}
+.tabbednav .active a {
+  padding:0 15px;
+  color:#74a500!important;
+  font-size:18px;
+  height:36px;
+  line-height:37px;
+  border-left:#e1e1e1 solid 1px;
+  border-top:#e1e1e1 solid 1px;
+  border-right:#e1e1e1 solid 1px;
+  background-image:none;
+}
+.sidebar .tabbednav > li:last-child a {
+  border-right:none;
+}
+.section-wrap {
+  display:none;
+  clear:both;
+}
+.section-wrap.active {
+  display:block;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Contest Page CSS >>>>>>=============================-------------------------------------*/
+.imgleft.clearb > li {
+  clear:both;
+}
+#recipe-contest ul li p {
+  margin-left:170px;
+}
+#recipe-contest ul li p .flright {
+  height:28px;
+  line-height:28px;
+  float:right;
+}
+#recipe-contest ul li .links {
+  margin:20px 0 0 170px;
+}
+#recipe-contest ul li .links li {
+  float:left;
+  margin-right:20px;
+}
+#recipe-contest ul li .links li img {
+  float:none;
+  margin:0;
+  vertical-align:middle;
+}
+#recipe-contest ul li .links li a {
+  height:28px;
+  line-height:28px;
+}
+
+/*-------------------------------------=============================<<<<< BEGIN: Photos/Videos CSS >>>>>>=============================-------------------------------------*/
+.photos #liked ul li,
+.photos #recent ul li,
+.videos #liked ul li,
+.videos #recent ul li {
+  margin-right:20px;
+  max-width: 100px;
+}
+.photos #liked ul > li:last-child,
+.photos #recent ul > li:last-child,
+.videos #liked ul > li:last-child,
+.videos #recent ul > li:last-child {
+  /* margin-right:0; */
+}
+/*-------------------------------------=============================<<<<< BEGIN: Rewards CSS >>>>>>=============================-------------------------------------*/
+#reward-challenge ul li {
+  overflow:hidden;
+}
+#reward-badges ul li {
+  width:110px;
+  margin-bottom: 20px;
+}
+#reward-badges ul li img {
+  margin-bottom: 10px;
+}
+#reward-badges ul {
+  overflow:hidden;
+}
+.mini_badges {
+  width: 100px;
+}
+.mini_badges li {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+#reward-leaderboard {
+  position:relative;
+}
+#reward-leaderboard .sorting .hornav li {
+  margin-right:5px;
+  padding-right:5px;
+  border-right:#666 solid 1px;
+}
+#reward-leaderboard .sorting .hornav > li:last-child {
+  margin-right:0;
+  padding-right:0;
+  border-right:none;
+}
+#reward-leaderboard .sorting {
+  position:absolute;
+  top:0px;
+  right:0px;
+  margin:0;
+}
+#reward-leaderboard .leaders > li {
+  margin:0 20px 20px 0;
+  width:100px;
+}
+
+/*-------------------------------------=============================<<<<< BEGIN: Daily Dish CSS >>>>>>=============================-------------------------------------*/
+.gig-bar-container img {
+  padding:0!important;
+}
+.daily-dish {
+  position:relative;
+}
+.daily-dish .title {
+  font-size:18px;
+}
+.daily-dish .bylineText {
+  font-size:11px;
+}
+.daily-dish.detail p,
+.dd-list p,
+.dd-list-ajax p,
+.dd-list ul {
+  margin-bottom:10px;
+  /* width:80%; this was added per Erin and commented out per client */
+}
+.dd-list ul {
+  text-transform:uppercase;
+}
+.daily-dish img {
+  max-width:528px;
+  height:auto;
+  padding:20px 0;
+}
+.daily-dish .header img {
+  max-width:none;
+  padding:0;
+  margin:10px 0 0 0;
+}
+#dailyDish #addthis, #dailyDish .ACThead2, #dailyDish .byline, #dailyDish #postmeta, #dailyDish .commentStat, #dailyDish #commentlist, #dailyDish #commentlist, #dailyDish #commentsform {
+  display: none;
+}
+.daily-dish .dd-list li > p:first-child, .daily-dish .dd-list-ajax li > p:first-child {
+  font-size:18px;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+.subdd .dd-list li > p:first-child {
+  font-size:13px!important;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Box CSS >>>>>>=============================-------------------------------------*/
+#recipe-box .folder-options {
+}
+/*-----
+FEATURE: sharebar
+-----*/
+#sharebar {
+  position:fixed;
+  bottom:0;
+  left:0;
+  height:40px;
+  width:100%;
+  background:#FFF top left repeat-x;
+  z-index:99999;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  padding: 12px 0 0 0;
+  background:#FFF url(/img/bg-sharebar.jpg) repeat-x top left\9;
+}
+#sharebar .wrapper > div,
+#sharebar .wrapper > form,
+#sharebar .wrapper > ul,
+#sharebar .wrapper > p {
+  display:inline-block;
+  float:none;
+  margin:0 20px 0 0;
+  *float:left;
+}
+#show_sharebar {
+  position:fixed;
+  bottom:0;
+  left:50%;
+  height:25px;
+  width:120px;
+  background:#FFF;
+  z-index:99998;
+  margin-left:380px;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  padding:10px 0 0;
+  text-align:center;
+}
+.close_sharebar {
+  height:28px;
+  line-height:28px;
+}
+#dailydish-sharebar {
+  position:relative;
+}
+#dailydish-sharebar .su-hack {
+  position:absolute;
+  top:7px;
+  left:88px;
+  background-color:#FFF;
+  padding:0 10px;
+}
+/*-----
+FEATURE: in list, float img left
+-----*/
+.imgleft,
+.imgleft li {
+  clear:both;
+}
+.ovhid {
+  overflow:hidden;
+}
+.imgleft li img {
+  float:left;
+  margin:0 20px 20px 0;
+}
+.imgleft li .imgmask75,
+.imgleft li .imgmask50 {
+  float:left;
+  margin:0 20px 20px 0;
+}
+.sidebar #top-cooks .imgleft li img,
+.sidebar #sidebar-activity .imgleft li img {
+  float:none;
+  margin:0;
+}
+/*-----
+FEATURE: pager
+-----*/
+.pager li {
+  margin:0!important;
+  width:auto!important;
+}
+.pager li a,
+p.pager a,
+p.pager span {
+  height:12px;
+  line-height:12px;
+  width:auto;
+  text-align:center;
+  display:inline-block;
+  color:#666!important;
+  padding:0 5px;
+}
+.pager li.active a,
+p.pager span {
+  color:#660066!important;
+  text-decoration:underline;
+}
+.pager li.unavailable a {
+  color:#CCC!important;
+  cursor:default;
+}
+.pager li.unavailable a:hover {
+  text-decoration:none;
+}
+/*-----
+FEATURE: img with border & drop shadow
+-----*/
+.bordshad {
+  border:#FFF solid 6px;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  *background:url(/img/bg-IE8-100x100.gif) no-repeat center;
+  *padding:14px;
+  *border:none;
+  *margin:-4px 0 0 -4px;
+}
+/*-----
+FEATURE: underlines & spacing for the sidebar
+-----*/
+.sb-underlines li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+.list-underlines li,
+.daily-dish #commentlist li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+}
+.sb-underlines > li:last-child,
+.daily-dish #commentlist > li:last-child {
+  border:none;
+  padding-bottom:0;
+  margin-bottom:0;
+}
+/*-----
+FEATURE: the add friends select box
+-----*/
+#groupCreateTwo button {
+  width:450px!important;
+  padding:5px 0 5px 7px;
+}
+#groupCreateTwo .ui-multiselect-menu {
+  width:444px!important;
+}
+button span {
+  color:#666;
+}
+/*-----
+FEATURE: 5 item gallery
+----*/
+.featured-gallery {
+  position:relative;
+}
+.featured-gallery .window {
+  width:320px;
+  padding:20px 0;
+  overflow:hidden;
+  float:left;
+  margin-left:-4px;
+  padding-left:4px;
+  margin-right:20px;
+  position:relative;
+}
+.featured-gallery .picture {
+  width:1700px;
+}
+.featured-gallery .picture .photo {
+  width:320px;
+  float:left;
+  display:inline-block;
+  margin-right:20px;
+}
+.featured-gallery .picture .photo img {
+  width:300px;
+  height:auto;
+  border:6px solid #FFF;
+  -moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  margin:20px 0;
+}
+.featured-gallery .controller {
+  padding-top:70px;
+}
+.featured-gallery .controller li {
+  margin-bottom:5px;
+}
+.featured-gallery .marker {
+  top:75px;
+  left:313px;
+}
+/*-----
+FEATURE: popup pop up
+-----*/
+
+.contestpopup.popup,
+.popup {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  opacity: 1;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: rgb(0, 0, 0) transparent;
+  /* RGBa with 0.6 opacity */
+  background: rgba(0, 0, 0, 0.6);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+  z-index: 10000;
+}
+.popup.hide,
+.popup.hide .recipeboxpopup {
+  height:260px;
+  width:360px;
+  left:-99999px;
+}
+.popup .recipeboxpopup {
+  background-color:#FFF;
+  height:200px;
+  width:360px;
+  position:fixed;
+  top:50%;
+  left:50%;
+  margin:-100px 0 0 -180px;
+}
+.popup .captchapopup { height: 372px; margin-top:-200px; }
+.popup .captchapopup #vote_msg { padding-top:10px !important; }
+.popup .recipeboxpopup p {
+  border-bottom:#ebebeb solid 1px;
+  padding:20px 25px 10px 25px;
+  margin:0 0 20px 0;
+}
+.popup .recipeboxpopup p.captcha {
+  padding: 0 25px 10px 25px;
+  margin: 0;
+}
+.popup #close_popup {
+  background:url(/img/btn-popupclose.png) no-repeat top left;
+  height:13px;
+  width:13px;
+  text-indent:-9999px;
+  display:block;
+}
+.popup .recipeboxpopup form {
+  padding:0 25px;
+}
+.popup .recipeboxpopup form label {
+  width:100%;
+  margin-bottom:15px;
+  display:block;
+}
+.popup .recipeboxpopup form input[type="text"] {
+  width:294px;
+  border:#b5b5b5 solid 1px;
+  background:url(/img/bg-popup-input.png) no-repeat top left;
+  height:29px;
+  margin-bottom:20px;
+  padding:0 5px;
+}
+.popup .recipeboxpopup .contestpopup{
+  border:none;
+}
+.contestpopup #closePopup { 
+  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent;
+  width: 15px; 
+  height: 15px; 
+  display: block;
+  float: right;
+  margin: 10px 10px 0 0;
+}
+.contestpopup #submitVote { margin-top: 30px; }
+.contestpopup p.sub{ padding-top: 0px; margin-bottom: 0px; }
+.contestpopup p.sub2 { padding-top: 30px; margin-bottom: 0px; }
+.contestpopup input[type="submit"]{ margin-left: 100px; }
+/*-----
+FEATURE: border top & border bottom
+-----*/
+.border-top {
+  margin-top:20px;
+}
+.border-bottom,
+ul.border-bottom > li,
+.daily-dish .dd-list > li,
+.daily-dish .dd-list-ajax > li  {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+}
+.article .border-bottom {
+  padding-bottom:0;
+}
+.no-border,
+#no-border {
+  border-bottom:none!important\9;
+  padding-bottom:0!important\9;
+  margin-bottom:0!important\9;
+}
+ul.border-bottom10 > li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+}
+ul.border-bottom,
+ul.border-bottom > li:last-child,
+ul.border-bottom10 > li:last-child,
+ul.border-bottom > li.last, ul.border-bottom li.last, ul.border-bottom .last,
+.no-border,
+#no-border {
+  border-bottom:none!important;
+  padding-bottom:0!important;
+  margin-bottom:0!important;
+}
+.border-vertical {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:20px;
+  margin-bottom:20px;
+  border-top:#ebebeb solid 1px;
+  padding-top:20px;
+  margin-top:20px;
+}
+.feedback {
+  float:right;
+  *margin-top:-18px;
+}
+ul.with-borders li {
+  border-bottom:#ebebeb solid 1px;
+  padding-bottom:10px;
+  margin-bottom:10px;
+  overflow:hidden;
+}
+.sidebar .underlines li {
+  height:30px;
+  line-height:30px;
+  width: 218px;
+}
+.sidebar .underlines .lm20 li {
+  margin-left: 20px;
+}
+.sidebar .underlines li a {
+  display: block;
+  text-decoration: none;
+  margin-left: -20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #EBEBEB;
+}
+.sidebar .underlines > li:first-child a {
+  border:none;
+  width:auto;
+  margin:0;
+  padding:0;
+  display:inline;
+}
+ul.double-ul {
+}
+ul.double-ul > li {
+  width:100%!important;
+}
+ul.double-ul li ul {
+}
+ul.double-ul li ul li {
+  float:left;
+  margin-bottom:0!important;
+}
+/*-----
+SHORTKUTS
+-----*/
+.sort-options a.active {
+  text-decoration:underline;
+  display:inline!important;
+}
+
+.brdn{
+  border: none!important;
+}
+.opac50{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.cursDef {
+  cursor: default!important;
+}
+.mt-3 {
+  margin-top:-3px;
+}
+.mt-10 {
+  margin-top:-10px;
+}
+.mt-40 {
+  margin-top:-40px;
+  *margin-top:-20px;
+}
+.mt0 {
+  margin-top:0!important;
+}
+.mt5 {
+  margin-top:5px;
+}
+.mt10 {
+  margin-top:10px;
+}
+.mt20 {
+  margin-top:20px;
+}
+.mt30 {
+  margin-top:30px;
+}
+.mt35 {
+  margin-top:35px;
+}
+.mt40 {
+  margin-top:40px;
+}
+.mr0 {
+  margin-right:0!important;
+}
+.mr10 {
+  margin-right:10px!important;
+}
+.mr20 {
+  margin-right:20px!important;
+}
+.mr40 {
+  margin-right:40px;
+}
+.mr75 {
+  margin-right:75px;
+}
+.mr375 {
+  margin-right:375px;
+}
+.mb0 {
+  margin-bottom:0px!important;
+}
+.mb5 {
+  margin-bottom:5px;
+}
+.mb10 {
+  margin-bottom:10px!important;
+}
+.mb20 {
+  margin-bottom:20px!important;
+}
+.mb40 {
+  margin-bottom:40px;
+}
+.mb50 {
+  margin-bottom:50px;
+}
+.ml-20 {
+  margin-left:-20px;
+}
+.ml0 {
+  margin-left:0!important;
+}
+.ml10 {
+  margin-left:10px;
+}
+.ml20 {
+  margin-left:20px!important;
+}
+.ml25 {
+  margin-left:25px!important;
+}
+.ml70 { 
+  margin-left:70px; 
+}
+.ml120 {
+  margin-left:120px;
+}
+.ml125 {
+  margin-left:125px;
+}
+.ml140 {
+  margin-left:140px;
+}
+.ml180 { margin-left: 180px; }
+.ml195 {
+  margin-left:195px;
+}
+.ml232 {
+  margin-left:232px;
+}
+.ml320 {
+  margin-left:320px;
+}
+.ml325 {
+  margin-left:325px;
+}
+.pt10 {
+  padding-top:10px;
+}
+.pt20 {
+  padding-top:20px;
+}
+.pb10 {
+  padding-bottom:10px;
+}
+.pb20 {
+  padding-bottom:20px;
+}
+.pr10 {
+  padding-right:10px;
+}
+.pr20 {
+  padding-right:20px;
+}
+.pb0{
+  padding-bottom: 0px;
+}
+.pb60 {
+  padding-bottom:60px;
+}
+.pl10 {
+  padding-left:10px;
+}
+.pl20 {
+  padding-left:20px;
+}
+.fs11 {
+  font-size:11px;
+}
+.fs14 {
+  font-size:14px;
+}
+.fs16 {
+  font-size:16px;
+}
+.fs18 {
+  font-size:18px;
+}
+.ttupp {
+  text-transform:uppercase;
+}
+.ttcaps {
+  text-transform:capitalize;
+}
+.lh25 {
+  line-height:25px;
+}
+.error,
+.error_list {
+  color:#F00;
+  padding: 4px 0;
+}
+.flri {
+  float:right!important;
+}
+.flle {
+  float:left!important;
+}
+.flno {
+  float:none!important;
+}
+.tar,
+p.tar {
+  text-align:right;
+}
+.tac {
+  text-align:center;
+}
+#gigya-auth_whatsThis,
+.start-hidden {
+  display:none;
+}
+#rightrail-promo #gigya-rightrail-auth{
+  position: absolute;
+  left: 85px;
+  top: 60px;
+}
+#rightrail-promo-not #gigya-rightrail-auth{
+  position: absolute;
+  left: 80px;
+  top: 40px;
+}
+/*this is purely to fix an IE issue*/
+#gigya-rightrail-auth div[title="Facebook"]{
+  margin-top: 0px;
+}
+#gigya-auth div div img, #gigya-rightrail-auth div div img{
+  width: 160px !important;
+  height: 21px !important;
+}
+.gigya-popup-auth{
+  position: relative;
+  left: 95px;
+  bottom: 100px;
+}
+
+.w50per {
+  width:50%;
+}
+.wauto {
+  width:auto!important;
+}
+.m0 {
+  margin:0!important;
+}
+.w100 {
+  width:100px;
+}
+.w180 {
+  width:180px;
+}
+.w300 {
+  width:300px;
+}
+.w400 {
+  width:400px;
+}
+.w460 {
+  width:460px;
+}
+.w500 {
+  width:500px;
+}
+.w550 {
+  width:550px;
+}
+.w660 {
+  width:660px;
+}
+.clno {
+  clear:none!important;
+}
+.relative {
+  position:relative;
+}
+.absolute {
+  position:absolute;
+}
+.topright {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.italic {
+  font-style:italic;
+}
+.hidden{
+  display:none;
+}
+/*-----
+RESIZE THE IMAGES
+-----*/
+#popular-cooks ul li img,
+.article #featured-contest img,
+#editorials img,
+#pop_stories img,
+/* .sidebar #user-profile img, */
+#reward-challenge ul li img {
+  width:100px;
+  height:auto;
+}
+#top-cooks ul li img {
+  width:50px;
+  height:auto;
+}
+#most-active-cooks ul li img {
+  width:75px;
+  height:auto;
+}
+id class {
+  width:280px;
+  height:auto;
+}
+.imgmask50 {
+  height:50px;
+  width:50px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask50 img {
+  width:auto;
+  height:50px;
+  float:none;
+  margin:0;
+}
+.imgmask75 {
+  height:75px;
+  width:75px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask75 img {
+  width:auto;
+  height:75px;
+  float:none;
+  margin:0;
+}
+.imgmask100 {
+  height:100px;
+  width:100px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask100 img {
+  width:auto;
+  height:100px;
+}
+.imgmask150 {
+  height:150px;
+  width:150px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask150 img {
+  width:auto;
+  height:150px;
+}
+.imgmask200 {
+  height:200px;
+  width:200px;
+  margin-bottom: 40px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask200 img {
+  width:auto;
+  height:200px;
+}
+.imgmask205 {
+  height:205px;
+  width:280px;
+  margin-bottom: 40px;
+  overflow:hidden;
+  display:block;
+}
+.imgmask205 img {
+  width:auto;
+  height:205px;
+}
+
+
+#article-detail .imgmask100,
+#recland-list .imgleft li .imgmask100,
+#journals #popular .imgmask100,
+#journals #recent .imgmask100,
+#featured-contests ul li .imgmask100,
+.sidebar #my-groups ul li .imgmask50,
+#my-raves ul li .imgmask50,
+#my-friends ul li .imgmask50,
+.group-detail #discussions .imgmask100,
+#recipe-comments .comments li .imgmask100,
+#recent-activity ul li .imgmask100  {
+  float:left;
+  margin:0 20px 20px 0;
+}
+#recent-activity ul li .imgmask100 {
+  margin-bottom:0;
+}
+#recland-list .imgleft li img,
+#journals #popular li img,
+#journals #recent li img {
+  float:none;
+  margin:0;
+}
+.faux-sorting span {
+  display:inline-block;
+}
+.faux-sorting .first {
+  width:455px;
+}
+.faux-sorting .second {
+  width:65px;
+}
+.faux-sorting .third {
+  width:100px;
+}
+/* ALT LAYOUT FOR SERP & My Recipe Box */
+#main-content .sidebar.horflip {
+  float:right;
+  margin-top:20px;
+  width:280px;
+}
+#main-content .article.horflip {
+  float:right;
+  margin:20px 20px 0 20px;
+}
+
+div.flash {
+  padding: 5px 15px;
+  margin: 10px 0;
+}
+div.flash.notice {
+  background: #83AF1B;
+  color: #000000;
+}
+div.flash.error {
+  background: #F00;
+  color: #ffffff;
+}
+
+.standard-form.email-settings label {
+  float: none;
+  width: auto;
+  padding-right: 20px;
+}
+
+/* Microformat */
+.microformat {
+  display: none;
+}
+table.ingredients td {
+  padding: .5em .5em;
+}
+table.ingredients td:first-child {
+  padding-left: 0;
+}
+table.ingredients td:last-child span {
+  /*  font-weight: bold;*/
+}
+.instructions p {
+  margin-bottom: 1em;
+}
+
+/* remove if you want */
+fieldset.date select {
+  width: auto !important;
+  float: none !important;
+  display: inline !important;
+  margin: 0 5px !important;
+}
+fieldset.date label {
+  margin-right: 12px;
+}
+
+/* Message Center */
+
+#message-center {
+
+}
+#message-center table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+#message-center table {
+
+}
+#message-center table th,
+#message-center table td {
+  padding: 4px;
+  text-align: left;
+  vertical-align: top;
+}
+#message-center table tr:nth-child(odd) td {
+  background: #F7F7F7;
+}
+#message-center table tr.unread td {
+  font-weight: bold;
+}
+#message-center table thead th {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  background: #EFE5EF;
+}
+#message-center table tfoot td {
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
+  background: #EFE5EF;
+}
+#message-center .message-body {
+  height: 350px;
+  padding: 10px;
+  overflow: auto;
+}
+#message-center .pagination li a,
+#message-center .pagination li span {
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+}
+#message-center .pagination li span {
+  background: #ccc;
+}
+#message-center .pagination li {
+  float: left;
+  margin-left: 4px;
+}
+#message-center table input[type="text"] {
+  width: 99%;
+}
+#message-center table textarea {
+  width: 100%;
+  height: 95%;
+}
+#message-center table input[type="text"] {
+  width:95%;
+}
+#message-center .message-body p {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+}
+#message-center .message-body blockquote {
+  border-left: 4px solid #ccc;
+  padding: 10px;
+}
+/* END Message Center */
+
+
+.ui-autocomplete {
+  width: 390px;
+  max-height: 300px;
+  overflow: auto;
+  border-left: 1px solid #d1d0d1;
+  border-right: 1px solid #d1d0d1;
+  background: #ececec;
+}
+.ui-autocomplete li a {
+  padding: 5px;
+  border-bottom: 1px solid #d1d0d1;
+  display: block;
+  /*    width: 390px;*/
+  cursor: pointer;
+}
+.ui-autocomplete li a.ui-state-hover {
+  background:#E6FF99;
+}
+.ui-autocomplete-input.loading {
+  background: url(/img/loading-book.gif) right center no-repeat scroll;
+}
+.tags {
+  list-style:none;
+  list-style-position:inside;
+  /*        border: 1px solid #D1D0D1;*/
+  /*        border-top: none;*/
+  /*        background: #fff;*/
+  height: auto;
+  /*        min-height: 17px;*/
+  padding: 5px !important;
+  /*        width: 390px !important;*/
+  /*        float: left;*/
+  /*        clear: none !important;*/
+  /*        margin: 0 !important;*/
+  /*        margin-left: 273px !important;*/
+}
+
+.tags .tag {
+  float:left;
+  clear: none !important;
+  margin: 0 10px 0 0 !important;
+  border: 1px solid #CAD8F3 !important;
+  background-color: #DEE7F8 !important;
+  padding: 1px 5px 2px !important;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 6px 6px;
+  font-family:Verdana;
+  font-size:10px;
+  line-height: 16px;
+  color:#666;
+  width: auto !important;
+}
+
+.tags .close-tag {
+  display:block;
+  text-indent:-9999px;
+  background:url(/img/ui-icons-a.png) top left no-repeat scroll;
+  background-position: -80px -128px;
+  width:16px;
+  height:16px;
+  float:right;
+  margin:2px 0 0 2px;
+}
+.tags .close-tag:hover {
+  background-image: url(/img/ui-icons-a2.png);
+}
+
+/*.input {
+        float:left;
+        width:100%;
+}*/
+
+.tags.group:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .tags.group             { zoom: 1; } /* IE6 */
+*:first-child+html .tags.group { zoom: 1; } /* IE7 */
+
+#privacy h1,
+#privacy h2,
+#privacy h3,
+#privacy p,
+#privacy ul {
+  margin-bottom:10px;
+}
+
+#main-content .signout {
+  text-align: center;
+  width: 100%;
+}
+
+.recipe_list li {
+  position: relative;
+}
+.recipe_list li .recipe_title_and_desc {
+  margin-right: 200px;
+  margin-left: 120px;
+  min-height: 70px;
+}
+.recipe_list li .recipe_title_and_desc.no_image {
+  margin-left: 0;
+  min-height: 0;
+}
+.recipe_list li img {
+  width:100px;
+  max-height: 73px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+
+/**
+ * Form Table
+*/
+table.form {
+  border-collapse: collapse;
+}
+table.form td {
+  vertical-align: top;
+  text-align: left;
+  padding: 0 0 10px 0;
+}
+table.form td:first-child {
+  padding-right: 10px;
+}
+table.form td.label {
+  white-space: nowrap;
+}
+table.form td.submit {
+  padding-right: 0;
+  text-align: right;
+}
+table.form td input,
+table.form td input[type="submit"],
+table.form td textarea {
+  float: none;
+  display: inline;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+#journaladd_title,
+#cke_journaladd_body,
+#journalAdd table td.submit {
+  width:550px\9;
+}
+table.form td input[type="submit"] {
+  width: auto;
+}
+
+.badge20 img { width:20px; height:20px; }
+
+/* Recipe Detail - Contests */
+#recipe-contests-parent { position: relative; border: 3px solid #83AF1B; }
+.recipe-contests.hide { display: none; }
+
+/* previous / next arrow links */
+.prev { width: 90px; float: left; text-transform: uppercase; font-size:14px; padding: 1px 0 0 14px; }
+.prev_active { background: url('/img/prev.png') top left no-repeat; }
+.prev_disabled { background: url('/img/prev_grey.png') top left no-repeat; color: #666666 !important; cursor: default !important; text-decoration: none !important; }
+
+.next { width: 30px; float: left; text-transform: uppercase; font-size:14px; padding: 1px 14px 0 0px; }
+.next_active { background: url('/img/next.png') top right no-repeat; }
+.next_disabled { background: url('/img/next_grey.png') top right no-repeat; color: #666666 !important; cursor: default !important; text-decoration: none !important; }
+
+/* Temporary fix for ET#6515 Remove this once onesite fixes the URL */
+
+#popular-groups p.cta-more { display:none }
+
+/* This is to suppress the ckeditor's spell-checker ad popup */
+#adsBlock{visibility: hidden;}
+
+/* Homepage Poll */
+#result-bar div.img-mask { position: relative; overflow: hidden; width: 100px; height: 100px; }
+#result-bar div.img-mask img { display: inline; position: absolute; top:0; left: -27.5px; }
+#result-bar p.rec_votebtn a.vote { 
+  cursor: pointer;
+  display: block;
+}
+
+.clear-both {
+  clear:both;
+}
+
+#top-friends-recipes .activity-container{
+  width: 150px;
+  float: left;
+  height: 320px;
+}
+
+#top-friends-recipes .img-mask {
+  position: relative;
+  overflow: hidden; 
+  width: 150px; 
+  height: 150px;
+}
+#top-friends-recipes .img-mask img {
+  display: inline; 
+  position: absolute; 
+  top:0; 
+  left: -27.5px;
+  height: 150px;
+}
+
+#top-friends-recipes .activity-info{
+  width: 150px;
+}
+
+#top-trending ul li{
+  width: 150px;
+}
+
+#top-trending .img-mask {
+  position: relative; overflow: hidden; width: 150px; height: 150px;
+}
+#top-trending .img-mask img {
+  display: inline; position: absolute; top:0; left: -27.5px;
+}
+
+.cssbutton {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+  background-color:#ededed;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#777777;
+  font-family:arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #ffffff;
+}
+.cssbuton:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  background-color:#dfdfdf;
+}
+.cssbutton:active {
+  position:relative;
+  top:1px;
+}
+
+.users{
+  float:left;
+}
+
+.img-w150 {
+  width: 150px;
+}
+/***
+BEGINNING OF THE NEW STYLES
+***/
+
+/* Slideshows */
+
+.recipe-slidesshow-container .recipe-slidesshow {
+  float:left;
+  width:100%;
+}
+
+.recipe-slidesshow-container img.previous-img {
+  float:left;
+  padding: 70px 25px 0 0;
+}
+
+.recipe-slidesshow-container img.next-img {
+  float:left;
+  padding-top: 70px;
+}
+
+.recipe-slidesshow-container .activity-container {
+  float:left;
+  padding: 0 25px 0 0;
+}
+
+.recipe-slidesshow-container .activity-container .rec_title {
+  padding: 10px 0 3px 0;
+  width: 150px;
+  height: 40px;
+}
+
+#trending-recipes {
+  clear: both;
+}
+
+#trending-recipes .activity-container .rec_title {
+  height: 60px;
+}
+
+.recipe-slidesshow-container .activity-container .activity-info .friend-avatars {
+  width: 150px;
+  float: left;
+}
+
+.recipe-slidesshow-container .activity-container .activity-info .friend-avatar {
+  width: 30px;
+  padding: 0 10px 5px 0;
+  float: left;
+}
+
+.recipe-slidesshow-container .activity-container .activity-info .friend-avatar.last {
+  padding-right: 0;
+}
+
+.recipe-slidesshow-container .activity-container .activity-info .friend-avatar img {
+  width: 30px;
+}
+
+/* Right Rail Recipe box */
+
+#user-profile ul.user-controls {
+  width: 100%;  
+}
+
+#user-profile ul.user-controls li {
+  float: left;
+  padding: 0 0 0 12px;
+  width: 62px;
+  font-size: 11px;
+  margin-right: 5px;
+  background: url('/img/arrow-purple-right.png') no-repeat left ;
+}
+
+#user-profile ul.user-controls li#social_button {
+  /*padding-right: 3px;*/
+  margin-right: 5px;
+}
+#user-profile ul.user-controls li#options_button {
+	width: 40px;
+	margin-right: 0px;
+}
+
+#user-profile .popup-container {
+  position:relative;
+  display:block;
+  padding: 0 11px;
+  z-index: 10001;
+}
+
+#user-profile .popup-container .facebook-switch {
+  display:none;
+  position:absolute;
+  top: -10px;
+  border: 1px solid #C9C9C9;
+  background: #EBEBEB ;
+}
+
+#user-profile .popup-container #social_box {
+  width: 200px;
+  height: 67px;
+  background: url('/img/social-button.png') no-repeat #EBEBEB 50% 67% ;
+  text-align: center;
+}
+
+#user-profile .popup-container #activity_box {
+  width: 267px;
+  text-align: left;
+  padding: 5px;
+}
+
+#user-profile .popup-container #options_box {
+  width: 215px;
+  left: 52px;
+  text-align: left;
+  padding: 5px;
+}
+#user-profile #friends_activity_container #friend_activity_list .thumb-container img.recipe-thumb,
+#user-profile .popup-container #activity_box .thumb-container img.recipe-thumb {
+  width: 75px;
+}
+
+#user-profile #friends_activity_container #friend_activity_list .thumb-container,
+#user-profile .popup-container #activity_box .thumb-container {
+  position: relative;
+  clear: both;
+}
+#user-profile #friends_activity_container #friend_activity_list li:after,
+#user-profile .popup-container #activity_box li:after {
+  content: " ";
+  visibility: hidden;
+  clear: both;
+  height: 0;
+  display:block;
+}
+
+#user-profile .popup-container #activity_box .thumb-container img.delete-activity {
+  position: absolute;
+  top: 0;
+  left: 65px;
+}
+
+#user-profile .popup-container .facebook-switch span,
+#user-profile .popup-container .facebook-switch a {
+  display:block;
+}
+
+#user-profile .popup-container .facebook-switch span {
+  padding-top: 6px;
+  text-align: left;
+  padding-left:17px;
+}
+
+#user-profile .popup-container .facebook-switch a {
+  padding-top: 10px;
+}
+
+#user-profile .popup-container .tooltip-arrow {
+  display:none;
+  position:absolute;
+  top: 3px;
+}
+
+#user-profile .popup-container #social_arrow {
+  left: 100px;
+}
+
+#user-profile .popup-container #options_arrow {
+  left: 253px;
+}
+
+#user-profile .popup-container #activity_arrow {
+  left: 192px;
+}
+
+#user-profile .popup-container #social {
+  left: 2px;
+}
+
+#user-profile ul.user-controls {
+  margin: -5px 0 0;
+}
+
+#user-profile ul.user-controls li.active {
+  background: url('/img/arrow-purple-down.png') no-repeat left ;
+}
+
+#user-profile .user-controls li img {
+  margin-right: 10px;  
+}
+
+#user-profile .user-controls #social_button span.pinhead {
+  display: block;
+  /*width: 76px;*/
+  font-size: 11px;
+}
+
+#user-profile .user-controls #social_button span.pinhead.on {
+  background: url('/img/pinhead.png') no-repeat 52px center ;
+}
+
+#user-profile div.ttupp {
+  width: 100%;
+  height: 50px;
+  margin: 0 11px;
+}
+
+#user-profile div.seperator {
+  border-top: 1px solid #C9C9C9;
+  display: block;
+  width: 100%;
+  margin-top: 1px !important;
+}
+
+#user-profile #activity_completed_container  {
+  display:none;
+}
+
+#user-profile #activity_completed_container,
+#user-profile #friends_activity_container,
+#user-profile #user_rail_activity_container  {
+  padding-top: 20px;
+  margin: 0 11px;
+}
+
+#user-profile #activity_completed_container #activity_completed  {
+  margin-top: 0;
+}
+#user-profile #user_rail_activity_container .activity-list {
+	clear: left;
+}
+
+#user-profile #user_rail_activity_container .activity-list li  {
+  float: left;
+  width: 75px;
+  margin-right: 25px;
+  margin-top: -15px !important;
+}
+
+#user-profile #user_rail_activity_container .activity-list li.last  {
+  margin-right: 0;
+}
+
+#user-profile #user_rail_activity_container .activity-list li img  {
+  width: 75px;
+}
+
+#user-profile #friends_activity_container .header,
+#user-profile #user_rail_activity_container .header  {
+  float:left;
+  font-size: 16px;
+}
+
+#user-profile #friends_activity_container .header { width: 184px; }
+#user-profile #user_rail_activity_container .header { width: 180px; }
+
+#user-profile #activity_completed_container .header,
+#user-profile #activity_box .header {
+  font-size: 16px;
+}
+
+#user-profile #activity_completed_container .header {
+  margin-bottom: 10px;
+}
+
+#user-profile #user_rail_activity_container .pagination  {
+  float:left;
+}
+
+#user-profile #user_rail_activity_container .activity-list li a  {
+  font-size: 10px;
+}
+
+#user-profile #user_rail_activity_container .activity-list li .thumb-container {
+  position: relative;
+  clear: both;
+}
+
+#user-profile #user_rail_activity_container .activity-list li .thumb-container img.delete-activity {
+  position: absolute;
+  top: -8px;
+  left: 65px;
+  width: 18px !important;
+}
+
+#user-profile .recipe-box {
+  width: 100%;
+  display:block;
+}
+
+#user-profile .recipe-box .button273x28 {
+  background: url('/img/bg-btn-gray-278x28.png') no-repeat left ;
+  width: 278px;
+  height: 28px;
+  display:block;
+  text-align: center;
+  padding-top:15px;
+}
+#user-profile #friends_activity_container #friends_bar{
+  padding-top: 30px;
+}
+
+#user-profile #friends_activity_container .activity-list{
+  display: none;
+}
+
+#user-profile #friend_activity_list li.header{
+  border-bottom: 1px solid #000000;
+  margin-bottom: 20px;
+  padding-bottom: 7px;
+  width:100%;
+}
+
+#user-profile #friend_activity_list {
+  border: 1px solid #C9C9C9;
+  background: #EBEBEB ;
+  width: 267px;
+  text-align: left;
+  padding: 5px;
+  float:left;
+  position: relative;
+  display: none;
+  z-index: 10000;
+}
+
+#user-profile #friend_activity_list img.tooltip-arrow {
+  position: absolute;
+  top: -8px;
+  left: 0px;
+}
+
+#user-profile #user_rail_activity_container li.users {
+  position:relative;
+}
+
+#user-profile #user_rail_activity_container li.users  {
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+
+#user-profile #user_rail_activity_container li.users ul.activity-list li {
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+
+#user-profile .pager.arrows {
+  float:left;
+}
+
+#user-profile .pager.arrows.my-activity {
+  margin:5px 0 0 218px;
+}
+
+#user-profile .pager.arrows.going-to-make {
+  margin:0 0 0 45px;
+}
+
+#user-profile .pager.arrows a,
+#user-profile .pager.arrows img {
+  margin: 0;
+  padding:0;
+  float:left;
+}
+
+/* Recipe Box CSS */
+#recipeBoxContainer { float: left; display: block; }
+#recipe-box-container {
+  float: left;
+  width: 150px;
+  height: 290px;
+  margin-right: 15px;
+}
+#recipe-box-container p.mb10 { min-height: 40px; }
+.recently-viewed {
+  height:120px;
+}
+.graphic-button {
+  padding:5px 3px;
+  text-align:center;
+  display:inline-block;
+  color:#660066;
+  cursor:pointer;
+  font-size:14px;
+  text-transform:uppercase;
+  font-weight:bold;
+  width:130px;
+  height: 28px;
+  background: url('/img/graphic_button.png') 0 0  no-repeat;
+  margin:0;
+}
+
+#rightrail-promo, #rightrail-promo-not{
+  position:relative;
+  border: 2px solid #823a84;
+  margin-top: 0px !important;
+}
+
+/* gigya reset */
+.gig-bar-container gig-share-bar-container table {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 100% !important;
+  vertical-align: baseline !important;
+  background: transparent !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+}
+.gig-button-container-google-plusone,
+.gig-button-container-facebook-like {
+  position: relative;
+  top: 0px;
+}
+div.gig-button-container { padding: 0 !important; }
+.gig-bar-container *, div.gig-reactions-container, .gig-reactions-container span, .gig-reactions-container a:hover, .gig-reactions-container a:visited, .gig-reactions-container a:link, .gig-reactions-container a:active {
+  /*width: 90px!important;*/
+}
+.gig-button-container gig-button-container-count-right gig-button-container-google-plusone gig-button-container-google-plusone-count-right gig-share-button-container div {
+  margin:0!important;
+  padding:0!important;
+}
+.gig-button-container gig-button-container-count-right gig-button-container-pinterest gig-button-container-pinterest-count-right gig-share-button-container div {
+  margin:0!important;
+  padding:0!important;
+}
+#inlinesharebar-reaction1_tweet1340393664911 {
+  margin-left: -5px!important;
+}
+#inlinesharebar-reaction2 {
+  margin-left: -14px!important;
+}
+#inlinesharebar-reaction3 {
+  margin-left: -14px!important;
+}
+#inlinesharebar-reaction4 {
+  margin-left: 18px !important;
+}
+
+/*====================----------//////////
+  IV C :: FEATURE : popups
+\\\\\\\\\\----------====================*/
+.popup {
+  position:absolute;
+  top:0;
+  left:-9999%;
+  height:100%;
+  width:100%;
+  z-index:1000;
+  opacity:0;
+
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2NjY2NiIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY2NjY2NiIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+  background: -moz-linear-gradient(top,  rgba(102,102,102,0.8) 0%, rgba(102,102,102,0.8) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(102,102,102,0.8)), color-stop(100%,rgba(102,102,102,0.8))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(102,102,102,0.8) 0%,rgba(102,102,102,0.8) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(102,102,102,0.8) 0%,rgba(102,102,102,0.8) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(102,102,102,0.8) 0%,rgba(102,102,102,0.8) 100%); /* IE10+ */
+  background: linear-gradient(top,  rgba(102,102,102,0.8) 0%,rgba(102,102,102,0.8) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc666666', endColorstr='#cc666666',GradientType=0 ); /* IE6-8 */
+}
+.popup article {
+  position:absolute;
+  top:100px;
+  left:50%;
+  width:200px;
+  margin:0 0 0 -100px;
+  border:solid 1px #d6d6d6;
+  background-color:#FFFFFF;
+  height:259px;
+  overflow-y:auto;
+  text-align: center;
+}
+.popup article .btn-close {
+  position:absolute;
+  top:9px;
+  right:9px;
+  height:23px;
+  width:23px;
+  text-indent:-999%;
+  background:url(/img/btn-close.png) no-repeat center center;
+  display:block;
+}
+.popup article .btn-close:hover {
+  border-color:#675d5b;
+  text-decoration:none;
+}
+#popup-login article {
+  width:430px;
+  margin:0 0 0 -300px;
+  background:url(/img/bg-login.png) no-repeat center center #fff;
+  overflow: hidden;
+}
+.popup article h2{
+  font-size: 160%;
+  color: #893d8b;
+  padding-bottom: 10px;
+}
+.popup article p{
+  font-size: 120%;
+  font-weight: bold;
+}
+#collectionCreate article,
+#petsUpload article,
+#feedbackContainer article {
+  width: 388px;
+  margin:0 0 0 -249px;
+}
+
+#friendRibbonContainer { 
+  border-bottom: 1px solid #cccccc; 
+  border-top: 1px solid #cccccc; 
+  /*float: left; */
+  margin: 15px 0 15px; 
+  width: 660px; 
+  padding: 15px 0px; 
+  background-image: -webkit-gradient(linear, left center, right center, from(#fcfcfc), to(#f1f1f1));
+  background-image: -webkit-linear-gradient(left, #fcfcfc, #f1f1f1);
+  background-image: -moz-linear-gradient(left, #fcfcfc, #f1f1f1);
+  background-image: -o-linear-gradient(left, #fcfcfc, #f1f1f1);
+  background-image: -ms-linear-gradient(left, #fcfcfc, #f1f1f1);
+  background-image: linear-gradient(to right, #fcfcfc, #f1f1f1);
+}
+#friendRibbonContainer p.header { float: left; font-size: 16px; width: 190px; margin-left: 25px; margin-bottom: 20px; }
+#friendRibbonContainer #friends_bar { display: block; margin-left: 25px; clear: both; }
+#friendRibbonContainer #friends_bar ul li.users { float: left; display: inline; margin-right: 10px; }
+#friendRibbonContainer .pagination { float: right; position: relative; margin-right: 30px; }
+#friendRibbonContainer .pagination .nbResults { position: absolute; top: 0; left: -60px; }
+#friendRibbonContainer .pagination .sorting.shift-right { margin-top: 0 !important; }
+#friendRibbonContainer .pagination .pager.arrows a, #friendRibbonContainer .pagination .pager.arrows img { float: left; margin: 0; padding: 0; }
+
+#friendRibbonContainer #friends_bar ul li.users { position: relative;}
+
+#friendRibbonContainer .friend_activity_list {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  background: none repeat scroll 0 0 #EBEBEB;
+  border: 1px solid #C9C9C9;
+  display: none;
+  /*float: left;*/
+  padding: 5px;
+  text-align: left;
+  width: 307px;
+  z-index: 10000;
+}
+#friendRibbonContainer .friend_activity_list .tooltip-container { position: relative; }
+#friendRibbonContainer .friend_activity_list img.tooltip-arrow { position: absolute; top: -13px; left: 6px; }
+
+#friendRibbonContainer .friend_activity_list p.name { float: left; font-size: 15px; width: 298px; margin: 5px 0 15px 5px; padding-bottom: 10px; border-bottom: 1px solid; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li { clear:both; margin-bottom: 0px; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li a.img { float: left; overflow: hidden; width: 75px; height: 75px; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li a.img img { display: block; height: auto; width: 100%; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li div.info { width: 210px; float:left; margin-left: 10px; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li div.info p.big { font-size: 13px; margin-bottom: 8px; }
+#friendRibbonContainer .friend_activity_list ul.activity-list li div.info p.small { font-size: 12px; margin: 0 !important; }
+
+/* New Signin Page Designs */
+
+#main-content div.article.signin-page {
+  min-height: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+#main-content div.banner.signin-page div {
+  margin-left: 0;
+}
+
+#main-content #gigya-auth.signin-page  {
+  margin-top: 10px; 
+}
+
+#main-content #gigya-auth.signin-page div div img  {
+  width: auto !important;
+  height: auto !important;
+}
+
+#main-content fieldset.fineprint.signin-page  {
+  margin-top: 25px;
+  width: 100%;
+}
+
+#main-content fieldset.fineprint.signin-page label  {
+  text-transform: none;
+}
+
+/* hack to add "Pin-It" button to Gigya Share button */
+#inlinesharebar-reaction1 {
+	background: url(http://d3io1k5o0zdpqr.cloudfront.net/images/pinit6.png);
+	font: 11px Arial, sans-serif;
+	text-indent: -9999em;
+	font-size: .01em;
+	color: #CD1F1F;
+	height: 20px;
+	width: 43px;
+	background-position: 0 -7px;
+}
+#inlinesharebar-reaction1 #inlinesharebar-reaction3-pinterest_img { display: none; }
+#inlinesharebar-reaction1-count { 
+	margin-right: 20px\9; /* IE8 and below  */
+}
+#inlinesharebar-reaction1 .gig-button-text  { display: none; }
+
+#inlinesharebar-reaction5{
+  display: none !important;
+}
+
+#upGigyaContainer { float: right; }
+#upGigya {  }
+

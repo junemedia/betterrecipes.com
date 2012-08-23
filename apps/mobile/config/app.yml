@@ -1,0 +1,25 @@
+all:
+  session_ttl:        1209600 # 15 days
+  ckeditor:
+    basePath:         '/ckeditor/'
+  ckfinder:
+    basePath:         '/ckfinder/'
+    active:           true
+  memcache:
+    keys:
+      user_groups:    user_groups/%user_id%
+  facebook:
+    appid:            175775159784
+  meta:
+    category:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    recipe:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
+    article:     
+      title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
+      description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
+      keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'

@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+/*----- BEGIN: reset -----*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary, video { 
+    display:block;
+}
+.group:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+/*----- END: reset -----*/
+
+body {
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#666666;
+	line-height:1.3em;
+}
+
+#main-content {
+}
+#main-content .section {
+	height:auto;
+}
+#main-content .section div {
+	text-align:center;
+}
+#main-content .section div img {
+	max-width:571px;
+	height:auto;
+	width:auto;
+}
+a {
+	color:#660066;
+	text-decoration:none;
+	cursor:pointer;
+}
+a:hover {
+	text-decoration:underline;
+}
+
+a.inactive {
+	color:#CCC;
+	cursor:default;
+}
+a.inactive:hover {
+	text-decoration:none;
+}
+#nav_container {
+	padding:10px 0;
+	background-color:#FFF;
+	margin-top:10px;
+}
+#nav_container ul li a.left-arrow {
+	border-right:#660066 solid 1px;
+	margin-right:5px;
+	padding-right:7px;
+}
+p {
+	text-align:center;
+	margin:10px 0;
+}
+#title,
+#description {
+	color:#660066;
+	width:100%;
+	text-align:center;
+	margin:10px 0;
+}
+#title {
+	text-transform:uppercase;
+	color:#660066;
+}
+#main-content .section form {
+	width:100%;
+	background-color:#F4F3F3;
+	padding:20px;
+}
+#main-content .section form input[type="submit"] {
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	display:block;
+	background-color:#ebebeb;
+	border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+	border-style:solid;
+	border-width:1px;
+	-moz-box-shadow: 1px 1px 0px #262626;
+	-webkit-box-shadow: 1px 1px 0px #262626;
+	box-shadow: 1px 1px 0px #262626;
+	/* the below is added for the submit button in Daily Dish, it could mess up other pages, if yes, seperate */
+	color:#660066;
+	cursor:pointer;
+	font-size:14px;
+	text-transform:uppercase;
+	font-weight:bold;
+	float:right;
+	margin:20px 41px 20px 0;
+}
+#main-content .section form table {
+	width:100%;
+}
+#main-content .section form table tbody th {
+	text-align:left;
+	width:120px;
+	vertical-align:top;
+}
+#main-content .section form input[type="text"] {
+	width:385px;
+	margin-bottom:20px;
+}
+#main-content .section form textarea {
+	width:389px;
+	margin-bottom:20px;
+}
+
+.slides {
+  width: 280px;
+  margin: 0 auto;
+}
+.slide {
+  margin-bottom: 40px;
+}

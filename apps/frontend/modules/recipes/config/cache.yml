@@ -1,0 +1,35 @@
+_author:
+  enabled: on
+  contextual: true
+  lifetime: 600
+  
+_categories:
+  enabled: on
+  lifetime: 7200
+  
+_footer_categories:
+  enabled: on
+  lifetime: 7200
+  
+_catlevel_category_block:
+  enabled: on
+  lifetime: 7200
+  
+_catlevel_recipes_slideshows:
+  enabled: on
+  lifetime: 600
+  
+_recent_recipes:
+  enabled: on
+  contextual: true
+  lifetime: 300
+  
+_recipe_wonder:
+  enabled: on
+  contextual: true
+  lifetime: 7200
+  
+_stories:
+  enabled: on
+  contextual: true
+  lifetime: 7200

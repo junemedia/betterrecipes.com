@@ -1,0 +1,16 @@
+
+
+all:
+  metas:
+    title:        BetterRecipes Administration Signin
+    robots:       noindex, nofollow
+    
+  stylesheets:
+    - -/css/ui-darkness/jquery-ui-1.8.14.custom.css: { raw_name: true }
+ 
+  javascripts:
+    - -/js/jquery-ui-1.8.14.custom.min.js: { raw_name: true }
+    - -/js/betterrecipes.js: { raw_name: true }
+
+  has_layout:     true
+  layout:         layout_auth

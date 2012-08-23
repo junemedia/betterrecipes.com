@@ -1,0 +1,54 @@
+arset "UTF-8";
+/*Reset Style*/
+body {margin:0; padding:0; line-height: 1.4em; word-spacing:1px; letter-spacing:0.2px; font: 13px Arial, Helvetica,"Lucida Grande", serif; color: #000;}
+
+.sidebar,
+#fb-root,
+#sharebar,
+#show_sharebar,
+#main-footer,
+#main-header .sign-in,
+.search-bar,
+.mb-nav,
+.ad1000x45,
+#main-header .social,
+#breadcrumbs,
+.popup,
+#recipe-sharebar,
+#recipe-detail .main-image p,
+#rating_container,
+.author-info,
+#recipe-comments,
+.theme-facts,
+#recipe-detail .images p,
+#recipe-detail .recipe-meta .addrate,
+#recipe-detail .recipe-meta .author-meta,
+#recipe-detail .recipe-meta #rating_container,
+#sfWebDebug,
+.logo-space .hd-ad,
+.ad728x90,
+.microformat,
+#recipe-detail .header,
+#modal_div {
+	display:none;
+}
+
+#recipe-detail .images {
+	float: left;
+	margin: 0 20px 20px 0;
+	width: 300px;
+}
+h3 {
+	color: #333333;
+  font: 900 28px/40px "palatino Linotype",palatino,serif;
+	width:100%;
+	clear:both;
+}
+
+#recipe-detail .ingredients {
+	clear:both;
+	width:100%;
+}
+ul, ol {
+	list-style:none;
+}

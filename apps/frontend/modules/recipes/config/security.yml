@@ -1,0 +1,17 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/08-Security
+
+default:
+  is_secure: false
+  
+new:
+  is_secure: true
+  
+edit:
+  is_secure: true
+  
+newphoto:
+  is_secure: true
+  
+print:
+  is_secure: true

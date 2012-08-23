@@ -1,0 +1,785 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# Static Routes -----------------------------------------------------------------
+  
+privacy-policy:
+  url: /privacy-policy
+  params: { module: static, action: privacyPolicy }
+  requirements:
+    sf_method: [get]
+    
+terms:
+  url: /terms
+  params: { module: static, action: terms }
+  requirements:
+    sf_method: [get]
+    
+social:
+  url: /social
+  params: { module: static, action: social }
+  requirements:
+    sf_method: [get]
+    
+help:
+  url: /help
+  params: { module: static, action: help }
+  requirements:
+    sf_method: [get]
+    
+official_rules:
+  url: /rules/0822/official-rules
+  params: { module: static, action: officialRules }
+  requirements:
+    sf_method: [get]
+
+view_full_site:
+  url: /auth/viewfullsite
+  params: { module: auth, action: viewfullsite }
+    
+# -------
+
+# User Routes -----------------------------------------------------------------
+
+signin:
+  url: /signin
+  params: { module: auth, action: login }
+  requirements:
+    sf_method: [get|post]
+
+forgot_password:
+  url: /forgot-password
+  params: { module: auth, action: forgotPassword }
+  requirements:
+    sf_method: [get|post]
+    
+signup_skip:
+  url: /signup-skip
+  params: { module: auth, action: signupSkip }
+  requirements:
+    sf_method: [get]
+    
+signup:
+  url: /signup
+  params: { module: auth, action: index }
+  requirements:
+    sf_method: [get|post]
+
+signup_step2:
+  url: /signup/step-2
+  params: { module: auth, action: signupStep2 }
+  requirements:
+    sf_method: [get|post]
+
+signup_step3:
+  url: /signup/step-3
+  params: { module: auth, action: signupStep3 }
+  requirements:
+    sf_method: [get]
+  
+signout:
+  url: /signout
+  params: { module: auth, action: signout }
+  requirements:
+    sf_method: [get|post]
+    
+get_auth_info:
+  url: /_get-auth-info
+  params: { module: auth, action: getAuthInfo }
+    
+# -------
+
+rave_redirect:
+  url: /cooks/raveredirect
+  params: { module: cooks, action: raveredirect }
+
+cooks_landing:
+  url: /cooks
+  param: { module: cooks, action: index }
+  requirements:
+    sf_method: [get]
+    
+cooks_search:
+  url: /cooks/search.:sf_format
+  param: { module: cooks, action: search }
+  requirements:
+    sf_method: [get]
+
+cook_profile_recipes_paginate:
+  url: /cooks/recipes_paginate
+  params: { module: cooks, action: recipes_paginate }
+  
+cook_profile_discussions_paginate:
+  url: /cooks/discussions_paginate
+  params: { module: cooks, action: discussions_paginate }
+  
+cook_profile_photos_paginate:
+  url: /cooks/photos_paginate
+  params: { module: cooks, action: photos_paginate }
+  
+cook_profile_videos_paginate:
+  url: /cooks/videos_paginate
+  params: { module: cooks, action: videos_paginate }
+  
+cook_profile_journals_paginate:
+  url: /cooks/journals_paginate
+  params: { module: cooks, action: journals_paginate }
+  
+cook_profile_polls_paginate:
+  url: /cooks/polls_paginate
+  params: { module: cooks, action: polls_paginate }
+  
+cook_profile_groups_paginate:
+  url: /cooks/groups_paginate
+  params: { module: cooks, action: groups_paginate }
+  
+cook_profile_friends_paginate:
+  url: /cooks/friends_paginate
+  params: { module: cooks, action: friends_paginate }
+  
+cook_profile_raves_paginate:
+  url: /cooks/raves_paginate
+  params: { module: cooks, action: raves_paginate }
+    
+cook_profile:
+  url: /cooks/:subdir
+  class: sfDoctrineRoute
+  params: { module: cooks, action: profile }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+cook_profile_private:
+  url: /cooks/:subdir/private
+  class: sfDoctrineRoute
+  params: { module: cooks, action: privateProfile }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+cook_profile_edit:
+  url: /cooks/:subdir/edit
+  class: sfDoctrineRoute
+  params: { module: cooks, action: editProfile }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+cook_profile_email_settings:
+  url: /cooks/:subdir/email-settings
+  class: sfDoctrineRoute
+  params: { module: cooks, action: emailSettings }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+
+
+    
+cook_profile_recipes:
+  url: /cooks/:subdir/recipes
+  class: sfDoctrineRoute
+  params: { module: cooks, action: recipes }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+
+    
+cook_profile_raves:
+  url: /cooks/:subdir/raves
+  class: sfDoctrineRoute
+  params: { module: cooks, action: raves }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+cook_profile_saved_recipes:
+  url: /cooks/:subdir/saved-recipes
+  class: sfDoctrineRoute
+  params: { module: cooks, action: savedRecipes }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+
+cook_profile_discussions:
+  url: /cooks/:subdir/discussions
+  class: sfDoctrineRoute
+  params: { module: cooks, action: discussions }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+cook_profile_friends:
+  url: /cooks/:subdir/friends
+  class: sfDoctrineRoute
+  params: { module: cooks, action: friends }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+  
+cook_profile_groups:
+  url: /cooks/:subdir/groups
+  class: sfDoctrineRoute
+  params: { module: cooks, action: groups }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+cook_profile_photos:
+  url: /cooks/:subdir/photos
+  class: sfDoctrineRoute
+  params: { module: cooks, action: photos }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+cook_profile_videos:
+  url: /cooks/:subdir/videos
+  class: sfDoctrineRoute
+  params: { module: cooks, action: videos }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+cook_profile_polls:
+  url: /cooks/:subdir/polls
+  class: sfDoctrineRoute
+  params: { module: cooks, action: polls }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+cook_profile_journals:
+  url: /cooks/:subdir/journals
+  class: sfDoctrineRoute
+  params: { module: cooks, action: journals }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+make_friend:
+  url: /cooks/makefriend
+  params: {  module: cooks, action: makefriend }
+  
+accept_friend:
+  url: /cooks/acceptfriend
+  params: { module: cooks, action: acceptfriend }
+  
+drop_friend:
+  url: /cooks/dropfriend
+  params: { module: cooks, action: dropfriend }
+
+# End User Routes -------------------------------------------------------------
+
+# Mixingbowl-Forward Routes --------------------------------------------------------------
+
+mixingbowl_recipes:
+  url: /message/recipe/*
+  param: { module: recipes, action: mixingbowl }
+
+# End Mixingbowl-Forward Routes -------------------------------------------------------------
+  
+# Daily Dish-Forward Routes --------------------------------------------------------------
+
+dailydish:
+  url: /daily-dish/*
+  param: { module: dailydish, action: index }
+
+# End Daily Dish-Forward Routes -------------------------------------------------------------
+
+# Myrecipebox Routes --------------------------------------------------------------
+
+add_collection:
+  url: /myrecipebox/addFolder/*
+  param: { module: myrecipebox, action: addFolder }
+
+edit_collection:
+  url: /myrecipebox/editFolder/:folder/*
+  param: { module: myrecipebox, action: editFolder }
+
+delete_collection:
+  url: /myrecipebox/deleteFolder/:folder/*
+  param: { module: myrecipebox, action: deleteFolder }
+
+delete_collection_recipe:
+  url: /myrecipebox/deleteCollectionRecipe/:recipe/:folder/*
+  param: { module: myrecipebox, action: deleteCollectionRecipe }
+
+#delete_saved_recipe:
+#  url: /myrecipebox/deleteSavedRecipe/:recipe/*
+#  param: { module: myrecipebox, action: deleteSavedRecipe }
+  
+delete_saved_recipe:
+  url: /myrecipebox/deleteSavedRecipe
+  param: { module: myrecipebox, action: deleteSavedRecipe }
+
+move_recipe:
+  url: /myrecipebox/moveRecipe/:recipe/:from/:to/*
+  param: { module: myrecipebox, action: moveRecipe, recipe: null, from: null, to: to }
+
+#myrecipebox:
+#  url: /myrecipebox/:folder/:order_by/:page_no/*
+#  param: { module: myrecipebox, action: index, folder: all, order_by: date-desc, page_no: 1 }
+
+paginate_saved:
+  url: /myrecipebox/paginate_saved
+  param: { module: myrecipebox, action: paginate_saved }
+  
+paginate_personal:
+  url: /myrecipebox/paginate_personal
+  param: { module: myrecipebox, action: paginate_personal }
+
+  
+# mobile version of myrecipebox (default)
+myrecipebox:
+  url: /myrecipebox
+  param: { module: myrecipebox, action: index }
+  
+# End Myrecipebox Routes -------------------------------------------------------------
+
+# Message Center --------------------------------------------------------------
+
+messages:
+  url: /messages
+  params: { module: message, action: index }
+  
+message_count:
+  url: /messages/count
+  params: { module: message, action: newMsgCount }
+  
+messages_inbox: 
+  url: /messages/inbox/:page
+  class: sfDoctrineRoute
+  params: { module: message, action: inbox, page: 1 }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+messages_sent: 
+  url: /messages/sent/:page
+  class: sfDoctrineRoute
+  params: { module: message, action: sent, page: 1 }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+
+messages_trash: 
+  url: /messages/trash/:page
+  class: sfDoctrineRoute
+  params: { module: message, action: trash, page: 1 }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+    
+message_delete: 
+  url: /message/delete
+  class: sfDoctrineRoute
+  params: { module: message, action: delete }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+message_compose: 
+  url: /message/compose
+  class: sfDoctrineRoute
+  params: { module: message, action: compose }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+message_reply: 
+  url: /message/:message_id/reply
+  class: sfDoctrineRoute
+  params: { module: message, action: reply }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+message_forward: 
+  url: /message/:message_id/forward
+  class: sfDoctrineRoute
+  params: { module: message, action: forward }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+message_read: 
+  url: /message/:message_id
+  class: sfDoctrineRoute
+  params: { module: message, action: read }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get]
+
+
+# End Message Center ----------------------------------------------------------
+
+# BETTER RECIPES ROUTING - START
+
+create_comment:
+  url: /comment/create
+  param: { module: comment, action: index }
+
+get_comments:
+  url: /comment/getcomments
+  param: { module: comment, action: getcomments}
+  
+comment_auth:
+  url: /comment/auth
+  param: { module: comment, action: commentauth }
+  
+recipe_photos:
+  url: /recipes/photos/recipe_id/:recipe_id
+  param: { module: recipes, action: photos }
+
+add_recipe_photo:
+  url: /recipes/photos/new/:recipe_id
+  param: { module: recipes, action: newphoto }
+
+add_recipe:
+  url: /recipes/new
+  param: { module: recipes, action: new }
+
+edit_recipe:
+  url: /recipes/edit/id/:id
+  param: { module: recipes, action: edit }
+
+photo_detail:
+  url: /photos/:slug/:id
+  param: { module: photos, action: detail }
+
+photo_upload:
+  url: /photos/upload
+  param: { module: photos, action: upload }
+
+photos:
+  url: /photos
+  param: { module: photos, action: index }
+
+video_detail:
+  url: /videos/:slug/:id
+  param: { module: videos, action: detail }
+
+video_upload:
+  url: /videos/upload
+  param: { module: videos, action: upload }
+
+videos:
+  url: /videos
+  param: { module: videos, action: index }
+
+slideshow_print:
+  url: /slideshows/:slug/print
+  param: { module: slideshows, action: print }
+
+slideshow_redirected_detail:
+  url: /gallery/:slug/*
+  param: { module: slideshows, action: detail }
+
+slideshow_detail:
+  url: /slideshows/:slug
+  param: { module: slideshows, action: detail }
+
+recipes:
+  url: /recipes
+  param: { module: recipes, action: index }
+
+recipe_category_detail:
+  url: /*.html
+  param: { module: recipes, action: subcategory }
+
+recipe_contest_vote:
+  url: /_recipe_contest_vote
+  param : { module: recipes, action: contestVote }
+
+update_vote_status:
+  url: /_update_vote_status/:recipe_id
+  param: { module: recipes, action: updateVoteStatus,  }
+
+article_detail:
+  url: /*.html
+  param: { module: recipes, action: subcategory }
+
+recipes_alt:
+  url: /recipes/
+  param: { module: recipes, action: index }
+
+mixingbowl_group:
+  url: /group/usergroup/*
+  param: { module: groups, action: index }
+
+discussion_detail:
+  url: /mixing-bowl/groups/:group_id/:group_slug/discussions/:thread_id/:thread_slug
+  param: { module: groups, action: discussiondetail }
+  
+discussions:
+  url: /discussions
+  param: { module: discussions, action: index }
+  
+group_save_recipe:
+  url: /groups-saverecipe
+  param: { module: groups, action: saverecipe }
+
+group_paginate_polls:
+  url: /groups/paginate_polls
+  param: { module: groups, action: paginatepolls }
+  
+group_paginate_members:
+  url: /groups/paginate_members
+  param: { module: groups, action: paginatemembers }
+  
+group_change_member_role:
+  url: /groups/change_member_role
+  param: { module: groups, action: changememberrole }
+
+group_paginate_recipes:
+  url: /groups/paginate_recipes
+  param: { module: groups, action: paginaterecipes }
+  
+group_paginate_photos:
+  url: /groups/paginate_photos
+  param: { module: groups, action: paginatephotos }
+  
+group_paginate_videos:
+  url: /groups/paginate_videos
+  param: { module: groups, action: paginatevideos }
+  
+group_paginate_discussions:
+  url: /groups/paginate_discussions
+  param: { module: groups, action: paginatediscussions }
+  
+group_paginate_discussions_detail:
+  url: /groups/paginate_discussions_detail
+  param: { module: groups, action: paginatediscussionsdetail }
+
+group_check_name:
+  url: /checkgroupname
+  param: { module: groups, action: checkgroupname }
+
+group_join:
+  url: /joingroup/:slug
+  param: { module: groups, action: joingroup }
+
+group_create_one:
+  url: /groups/create
+  param: { module: groups, action: create }
+
+group_create_two:
+  url: /groups/create-steptwo/:id
+  param: { module: groups, action: createsteptwo }
+
+group_create_three:
+  url: /groups/create-stepthree/:id
+  param: { module: groups, action: createstepthree }
+  
+group_create_three_complete:
+  url: /groups/create-stepthree-complete/:id
+  param: { module: groups, action: createstepthreecomplete }
+
+group_get_recipes:
+  url: /groupgetrecipes
+  param: { module: groups, action: getrecipes }
+
+group_detail:
+  url: /groups/:slug
+  param: { module: groups, action: detail }
+
+group_edit:
+  url: /groups/:slug/edit
+  param: { module: groups, action: edit }
+
+group_detail_members:
+  url: /groups/:slug/members
+  param: { module: groups, action: members }
+  
+group_detail_photos:
+  url: /groups/:slug/photos
+  param: { module: groups, action: photos }
+
+group_detail_videos:
+  url: /groups/:slug/videos
+  param: { module: groups, action: videos }
+
+group_detail_recipes:
+  url: /groups/:slug/recipes
+  param: { module: groups, action: recipes }
+
+group_detail_polls_detail:
+  url: /groups/:slug/polls/:poll_slug/:id
+  param: { module: groups, action: polldetail }
+  
+group_detail_polls:
+  url: /groups/:slug/polls
+  param: { module: groups, action: polls }
+  
+group_detail_discussions_detail:
+  url: /groups/:slug/discussions/:title/:id
+  param: { module: groups, action: discussiondetail }
+
+group_detail_discussions:
+  url: /groups/:slug/discussions
+  param: { module: groups, action: discussions }
+  
+group_add_existing_recipes:
+  url: /groups/:slug/add-more-recipes
+  param: { module: groups, action: addrecipes }
+
+group_invite_friends:
+  url: /groups/:slug/invite-friends
+  param: { module: groups, action: invitefriends }
+
+group_landing:  
+  url:   /groups
+  param: { module: groups, action: index }
+  
+create_thread:
+  url: /createthread
+  param: { module: groups, action: createthread }
+  
+create_post:
+  url: /createpost
+  param: { module: groups, action: createpost }
+  
+mixing_bowl:  
+  url:   /mixing-bowl
+  param: { module: mixingbowl, action: index }
+
+recipe_article:
+  url:   /recipes/article/:id/:url_title
+  param: { module: recipes, action: article }
+
+journal_detail:
+  url: /journals/:slug/:id
+  param: { module: journals, action: detail }
+
+journal_add:
+  url: /journals/addpost
+  param: { module: journals, action: add }
+  
+journal_paginate_recent:
+  url: /journals/paginate/recent
+  param: { module: journals, action: paginate_recent_journal }
+  
+journal:
+  url: /journals
+  param: { module: journals, action: index }
+
+daily_dish_ajax_list:
+  url: /blogs/daily-dish/ajaxlist
+  param: { module: dailydish, action: paginate_dish_list }
+  
+daily_dish_detail:
+  url: /blogs/daily-dish/:year/:month/:day/:slug
+  param: { module: dailydish, action: detail }
+  
+daily_dish_archive:
+  url: /blogs/daily-dish/:year/:month
+  param: { module: dailydish, action: archive }
+
+daily_dish_category:
+  url: /blogs/daily-dish/category/:category
+  param: { module: dailydish, action: index }
+  
+daily_dish_tag:
+  url: /blogs/daily-dish/tag/:tag
+  param: { module: dailydish, action: index }
+  
+daily_dish:
+  url: /blogs/daily-dish
+  param: { module: dailydish, action: index }
+  
+poll_create:
+  url: /polls/create/:group_id
+  param: { module: polls, action: create }
+
+polls_vote:
+  url: /polls/castvote
+  param: { module: polls, action: castvote }
+  
+polls_vote_featured_home:
+  url: /home/castvote
+  param: { module: home, action: castvote }
+  
+polls_vote_featured_mb:
+  url: /mixingbowl/castvote
+  param: { module: mixingbowl, action: castvote }
+  
+
+polls_network_detail:
+  url: /polls/:slug/:id
+  param: { module: polls, action: detail }
+  
+polls:
+  url: /polls
+  param: { module: polls, action: index }
+  
+rewards:
+  url: /rewards
+  param: { module: rewards, action: index }
+
+contests:
+  url: /contests
+  param: { module: contests, action: index }
+
+contests_alt:
+  url: /contest
+  param: { module: contests, action: index }
+  
+contests_enter_contest:
+  url: /contests/enterContest
+  param: { module: contests, action: enterContest }
+  
+contests_autocomplete:
+  url: /contests/autocomplete
+  param: { module: contests, action: autocomplete }
+
+contests_past_winners:
+  url: /contests/past-winners
+  param: { module: contests, action: pastWinners }
+  
+contests_past_contests:
+  url: /contests/past-contests
+  param: { module: contests, action: pastContests }
+  
+paginate_contestants:
+  url: /contests/paginate_contestants
+  param: { module: contests, action: paginate_contestants }
+  
+paginate_pastcontests:
+  url: /contests/paginate_pastcontests
+  param: { module: contests, action: paginate_pastcontests }
+  
+paginate_pastwinners:
+  url: /contests/paginate_pastwinners
+  param: { module: contests, action: paginate_pastwinners }
+  
+contests_detail:
+  url: /contests/:slug
+  param: { module: contests, action: detail }
+  
+contests_rules:
+  url: /contests/:slug/rules
+  param: { module: contests, action: rules }
+
+
+search_results:
+  url: /search/paginate_search
+  params: { module: search, action: paginate_search }
+
+search:
+  url: /search
+  params: { module: search, action: index }
+  
+homepage:
+  url:   /
+  param: { module: home, action: index }
+
+# -------------------------------------------------------------------
+# default routes
+# This are useful for development but should be disable in production
+# -------------------------------------------------------------------
+  
+default:
+  url:   /:module/:action/*
+ 

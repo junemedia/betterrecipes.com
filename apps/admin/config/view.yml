@@ -1,0 +1,26 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        BetterRecipes Administration
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    robots:       noindex, nofollow
+
+  stylesheets:
+    - /css/admin.css: { raw_name: true }
+    - /css/ui-darkness/jquery-ui-1.8.14.custom.css: { raw_name: true }
+ 
+  javascripts:
+    - /js/jquery-1.6.2.min.js: { raw_name: true }
+    - /js/jquery-ui-1.8.14.custom.min.js: { raw_name: true }
+ #   - /js/betterrecipes.js: { raw_name: true }
+    - /js/admin.js: { raw_name: true }
+
+  has_layout:     true
+  layout:         layout

@@ -1,0 +1,324 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# Static Routes -----------------------------------------------------------------
+
+privacy-policy:
+  url: /privacy-policy
+  params: { module: static, action: privacyPolicy }
+  requirements:
+    sf_method: [get]
+
+terms:
+  url: /terms
+  params: { module: static, action: terms }
+  requirements:
+    sf_method: [get]
+
+social:
+  url: /social
+  params: { module: static, action: social }
+  requirements:
+    sf_method: [get]
+
+help:
+  url: /help
+  params: { module: static, action: help }
+  requirements:
+    sf_method: [get]
+
+official_rules:
+  url: /rules/:date/official-rules
+  params: { module: static, action: officialRules }
+  requirements:
+    sf_method: [get]
+
+# -------
+
+# User Routes -----------------------------------------------------------------
+canvas:
+  url: /canvas
+  params: { module: canvas, action: index }
+
+
+signin:
+  url: /signin
+  params: { module: auth, action: signin }
+  requirements:
+    sf_method: [get|post]
+
+forgot_password:
+  url: /forgot-password
+  params: { module: auth, action: forgotPassword }
+  requirements:
+    sf_method: [get|post]
+
+signup_skip:
+  url: /signup-skip
+  params: { module: auth, action: signupSkip }
+  requirements:
+    sf_method: [get]
+
+signup:
+  url: /signup
+  params: { module: auth, action: index }
+  requirements:
+    sf_method: [get|post]
+
+signout:
+  url: /signout
+  params: { module: auth, action: signout }
+  requirements:
+    sf_method: [get|post]
+
+get_auth_info:
+  url: /_get-auth-info
+  params: { module: auth, action: getAuthInfo }
+
+refresh_user_area:
+  url: /_refresh_user_area/:template
+  params: { module: auth, action: refreshUserArea }
+
+# -------
+
+toggle_social:
+  url: /_toggle_social/:switch
+  params: { module: cooks , action: toggleSocial }
+
+remove_facebook:
+  url: /_remove_facebook
+  params: { module: cooks, action: removeFacebook }
+
+cooks_search:
+  url: /cooks/search.:sf_format
+  param: { module: cooks, action: search }
+  requirements:
+    sf_method: [get]
+
+cook_profile:
+  url: /cooks/:display_name
+  params: { module: cooks, action: profile }
+  requirements:
+    sf_method: [get]
+
+cook_profile_private:
+  url: /cooks/:display_name/private
+  params: { module: cooks, action: privateProfile }
+  requirements:
+    sf_method: [get]
+
+cook_profile_edit:
+  url: /cooks/:display_name/edit
+  params: { module: cooks, action: editProfile }
+  requirements:
+    sf_method: [get,post]
+
+cook_profile_email_settings:
+  url: /cooks/:display_name/email-settings
+  params: { module: cooks, action: emailSettings }
+  requirements:
+    sf_method: [get,post]
+
+cook_profile_recipes:
+  url: /cooks/:display_name/recipes
+  params: { module: cooks, action: recipes }
+  requirements:
+    sf_method: [get]
+
+cook_profile_saved_recipes:
+  url: /cooks/:display_name/saved-recipes
+  params: { module: cooks, action: savedRecipes }
+  requirements:
+    sf_method: [get]
+
+# End User Routes -------------------------------------------------------------
+
+# Mixingbowl-Forward Routes --------------------------------------------------------------
+
+mixingbowl_recipes:
+  url: /message/recipe/*
+  param: { module: recipes, action: mixingbowl }
+
+# End Mixingbowl-Forward Routes -------------------------------------------------------------
+
+# Myrecipebox Routes --------------------------------------------------------------
+
+add_collection:
+  url: /myrecipebox/addFolder/*
+  param: { module: myrecipebox, action: addFolder }
+
+edit_collection:
+  url: /myrecipebox/editFolder/:folder/*
+  param: { module: myrecipebox, action: editFolder }
+
+delete_collection:
+  url: /myrecipebox/deleteFolder/:folder/*
+  param: { module: myrecipebox, action: deleteFolder }
+
+delete_collection_recipe:
+  url: /myrecipebox/deleteCollectionRecipe/:recipe/:folder/*
+  param: { module: myrecipebox, action: deleteCollectionRecipe }
+
+delete_saved_recipe:
+  url: /myrecipebox/deleteSavedRecipe/:recipe/*
+  param: { module: myrecipebox, action: deleteSavedRecipe }
+
+move_recipe:
+  url: /myrecipebox/moveRecipe/:recipe/:from/:to/*
+  param: { module: myrecipebox, action: moveRecipe, recipe: null, from: null, to: to }
+
+myrecipebox:
+  url: /myrecipebox/:folder/:order_by/:page_no/*
+  param: { module: myrecipebox, action: index, folder: all, order_by: date-desc, page_no: 1 }
+
+# End Myrecipebox Routes -------------------------------------------------------------
+
+# BETTER RECIPES ROUTING - START
+
+view_recipe:
+  url: /_view_recipe
+  param: { module: recipes, action: setViewCount }
+
+update_vote_status:
+  url: /_update_vote_status/:recipe_id
+  param: { module: recipes, action: updateVoteStatus,  }
+
+recipe_photos:
+  url: /recipes/photos/recipe_id/:recipe_id
+  param: { module: recipes, action: photos }
+
+add_recipe_photo:
+  url: /recipes/photos/new/:recipe_id
+  param: { module: recipes, action: newphoto }
+
+add_recipe:
+  url: /recipes/new
+  param: { module: recipes, action: new }
+
+edit_recipe:
+  url: /recipes/edit/id/:id
+  param: { module: recipes, action: edit }
+
+slideshow_print:
+  url: /slideshows/:slug/print
+  param: { module: slideshows, action: print }
+
+slideshow_all:
+  url: /slideshows/:slug/:regSource/all/:page
+  param: { module: slideshows, action: thumbs, page: null }
+
+slideshow_redirected_detail:
+  url: /gallery/:slug/*
+  param: { module: slideshows, action: detail }
+
+slideshow_detail:
+  url: /slideshows/:slug/:mode
+  param: { module: slideshows, action: detail, mode: null }
+
+recipes:
+  url: /recipes
+  param: { module: recipes, action: index }
+
+recipe_category_detail:
+  url: /*.html/:mode
+  param: { module: recipes, action: subcategory, mode: null }
+
+recipe_contest_vote:
+  url: /recipes/contestvote
+  param : { module: recipes, action: contestVote }
+
+article_detail:
+  url: /*.html/:mode
+  param: { module: recipes, action: subcategory, mode: null }
+
+recipes_alt:
+  url: /recipes/
+  param: { module: recipes, action: index }
+
+mixing_bowl:  
+  url:   /mixing-bowl
+  param: { module: mixingbowl, action: index }
+
+recipe_article:
+  url:   /recipes/article/:id/:url_title
+  param: { module: recipes, action: article }
+
+daily_dish_ajax_list:
+  url: /blogs/daily-dish/ajaxlist
+  param: { module: dailydish, action: paginate_dish_list }
+
+daily_dish_detail:
+  url: /blogs/daily-dish/:year/:month/:day/:slug
+  param: { module: dailydish, action: detail }
+
+daily_dish_archive:
+  url: /blogs/daily-dish/:year/:month
+  param: { module: dailydish, action: archive }
+
+daily_dish_category:
+  url: /blogs/daily-dish/category/:category
+  param: { module: dailydish, action: index }
+
+daily_dish_tag:
+  url: /blogs/daily-dish/tag/:tag
+  param: { module: dailydish, action: index }
+
+daily_dish:
+  url: /blogs/daily-dish
+  param: { module: dailydish, action: index }
+
+polls_vote_featured_home:
+  url: /home/castvote
+  param: { module: home, action: castvote }
+
+polls_vote_featured_mb:
+  url: /mixingbowl/castvote
+  param: { module: mixingbowl, action: castvote }
+
+contests:
+  url: /contests
+  param: { module: contests, action: index }
+
+contests_alt:
+  url: /contest
+  param: { module: contests, action: index }
+
+contests_enter_contest:
+  url: /contests/enterContest
+  param: { module: contests, action: enterContest }
+
+contests_autocomplete:
+  url: /contests/autocomplete
+  param: { module: contests, action: autocomplete }
+
+contests_past_winners:
+  url: /contests/past-winners
+  param: { module: contests, action: pastWinners }
+
+contests_past_contests:
+  url: /contests/past-contests
+  param: { module: contests, action: pastContests }
+
+contests_rules:
+  url: /contests/:slug/rules
+  param: { module: contests, action: rules }
+
+contests_detail:
+  url: /contests/:slug/:page/:mode
+  param: { module: contests, action: detail, page: 1, mode: null  }
+
+search:
+  url: /search
+  params: { module: search, action: index }
+
+homepage:
+  url:   /
+  param: { module: home, action: index }
+
+# -------------------------------------------------------------------
+# default routes
+# This are useful for development but should be disable in production
+# -------------------------------------------------------------------
+
+default:
+  url:   /:module/:action/*

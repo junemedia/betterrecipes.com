@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/* Reset */
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+	content: '';
+	content: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary, video { 
+    display:block;
+}
+.group:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
+body {
+	width:485px;
+	padding:10px;
+}
+.btn-grey28 {
+	padding:4px 6px;
+	text-align:center;
+	display:inline-block;
+	background-color:#ebebeb;
+	border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+	border-style:solid;
+	border-width:1px;
+	-moz-box-shadow: 1px 1px 0px #262626;
+	-webkit-box-shadow: 1px 1px 0px #262626;
+	box-shadow: 1px 1px 0px #262626;
+	color:#660066;
+	cursor:pointer;
+	font-size:14px;
+	font-weight:bold;
+	width:auto;
+	margin:0;
+	text-decoration:none;
+}
+.print_sizes {
+	width:100%;
+	overflow:hidden;
+	height:35px;
+}
+.print_sizes li {
+	display:inline-block;
+	float:left;
+	margin-right:20px;
+}
+#recipe-detail .header {
+	padding:20px 0;
+	margin:0 0 20px;
+	border-bottom:#DFDFDF solid 1px;
+}
+.italic {
+	font-style:italic;
+}
+.microformat,
+.author-meta,
+.author-info,
+#modal_div {
+	display:none;
+}
+h3 {
+	color: #333333;
+  font: 900 28px/40px "palatino Linotype",palatino,serif;
+	width:100%;
+	clear:both;
+}
+.copyright {
+	clear:both;
+	width:100%;
+	text-align:center;
+	padding-top:20px;
+}
+.ingredients {
+	width:100%;
+}
+.ingredients tr td {
+	width:50%;
+	padding:5px 0;
+}

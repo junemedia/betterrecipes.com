@@ -1,0 +1,800 @@
+/* Admin Style Sheet */ 
+/*-----===== BEGIN: reset =====-----*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.right {
+  float:right;
+}
+
+.left {
+  float:left;
+}
+
+.lp150 {
+  padding-left: 150px;
+}
+
+.bp5 {
+  padding-bottom: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/*-----===== END: reset =====-----*/
+
+/* ----- Shortcuts ----- */
+.flle { float: left; }
+.flri { float: right; }
+.clearfix { clear:both; }
+
+/* ----- End Shortcuts ----- */
+
+* { margin:0; padding:0; }
+
+body { 
+  background: url('/img/navbgpattern.png') repeat-x;
+  font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
+  font-size: 14px;
+  color: #666666; 
+}
+#wrapper{ width:980px; margin: 0 auto; }
+
+img { border:none; }
+a { color: #660066; text-decoration:none; cursor: pointer; }
+a:hover { text-decoration: underline; }
+ul { list-style: none; }
+
+/* ----- Form Items ----- */
+form.standard-form fieldset label {
+  height:28px;
+  line-height:28px;
+  text-transform:uppercase;
+  padding-right:10px;
+  width:103px;
+  display:inline-block;
+}
+
+/* -- Buttons -- */
+
+.btn-grey28 { 
+  padding:4px 6px; 
+  text-align:center; 
+  display:inline-block; 
+  background-color:#ebebeb;                               
+  border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9; 
+  border-style:solid; 
+  border-width:1px;                             
+  -moz-box-shadow: 1px 1px 0px #262626; 
+  -webkit-box-shadow: 1px 1px 0px #262626;                              
+  box-shadow: 1px 1px 0px #262626;                              
+  /* the below is added for the submit button in Daily Dish, it could mess up other pages, if yes, seperate */                             
+  color:#660066; 
+  cursor:pointer; 
+  font-size:14px; 
+  text-transform:uppercase; 
+  font-weight:bold; 
+  margin-top: 8px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 170px;
+  background: url("/img/bg-input-text.png") repeat-x scroll left top #FFFFFF;
+  border: 1px solid #ACACAC;
+  height: 21px;
+  line-height: 21px;
+  padding: 0 5px;
+  width: 170px;
+}
+.auth-wrapper .signin {
+  width:300px;
+  margin:0 auto;
+}
+.title {
+  font-size:18px;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  line-height:22px;
+  font-weight:normal;
+}
+fieldset {
+  margin-bottom:10px;
+}
+fieldset.last {
+  text-align:right;
+}
+.error_list {
+  color:#F00;
+  margin-bottom:20px;
+}
+.error {
+  color:#F00;
+}
+/* ------------------------- Layout Page ------------------------- */
+
+#masthead{ width:980px; height: 150px; }
+#masthead img{ float:left; width:218px; height:50px; margin: 100px 0 0 -60px; }
+#searchBar { float: right; width: 300px; height: 40px; margin: 100px -130px 0 0; }
+
+#searchBar form input[type="text"] {
+  background: url("/img/bg-search-text.png") no-repeat scroll left top transparent;
+  border: medium none;
+  color: #838383;
+  float: left;
+  font-size: 12px;
+  height: 27px;
+  line-height: 27px;
+  margin: 10px 0 0 50px;
+  padding: 0 5px;
+  width: 162px;
+}
+
+/* ----- Navigation ----- */
+
+#navBar { float: left; width: 100%; height: 40px; background: url("/img/bgnavbar.png") repeat-x; }
+#navBar .navButtons { height: 40px; display:block; list-style-type: none; }
+#navBar .navButtons li { float:left; height:40px; display:inline-block; text-align:center; }
+#navBar .navButtons li a { height: 40px; display:inline-block; padding: 0 12px }
+#navBar .navButtons li a:hover { color:#666666; text-decoration: underline; }
+#navBar .navButtons .navText { color:#666666; padding:12px 0 0 0; }
+#navBar .navButtons li a.selected { background: url("/img/bgnavbarselected.png") repeat-x; }
+#navBar .navButtons li a.selected .navText, #navBar .navButtons li a.selected:hover { color: #FFFFFF; }
+
+#footer { float: left; width: 980px; height: 20px; }
+
+/* ------------------------------------------------------------------------------ */
+/* ---------------------------- Template Attributes ----------------------------- */
+/* ------------------------------------------------------------------------------ */
+
+/* ------------------------- Index View -------------------------  */
+
+#mainHeading { clear: both; width: 940px; height:40px; padding: 0 20px; border-bottom: 1px solid #666666; }
+#mainHeading h1 { padding:10px 0 0 0; font-size: 18px; color: #666666; }
+#mainHeading a {float:right; margin: -15px 0 0 0; }
+#mainHeading input#feature_on_hp {float:right; margin: -17px 100px 0 0; color: #FF0000; font-weight: bolder; }
+#mainHeading input#feature_on_hp.featured { color: #00CC00; }
+#mainHeading a.premium {float:left; margin-top: 0px; }
+
+.filterRow { width:940px; height:20px; padding: 10px 20px; }
+.filterRow .filter { 
+  display: inline-block; 
+  margin: 0 4px 0;
+  *float:left;
+  *width:auto;
+}
+.filterRow .filter input[type="text"] { font-style: italic; }
+.filterRow .filter .filterInput { margin: 0 0 0 695px; }
+
+.paginationRow { width: 940px; padding: 0 20px; height:20px; }
+.paginationRow.small { width: 650px; }
+.pagination { float: right;  }
+.pagination .pagination_link { float:left; font-size: 12px; width:10px; padding:5px; margin: 0 4px;}
+
+.headings { clear: both; width: 940px; height:40px; padding: 0 20px; }
+.headings li { display: inline-block; font-weight: bold; }
+.headings li span { display: inline-block; padding: 10px 0; background-image: url('/img/bg-middle-arrow.png'); background-repeat:no-repeat; }
+.headings li span.asc { background-image: url('/img/bg-up-arrow.png'); }
+.headings li span.desc { background-image: url('/img/bg-down-arrow.png'); }
+.headings li span.nosort { background-image: none; }
+.headings li span a { color: #666666; }
+.headings li span a:hover { text-decoration: none; }
+
+.results .row { width: 940px; padding: 0 20px; height:35px; }
+.results .row span { display: inline-block; margin: 9px 0 0 0; }
+.results .row.even{ background-color: #e2e2e2; }
+
+/*-- Ratings --*/
+.results #backgroundRating { width:85px; height: 16px; background:url(/img/bg-rating-empty.png) no-repeat; margin: 0; position:relative; }
+.results #backgroundRating #fillRating { background:url(/img/bg-rating-full.png) no-repeat; width:17px; height:20px; display:block; position:absolute; top:0; left:0; }
+
+/* ------------------------- Detail View ------------------------- */
+
+.container { float:left; width: 940px; padding: 10px 20px; margin: 15px 0; border: 1px solid #e1e1e1; }
+.container #subHeading { height: 30px; margin:0 0 20px 0; }
+.container #subHeading h2 { float: left; font-weight: bold; }
+.container #subHeading .detail { float: right; margin: 0; } 
+
+.container .list { width: 940px; }
+.container .list li { min-height: 35px; margin: 5px 0; display:inline-block;}
+.container .list li .label { float: left; width: 150px; display: block; font-weight: bold; }
+.container .list li .label.descript { width: 120px; margin-right: 30px; }
+.container .list li .data { min-width: 400px; width: 780px; min-height: 20px; display: inline-block;}
+.container .list .category_list li { min-height: 0px; margin: 1px 0; min-width: 300px; }
+
+.container.small { width: 610px; }
+.container.small .list { width: 610px; }
+.container.small .list li .data  { width: 450px; }
+
+.container.sidebar { float:right; width: 270px; height: 100%; background-color: #e1e1e1; }
+.container.sidebar #subHeading h3{ margin-bottom:10px; }
+.container.sidebar p { margin: 6px 0; }
+.container.sidebar p.text { margin: 8px 0; font-weight: bold; font-style: italic; }
+.container.sidebar form select { margin: 0 10px 0 0; }
+
+/* --- Sponsor Sidebar --- */
+.container.sidebar.sponsor { min-height: 140px; height: 100%; }
+.container.sidebar.sponsor select { width: 265px; margin: 10px 0 20px 0; }
+.container.sidebar.sponsor input[type="submit"] { float:right; margin: 25px 0 0 0; width: 80px; }
+
+/* ------------------------- New/Edit View ------------------------- */
+
+.edit h2 { margin-bottom: 10px; }
+.edit .fields { width:980px; height:100%; }
+.edit .fields .field { width:940px; min-height:18px; height:100%; margin: 0 0 10px 0; }
+.edit form label { float:left; display: block; width:150px;  font-weight: bold; }
+.edit form label.descript { width:125px; margin-right:25px; }
+/*.edit form span { display:inline-block; width: auto; }*/
+.edit form textarea { width: 510px; height:150px; }
+.edit form input[type="text"], .edit form input[type="password"] { width: 506px; }
+.edit .fields .field .curImg { height: 100%; width: 415px; margin-left: 150px; }
+.edit .fields .field .curImg img { margin: 0 400px 20px 0; max-width: 415px; height: auto; }
+.edit .fields .action { margin:0 10px 0 460px; }
+.edit form .submit { width:80px; }
+
+.edit .fields.small { width:610px; }
+.edit .fields.small .field.small { width:610px; }
+.edit .fields.small .field.small label { float:left; display: inline-block; width:150px;  font-weight: bold; }
+.edit .fields.small .field.small label.descript { width:125px; margin-right:25px; }
+.edit .fields.small .field.small .innerfield { height: 100%; width: 415px; margin-left: 150px;}
+.edit .fields.small .field.small .innerfield select { margin-top: 20px; }
+.edit .fields.small .field.small textarea { width: 416px; min-height:150px; height: 100%; }
+.edit .fields.small .field.small input[type="text"] { width: 406px; }
+.edit .fields.small .action { margin:0 10px 0 410px; }
+
+.edit .fields.small .field.small input[type="text"].datepicker { width: 150px; }
+.edit .fields.small .field.small .ui-datepicker-trigger {margin-left: 5px; cursor: pointer; }
+
+/* -------------- Breadcrumbs -------------- */
+#breadcrumbs { clear: both; height:25px; line-height:25px; font-size:12px; padding-left:20px; }
+#breadcrumbs .last { text-decoration: none; color: #666666; cursor: default; }
+/* ------------------------------------------------------------------------------ */
+/* ------------------------- Rightrail Section -------------------------  */
+/* ------------------------------------------------------------------------------ */
+#rightrailRecipes #subHeading ul { position: absolute; margin-top: 10px; }
+#rightrailRecipes #subHeading #total { margin-top: 10px; display: block; }
+#rightrailRecipes #subHeading #date { margin-top: 10px; display: block; }
+#rightrailRecipes #subHeading #date .date { font-weight: bold; }
+#rightrailRecipes .list { margin-top: 40px; }
+#rightrailRecipes .list li { width: 940px; height: 20px; }
+#rightrailRecipes .list li .num { width: 30px; display: inline-block; font-weight: bold; }
+#rightrailRecipes .list li .data { padding: 4px 0; display: inline-block; }
+#rightrailRecipes .list #msg { margin: 10px 0 0 0; display: block; }
+#newOverride { float: right; margin-bottom: 30px; }
+
+/* ------------------------- RightRail Edit Section ------------------------- */
+
+#rightrailEdit #overrideModule #totalRecipes { width: 100px; margin: 0 0 0 10px; }
+#rightrailEdit #overrideModule #date { display: block; margin: 20px 0 0 0; }
+#rightrailEdit #overrideModule #date .ui-datepicker-trigger { cursor: pointer; }
+#rightrailEdit #overrideModule .action { float: right; }
+/* -- Add Recipe -- */
+#rightrailEdit #overrideModule #addRecipe { height: 45px; margin: 20px 0; background-color: #e2e2e2; border: 1px solid #B5B5B5;}
+#rightrailEdit #overrideModule #addRecipe label { padding: 11px 15px;  }
+#rightrailEdit #overrideModule #addRecipe input[type="text"] { margin-left: 220px; width: 500px; font-style: italic; }
+#rightrailEdit #overrideModule #addRecipe input[type="button"] { width: 80px; margin-left: -5px;}
+#rightrailEdit #overrideModule #deleteRecipe { float: right; margin-top: -50px; }
+/* -- Sorting -- */
+#rightrailEdit #overrideModule #sortableNums { width: 60px; margin: 20px 0 0 0; }
+#rightrailEdit #overrideModule #sortableNums li { float:left; width: 60px; height: 50px; display: block; } 
+#rightrailEdit #overrideModule #sortableNums li .num { padding: 10px 0;  display: block; }
+#rightrailEdit #overrideModule .items { margin: 20px 0 0 60px; }
+#rightrailEdit #overrideModule .items li { position: relative; height: 40px; width:875px; background: #e2e2e2; margin: 4px 0; border: 1px solid #B5B5B5; display: block; }
+#rightrailEdit #overrideModule .items li .data { padding: 13px;  display: inline-block; } 
+#rightrailEdit #overrideModule #sortable.items li:hover { cursor: pointer; }
+#rightrailEdit #overrideModule .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+                                                                 width: 15px; height: 15px; }
+#rightrailEdit #overrideModule .items li a:hover .deleteWeightedItem { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
+
+/* ------------------------------------------------------------------------------ */
+/* ------------------------- Categories Section -------------------------  */
+/* ------------------------------------------------------------------------------ */
+
+/* ------------------------- Categories Index ------------------------- */
+
+#categoryFilter #categoryType {  margin: 0 698px 0 0; }
+#categoryFilter select#categoryTypes { width: 180px; }
+
+#categoryFilter #editSort { float:right; margin-right: 18px;  }
+
+#categoryHeadings .name { background: none; }
+#categoryHeadings .featured { background: none; }
+#categoryHeadings .name, #categoryRows .name { width: 850px; }
+#categoryHeadings .active,  #categoryRows .active { width: 80px; text-align: center; }
+
+/* --- Sorting Main Categories ---*/
+#sortCategories { position: relative; }
+#saveSort { position: absolute; top: -85px; right: 38px;  }
+#categorySorting { width: 940px; padding: 0 20px; }
+.categories { width: 940px; margin: 10px 0; }
+#sortable.categories li { min-height: 30px; width: 940px; background: #e2e2e2; margin: 5px 0; border: 1px solid #B5B5B5; cursor: pointer; }
+#sortable.categories li:hover { cursor: pointer; }
+.categories .name { width: 875px; margin-left: 5px; padding: 7px 0; display: inline-block;}
+.categories .active { width: 80px; text-align:center; }
+
+/*
+#categoryHeadings .name { background-position: 110px; }
+#categoryHeadings .featured { background-position: 70px; }
+#categoryHeadings .name { width: 160px; margin: 0 10px 0 0 ; }
+#categoryHeadings #categoryType, #categoryHeadings #categoryTypes { display: inline; width: 170px; margin: 0 10px 0 0; }
+#categoryRows .name { width: 380px;  }
+#categoryHeadings .featured,  #categoryRows .featured { width: 120px; }
+#categoryHeadings .edit { margin:0 0 0 190px; }
+*/
+
+/* ------------------------- Category Detail View ------------------------- */
+
+#categoryContainer #subHeading h2 { margin-left: 300px; }
+#categoryContainer .img { float: left; width:300px; height:260px}
+#categoryContainer .list { width: 640px; margin: 0 0 0 300px; }
+#categoryContainer .list li .data  { width: 485px; }
+
+/* ----- Accordian ----- */
+#subcategoriesContainer { height:auto;}
+#subcategoriesContainer .subcategory  { clear:both; height:280px; padding: 10px; background-color: #FFF;}
+#subcategoriesContainer .subcategory  .img { float:left; width:290px; height:260px; margin: 40px 0 0 10px; }
+#subcategoriesContainer .subcategory  .list { width: 640px; margin: 0 0 0 300px; color: #666666; }
+#subcategoriesContainer .subcategory  .list ul { color: #000; font-size: 14px; color: #666666; } 
+#subcategoriesContainer .subcategory  .list ul .label { width: 150px;  float: left; display: block; font-weight: bold;}
+#subcategoriesContainer .subcategory  .list ul .data { width: 450px; }
+#subcategoriesContainer #accordion h3 { height: 30px; }
+#subcategoriesContainer #accordion h3 .subcatName { margin: -8px 0 0 10px; display: inline-block; }
+#subcategoriesContainer .subcategory  .accordion { float:right; }
+
+.overrideSection #subHeading ul { position: absolute; margin-top: 10px; }
+.overrideSection #subHeading #total { margin-top: 10px; display: block; }
+.overrideSection #subHeading #date { margin-top: 10px; display: block; }
+.overrideSection #subHeading #date .date { font-weight: bold; }
+.overrideSection .list { margin-top: 40px; }
+.overrideSection .list li { width: 940px; height: 20px; }
+.overrideSection .list li .num { width: 30px; display: inline-block; font-weight: bold; }
+.overrideSection .list li .data { padding: 4px 0; display: inline-block; }
+.overrideSection .list #msg { margin: 10px 0 0 0; display: block; }
+
+/* ------------------------- Category Edit Form ------------------------- */
+
+#categoryContainer.edit { height:100%; }
+#categoryContainer.edit #categories.fields { width:640px; margin-left:300px;}
+#categoryContainer.edit #categories.fields .field { width: 640px; margin: 0 0 10px 0; }
+#categoryContainer.edit .img img { margin: 0 0 10px 0; }
+#categoryContainer.edit .img .upload { width:245px;}
+#categoryContainer.edit .img .upload label { margin-bottom: 10px; }
+#categoryContainer.edit form textarea { width: 480px; }
+#categoryContainer.edit form input[type="text"] { width: 470px; }
+
+/* ----- Override Sections - Favorite Recipes and How to Stories ----- */
+.overrideEditSection .overrideModuleEdit .totalRecipes { width: 100px; margin: 0 0 0 10px; }
+.overrideEditSection .overrideModuleEdit .date { display: block; margin: 20px 0 0 0; }
+.overrideEditSection .overrideModuleEdit .date .ui-datepicker-trigger { cursor: pointer; }
+.overrideEditSection .overrideModuleEdit .action { float: right; }
+/* -- Add Recipe -- */
+.overrideEditSection .overrideModuleEdit .addAuto { height: 45px; margin: 20px 0; background-color: #e2e2e2; border: 1px solid #B5B5B5;}
+.overrideEditSection .overrideModuleEdit .addAuto label { padding: 11px 15px;  }
+.overrideEditSection .overrideModuleEdit .addAuto input[type="text"] { margin-left: 220px; width: 500px; font-style: italic; }
+.overrideEditSection .overrideModuleEdit .addAuto input[type="button"] { width: 80px; margin-left: -5px;}
+.overrideEditSection .overrideModuleEdit #deleteRecipe { float: right; margin-top: -50px; }
+/* -- Sorting -- */
+.overrideEditSection .overrideModuleEdit .sortableNums { width: 60px; margin: 20px 0 0 0; }
+.overrideEditSection .overrideModuleEdit .sortableNums li { float:left; width: 60px; height: 50px; display: block; } 
+.overrideEditSection .overrideModuleEdit .sortableNums li .num { padding: 10px 0;  display: block; }
+.overrideEditSection .overrideModuleEdit .items { margin: 20px 0 0 60px; }
+.overrideEditSection .overrideModuleEdit .items li { position: relative; height: 40px; width:875px; background: #e2e2e2; margin: 4px 0; border: 1px solid #B5B5B5; display: block; }
+.overrideEditSection .overrideModuleEdit .items li .data { padding: 13px;  display: inline-block; } 
+.overrideEditSection .overrideModuleEdit #sortable.items li:hover,
+.overrideEditSection .overrideModuleEdit #sortableArticles.items li:hover { 
+  cursor: pointer; 
+}
+.overrideEditSection .overrideModuleEdit .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+                                                                           width: 15px; height: 15px; }
+.overrideEditSection .overrideModuleEdit .items li a:hover .deleteWeightedItem { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
+/* ------------------------------------------------------------------------------ */
+/* ------------------------- Categories Section -------------------------  */
+/* ------------------------------------------------------------------------------ */
+
+/* ------------------------- Meta Index ------------------------- */
+
+#metaHeadings span, #metaRows span { background: none; width: 97px; height:27px; overflow: hidden }
+#metaHeadings .title, #metaRows .title { width:148px; text-transform: inherit; font: inherit; text-transform: inherit; font: inherit; }
+#metaHeadings .description, #metaRows .description { width:310px; }
+#metaHeadings .keywords, #metaRows .keywords { width:130px; }
+#metaHeadings .edited, #metaRows .edited { width:90px; }
+#metaRows .row { height: 38px; }
+#metaRows .edited { font-size: 11px; }
+#metaHeadings .active, #metaRows .active { width: 42px; text-align: center;}
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Recipes Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+/* ------------------------- Recipe Index ------------------------- */
+
+#recipeFilter { background-color: #e1e1e1; }
+#recipeFilter select#main_categories { width: 160px; margin-left: -15px;}
+#recipeFilter select#sub_categories{ width: 200px; }
+#recipeFilter input[type="text"]{ width: 155px; }
+
+#recipeHeadings .name { background-position: 90px; }
+#recipeHeadings .rating { background-position: 50px; }
+#recipeHeadings .dateAdded { background-position: 80px; }
+#recipeHeadings .dateEdited { background-position: 80px; }
+#recipeHeadings .editedBy { background-position: 65px; }
+#recipeHeadings .sponsor { background-position: 65px; }
+#recipeHeadings .active { background-position: 40px; }
+#recipeHeadings .name, #recipeRows .name { width: 400px; }
+#recipeHeadings .rating, #recipeRows .rating{ width: 100px; height: 12px; }
+#recipeHeadings .dateAdded, #recipeRows .dateAdded { width: 100px; }
+#recipeHeadings .dateEdited, #recipeRows .dateEdited { width: 100px; }
+#recipeRows .f11 {font-size: 11px; }
+#recipeHeadings .editedBy, #recipeRows .editedBy { width: 85px; }
+#recipeHeadings .sponsor, #recipeRows .sponsor { width: 75px; text-align: center; }
+#recipeRows .sponsor a { cursor:pointer; }
+#recipeHeadings .active, #recipeRows .active { width: 50px; text-align: center; }
+
+/* ------------------------- Recipe Detail ------------------------- */
+
+#recipeContainer #images img { width: 150px; height: 150px; }
+#recipeContainer .subdata { float: left; min-width: 100px; width: 150px; margin-bottom:10px;}
+
+/* ------------------------- Recipe Edit Form ------------------------- */
+
+#recipeContainer.edit .fields #images { width: 510px; margin-left: 140px; }
+#recipeContainer.edit .fields .field.subfield { float: left; width: 280px; }
+#recipeContainer.edit .fields .field.subfield.left { margin-right: 50px;  }
+#recipeContainer.edit .fields .field.subfield.right { width: 245px;  }
+#recipeContainer.edit .fields .field.subfield.right label {width: 80px; margin-right: 31px; }
+#recipeContainer.edit .fields .field.subfield input[type="text"] { width: 115px; }
+#recipeContainer.edit .fields .field .newImg { margin-left: 10px; }
+.removeCategory { background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; padding-left: 15px;}
+
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Slideshows Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#slideshowHeadings .name { background-position:115px; }
+#slideshowHeadings .category { background-position: 70px; }
+#slideshowHeadings .startDate { background-position: 70px; }
+#slideshowHeadings .endDate { background-position: 65px; }
+#slideshowHeadings .sponsor { background-position: 110px; }
+#slideshowHeadings .active { background-position: 65px; }
+#slideshowHeadings .name, #slideshowRows .name { width: 300px; }
+#slideshowHeadings .category, #slideshowRows .category { width: 220px; }
+#slideshowHeadings .startDate, #slideshowRows .startDate { width: 80px; }
+#slideshowHeadings .endDate , #slideshowRows .endDate { width: 80px; }
+#slideshowHeadings .sponsor, #slideshowRows .sponsor { width: 160px; text-align: center; }
+#slideshowRows .sponsor a { cursor:pointer; }
+#slideshowHeadings .active, #slideshowRows .active { width: 75px; text-align: center; }
+
+/* --------- Edit Section ---------- */
+
+#recipeContainer.edit #deleteSlideshow { float: right; margin-top: -20px; }
+
+/* --------- Slides --------- */
+.recipeSearch2 { float: right; }
+.slides { min-height: 400px; height: 100%;}
+
+#slideFilter { background: #e2e2e2; width: 900px; }
+#slideFilter .filter form span { display: inline; margin-right: 120px; }
+#slideFilter .filter form input[type="text"] { width: 600px; }
+
+#slidesSection { position: relative; width: 950px; overflow: hidden; }
+#slidesSection #sortable {}
+#slidesSection  form { height: 100%; }
+#slidesSection li { position: relative; width: 180px; height: 260px; margin: 10px 6px 10px 0; 
+                    background-color: #e2e2e2; float:left; border: 1px solid #b5b5b5; cursor: pointer; }
+#slidesSection li.noSort { cursor: auto; }
+#slidesSection li a .deleteSlide { float:right; background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+                                   width: 15px; height: 15px;  margin-right: 5px; }
+#slidesSection li a:hover .deleteSlide { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
+#slidesSection li img { width: 160px; height: auto; max-height: 170px; margin:10px; }
+#slidesSection li .title { position: absolute; top: 195px; left: 10px; width: 160px; max-height: 50px; font-size: 14px; }
+#slidesSection .long { float: left; width: 940px; }
+#slidesSection .action { float: right; margin-right: 6px; }
+#slidesSection .primaryPhoto { position: absolute; bottom: 5px; left: 10px; }
+#slidesSection .editSlide { position: absolute; bottom: 5px; right: 10px; }
+.slides-no-image { padding-top: 100px; text-align: center; }
+
+
+/* ----- Modal Box ----- */
+#edit { width: 437px; display: none; }
+#edit #editSlideForm { width: 535px; height: 250px; }
+#edit form label { float: left; width: 100px; display: block; font-weight: bold; }
+#edit form input[type="text"] { width: 425px; display: block; margin-bottom: 10px; }
+#edit form textarea { width: 430px; height:150px;  margin-bottom: 10px; }
+#edit form .action { float:right; }
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Contests Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+.contests { position: relative; }
+.contests h2 { margin-bottom: 15px; }
+.contests .new { position: absolute; top: 0; right: 10px; }
+.contests .edit { position: absolute; top: 0; right: 10px; }
+.contests h3 { margin: 10px 0; }
+.contests .headings { width: 900px; }
+.contests .results li { width: 900px; }
+.contests .paginationRow { width: 900px; margin: 5px 0; }
+
+.contests .headings .name, .contests .results .name { width: 480px; }
+.contests .headings .startDate, .contests .results .startDate { width: 120px; }
+.contests .headings .endDate, .contests .results .endDate { width: 120px; }
+.contests .headings .sponsor, .contests .results .sponsor { width: 160px; text-align: center; }
+
+/* --- Sorting Active Contests ---*/
+#sortContests { position: relative; }
+#sortContests #saveSort { position: absolute; top: -110px; right: 0;  }
+#contestsSorting { width: 940px; padding: 0 20px; }
+#sortable.contests { width: 940px; margin: 10px 0; }
+#sortable.contests li { min-height: 30px; width: 940px; background: #e2e2e2; margin: 5px 0; border: 1px solid #B5B5B5}
+#sortable.contests li:hover { cursor: pointer; }
+#sortable.contests .name { width: 480px; display: inline-block; padding: 7px 0; margin-left: 20px; }
+#sortable.contests .startDate { width: 120px; display: inline-block; }
+#sortable.contests .endDate { width: 120px; display: inline-block; }
+#sortable.contests .sponsor { width: 160px; display: inline-block; text-align:center; }
+
+/* ----------------------- Contests Detail Section ------------------------------------*/
+
+#contestRecipeHeadings { width: 940px; padding: 0; }  
+#contestRecipeRows { width: 940px; padding: 0; }
+#contestRecipeRows li { width: 940px; padding: 0; }
+
+#contestRecipeHeadings .name, #contestRecipeRows .name { width: 460px; margin-left: 10px; }
+#contestRecipeHeadings .rating, #contestRecipeRows .rating { width: 100px; }
+#contestRecipeHeadings .dateAdded, #contestRecipeRows .dateAdded { width: 150px; }
+#contestRecipeHeadings .user, #contestRecipeRows .user { width: 150px; text-align: center; }
+#contestRecipeHeadings .status, #contestRecipeRows .status { width: 50px; text-align: center; }
+
+/*----- Sidebar -----*/
+#contestWinners { margin-top: 0; }
+#contestWinners #subHeading { margin-bottom: 0; } 
+#contestWinners #subHeading #contestWeek { float: left; margin: 10px 0 0; width: 270px; text-align: center; }
+#contestWinners .subSide { position: relative; background-color: #FFF; width: 270px; height: 150px; margin: 20px 0; }
+#contestWinners .subSide .subHeading { width: 270px; height: 40px; border-bottom: 3px solid #e1e1e1; }
+#contestWinners .subSide .subHeading h2 { position: absolute; top: 15px; left: 10px; font-weight: bold; }
+#contestWinners .subSide .subHeading a { position: absolute; top: 0; right: 10px; }
+#contestWinners .subSide .winner { float: left; height: 100px; width: 270px; text-align: center; margin-top:20px; }
+#contestWinners .subSide .winner .recipe { display: block; font-weight: bold;  }
+#contestWinners .subSide .winner .user { display: block; margin-top: 15px;   }
+#contestWinners .subSide .winner .user .btn { position: absolute; top: 100px; left: 65px;  }
+
+/* ----- Contest Recipes ----- */
+#contestRecipeFilterLabel { margin: 0 0 0 510px; }
+#contestRecipeFilter { margin: 0 0 0 5px; }
+
+#cke_contest_rules { float:left; margin-bottom: 20px; width: 410px !important; }
+
+
+
+/* ----------------------- Edit Section ------------------------------------*/
+
+#contestContainer.edit h2 { margin-bottom: 20px; }
+#contestContainer.edit #deleteContest { float: right; margin-top: -30px; } 
+#contestContainer.edit .endDate, #contestContainer.edit #endDate { margin: 10px 0;  }
+#contestContainer.edit .datepicker { width: 100px; }
+.contestImage { max-width: 400px; height: auto; }
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Articles Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#articlesHeadings .name { background-position:95px; }
+#articlesHeadings .author { background-position: 60px; }
+#articlesHeadings .dateAdded { background-position: 90px; }
+#articlesHeadings .sponsor { background-position: 115px; }
+#articlesHeadings .active { background-position: 65px; }
+#articlesHeadings .name, #articlesRows .name { width: 365px; }
+#articlesHeadings .author, #articlesRows .author { width: 200px; }
+#articlesHeadings .dateAdded, #articlesRows .dateAdded { width: 120px; }
+#articlesHeadings .sponsor, #articlesRows .sponsor { width: 160px; text-align: center; }
+#articlesRows .sponsor a { cursor:pointer; }
+#articlesHeadings .active, #articlesRows .active { width: 75px; text-align: center; }
+
+/* ------------------------- Article Detail ------------------------- */
+
+#articleBodyContainer .content { width: 940px; }
+
+/* ------------------------- Article Edit ------------------------- */
+
+#articleContainer.edit #deleteArticle { float: right; margin-top: -20px; }
+#articleContentContainer.edit .fields .field.small label { float:left; display: block; width:150px;  font-weight: bold; }
+#articleContentContainer.edit .fields .field span { display:inline-block; width: 510px; }
+#articleContentContainer.edit .fields.small { width:960px; }
+#articleContentContainer.edit .fields.small .field.big { width:960px; }
+#articleContentContainer #articleContent { width: 940px; }
+#articleContentContainer #articleContent .field { margin: 10px 0 2px 0; }
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Sponsors Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#sponsorsHeadings .name { background-position:105px; }
+#sponsorsHeadings .dateAdded { background-position: 90px; }
+#sponsorsHeadings .active { background-position: 65px; }
+#sponsorsHeadings .name, #sponsorsRows .name { width: 370px; }
+#sponsorsHeadings .image, #sponsorsRows .image { width: 325px; }
+#sponsorsHeadings .dateAdded, #sponsorsRows .dateAdded { width: 150px; }
+#sponsorsHeadings .active, #sponsorsRows .active { width: 75px; text-align: center; }
+
+/* ------------------------- Sponsor Edit ------------------------- */
+
+#sponsorContainer.edit #deleteSponsor { float: right; margin-top: -20px; }
+#sponsorContainer .fields .field input[type="text"] { width: 700px; }
+#sponsorContainer .fields .field textarea { width: 705px; }
+#sponsorContainer .fields .field .action { margin:0 10px 0 685px }
+
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Admin User Search Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+.userSearchHeadings .displayName { width: 200px; }
+.userSearchHeadings .email { width: 250px; }
+.userSearchHeadings .dateAdded { width: 150px; }
+.userSearchHeadings .accountType { width: 150px; text-align: center; vertical-align: middle; margin-top:0px; margin-right:20px; }
+.userSearchHeadings .active { width: 75px; text-align: center; }
+.search_form #reset { margin-left: 20px; }
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Premium Users Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+.premiumUsers .email { background-position:40px; }
+.premiumUsers .displayName { background-position:92px; }
+.premiumUsers .dateAdded { background-position: 85px; }
+.premiumUsers .active { background-position: 65px; }
+.premiumUsers .displayName { width: 200px; }
+.premiumUsers .email { width: 250px; }
+.premiumUsers .dateAdded { width: 180px; }
+.premiumUsers .accountType { width: 150px; text-align: center; vertical-align: middle; margin-top:0px; margin-right:20px; }
+.premiumUsers .active { width: 75px; text-align: center; }
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Admin Users Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#usersHeadings .email { background-position:45px; }
+#usersHeadings .dateAdded { background-position: 90px; }
+#usersHeadings .active { background-position: 65px; }
+#usersHeadings .email, #usersRows .email { width: 385px; }
+#usersHeadings .dateAdded, #usersRows .dateAdded { width: 150px; }
+#usersHeadings .accountType, #usersRows .accountType { width: 300px; text-align: center; }
+#usersHeadings .active, #usersRows .active { width: 75px; text-align: center; }
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Recipephotos Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#photosContainer { width: 940px; padding: 0 20px; }
+.photos { width: 940px; margin: 20px 0 0 0; }
+.photos li { height: 100%; width: 500px; background: #e2e2e2; margin: 4px 0; border: 1px solid #B5B5B5}
+.photos li:hover { cursor: pointer; }
+.photos li img { width: auto; height: 100px; }
+.photos li a { float: right; margin: 10px 20px 0 0; }
+
+#addNewPhoto { display: inline-block; margin: 0 0 0 218px;  }
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Polls Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#pollsHeadings .name, #pollsRows .name  { width:450px; }
+#pollsHeadings .voteCount { width: 191px; }
+#pollsRows .voteCount  { width: 158px; padding-left:33px; }
+#pollsHeadings .hpFeatured, #pollsRows .hpFeatured { width: 140px; text-align:right; }
+#pollsRows .hpFeatured { text-align:center; }
+
+/* ------------------------- Polls Detail ------------------------- */
+
+#poll_options { margin: 10px; width: 100%; }
+#poll_options tr { padding: 20px 10px; border-bottom: 1px solid; }
+#poll_options th  { font-weight: bolder; font-size: 1.3em; text-align: left; padding: 10px; background-color: #D9D9D9}
+#poll_options td  { vertical-align: top; padding: 10px; }
+#poll_options td.title, #poll_options td.selected-recipe  { width: 40%; }
+#poll_options td .selected-recipe .recipe-title { font-weight: bolder; }
+#poll_options tr.edit, #poll_options a.cancel-btn  { display: none }
+#poll_options td.edit.button  { width: 7%; }
+#poll_options tr.selected { border-bottom: none; }
+#poll_options .recipe-selector { width: 400px; color: #666666; }
+#poll_options .ui-widget { padding-bottom: 10px; }
+#poll_options ul.recipe-images li { float:left; padding-right: 5px; }
+#poll_options ul.recipe-images li.title { width: 250px; }
+.ui-autocomplete { 
+  max-height: 150px; 
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */ 
+  overflow-x: hidden; 
+  /* add padding to account for vertical scrollbar */ 
+  padding-right: 20px;
+  /* IE 6 doesn't support max-height
+    * we use height instead, but this forces the menu to always be this tall
+  */
+  * html .ui-autocomplete { height: 100px; }
+
+
+
+/* ------------------------------------------------------------------------------*/
+/* ----------------------- User Admin Section ------------------------------------*/
+/* ------------------------------------------------------------------------------*/
+
+/* ----- Adding New Admins ----- */
+.newAdmin h2 { margin-bottom: 20px; }
+.newAdmin .action { float: right; }
+
+
+/*==================-------------------//////////
+IE7 Fixes, thanks Larry
+\\\\\\\\\\--------------------=====================*/
+#recipeSearch input {
+  *margin-left:0!important;
+}
+
+
+/*-----=====
+SHORTKUTS
+=====-----*/
+.fs11 {
+  font-size:11px;
+}
+.green {
+  color:#83af1b;
+}
+.purple {
+  color:#660066;
+}
+.mr20 {
+  margin-right:20px;
+}
+.mb20 { margin-bottom:20px; }
+.mb10 { margin-bottom:10px; }
+
+.dibl { display: block; }

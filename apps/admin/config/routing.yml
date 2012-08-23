@@ -1,0 +1,178 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+signin:
+  url: /signin
+  params: { module: auth, action: signin }
+    
+signout:
+  url: /signout
+  params: { module: auth, action: signout }
+
+#recipe:
+#  class: sfDoctrineRouteCollection
+#  options:
+#    model:                Recipe
+#    module:               recipe
+#    prefix_path:          /recipes
+#    column:               id
+#    with_wildcard_routes: true
+#    
+#category:
+#  class: sfDoctrineRouteCollection
+#  options:
+#    model:                Category
+#    module:               categories
+#    prefix_path:          /category
+#    column:               id
+#    with_wildcard_routes: true
+
+
+forgotpassword:
+  url: /forgotpassword
+  params: { module: auth, action: forgotPassword }
+  
+recipe:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                recipe
+    module:               recipe
+    prefix_path:          /recipe
+    column:               id
+    with_wildcard_routes: true
+
+# default rules
+
+rightrail_index:
+  url: /rightrail
+  param: { module: rightrail, action: index }
+  
+category_index:
+  url: /categories
+  param: { module: categories, action: index }
+
+sort_subcategories:
+  url: /categories/sortSubcategories
+  param: { module: categories, action: sortSubcategories }
+
+recipes_index:
+  url: /recipes
+  param: {module: recipes, action: index }
+  
+recipephotos_index:
+  url: /recipephotos/recipe/:recipe_id
+  param: {module: recipephotos, action: index }
+  
+slideshows_index:
+  url: /slideshows
+  param: {module: slideshows, action: index }
+  
+contests_index:
+  url: /contests
+  param: {module: contests, action: index }
+  
+articles_index:
+  url: /articles
+  param: {module: articles, action: index }
+  
+meta_index:
+  url: /meta
+  param: {module: meta, action: index }
+  
+sponsors_index:
+  url: /sponsors
+  param: {module: sponsors, action: index }
+  
+polls_list:
+  url: /polls
+  param: {module: polls, action: index }
+  
+poll_feature_hp:
+  url: /_poll_feature_hp/:id
+  param: {module: polls, action: featureHp }
+
+poll_detail:
+  url: /poll/:id
+  param: {module: polls, action: detail }
+
+poll_detail_update:
+  url: /_poll/:id
+  param: {module: polls, action: detail }
+
+poll_search_recipe:
+  url: /_poll_search_recipe
+  param: {module: polls, action: searchRecipes }
+
+poll_get_recipe:
+  url: /_poll_get_recipe/:id
+  param: {module: polls, action: getRecipe }
+
+wonders_index:
+  url: /wonders
+  param: {module: wonders, action: index }
+
+
+administrators:
+  url: /administrators
+  class: sfDoctrineRoute
+  params: { module: users, action: administrators }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+premiums:
+  url: /premiums/:sortby/:order/:page
+  params: { module: users, action: premiums, sortby: created_at, order: DESC, page: 1 }
+  requirements:
+    sf_method: [get]
+
+update_user_status:
+  url: /users/updateUserStatus
+  params: { module: users, action: updateUserStatus }
+  requirements:
+    sf_method: [get]
+
+users_index:
+  url: /users
+  class: sfDoctrineRoute
+  params: { module: users, action: index }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+users_detail:
+  url: /users/detail/:id
+  class: sfDoctrineRoute
+  params: { module: users, action: detail }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+
+users_new:
+  url: /users/new
+  class: sfDoctrineRoute
+  params: { module: users, action: new }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+users_edit:
+  url: /users/edit/:id
+  class: sfDoctrineRoute
+  params: { module: users, action: edit }
+  options: { model: User, type: object, method: retrieveUser, allow_empty: false }
+  requirements:
+    sf_method: [get,post]
+    
+homepage:
+  url:   /
+  param: { module: index, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

@@ -1,0 +1,27 @@
+_featured_contents:
+  enabled: on
+  lifetime:    600
+  
+_groups:
+  enabled: on
+  lifetime:    600
+  
+_conversations:
+  enabled: on
+  lifetime:    600
+  
+_vote:
+  enabled: on
+  lifetime:    600
+  
+_featured_contests:
+  enabled: on
+  lifetime:    600
+  
+_cooks:
+  enabled: on
+  lifetime:    600
+  
+_editorials:
+  enabled: on
+  lifetime:    600

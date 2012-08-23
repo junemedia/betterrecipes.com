@@ -1,0 +1,15 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/12-Filters
+
+rendering: ~
+
+# This entry will check user session on every page load to ensure user is still logged into Onesite and has permission.
+# In addition to checking user session, this filter hydrates the user object with onesite data.
+# It must be place before the `security` filter so that the `security` filter will have data to work with.
+#onesite_session:
+#   class: SessionFilter
+   
+security:  ~
+
+cache:     ~
+execution: ~
