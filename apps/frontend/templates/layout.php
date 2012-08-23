@@ -102,7 +102,7 @@
       <!-- END CROWD_SCIENCE INCLUDE -->
     <? endif ?>
     <script type="text/javascript">Meebo('domReady');</script>
-        <? if ($this->moduleName != 'contests'): ?>
+        <? if (!in_array($this->moduleName, array('contests', 'auth'))): ?>
       <!-- Kontera ContentLink(TM);-->
       <script type='text/javascript'>
       var dc_AdLinkColor = 'blue' ;
