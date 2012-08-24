@@ -5035,7 +5035,7 @@ table.form td input[type="submit"] {
 
 /* Homepage Poll */
 #result-bar div.img-mask { position: relative; overflow: hidden; width: 100px; height: 100px; }
-#result-bar div.img-mask img { display: inline; position: absolute; top:0; left: -27.5px; }
+#result-bar div.img-mask img { display: inline; position: absolute; top:0; left: -27.5px; height: 100px; }
 #result-bar p.rec_votebtn a.vote { 
   cursor: pointer;
   display: block;
@@ -5077,7 +5077,7 @@ table.form td input[type="submit"] {
   position: relative; overflow: hidden; width: 150px; height: 150px;
 }
 #top-trending .img-mask img {
-  display: inline; position: absolute; top:0; left: -27.5px;
+  display: inline; position: absolute; top:0; left: -27.5px; height: 150px;
 }
 
 .cssbutton {
