@@ -114,17 +114,20 @@ class recipesActions extends sfActions
   {
     $legacy_id = $request->getParameter('m', 0);
     $this->forward404Unless($recipe = Doctrine_Core::getTable('Recipe')->findOneBySourceAndLegacyIdAndIsActive('mb', $legacy_id, 1));
-    // Set a daily log for MB redirects
-    if ($log = Doctrine_Core::getTable('MbForwardLog')->find(array($request->getUri(), date('Y-m-d')))) {
-      $log->setCounter($log->getCounter() + 1);
-      $log->save();
-    } else {
-      $log = new MbForwardLog();
-      $log->setUrl($request->getUri());
-      $log->setDate(date('Y-m-d'));
-      $log->setCounter(1);
-      $log->save();
-    }
+    // // // THIS DOESN'T ACTUALLY WORK AND IS APPROVED BY CLIENT TO BE REMOVED.
+    // // // SINCE THIS IS CACHED, THE MAX WOULD ONLY BE 24 REDIRECTS FOR A GIVEN
+    // // // URL IN ONE DAY.
+    // // Set a daily log for MB redirects
+    // if ($log = Doctrine_Core::getTable('MbForwardLog')->find(array($request->getUri(), date('Y-m-d')))) {
+    //   $log->setCounter($log->getCounter() + 1);
+    //   $log->save();
+    // } else {
+    //   $log = new MbForwardLog();
+    //   $log->setUrl($request->getUri());
+    //   $log->setDate(date('Y-m-d'));
+    //   $log->setCounter(1);
+    //   $log->save();
+    // }
     $this->redirect(UrlToolkit::getUrl($recipe));
   }
 
