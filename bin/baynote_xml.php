@@ -7,12 +7,12 @@ $dishRssUrl = 'http://10.10.10.19/blogs/daily-dish/feed/';
 
 
 chdir(dirname(__FILE__));
-include_once(dirname(__FILE__) . '/../../apps/frontend/lib/Microformat.class.php');
+include_once(dirname(__FILE__) . '/../apps/frontend/lib/Microformat.class.php');
 
 
 // define('BASE_HOST', 'betterrecipes.mydevstaging.com');
 define('BASE_HOST', 'betterrecipes.com');
-define('BASE_IMAGE', 'http://' . BASE_HOST . '/uploads/photo/280x205/');
+define('BASE_IMAGE', 'http://' . BASE_HOST . '/uploads/photo/400x300/');
 
 $_ROOT_INGREDIENTS = array();
 
