@@ -5,7 +5,7 @@
   <? if ($photos = $recipe->getPhoto()): ?>
     <? foreach ($photos as $key => $photo): ?>
       <li>
-        <img src="<?= $photo->getImgSrc('280x205') ?>" height="100" alt="<?= $photo->getName() ?>"/><br/>
+        <img src="<?= $photo->getImgSrc('400x300') ?>" height="100" alt="<?= $photo->getName() ?>"/><br/>
         <label>Image <?= $key + 1 ?></label>
         <input type="checkbox" value="<?= $photo->getId() ?>" class="image-checkbox" onclick="selectImage(this)"<? if ($key == 0): ?> checked="checked" <? endif; ?>/>
       </li>

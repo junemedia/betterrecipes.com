@@ -24,7 +24,7 @@
         </td>
         <td class="selected-image">
           <? if ($option_image = $p->getPhoto()): ?>
-            <img src="<?= $option_image->getImgSrc('280x205') ?>" height="100" alt="<?= $option_image->getName() ?>"/>
+            <img src="<?= $option_image->getImgSrc('400x300') ?>" height="100" alt="<?= $option_image->getName() ?>"/>
             <input type="hidden" class="has-image" value="1" />
           <? else: ?>
             No image selected

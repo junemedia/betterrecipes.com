@@ -13,7 +13,7 @@
 class Wonders extends BaseWonders
 {
 	
-	public function getImgSrc($whichImage, $size='280x205', $absolute = false)
+	public function getImgSrc($whichImage, $size='400x300', $absolute = false)
 	{
 	  	switch ($whichImage) {
 	  		case 'one' :

@@ -13,7 +13,7 @@
 class SlideshowMedium extends BaseSlideshowMedium
 {
 
-  public function getImgSrc($size='280x205')
+  public function getImgSrc($size='400x300')
   {
     $p = Doctrine_Core::getTable('Photo')->createQuery('p')->where('p.id = ?', $this->medium_id)->fetchOne();
     return is_object($p) ? $p->getImgSrc($size) : null;

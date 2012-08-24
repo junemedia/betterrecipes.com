@@ -18,7 +18,7 @@
     <? foreach ($photo as $i => $p): ?>
     <li>
       <input type="hidden" name="recipephotos_ids[]" value="<?= $p->getId() ?>" />
-      <img src="<?= $p->getImgSrc('280x205') ?>" alt="<?= $p->getName() ?>" />
+      <img src="<?= $p->getImgSrc('400x300') ?>" alt="<?= $p->getName() ?>" />
       <?//= link_to('Edit', 'recipephotos/edit?id='.$p->getId().'&recipe_id='.$recipe->getId()) ?>
       <?= link_to('Delete', 'recipephotos/delete?id='.$p->getId().'&recipe_id='.$recipe->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
     </li>

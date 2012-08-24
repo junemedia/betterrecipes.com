@@ -24,7 +24,7 @@ class Slideshow extends BaseSlideshow
 //    );
 //  }
 
-  public function getImgSrc($size='280x205')
+  public function getImgSrc($size='400x300')
   {
     if (empty($this->photo_id)) {
       return $this->getSortedSlides()->getFirst()->getImgSrc($size);

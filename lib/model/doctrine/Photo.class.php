@@ -19,7 +19,7 @@ class Photo extends BasePhoto
     parent::save();
   }
 
-  public function getImgSrc($size='280x205', $absolute = false)
+  public function getImgSrc($size='400x300', $absolute = false)
   {
     if ($this->source == 'nw') {
       $config = sfConfig::get('app_uploads_photo');
