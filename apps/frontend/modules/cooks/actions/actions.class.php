@@ -32,6 +32,7 @@ class cooksActions extends sfActions
     $this->my_profile = ($this->getUser()->isAuthenticated() && $this->getUser()->getIsActive() && $this->getUser()->getDisplayName() === $display_name) ? true : false;
 
     $this->user = UserTable::getUserByDisplayName($display_name);
+    $this->forward404Unless($this->user);
 //  $this->user->setRegServicesData();
     $response = $this->getResponse();
     $response->setTitle($display_name . ' | Cooks | Better Recipes');
