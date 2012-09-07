@@ -15,7 +15,7 @@ class AdminProfileForm extends BaseUserForm {
   public function update($con = null) {
   	$object = $this->getObject();
     $object->setUpdatedAt(date('Y-m-d H:i:s'));
-    $form_obj = parent::save($con);
+    $form_obj = $object->save();
     return $form_obj;
   }
 }
