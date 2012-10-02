@@ -592,8 +592,9 @@ fieldset.last {
 #contestRecipeRows li { width: 940px; padding: 0; }
 
 #contestRecipeHeadings .name, #contestRecipeRows .name { width: 460px; margin-left: 10px; }
-#contestRecipeHeadings .rating, #contestRecipeRows .rating { width: 100px; }
-#contestRecipeHeadings .dateAdded, #contestRecipeRows .dateAdded { width: 150px; }
+#contestRecipeHeadings .rating, #contestRecipeRows .vote { width: 40px; }
+#contestRecipeHeadings .rating, #contestRecipeRows .rating { width: 100px; text-align: center; }
+#contestRecipeHeadings .dateAdded, #contestRecipeRows .dateAdded { width: 110px; }
 #contestRecipeHeadings .user, #contestRecipeRows .user { width: 150px; text-align: center; }
 #contestRecipeHeadings .status, #contestRecipeRows .status { width: 50px; text-align: center; }
 
