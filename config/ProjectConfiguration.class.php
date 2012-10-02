@@ -4,20 +4,6 @@ require_once 'symfony1.4/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
 /**
- * Registering Symfony2 components
- */
-require_once 'symfony2/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
-$loader = new Symfony\Component\ClassLoader\UniversalClassLoader();
-$loader->registerNamespaces(array(
-  'Symfony' => array('/srv/lib/symfony2/symfony/src', '/srv/lib/symfony2/bundles'),
-  'Assetic' => '/srv/lib/symfony2/assetic/src'
-));
-$loader->register();
-
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-
-/**
  * 
  */
 class ProjectConfiguration extends sfProjectConfiguration
