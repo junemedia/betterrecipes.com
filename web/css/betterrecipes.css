@@ -4148,7 +4148,7 @@ FEATURE: popup pop up
 .popup {
   height: 100%;
   width: 100%;
-  position: absolute;
+  /*position: absolute; REMOVED ET 7079*/
   top: 0; 
   left: 0;
   opacity: 1;
