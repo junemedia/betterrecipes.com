@@ -46,7 +46,6 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
         <ul>
           <li><a href="http://twitter.com/BetterRecipes">Follow Us on Twitter</a></li>
           <li>&nbsp;|&nbsp;<a href="http://www.facebook.com/betterrecipes">Find Us on Facebook</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.betterrecipes.com/advertise" taget="_blank">Run Your Own Ad</a></li>
           <li>&nbsp;|&nbsp;<a href="http://www.bhg.com/bhg/file.jsp?item=/partner/srds/index&temp=noo">Advertise</a></li>
         </ul>
       </div>

@@ -214,24 +214,6 @@ class Toolkit {
       'otf' => 'font/otf'
   );
 
-  public static function detectZipcode() {
-    include_once('geoipzip.inc.php');
-    if (function_exists('geoipzip')) {
-      $zip = @geoipzip(self::detectIp());
-      return $zip;
-    }
-    return '';
-  }
-
-  public static function detectLocation() {
-    include_once('geoipzip.inc.php');
-    if (function_exists('geoipzip')) {
-      $geo = @geoip_record_by_name(self::detectIp());
-      return $geo;
-    }
-    return '';
-  }
-
   public static function detectIp() {
     return isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
   }
