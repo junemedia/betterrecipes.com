@@ -136,6 +136,16 @@
     })();
     </script>
     <!-- END Krux Controltag -->
+    <script type="text/javascript">
+      /* <![CDATA[ */
+        var _mb_site_guid = '537a2a0e4370d27f28b3d4f6704f8ccb7f3f6a37cb35e81b058cb9a83642cc18';
+        (function(d, t){
+            var mb = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            mb.async = mb.src = '//cdn.linksmart.com/linksmart_2.3.0.min.js';
+            s.parentNode.insertBefore(mb, s);
+        }(document, 'script'));
+      /* ]]> */
+    </script>
   </body>
 </html>
 
