@@ -1,4 +1,4 @@
-<? if (@$main_category == 'christmas recipes'): ?>
+<? if (@$main_category == 'thanksgiving recipes'): ?>
   <!-- BEGIN WALLPAPER on BR Thanksgiving -->
   <style>
     body {background:url('http://www.bhg.com/bhg/images/advertising/wallpaper-RCP-daisy.jpg') no-repeat scroll center 143px #BDCDDA;}
@@ -23,7 +23,7 @@
   <IMG SRC="http://ad.doubleclick.net/imp;v1;f;264458548;0-0;0;89613609;1|1;51061087|51030929|1;;cs=m;pc=[TPAS_ID];%3fhttp://ad.doubleclick.net/dot.gif?%%CACHEBUSTER%%" BORDER=0 WIDTH=1 HEIGHT=1 />
   <!-- End Impression Tracker -->
 <? endif; ?>
-<? if (@$main_category == 'thanksgiving recipes'): ?>
+<? if (@$main_category == 'christmas recipes'): ?>
   <!-- BEGIN WALLPAPER on BR Christmas -->
   <style>
     body {background:url('http://www.bhg.com/bhg/images/advertising/wallpaper-RCP-daisy.jpg') no-repeat scroll center 143px #BDCDDA;}
