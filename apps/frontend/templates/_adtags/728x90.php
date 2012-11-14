@@ -29,7 +29,9 @@ document.write(src);
 var ybotq = ybotq || [];
 ybotq.push(['psn', 'd45f']); //pin
 ybotq.push(function () {
-var url = "http://a.collective-media.net/adj/bhg.mdp.com/S1;channel=S1;parent=cat740170;site=bhg;child1=cat6840001;id=1285258569951;ybot_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;!c=rme;cmn=md;tile=2;sz=728x90;ord=767772964?";
+var ord = Math.floor(Math.random()*9999999999);
+var unique_page = document.location.pathname;
+var url = "http://a.collective-media.net/adj/betterrecipes.mdp.com/S1;channel=S1;parent=cat740170;site=betterrecipes;child1=cat6840001;id="+unique_page+";ybot_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;!c=rme;cmn=md;tile=2;sz=728x90;ord="+ord+"?";
 var slot = yieldbot.slot_available('728x90');
 if (slot) {
 url = url.replace('ybot_ad=n', 'ybot_ad=y;ybot_slot=' + slot);
