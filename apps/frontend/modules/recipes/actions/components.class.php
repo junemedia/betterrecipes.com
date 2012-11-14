@@ -21,7 +21,7 @@ class recipesComponents extends sfComponents
     // Don't display Better Recipes, Mixing Bowl Recipes, Miscellaneous Recipes
     $params['excluded_cats'] = CategoryTable::$excluded_cats;
     $category_list = CategoryTable::getMainCategoryList($params)->getData();
-    $this->footer_categories = array_chunk($category_list, ceil(count($category_list) / 3.5));
+    $this->footer_categories = array_chunk($category_list, ceil(count($category_list) / 4));
   }
 
   /**
