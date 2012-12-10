@@ -143,8 +143,14 @@ class BetterrecipesUser extends sfBasicSecurityUser
    */
   public function signin($user_data = null)
   {
+    // If the lis cookie is not set we are not automatically starting the session so before signing in the user initiate the session.
+    $sf_context = sfContext::getInstance();
+    $options = $sf_context->getStorage()->getOptions();
+    $options['is_signin'] = true;
+    $sf_context->getStorage()->initialize($options);
+
     if (!$user_data) {
-      throw new InvalidArgumentException('Invalid.  User data cannot be null or empty.');
+      throw new InvalidArgumentException('Invalid. User data cannot be null or empty.');
       return false;
     } else {
       if ($user_data['is_admin']) {
@@ -171,6 +177,8 @@ class BetterrecipesUser extends sfBasicSecurityUser
     $this->getAttributeHolder()->removeNamespace(); // clear the default namespace only
     $this->getAttributeHolder()->clear();
     $this->removeAttribute('user_data');
+    // Remove the cookie from browser after cleaning up the session data on the server
+    sfContext::getInstance()->getResponse()->setCookie('sid', '', time() - 3600, '/', UrlToolkit::getDomain());
     return $this;
   }
 
