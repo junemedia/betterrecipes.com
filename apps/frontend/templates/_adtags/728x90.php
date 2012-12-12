@@ -30,7 +30,7 @@ var ybotq = ybotq || [];
 ybotq.push(['psn', 'd45f']); //pin
 ybotq.push(function () {
 var ord = Math.floor(Math.random()*9999999999);
-var url = "http://a.collective-media.net/adj/betterrecipes.mdp.com/S1;channel="+window.adchannelid+";parent="+window.adparentid+";site=betterrecipes;child1="+window.adchild1id+";id="+window.adid+";ybot_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;!c=rme;cmn=md;tile=1;sz=728x90;ord="+ord+"?";
+var url = "http://a.collective-media.net/adj/betterrecipes.mdp.com/S1;channel="+window.adchannelid+";parent="+window.adparentid+";site=betterrecipes;child1="+window.adchild1id+";id="+window.adid+";ybot_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;dcopt=ist;cmn=md;tile=1;sz=728x90;ord="+ord+"?";
 var slot = yieldbot.slot_available('728x90');
 if (slot) {
 url = url.replace('ybot_ad=n', 'ybot_ad=y;ybot_slot=' + slot);
