@@ -3,22 +3,14 @@
 
 prod:
   .settings:
+    error_reporting:        false
 
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
 
-test:
-  .settings:
-    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
-
 all:
   .actions:
-    no_script_name:         true
-    cache:                  false
-    etag:                   false
-    web_debug:              false
-
     error_404_module:       error
     error_404_action:       error404
 
@@ -32,6 +24,11 @@ all:
     module_disabled_action: disabled
 
   .settings:
+    logging_enabled:        false
+    etag:                   false
+    no_script_name:         true
+    cache:                  false
+    web_debug:              false
     # Form security secret (CSRF protection)
     csrf_secret:            false #7187158d8451d1ad68aef6e300279de6e72cfb37
 
