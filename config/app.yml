@@ -29,6 +29,8 @@ prod:
     hash_key:         UryBhEva5GhYTzZo-NY7WsDikB6kPl-D
 
 all:
+  session_ttl:              1209600 # 15 days
+
   baynote:
     cn:               meredith
     cc:               betrec
