@@ -27,7 +27,7 @@ dev:
 #  storage:
 #    param:
 #      session_cookie_domain: .betterrecipes.mydevstaging.com
-      
+
   mailer:
     param:
       delivery_strategy: single_address
@@ -37,7 +37,7 @@ all:
   user:
     class: FrontendUser
     param:
-      timeout:         86400 # 24 hours
+      timeout:         <? echoln(sfConfig::get('app_session_ttl')) ?>
       logging:         %SF_LOGGING_ENABLED%
       use_flash:       true
       default_culture: %SF_DEFAULT_CULTURE%
@@ -47,7 +47,7 @@ all:
     param:
       session_name: sid
       session_cookie_lifetime: <? echoln(sfConfig::get('app_session_ttl')) ?>
-  
+
   routing:
     class: sfPatternRouting
     param:
@@ -65,7 +65,7 @@ all:
     param:
       cache_key_use_vary_headers: true
       cache_key_use_host_name:    true
-      
+
   view_cache:
 #    class: sfAPCCache
     class: sfFileCache
@@ -73,7 +73,7 @@ all:
       prefix: betterrecipes/frontend
       automatic_cleaning_factor: 0
       lifetime: 2400      
-        
+
   mailer:
     class: sfMailer
     param:
