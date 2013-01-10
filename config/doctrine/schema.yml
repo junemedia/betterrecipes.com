@@ -764,6 +764,14 @@ Contest:
       default: '1'
       notnull: true
       autoincrement: false
+    is_open_to_public:
+      type: integer(1)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
     user_id:
       type: integer(4)
       fixed: false
@@ -2927,20 +2935,6 @@ UserProvider:
       notnull: true
       autoincrement: false
     created_at:
-      type: timestamp(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    auth_token:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    updated_at:
       type: timestamp(25)
       fixed: false
       unsigned: false

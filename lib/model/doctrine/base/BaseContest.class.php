@@ -21,6 +21,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @property integer $sequence
  * @property integer $sponsor_id
  * @property integer $is_active
+ * @property integer $is_open_to_public
  * @property integer $user_id
  * @property timestamp $created_at
  * @property timestamp $updated_at
@@ -33,56 +34,58 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @property Doctrine_Collection $ContestPeriod
  * @property Doctrine_Collection $Contestant
  * 
- * @method integer             getId()            Returns the current record's "id" value
- * @method string              getName()          Returns the current record's "name" value
- * @method string              getSlug()          Returns the current record's "slug" value
- * @method string              getDescription()   Returns the current record's "description" value
- * @method string              getTitleTag()      Returns the current record's "title_tag" value
- * @method string              getSummary()       Returns the current record's "summary" value
- * @method string              getPrize()         Returns the current record's "prize" value
- * @method string              getKeywords()      Returns the current record's "keywords" value
- * @method string              getImage()         Returns the current record's "image" value
- * @method string              getRules()         Returns the current record's "rules" value
- * @method string              getRulesUrl()      Returns the current record's "rules_url" value
- * @method integer             getSequence()      Returns the current record's "sequence" value
- * @method integer             getSponsorId()     Returns the current record's "sponsor_id" value
- * @method integer             getIsActive()      Returns the current record's "is_active" value
- * @method integer             getUserId()        Returns the current record's "user_id" value
- * @method timestamp           getCreatedAt()     Returns the current record's "created_at" value
- * @method timestamp           getUpdatedAt()     Returns the current record's "updated_at" value
- * @method date                getStartDate()     Returns the current record's "start_date" value
- * @method date                getEndDate()       Returns the current record's "end_date" value
- * @method string              getTimezone()      Returns the current record's "timezone" value
- * @method integer             getWeeks()         Returns the current record's "weeks" value
- * @method Sponsor             getSponsor()       Returns the current record's "Sponsor" value
- * @method User                getUser()          Returns the current record's "User" value
- * @method Doctrine_Collection getContestPeriod() Returns the current record's "ContestPeriod" collection
- * @method Doctrine_Collection getContestant()    Returns the current record's "Contestant" collection
- * @method Contest             setId()            Sets the current record's "id" value
- * @method Contest             setName()          Sets the current record's "name" value
- * @method Contest             setSlug()          Sets the current record's "slug" value
- * @method Contest             setDescription()   Sets the current record's "description" value
- * @method Contest             setTitleTag()      Sets the current record's "title_tag" value
- * @method Contest             setSummary()       Sets the current record's "summary" value
- * @method Contest             setPrize()         Sets the current record's "prize" value
- * @method Contest             setKeywords()      Sets the current record's "keywords" value
- * @method Contest             setImage()         Sets the current record's "image" value
- * @method Contest             setRules()         Sets the current record's "rules" value
- * @method Contest             setRulesUrl()      Sets the current record's "rules_url" value
- * @method Contest             setSequence()      Sets the current record's "sequence" value
- * @method Contest             setSponsorId()     Sets the current record's "sponsor_id" value
- * @method Contest             setIsActive()      Sets the current record's "is_active" value
- * @method Contest             setUserId()        Sets the current record's "user_id" value
- * @method Contest             setCreatedAt()     Sets the current record's "created_at" value
- * @method Contest             setUpdatedAt()     Sets the current record's "updated_at" value
- * @method Contest             setStartDate()     Sets the current record's "start_date" value
- * @method Contest             setEndDate()       Sets the current record's "end_date" value
- * @method Contest             setTimezone()      Sets the current record's "timezone" value
- * @method Contest             setWeeks()         Sets the current record's "weeks" value
- * @method Contest             setSponsor()       Sets the current record's "Sponsor" value
- * @method Contest             setUser()          Sets the current record's "User" value
- * @method Contest             setContestPeriod() Sets the current record's "ContestPeriod" collection
- * @method Contest             setContestant()    Sets the current record's "Contestant" collection
+ * @method integer             getId()                Returns the current record's "id" value
+ * @method string              getName()              Returns the current record's "name" value
+ * @method string              getSlug()              Returns the current record's "slug" value
+ * @method string              getDescription()       Returns the current record's "description" value
+ * @method string              getTitleTag()          Returns the current record's "title_tag" value
+ * @method string              getSummary()           Returns the current record's "summary" value
+ * @method string              getPrize()             Returns the current record's "prize" value
+ * @method string              getKeywords()          Returns the current record's "keywords" value
+ * @method string              getImage()             Returns the current record's "image" value
+ * @method string              getRules()             Returns the current record's "rules" value
+ * @method string              getRulesUrl()          Returns the current record's "rules_url" value
+ * @method integer             getSequence()          Returns the current record's "sequence" value
+ * @method integer             getSponsorId()         Returns the current record's "sponsor_id" value
+ * @method integer             getIsActive()          Returns the current record's "is_active" value
+ * @method integer             getIsOpenToPublic()    Returns the current record's "is_open_to_public" value
+ * @method integer             getUserId()            Returns the current record's "user_id" value
+ * @method timestamp           getCreatedAt()         Returns the current record's "created_at" value
+ * @method timestamp           getUpdatedAt()         Returns the current record's "updated_at" value
+ * @method date                getStartDate()         Returns the current record's "start_date" value
+ * @method date                getEndDate()           Returns the current record's "end_date" value
+ * @method string              getTimezone()          Returns the current record's "timezone" value
+ * @method integer             getWeeks()             Returns the current record's "weeks" value
+ * @method Sponsor             getSponsor()           Returns the current record's "Sponsor" value
+ * @method User                getUser()              Returns the current record's "User" value
+ * @method Doctrine_Collection getContestPeriod()     Returns the current record's "ContestPeriod" collection
+ * @method Doctrine_Collection getContestant()        Returns the current record's "Contestant" collection
+ * @method Contest             setId()                Sets the current record's "id" value
+ * @method Contest             setName()              Sets the current record's "name" value
+ * @method Contest             setSlug()              Sets the current record's "slug" value
+ * @method Contest             setDescription()       Sets the current record's "description" value
+ * @method Contest             setTitleTag()          Sets the current record's "title_tag" value
+ * @method Contest             setSummary()           Sets the current record's "summary" value
+ * @method Contest             setPrize()             Sets the current record's "prize" value
+ * @method Contest             setKeywords()          Sets the current record's "keywords" value
+ * @method Contest             setImage()             Sets the current record's "image" value
+ * @method Contest             setRules()             Sets the current record's "rules" value
+ * @method Contest             setRulesUrl()          Sets the current record's "rules_url" value
+ * @method Contest             setSequence()          Sets the current record's "sequence" value
+ * @method Contest             setSponsorId()         Sets the current record's "sponsor_id" value
+ * @method Contest             setIsActive()          Sets the current record's "is_active" value
+ * @method Contest             setIsOpenToPublic()    Sets the current record's "is_open_to_public" value
+ * @method Contest             setUserId()            Sets the current record's "user_id" value
+ * @method Contest             setCreatedAt()         Sets the current record's "created_at" value
+ * @method Contest             setUpdatedAt()         Sets the current record's "updated_at" value
+ * @method Contest             setStartDate()         Sets the current record's "start_date" value
+ * @method Contest             setEndDate()           Sets the current record's "end_date" value
+ * @method Contest             setTimezone()          Sets the current record's "timezone" value
+ * @method Contest             setWeeks()             Sets the current record's "weeks" value
+ * @method Contest             setSponsor()           Sets the current record's "Sponsor" value
+ * @method Contest             setUser()              Sets the current record's "User" value
+ * @method Contest             setContestPeriod()     Sets the current record's "ContestPeriod" collection
+ * @method Contest             setContestant()        Sets the current record's "Contestant" collection
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -212,6 +215,16 @@ abstract class BaseContest extends sfDoctrineRecord
              'length' => 4,
              ));
         $this->hasColumn('is_active', 'integer', 1, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => true,
+             'primary' => false,
+             'default' => '1',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 1,
+             ));
+        $this->hasColumn('is_open_to_public', 'integer', 1, array(
              'type' => 'integer',
              'fixed' => 0,
              'unsigned' => true,

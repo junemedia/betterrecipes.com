@@ -65,12 +65,15 @@ class RecipeFrontendForm extends RecipeForm
     return $options;
   }
   
-  protected function getContestOptions(){
+  protected function getContestOptions()
+  {
     $contests = ContestTable::getActiveContests()->execute();
     $options[''] = 'Select Contest';
-    foreach($contests as $c){
-      $options[$c->getId()] = $c->getName();
-    }    
+    foreach ($contests as $c) {
+      if ($c->getIsOpenToPublic()) {
+        $options[$c->getId()] = $c->getName();
+      }
+    }
     return $options;
   }
 
