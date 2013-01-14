@@ -29,11 +29,11 @@
               <? if ($contest->getIsOpenToPublic()): ?>
                 <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="ENTER NOW!" class="btn-grey28 mr20">ENTER NOW!</a>
               <? endif; ?>
-              <a href="<?= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug()) ?>" title="View Entries" class="btn-grey28">View Entries</a>
+              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?><?//= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug()) ?>" title="View Entries" class="btn-grey28">View Entries</a>
             </p>
           </li>
         <? endforeach; ?>
-      </ul>      
+      </ul>
     </div>
   <? endif; ?>
   <div id="contest-entries" class="contest-winners">
