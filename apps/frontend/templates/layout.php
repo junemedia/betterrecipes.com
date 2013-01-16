@@ -55,6 +55,7 @@
     <![endif]-->
   </head>
   <body>
+    <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
