@@ -2,7 +2,7 @@
 <div class="article contests">
   <div id="contest-detail">
     <p class="title green pb20">Official Rules</p>
-    <p class=""><?= $contest->getRules() ?></p>
+    <p class=""><?// = $contest->getRules() ?></p>
   </div>
 </div><!-- /.article -->
 
