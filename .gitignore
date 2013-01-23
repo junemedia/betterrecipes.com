@@ -1,7 +1,6 @@
 .DS_Store
 ._*
 *~
-robots.txt
 cache/*
 log/*
 web/uploads/*
@@ -15,4 +14,3 @@ web/*.sql.*
 *.svg.gz
 *.ttf.gz
 *.woff.gz
-web/sitemaps

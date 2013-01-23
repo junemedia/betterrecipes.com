@@ -22,10 +22,10 @@
      <? if (has_slot('video')): ?>
       <? include_slot('video') ?>
     <? endif; ?>
-    <script type="text/javascript" src="http://cdn.gigya.com/JS/socialize.js?apikey=<?= sfConfig::get('app_gigya_api_key') ?>">  </script>  
-    <script type="text/javascript">  
-      brmb.gigya.conf.APIKey = '<?= sfConfig::get('app_gigya_api_key') ?>';  
-    </script> 
+    <script type="text/javascript" src="http://cdn.gigya.com/JS/socialize.js?apikey=<?= sfConfig::get('app_gigya_api_key') ?>">  </script>
+    <script type="text/javascript">
+      brmb.gigya.conf.APIKey = '<?= sfConfig::get('app_gigya_api_key') ?>';
+    </script>
   </head>
   <body>
   	<? include_partial('global/header-main') ?>
@@ -45,15 +45,16 @@
         <? endif ?>
         <? //include_partial('global/header_user_area') ?>
         <? include_component('auth', 'header_user_area') ?>
-        
+
     	<?php echo $sf_content ?>
     </div><!-- /#main-content -->
     <? include_partial('global/footer-main') ?>
-    
+
     <!-- BEGIN BAYNOTE INCLUDE -->
     <script type="text/javascript" src="<?= getDomainUri() . '/js/baynote.js' ?>" ></script>
     <!-- END BAYNOTE INCLUDE -->
     <? include_partial('global/omniture') ?>
+    <? include_partial('global/ga') ?>
     <? if (strpos($_SERVER['HTTPS'], 'on') === false): ?>
       <!-- BEGIN CROWD_SCIENCE INCLUDE -->
       <script type="text/javascript">
@@ -62,7 +63,7 @@
           cs.async = true;
           cs.src = ('https:' == document.location.protocol ?  'https://secure-' : 'http://') +
             'static.crowdscience.com/start-fa76ad0aab.js'
-          var s = document.getElementsByTagName('script')[0];          
+          var s = document.getElementsByTagName('script')[0];
           s.parentNode.insertBefore(cs,s);
         })();
       </script>

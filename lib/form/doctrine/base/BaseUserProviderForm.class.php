@@ -19,8 +19,6 @@ abstract class BaseUserProviderForm extends BaseFormDoctrine
       'provider'     => new sfWidgetFormInputHidden(),
       'provider_uid' => new sfWidgetFormInputText(),
       'created_at'   => new sfWidgetFormDateTime(),
-      'auth_token'   => new sfWidgetFormInputText(),
-      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -28,8 +26,6 @@ abstract class BaseUserProviderForm extends BaseFormDoctrine
       'provider'     => new sfValidatorChoice(array('choices' => array($this->getObject()->get('provider')), 'empty_value' => $this->getObject()->get('provider'), 'required' => false)),
       'provider_uid' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'created_at'   => new sfValidatorDateTime(),
-      'auth_token'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('user_provider[%s]');

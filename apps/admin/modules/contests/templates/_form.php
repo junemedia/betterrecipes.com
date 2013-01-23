@@ -98,6 +98,11 @@
       <?= $form['keywords'] ?>
     </div>
     <div class="field small">
+      <?= $form['is_open_to_public']->renderError() ?>
+      <?= $form['is_open_to_public']->renderLabel() ?>      
+      <?= $form['is_open_to_public'] ?>
+    </div>
+    <div class="field small">
       <div class="action small">
         <a href="<?php echo url_for('contests/index') ?>">Cancel</a>
         &nbsp;&nbsp;or&nbsp;&nbsp;

@@ -11,23 +11,17 @@ Doctrine_Manager::getInstance()->bindComponent('UserProvider', 'doctrine');
  * @property string $provider
  * @property string $provider_uid
  * @property timestamp $created_at
- * @property string $auth_token
- * @property timestamp $updated_at
  * @property User $User
  * 
  * @method integer      getUserId()       Returns the current record's "user_id" value
  * @method string       getProvider()     Returns the current record's "provider" value
  * @method string       getProviderUid()  Returns the current record's "provider_uid" value
  * @method timestamp    getCreatedAt()    Returns the current record's "created_at" value
- * @method string       getAuthToken()    Returns the current record's "auth_token" value
- * @method timestamp    getUpdatedAt()    Returns the current record's "updated_at" value
  * @method User         getUser()         Returns the current record's "User" value
  * @method UserProvider setUserId()       Sets the current record's "user_id" value
  * @method UserProvider setProvider()     Sets the current record's "provider" value
  * @method UserProvider setProviderUid()  Sets the current record's "provider_uid" value
  * @method UserProvider setCreatedAt()    Sets the current record's "created_at" value
- * @method UserProvider setAuthToken()    Sets the current record's "auth_token" value
- * @method UserProvider setUpdatedAt()    Sets the current record's "updated_at" value
  * @method UserProvider setUser()         Sets the current record's "User" value
  * 
  * @package    betterrecipes
@@ -67,24 +61,6 @@ abstract class BaseUserProvider extends sfDoctrineRecord
              'length' => 255,
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
-             'type' => 'timestamp',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => true,
-             'autoincrement' => false,
-             'length' => 25,
-             ));
-        $this->hasColumn('auth_token', 'string', 255, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'notnull' => false,
-             'autoincrement' => false,
-             'length' => 255,
-             ));
-        $this->hasColumn('updated_at', 'timestamp', 25, array(
              'type' => 'timestamp',
              'fixed' => 0,
              'unsigned' => false,

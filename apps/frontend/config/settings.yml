@@ -3,24 +3,11 @@
 
 prod:
   .settings:
-    no_script_name:         true
-    cache:                  true
-    logging_enabled:        false
+    error_reporting:        false
 
 dev:
   .settings:
-    no_script_name:         true
-    cache:                  false
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
-    etag:                   false
-
-test:
-  .settings:
-    no_script_name:         false
-    cache:                  false
-    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
-    etag:                   false
-    web_debug:              false
 
 all:
   .actions:
@@ -35,8 +22,13 @@ all:
 
     module_disabled_module: default
     module_disabled_action: disabled
-    
+
   .settings:
+    logging_enabled:        false
+    etag:                   false
+    no_script_name:         true
+    cache:                  false
+    web_debug:              false
     # Form security secret (CSRF protection)
     csrf_secret:            false #7187158d8451d1ad68aef6e300279de6e72cfb37
 
@@ -46,5 +38,5 @@ all:
 
     # Enable the database manager
     use_database:           true
-    
+
     standard_helpers: [Partial, Cache, UriUtils, Text]

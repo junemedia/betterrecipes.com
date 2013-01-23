@@ -486,7 +486,7 @@ class recipesActions extends sfActions
   public function executeContestVote(sfWebRequest $request)
   {
     $this->forward404Unless($request->isXmlHttpRequest() && $recipe = Doctrine_Core::getTable('Recipe')->find($request->getParameter('recipeId')));
-    $contestant = Doctrine::getTable('Contestant')->createQuery('c')->where('c.recipe_id = ?', $recipe->getId())->fetchOne();
+    $contestant = Doctrine_Core::getTable('Contestant')->find($request->getParameter('contestantId'));
     //UID Cookie
     
     $unique_cookie = ProjectConfiguration::isDevelopment() ? $request->getCookie('sid') : $request->getCookie('uid');

@@ -333,9 +333,7 @@ class authActions extends sfActions
       $local_user->save();
     }
     // Set lls cookie for nginx usage 
-    if (!$this->getRequest()->getCookie('lis')) {
-      $this->getResponse()->setCookie('lis', 1, 0, '/', UrlToolkit::getDomain());
-    }
+    $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
     $user->signin($local_user);
     $user->setFlash('onSignin', true);
     $user->setUserData($user_data);

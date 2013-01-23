@@ -38,10 +38,10 @@
     <? //if (has_slot('multiselect')): ?>
     <? //include_slot('multiselect') ?>
     <? //endif; ?>
-    <script type="text/javascript" src="http://cdn.gigya.com/JS/socialize.js?apikey=<?= sfConfig::get('app_gigya_api_key') ?>">  </script> 
-    <script type="text/javascript">  
-      brmb.gigya.conf.APIKey = '<?= sfConfig::get('app_gigya_api_key') ?>';  
-    </script> 
+    <script type="text/javascript" src="http://cdn.gigya.com/JS/socialize.js?apikey=<?= sfConfig::get('app_gigya_api_key') ?>">  </script>
+    <script type="text/javascript">
+      brmb.gigya.conf.APIKey = '<?= sfConfig::get('app_gigya_api_key') ?>';
+    </script>
     <? if (sfConfig::get('sf_web_debug')): ?>
       <script>
         /*$(document).ready(function() {
@@ -55,6 +55,7 @@
     <![endif]-->
   </head>
   <body>
+    <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -82,11 +83,12 @@
         </div><!-- /.wrapper -->
       </div><!-- /#theme-wrap -->
     </div><!-- /#main-content -->
-    <? include_partial('global/footer') ?>   
+    <? include_partial('global/footer') ?>
     <!-- BEGIN BAYNOTE INCLUDE -->
     <script type="text/javascript" src="<?= getDomainUri() . '/js/baynote.js' ?>" ></script>
     <!-- END BAYNOTE INCLUDE -->
     <? include_partial('global/omniture') ?>
+    <? include_partial('global/ga') ?>
     <? if (strpos($_SERVER['HTTPS'], 'on') === false): ?>
       <!-- BEGIN CROWD_SCIENCE INCLUDE -->
       <script type="text/javascript">
@@ -95,7 +97,7 @@
         cs.async = true;
         cs.src = ('https:' == document.location.protocol ?  'https://secure-' : 'http://') +
           'static.crowdscience.com/start-fa76ad0aab.js'
-        var s = document.getElementsByTagName('script')[0];          
+        var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(cs,s);
       })();
       </script>
@@ -106,7 +108,7 @@
       <!-- Kontera ContentLink(TM);-->
       <script type='text/javascript'>
       var dc_AdLinkColor = 'blue' ;
-      var dc_PublisherID = 185845 ; 
+      var dc_PublisherID = 185845 ;
       </script>
       <script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
       </script>
@@ -129,7 +131,7 @@
     window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
     (function(){
       var k=document.createElement('script');k.type='text/javascript';k.async=true;
-      var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);   
+      var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
       k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
         (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=HzmEwRvl";
       var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);

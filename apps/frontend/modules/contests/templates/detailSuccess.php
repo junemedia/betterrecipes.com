@@ -98,7 +98,7 @@
       <li><a href="<?= getUrl('@contests_rules?slug=' . $contest->getSlug()) ?>">Official Rules</a></li>
     </ul>
   </div><!-- /#contest-detail -->
-  <? if ($contest->isOver() == false): ?>
+  <? if ($contest->isOver() == false && $contest->getIsOpenToPublic()): ?>
     <p class="mb10 clear">Enter Contest Now: <a href="javascript:;" title="Create New Recipe" id="btnCreate" class="btn-grey28 ml20 mr20">Create New Recipe</a><a href="javascript:;" title="Use Existing Recipe" id="btnExist" class="btn-grey28">Use Existing Recipe</a></p>
   <? else: ?>
     <p class="mb10 clear"></p>
