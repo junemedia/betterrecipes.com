@@ -21,7 +21,7 @@
       </script>
      */
     ?>
-    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta property="og:site_name" content="Better Recipes"/>
     <meta property="fb:app_id" content="<?= sfConfig::get('app_facebook_appid'); ?>"/>
     <meta property="fb:admins" content="<?= sfConfig::get('app_facebook_admins'); ?>"/>
