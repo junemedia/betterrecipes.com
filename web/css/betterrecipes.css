@@ -5710,14 +5710,13 @@ div.gig-button-container { padding: 0 !important; }
 
 /* hack to add "Pin-It" button to Gigya Share button */
 #inlinesharebar-reaction1 {
-	background: url(http://d3io1k5o0zdpqr.cloudfront.net/images/pinit6.png);
+	background: url('/img/pinit.png') no-repeat;
 	font: 11px Arial, sans-serif;
 	text-indent: -9999em;
 	font-size: .01em;
 	color: #CD1F1F;
 	height: 20px;
 	width: 43px;
-	background-position: 0 -7px;
 }
 #inlinesharebar-reaction1 #inlinesharebar-reaction3-pinterest_img { display: none; }
 #inlinesharebar-reaction1-count { 
