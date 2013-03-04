@@ -149,20 +149,6 @@
     /* ]]> */
     </script>
   </body>
-  <!-- Paste this after your <body> tag. Fill in "ARTICLE_URL" and "CONTENT_ID" -->
-  <script type="text/javascript">
-  (function() {
-    var ARTICLE_URL = 'Insert Article URL here';
-    var CONTENT_ID = '140';  // A unique ID will allow the survey to display once per article.
-    document.write(
-    '<scr'+'ipt '+
-      'src="//survey.g.doubleclick.net/survey?site=43273743'+
-      '&amp;url='+encodeURIComponent(ARTICLE_URL)+
-      (CONTENT_ID ? '&amp;cid='+encodeURIComponent(CONTENT_ID) : '')+
-      '&amp;random='+(new Date).getTime()+
-      '" type="text/javascript">'+'\x3C/scr'+'ipt>');
-  })();
-  </script>
   <? if (has_slot('google_survey')): ?>
     <? include_slot('google_survey'); ?>
   <? endif; ?>
