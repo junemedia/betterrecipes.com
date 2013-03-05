@@ -148,9 +148,9 @@
     }(document, 'script'));
     /* ]]> */
     </script>
+    <? if (has_slot('google_survey')): ?>
+      <? include_slot('google_survey'); ?>
+    <? endif; ?>
   </body>
-  <? if (has_slot('google_survey')): ?>
-    <? include_slot('google_survey'); ?>
-  <? endif; ?>
 </html>
 
