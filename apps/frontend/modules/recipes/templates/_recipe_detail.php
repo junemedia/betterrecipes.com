@@ -203,7 +203,7 @@
         </p>
       <? endif; ?>
     </div><!-- // recipeHeader -->
-    <div class="images">
+    <div class="images p402_hide">
       <div class="main-image" style="position:relative;">
         <? if ($recipe->hasPhoto() && $main_img = $recipe->getMainImage()): ?>
           <script>
