@@ -305,16 +305,27 @@
 <? end_slot() ?>
 <? slot('google_survey') ?>
 <script type="text/javascript">
-  (function() {
-    var ARTICLE_URL = '<?= $sf_request->getUri() ?>';
-    var CONTENT_ID = '<?= $recipe->getId() ?>';  // A unique ID will allow the survey to display once per article.
-    document.write(
-    '<scr'+'ipt '+
-      'src="//survey.g.doubleclick.net/survey?site=43273743'+
-      '&amp;url='+encodeURIComponent(ARTICLE_URL)+
-      (CONTENT_ID ? '&amp;cid='+encodeURIComponent(CONTENT_ID) : '')+
-      '&amp;random='+(new Date).getTime()+
-      '" type="text/javascript">'+'\x3C/scr'+'ipt>');
-  })();
+  var gsck = $.cookie('gsck');
+  var host_parts = window.location.hostname.split(".");
+  host_name = window.location.hostname.replace(host_parts[0], "");
+  //host_parts = host_parts.toString()
+  if(!gsck){
+    $.cookie('gsck', 1, { expires: 1, domain: host_name });
+  } else if(parseInt(gsck) < 4) {
+    $.cookie('gsck', parseInt(gsck) + 1, { expires: 1, domain: host_name });
+  }
+  if($.cookie('gsck') == "3"){
+    (function() {
+      var ARTICLE_URL = '<?= $sf_request->getUri() ?>';
+      var CONTENT_ID = '<?= $recipe->getId() ?>';  // A unique ID will allow the survey to display once per article.
+      document.write(
+      '<scr'+'ipt '+
+        'src="//survey.g.doubleclick.net/survey?site=43273743'+
+        '&amp;url='+encodeURIComponent(ARTICLE_URL)+
+        (CONTENT_ID ? '&amp;cid='+encodeURIComponent(CONTENT_ID) : '')+
+        '&amp;random='+(new Date).getTime()+
+        '" type="text/javascript">'+'\x3C/scr'+'ipt>');
+    })();
+  }
 </script>
 <? end_slot() ?>
