@@ -55,6 +55,9 @@
     <![endif]-->
   </head>
   <body>
+    <? if (has_slot('google_survey')): ?>
+      <? include_slot('google_survey'); ?>
+    <? endif; ?>
     <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
@@ -104,7 +107,7 @@
       <!-- END CROWD_SCIENCE INCLUDE -->
     <? endif ?>
     <script type="text/javascript">Meebo('domReady');</script>
-        <? if (!in_array($this->moduleName, array('contests', 'auth'))): ?>
+    <? if (!in_array($this->moduleName, array('contests', 'auth'))): ?>
       <!-- Kontera ContentLink(TM);-->
       <script type='text/javascript'>
       var dc_AdLinkColor = 'blue' ;
@@ -139,14 +142,14 @@
     </script>
     <!-- END Krux Controltag -->
     <script type="text/javascript">
-      /* <![CDATA[ */
-        var _mb_site_guid = document.location.href.indexOf('resolute.com') > 0 ? '537a2a0e4370d27f28b3d4f6704f8ccb7f3f6a37cb35e81b058cb9a83642cc18' : '2dcab8563a168a3da605b518134a9fef5ede02393d2484f05f9727d7f5ee36f7';
-          (function(d, t){
-            var mb = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            mb.async = mb.src = '//cdn.linksmart.com/linksmart_2.3.0.min.js';
-            s.parentNode.insertBefore(mb, s);
-        }(document, 'script'));
-      /* ]]> */
+    /* <![CDATA[ */
+    var _mb_site_guid = document.location.href.indexOf('resolute.com') > 0 ? '537a2a0e4370d27f28b3d4f6704f8ccb7f3f6a37cb35e81b058cb9a83642cc18' : '2dcab8563a168a3da605b518134a9fef5ede02393d2484f05f9727d7f5ee36f7';
+    (function(d, t){
+      var mb = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      mb.async = mb.src = '//cdn.linksmart.com/linksmart_2.3.0.min.js';
+      s.parentNode.insertBefore(mb, s);
+    }(document, 'script'));
+    /* ]]> */
     </script>
   </body>
 </html>

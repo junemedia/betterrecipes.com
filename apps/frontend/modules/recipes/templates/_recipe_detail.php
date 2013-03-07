@@ -137,158 +137,163 @@
     </div>
   </div>
 </div>
-<div id="recipe-detail" itemscope itemtype="http://data-vocabulary.org/Recipe">
-  <div class="recipeHeader">
-    <div class="utility">
-      <ul>
-        <li style="padding-top:5px;">
-          <a class="grey" href="#" onclick="emailRecipe()" title="email this recipe">Email</a>
-        </li>
-        <li style="padding-top:5px;">|</li>
-        <li style="padding-top:5px;">
-          <a class="grey" href="?print" title="Print this recipe" target="_blank" rel="<?= $recipe->getId() ?>|<?= $recipe->getName() ?>|<?= getUrl($recipe) ?>" <? if ($sf_user->isAuthenticated()): ?> id="printRecipeBtn" <? endif; ?>>Print</a>
-        </li>
-        <li style="padding-top:5px;">|</li>
-        <li style="padding-top:5px;">
-          <? if ($recipe->getUserId() != $sf_user->getAttribute('id')): ?>
-            <span class="save_button"><? include_partial('save_recipe', compact('is_saved')) ?></span>
-          <? endif; ?>
-        </li>
-        <li style="margin-left: 15px;">
-          <? if ($sf_user->isAuthenticated()): ?>
-            <? if (!$is_made): ?>
-              <div id="madeContainer">
-                <a class="graphic-button" onclick="addToMadeThis(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">Made This!</a>
-                <div class="madeMoreFeatures" style="display:none;">
-                  <a href="javascript:;" onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                </div><!-- // madeMoreFeatures -->
-              </div><!-- // madeContainer -->
+<div class="p402_premium">  
+  <div id="recipe-detail" itemscope itemtype="http://data-vocabulary.org/Recipe">
+    <div class="recipeHeader">
+      <div class="utility">
+        <ul>
+          <li style="padding-top:5px;">
+            <a class="grey" href="#" onclick="emailRecipe()" title="email this recipe">Email</a>
+          </li>
+          <li style="padding-top:5px;">|</li>
+          <li style="padding-top:5px;">
+            <a class="grey" href="?print" title="Print this recipe" target="_blank" rel="<?= $recipe->getId() ?>|<?= $recipe->getName() ?>|<?= getUrl($recipe) ?>" <? if ($sf_user->isAuthenticated()): ?> id="printRecipeBtn" <? endif; ?>>Print</a>
+          </li>
+          <li style="padding-top:5px;">|</li>
+          <li style="padding-top:5px;">
+            <? if ($recipe->getUserId() != $sf_user->getAttribute('id')): ?>
+              <span class="save_button"><? include_partial('save_recipe', compact('is_saved')) ?></span>
+            <? endif; ?>
+          </li>
+          <li style="margin-left: 15px;">
+            <? if ($sf_user->isAuthenticated()): ?>
+              <? if (!$is_made): ?>
+                <div id="madeContainer">
+                  <a class="graphic-button" onclick="addToMadeThis(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">Made This!</a>
+                  <div class="madeMoreFeatures" style="display:none;">
+                    <a href="javascript:;" onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
+                  </div><!-- // madeMoreFeatures -->
+                </div><!-- // madeContainer -->
+              <? else: ?>
+                <div id="madeContainer">
+                  <a class="graphic-button" onclick="$('.madeMoreFeatures').show();">Made</a>
+                  <div class="madeMoreFeatures" style="display:none;">
+                    <a onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
+                  </div><!-- // madeMoreFeatures -->
+                </div><!-- // madeContainer -->
+              <? endif; ?>
             <? else: ?>
               <div id="madeContainer">
-                <a class="graphic-button" onclick="$('.madeMoreFeatures').show();">Made</a>
-                <div class="madeMoreFeatures" style="display:none;">
-                  <a onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                </div><!-- // madeMoreFeatures -->
-              </div><!-- // madeContainer -->
+                <a class="graphic-button" href="<?= getSigninUri($sf_request->getParameter('referrer', $sf_request->getUri())) ?>">Made</a>
+              </div><!-- // madeMoreFeatures -->
             <? endif; ?>
-          <? else: ?>
-            <div id="madeContainer">
-              <a class="graphic-button" href="<?= getSigninUri($sf_request->getParameter('referrer', $sf_request->getUri())) ?>">Made</a>
-            </div><!-- // madeMoreFeatures -->
+          </li>
+        </ul>
+        <? if ($sf_user->isAuthenticated()): ?>
+          <div id="savedModalContainer">
+            <?php include_component('opengraph', 'userSavedNotMade') ?>
+          </div><!-- // savedModalContainer -->
+        <? endif; ?>
+      </div><!-- // utility -->
+      <h3 class="title green" itemprop="name" id="recipe_title"><?= Microformat::correct_caps($recipe->getName()) ?></h3>
+      <? $recipe_user = $recipe->getUser() ?>
+      <? $recipe_user_active = $recipe_user->getSubdir() && $recipe_user->getSubdir() != '' && $recipe_user->getIsActive() == 1 ?>
+      <? if ($recipe_user_active): ?>
+        <p>Submitted by: <a href="<?= getUrl('User', array('display_name' => $recipe_user->getDisplayName())) ?>" title="Recipe Author" itemprop="author"><?= $recipe_user->getDisplayName() ?></a>
+          <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a>
+          <? if ($origin = $recipe->getOrigin()): ?>
+            | Source: <span title="Recipe Source"><?= $origin ?></span>
           <? endif; ?>
-        </li>
-      </ul>
-      <? if ($sf_user->isAuthenticated()): ?>
-        <div id="savedModalContainer">
-          <?php include_component('opengraph', 'userSavedNotMade') ?>
-        </div><!-- // savedModalContainer -->
-      <? endif; ?>
-    </div><!-- // utility -->
-    <h3 class="title green" itemprop="name" id="recipe_title"><?= Microformat::correct_caps($recipe->getName()) ?></h3>
-    <? $recipe_user = $recipe->getUser() ?>
-    <? $recipe_user_active = $recipe_user->getSubdir() && $recipe_user->getSubdir() != '' && $recipe_user->getIsActive() == 1 ?>
-    <? if ($recipe_user_active): ?>
-      <p>Submitted by: <a href="<?= getUrl('User', array('display_name' => $recipe_user->getDisplayName())) ?>" title="Recipe Author" itemprop="author"><?= $recipe_user->getDisplayName() ?></a>
-        <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a>
-        <? if ($origin = $recipe->getOrigin()): ?>
-          | Source: <span title="Recipe Source"><?= $origin ?></span>
-        <? endif; ?>
-      </p>
-    <? else: ?>
-      <p>Submitted by: <?= $recipe_user->getDisplayName() ?>
-        <? if ($origin = $recipe->getOrigin()): ?>
-          | Source: <span title="Recipe Source"><?= $origin ?></span>
-        <? endif; ?>
-      </p>
-    <? endif; ?>
-  </div><!-- // recipeHeader -->
-  <div class="images">
-    <div class="main-image" style="position:relative;">
-      <? if ($recipe->hasPhoto() && $main_img = $recipe->getMainImage()): ?>
-        <script>
-          function displayPhotos() {
-            $("#modal_div").dialog("open");
-            $("#modal_div").dialog("option", {"title": "<?= $recipe->getName() ?> Photos", "width": 600, "height": 450});
-            $("#modal_iframe").attr("src","/recipes/photos/recipe_id/<?= $recipe->getId() ?>");
-            return false;
-          }
-        </script>      
-      <? endif; ?>
-      <img itemprop="photo" src="<?= $recipe->getMainImageSrc() ?>" alt="<?= $recipe->getName() ?>" />
-      <? if (@$is_saved): ?>
+        </p>
       <? else: ?>
-        <div style="position:absolute;top:194px;left:0;display:none;" id="saveRecipeHover"><a <? if ($sf_user->isAuthenticated()): ?>onclick="addToSaved()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add recipe to my recipebox" onclick="addToSaved()"><img src="/img/save_recipe_hover.png" /></a></div>
+        <p>Submitted by: <?= $recipe_user->getDisplayName() ?>
+          <? if ($origin = $recipe->getOrigin()): ?>
+            | Source: <span title="Recipe Source"><?= $origin ?></span>
+          <? endif; ?>
+        </p>
       <? endif; ?>
-    </div>
-    <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a><? if (isset($main_img)): ?>  | <a onclick="displayPhotos()" title="View All Photos">View All Photos</a><? endif; ?></p>
-  </div><!-- /.images -->
-  <? if ($recipe->getSponsorId()): ?>
-    <? $sponsor = $recipe->getSponsor() ?>
-    <div id="sponsor_<?= $sponsor->getId() ?>"class="sponsor adsponsor">
-      <? include_partial('global/adtags/sponsor', compact('sponsor')) ?>
-    </div>
-  <? endif; ?>
-  <div class="recipe-meta pb20">
-    <span class="microformat" itemprop="published" datetime="<?= date('Y-m-d', strtotime($recipe->getCreatedAt())) ?>"><?= date('Y-m-d', strtotime($recipe->getCreatedAt())) ?></span>
-    <span class="microformat" itemprop="recipeType"><?= ucwords($recipe->getCourse()) ?></span>
-    <div class="addrate"><a href="#write_review">Comment (<fb:comments-count href=<?= $sf_request->getUri() ?>></fb:comments-count>) </a></div>
-    <? include_partial('rating', array('rating' => $recipe->getRating(), 'user_rating' => @$user_rating)) ?>
-    <div id="rating_container">
-      <? if ($recipe->getRating() > 0): ?>
-        <span class="microformat" itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
-          <span itemprop="rating"><?= round($recipe->getRating(), 1) ?></span>
-          <span itemprop="count"><?= $recipe->getRatingCount() ?></span>
-        </span>
+    </div><!-- // recipeHeader -->
+    <div class="images p402_hide">
+      <div class="main-image" style="position:relative;">
+        <? if ($recipe->hasPhoto() && $main_img = $recipe->getMainImage()): ?>
+          <script>
+            function displayPhotos() {
+              $("#modal_div").dialog("open");
+              $("#modal_div").dialog("option", {"title": "<?= $recipe->getName() ?> Photos", "width": 600, "height": 450});
+              $("#modal_iframe").attr("src","/recipes/photos/recipe_id/<?= $recipe->getId() ?>");
+              return false;
+            }
+          </script>      
+        <? endif; ?>
+        <img itemprop="photo" src="<?= $recipe->getMainImageSrc() ?>" alt="<?= $recipe->getName() ?>" />
+        <? if (@$is_saved): ?>
+        <? else: ?>
+          <div style="position:absolute;top:194px;left:0;display:none;" id="saveRecipeHover"><a <? if ($sf_user->isAuthenticated()): ?>onclick="addToSaved()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add recipe to my recipebox" onclick="addToSaved()"><img src="/img/save_recipe_hover.png" /></a></div>
+        <? endif; ?>
+      </div>
+      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a><? if (isset($main_img)): ?>  | <a onclick="displayPhotos()" title="View All Photos">View All Photos</a><? endif; ?></p>
+    </div><!-- /.images -->
+    <? if ($recipe->getSponsorId()): ?>
+      <? $sponsor = $recipe->getSponsor() ?>
+      <div id="sponsor_<?= $sponsor->getId() ?>"class="sponsor adsponsor">
+        <? include_partial('global/adtags/sponsor', compact('sponsor')) ?>
+      </div>
+    <? endif; ?>
+    <div class="recipe-meta pb20">
+      <span class="microformat" itemprop="published" datetime="<?= date('Y-m-d', strtotime($recipe->getCreatedAt())) ?>"><?= date('Y-m-d', strtotime($recipe->getCreatedAt())) ?></span>
+      <span class="microformat" itemprop="recipeType"><?= ucwords($recipe->getCourse()) ?></span>
+      <div class="addrate"><a href="#write_review">Comment (<fb:comments-count href=<?= $sf_request->getUri() ?>></fb:comments-count>) </a></div>
+      <? include_partial('rating', array('rating' => $recipe->getRating(), 'user_rating' => @$user_rating)) ?>
+      <div id="rating_container">
+        <? if ($recipe->getRating() > 0): ?>
+          <span class="microformat" itemprop="review" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+            <span itemprop="rating"><?= round($recipe->getRating(), 1) ?></span>
+            <span itemprop="count"><?= $recipe->getRatingCount() ?></span>
+          </span>
+        <? endif; ?>
+      </div>
+      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= $recipe->getIntroduction() ?></span></p>
+      <? if ($sf_user->isAuthenticated() && $sf_user->getAttribute('id') == $recipe->getUserId()): ?>
+        <p class="w100 mt20 mb20"><a href="<?= getUrl('@edit_recipe', array('id' => $recipe->getId())) ?>" title="<?= $recipe->getName() ?>" class="btn-purple28">Edit Recipe</a></p>
       <? endif; ?>
-    </div>
-    <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= $recipe->getIntroduction() ?></span></p>
-    <? if ($sf_user->isAuthenticated() && $sf_user->getAttribute('id') == $recipe->getUserId()): ?>
-      <p class="w100 mt20 mb20"><a href="<?= getUrl('@edit_recipe', array('id' => $recipe->getId())) ?>" title="<?= $recipe->getName() ?>" class="btn-purple28">Edit Recipe</a></p>
+      </ul>    
+      <? if ($sf_user->isAuthenticated() && $sf_user->getFbId()): ?>
+        <div id="activityRecipeDetailContainer">
+          <?php include_component('opengraph', 'activityRecipeDetail', array('recipe_id' => $recipe->getId())) ?>
+        </div><!-- // activityRecipeDetailContainer -->
+      <? endif ?>
+    </div><!-- /.recipe-meta -->
+    <ul class="hornav meal-info">
+      <? list($preptime, $cooktime, $totaltime) = Microformat::times($recipe); ?>
+      <? if ($recipe->getServings() && $recipe->getServings() != ''): ?>
+        <li>Servings: <span itemprop="yield"><?= $recipe->getServings() ?></span></li>
+      <? endif; ?>
+      <? if ($recipe->getPreptime() && $recipe->getPreptime() != ''): ?>
+        <li>Prep Time: <?= $recipe->getPreptime() ?></li>
+      <? endif; ?>
+      <? if ($preptime): ?>
+        <time class="microformat" style="display:none;" itemprop="prepTime" datetime="<?= $preptime ?>"><?= Microformat::duration_to_pretty($preptime) ?></time>
+      <? endif; ?>
+      <? if ($recipe->getCooktime() && $recipe->getCooktime() != ''): ?>
+        <li>Cook Time: <?= $recipe->getCooktime() ?></li>
+      <? endif; ?>
+      <? if ($cooktime): ?>
+        <time class="microformat" style="display:none;" itemprop="cookTime" datetime="<?= $cooktime ?>"><?= Microformat::duration_to_pretty($cooktime) ?></time>
+      <? endif; ?>
+      <? if ($recipe->getTotaltime() && $recipe->getTotaltime() != ''): ?>
+        <li class="last">Total Time: <?= $recipe->getTotaltime() ?></li>
+      <? endif; ?>
+      <? if ($totaltime): ?>
+        <time class="microformat" style="display:none;" itemprop="totalTime" datetime="<?= $totaltime ?>"><?= Microformat::duration_to_pretty($totaltime) ?></time>
+      <? endif; ?>
+    </ul>
+    <p class="title">Ingredients:</p>
+    <p class="lh25"><?= Microformat::tableIngredients($recipe->getIngredients()) ?></p>
+    <p class="title mt35">Directions:</p>
+    <div class="instructions" itemprop="instructions"><?= Microformat::parseInstructions($recipe->getInstructions()) ?></div>
+    <? if ($notes = @$recipe->getNotes()): ?>
+      <p class="title mt20">Helpful Tips:</p>
+      <p><?= $recipe->getNotes() ?></p>
     <? endif; ?>
-    </ul>    
-    <? if ($sf_user->isAuthenticated() && $sf_user->getFbId()): ?>
-      <div id="activityRecipeDetailContainer">
-        <?php include_component('opengraph', 'activityRecipeDetail', array('recipe_id' => $recipe->getId())) ?>
-      </div><!-- // activityRecipeDetailContainer -->
-    <? endif ?>
-  </div><!-- /.recipe-meta -->
-  <ul class="hornav meal-info">
-    <? list($preptime, $cooktime, $totaltime) = Microformat::times($recipe); ?>
-    <? if ($recipe->getServings() && $recipe->getServings() != ''): ?>
-      <li>Servings: <span itemprop="yield"><?= $recipe->getServings() ?></span></li>
+    <? if ($recipe_user_active): ?>
+      <? include_partial('author', array('author' => $recipe->getUser())) ?>
     <? endif; ?>
-    <? if ($recipe->getPreptime() && $recipe->getPreptime() != ''): ?>
-      <li>Prep Time: <?= $recipe->getPreptime() ?></li>
-    <? endif; ?>
-    <? if ($preptime): ?>
-      <time class="microformat" style="display:none;" itemprop="prepTime" datetime="<?= $preptime ?>"><?= Microformat::duration_to_pretty($preptime) ?></time>
-    <? endif; ?>
-    <? if ($recipe->getCooktime() && $recipe->getCooktime() != ''): ?>
-      <li>Cook Time: <?= $recipe->getCooktime() ?></li>
-    <? endif; ?>
-    <? if ($cooktime): ?>
-      <time class="microformat" style="display:none;" itemprop="cookTime" datetime="<?= $cooktime ?>"><?= Microformat::duration_to_pretty($cooktime) ?></time>
-    <? endif; ?>
-    <? if ($recipe->getTotaltime() && $recipe->getTotaltime() != ''): ?>
-      <li class="last">Total Time: <?= $recipe->getTotaltime() ?></li>
-    <? endif; ?>
-    <? if ($totaltime): ?>
-      <time class="microformat" style="display:none;" itemprop="totalTime" datetime="<?= $totaltime ?>"><?= Microformat::duration_to_pretty($totaltime) ?></time>
-    <? endif; ?>
-  </ul>
-  <p class="title">Ingredients:</p>
-  <p class="lh25"><?= Microformat::tableIngredients($recipe->getIngredients()) ?></p>
-  <p class="title mt35">Directions:</p>
-  <div class="instructions" itemprop="instructions"><?= Microformat::parseInstructions($recipe->getInstructions()) ?></div>
-  <? if ($notes = @$recipe->getNotes()): ?>
-    <p class="title mt20">Helpful Tips:</p>
-    <p><?= $recipe->getNotes() ?></p>
-  <? endif; ?>
-  <? if ($recipe_user_active): ?>
-    <? include_partial('author', array('author' => $recipe->getUser())) ?>
-  <? endif; ?>
-  <div id="modal_div"><iframe id="modal_iframe" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto"></iframe></div>
-</div><!-- /#recipe-detail -->
+    <div id="modal_div"><iframe id="modal_iframe" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto"></iframe></div>
+  </div><!-- /#recipe-detail -->
+</div>
+<script type="text/javascript"> 
+  try { _402_Show(); } catch(e) {} 
+</script>
 <? slot('facebook_meta') ?>
 <meta property="og:title" content="<?= Microformat::correct_caps($recipe->getName()) ?>" />
 <meta property="og:description" content="<?= htmlentities($recipe->getIntroduction(), ENT_QUOTES) ?>" />
@@ -297,4 +302,30 @@
 <? foreach (PhotoTable::getRecipePhotos($recipe->getId()) as $photo): ?>
   <meta property="og:image" content="<?= 'http://' . $_SERVER['HTTP_HOST'] . $photo->getImgSrc() ?>" />
 <? endforeach; ?>
+<? end_slot() ?>
+<? slot('google_survey') ?>
+<script type="text/javascript">
+  var gsck = $.cookie('gsck');
+  var host_parts = window.location.hostname.split(".");
+  host_name = window.location.hostname.replace(host_parts[0], "");
+  //host_parts = host_parts.toString()
+  if(!gsck){
+    $.cookie('gsck', 1, { expires: 1, domain: host_name });
+  } else if(parseInt(gsck) < 4) {
+    $.cookie('gsck', parseInt(gsck) + 1, { expires: 1, domain: host_name });
+  }
+  if($.cookie('gsck') == "3"){
+    (function() {
+      var ARTICLE_URL = '<?= $sf_request->getUri() ?>';
+      var CONTENT_ID = '<?= $recipe->getId() ?>';  // A unique ID will allow the survey to display once per article.
+      document.write(
+      '<scr'+'ipt '+
+        'src="//survey.g.doubleclick.net/survey?site=43273743'+
+        '&amp;url='+encodeURIComponent(ARTICLE_URL)+
+        (CONTENT_ID ? '&amp;cid='+encodeURIComponent(CONTENT_ID) : '')+
+        '&amp;random='+(new Date).getTime()+
+        '" type="text/javascript">'+'\x3C/scr'+'ipt>');
+    })();
+  }
+</script>
 <? end_slot() ?>
