@@ -207,6 +207,7 @@ class cooksActions extends sfActions
   {
     $display_name = $request->getParameter('display_name');
     $this->user = UserTable::getUserByDisplayName($display_name);
+    $this->forward404Unless($this->user);
     $this->my_profile = ($this->getUser()->isAuthenticated() && $this->getUser()->getId() === $this->user->getId()) ? true : false;
 
     //$this->savedRecipes = $this->user->getSaved();
