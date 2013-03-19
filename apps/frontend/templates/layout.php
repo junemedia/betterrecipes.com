@@ -55,9 +55,6 @@
     <![endif]-->
   </head>
   <body>
-    <? if (has_slot('google_survey')): ?>
-      <? include_slot('google_survey'); ?>
-    <? endif; ?>
     <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
