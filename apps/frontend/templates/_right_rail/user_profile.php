@@ -173,6 +173,7 @@
 		          ,siteName: 'betterrecipes.com'
 		          ,enabledProviders: 'facebook'
 		        });
+		        /*
 		        popupCookie = getCookie("showPopup");
 		        if( popupCookie==null || popupCookie=="" )
 		        {
@@ -195,6 +196,7 @@
 			    	}
 		        }
 		      });
+			*/
 		    </script>
 		  </div>
 		  
@@ -221,6 +223,7 @@
           ,siteName: 'betterrecipes.com'
           ,enabledProviders: 'facebook'
         });
+        /*
         popupCookie = getCookie("showPopup");
         if( popupCookie==null || popupCookie=="" )
         {
@@ -241,6 +244,7 @@
         		displayPopup();
         	}
         }
+        */
       });
     </script>
   </div>
