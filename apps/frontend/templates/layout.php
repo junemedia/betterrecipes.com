@@ -53,6 +53,46 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- BEGIN Krux Control Tag for betterrecipes -->
+    <script class="kxct" data-id="HzmEwRvl" data-version="async:1.7" type="text/javascript">
+    window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+    (function(){
+      var k=document.createElement('script');k.type='text/javascript';k.async=true;
+      var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
+      k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
+        (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=HzmEwRvl";
+      var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+    })();
+    </script>
+    <!-- END Krux Controltag -->
+    <!-- BEGIN Krux Interchange Tag config -->
+    <script>
+    window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+    (function(){
+      function retrieve(n){
+        var m, k='kx'+n;
+        if (window.localStorage){
+          return window.localStorage[k] || "";
+        } else if (navigator.cookieEnabled) {
+          m = document.cookie.match(k+'=([^;]*)');
+          return (m && unescape(m[1])) || "";
+        } else {
+          return '';
+        }
+      }
+      var kvs = [];
+      Krux.user = retrieve('user');
+      if (Krux.user) {
+        kvs.push('u=' + Krux.user);
+      }
+      Krux.segments = retrieve('segs') && retrieve('segs').split(',') || [];
+      for (var i = 0; i < Krux.segments.length; i++){
+        kvs.push('ksgmnt=' + Krux.segments[i]); 
+      }
+      Krux.dartKeyValues = kvs.length ? kvs.join(';') + ';': '';
+    })();
+    </script>
+    <!-- END Krux Interchange config -->
   </head>
   <body>
     <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
@@ -126,18 +166,6 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-    <!-- BEGIN Krux Control Tag for betterrecipes -->
-    <script class="kxct" data-id="HzmEwRvl" data-version="async:1.7" type="text/javascript">
-    window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
-    (function(){
-      var k=document.createElement('script');k.type='text/javascript';k.async=true;
-      var m,src=(m=location.href.match(/\bkxsrc=([^&]+)/))&&decodeURIComponent(m[1]);
-      k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
-        (location.protocol==="https:"?"https:":"http:")+"//cdn.krxd.net/controltag?confid=HzmEwRvl";
-      var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
-    })();
-    </script>
-    <!-- END Krux Controltag -->
     <script type="text/javascript">
     /* <![CDATA[ */
     var _mb_site_guid = document.location.href.indexOf('resolute.com') > 0 ? '537a2a0e4370d27f28b3d4f6704f8ccb7f3f6a37cb35e81b058cb9a83642cc18' : '2dcab8563a168a3da605b518134a9fef5ede02393d2484f05f9727d7f5ee36f7';

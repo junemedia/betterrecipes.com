@@ -24,28 +24,32 @@ document.write(src);
 */
 ?>
 
-<!-- Yieldbot Ad Tag begin (example only) -->
+<!-- Yieldbot + Krux Ad Tag begin -->
 <script type="text/javascript">
-var ybotq = ybotq || [];
-ybotq.push(['psn', 'd45f']); //pin
-ybotq.push(function () {
-var ord = Math.floor(Math.random()*9999999999);
-var url = "http://a.collective-media.net/adj/betterrecipes.mdp.com/S1;channel="+window.adchannelid+";parent="+window.adparentid+";site=betterrecipes;child1="+window.adchild1id+";id="+window.adid+";ybot_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;dcopt=ist;cmn=mn;tile=1;sz=728x90;ord="+ord+"?";
-var slot = yieldbot.slot_available('728x90');
-if (slot) {
-url = url.replace('ybot_ad=n', 'ybot_ad=y;ybot_slot=' + slot);
-}
-document.write('<scr'+'ipt type="text/javascript" language="javascript" src="' + url + '"></scr'+'ipt>');
-});
-if (!ybotq.framework) {
-document.write('<scr'+'ipt type="text/javascript" src="http://cdn.yb0t.com/js/yieldbot.intent.js"></scr'+'ipt>');
-}
+  var ord = Math.floor(Math.random()*9999999999);
+  adUrl = "http://ad.doubleclick.net/N3865/adj/betterrecipes.mdp.com/S1;channel="+window.adchannelid+";parent="+window.adparentid+";site=betterrecipes;child1="+window.adchild1id+";id="+window.adid+";ybot_ad=n;krux_ad=n;gender=0;age=0000;income=00;genderage=0_0000;ageincome=0000_00;genderincome=0_00;user=0_0000_00;type=slideshow;!category=pop;dcopt=ist;tile=1;sz=728x90;ord="+ord+"?";
+  var ybotq = ybotq || [];
+  ybotq.push(['psn', 'd45f']); //pin
+  ybotq.push(function () {
+    var slot = yieldbot.slot_available('728x90');
+    if (slot) {
+      adUrl = adUrl.replace('ybot_ad=n', 'ybot_ad=y;ybot_slot=' + slot);
+    }
+  });
+  if (!ybotq.framework) {
+    document.write('<scr'+'ipt type="text/javascript" src="http://cdn.yb0t.com/js/yieldbot.intent.js"></scr'+'ipt>');
+  }
+  (function() {
+    if (window.Krux.dartKeyValues){adUrl = adUrl.replace('krux_ad=n', 'krux_ad=y;' + window.Krux.dartKeyValues);}
+
+    document.write('<scr'+'ipt src="' + adUrl + '"></scr'+'ipt>');
+  })();
 </script>
-<!-- Yieldbot Ad Tag end -->
+<!-- Yieldbot + Krux Ad Tag end -->
 <noscript>
-<!-- for non javascript browsers and Netscape 2.x -->
-<a href=http://a.collective-media.net/jump/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;cmn=mn;tile=1;sz=728x90;ord=123456789? target="_top">
-<img src=http://a.collective-media.net/ad/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;cmn=mn;tile=1;sz=728x90;ord=123456789? border="0"></a>
+  <!-- for non javascript browsers and Netscape 2.x -->
+  <a href=http://ad.doubleclick.net/N3865/jump/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=1;sz=728x90;ord=123456789? target="_top">
+  <img src=http://ad.doubleclick.net/N3865/ad/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=1;sz=728x90;ord=123456789? border="0"></a>
 </noscript>
 
 
