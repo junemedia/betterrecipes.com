@@ -25,7 +25,7 @@
 */
 ?>
 
-!-- *** start of right side ad *** -->
+<!-- *** start of right side ad *** -->
 <!-- Yieldbot + Krux Ad Tag begin -->
 <script type="text/javascript">
   var ord = Math.floor(Math.random()*9999999999);
