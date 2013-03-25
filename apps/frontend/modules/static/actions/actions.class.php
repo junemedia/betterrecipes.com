@@ -34,7 +34,7 @@ class staticActions extends sfActions
   public function executeOfficialRules(sfWebRequest $request)
   {
     $date = $request->getParameter('date', 0);
-    $rule_dates = array('0822', '1017', '1109', '1128', '0220', '0322', '0406', '0423');
+    $rule_dates = array('0822', '1017', '1109', '1128', '0220', '0322', '0406', '0423', '0325');
     $this->forward404Unless(in_array($date, $rule_dates));
     $this->setTemplate('or' . $date);
   }
