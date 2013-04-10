@@ -29,7 +29,7 @@
               <? if ($contest->getIsOpenToPublic()): ?>
                 <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="ENTER NOW!" class="btn-grey28 mr20">ENTER NOW!</a>
               <? endif; ?>
-              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?><?//= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug()) ?>" title="View Entries" class="btn-grey28">View Entries</a>
+              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?><? //= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug())    ?>" title="View Entries" class="btn-grey28">View Entries</a>
             </p>
           </li>
         <? endforeach; ?>
@@ -51,32 +51,32 @@
       <? endif; ?>
       </div>
      */ ?>
-    <ul>
+    <? /* Case No: https://resolute.atlassian.net/browse/MERBETTERR-1
+      <ul>
       <?
       foreach ($contestWinners->getResults() as $i => $winner): $recipe = $winner->getRecipe();
-        if ($i % 6 == 0) {
-          echo '<li class="row wauto"><ul class="hornav ovhid">';
-        }
-        ?>
-        <li class="mb20 <?= ((fmod(($i + 1), 6)) == 0) ? 'mr0' : 'mr10' ?>">
-          <a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>" class="imgmask100 mb10">
-            <img src="<?= $recipe->getMainImageSrc() ?>" height="100" width="100" alt="<?= $recipe->getName() ?>" />
-          </a>
-          <p><a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>"><?= $recipe->getName() ?></a></p>
-          <p class="fs11"><a href="<?= getRoute('User', array('display_name' => $winner->getUser()->getDisplayName())) ?>" title="Recipe Author"><?= $winner->getUser()->getDisplayName() ?></a></p>
-        </li>
-        <?
-        if ($i % 6 == 5) {
-          echo '</ul></li>';
-        }
-        ?>
+      if ($i % 6 == 0) {
+      echo '<li class="row wauto"><ul class="hornav ovhid">';
+      }
+      ?>
+      <li class="mb20 <?= ((fmod(($i + 1), 6)) == 0) ? 'mr0' : 'mr10' ?>">
+      <a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>" class="imgmask100 mb10">
+      <img src="<?= $recipe->getMainImageSrc() ?>" height="100" width="100" alt="<?= $recipe->getName() ?>" />
+      </a>
+      <p><a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>"><?= $recipe->getName() ?></a></p>
+      <p class="fs11"><a href="<?= getRoute('User', array('display_name' => $winner->getUser()->getDisplayName())) ?>" title="Recipe Author"><?= $winner->getUser()->getDisplayName() ?></a></p>
+      </li>
+      <?
+      if ($i % 6 == 5) {
+      echo '</ul></li>';
+      }
+      ?>
       <? endforeach; ?>
-    </ul>
-    <? /*
-      <div class="sorting mt10">
-      </div>
+      </ul>
+      <? // <div class="sorting mt10"></div> ?>
+      <a href="<?= url_for('@contests_past_winners') ?>" class="flri clear">view more winners</a>
      */ ?>
-    <a href="<?= url_for('@contests_past_winners') ?>" class="flri clear">view more winners</a>
+    <a href="<?= 'http://recipes.' . str_replace('www.', '', $sf_request->getHost()) . '/slideshows/winners-gallery' ?>" class="clear">View Winners Gallery</a><br><br>
   </div>
   <!-- Past Contests -->
   <? if (count($previous_contests) > 0): ?>
