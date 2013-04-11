@@ -36,7 +36,7 @@
       </ul>
     </div>
   <? endif; ?>
-  <div id="contest-entries" class="contest-winners">
+  <div id="contest-entries" class="contest-winners mb20">
     <p class="title green">Winners Gallery</p>
     <p class="mb10">The Weekly Judge's and Reader's Choice winners of the Best Recipe Ever contests! </p>
     <? /*
