@@ -38,6 +38,7 @@
   <? endif; ?>
   <div id="contest-entries" class="contest-winners">
     <p class="title green">Winners Gallery</p>
+    <p class="mb10">The Weekly Judge's and Reader's Choice winners of the Best Recipe Ever contests! </p>
     <? /*
       <div class="sorting mt20">
       <?  if ($contestWinners->haveToPaginate()): ?>
@@ -76,7 +77,7 @@
       <? // <div class="sorting mt10"></div> ?>
       <a href="<?= url_for('@contests_past_winners') ?>" class="flri clear">view more winners</a>
      */ ?>
-    <a href="<?= 'http://recipes.' . str_replace('www.', '', $sf_request->getHost()) . '/slideshows/winners-gallery' ?>" class="clear">View Winners Gallery</a><br><br>
+    <a href="<?= 'http://recipes.' . str_replace('www.', '', $sf_request->getHost()) . '/slideshows/winners-gallery' ?>" class="clear btn-grey28">View Winners Gallery</a><br><br>
   </div>
   <!-- Past Contests -->
   <? if (count($previous_contests) > 0): ?>
