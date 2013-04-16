@@ -33,7 +33,7 @@
     }
     function addPhoto() {
       $("#modal_div").dialog("open");
-      $("#modal_div").dialog("option", {"title": "Add a photo to \"<?= $recipe->getName() ?>\"", "width": 600, "height": 600});
+      $("#modal_div").dialog("option", {"title": "Add a photo to \"<?= addslashes( $recipe->getName() ) ?>\"", "width": 600, "height": 600});
       $("#modal_iframe").attr("src","<?= url_for('@add_recipe_photo' . '?recipe_id=' . $recipe->getId()) ?>");
       return false;
     }  
@@ -62,7 +62,7 @@
       <script>
         function displayPhotos() {
           $("#modal_div").dialog("open");
-          $("#modal_div").dialog("option", {"title": "<?= $recipe->getName() ?> Photos", "width": 600, "height": 450});
+          $("#modal_div").dialog("option", {"title": "<?= addslashes( $recipe->getName() ) ?> Photos", "width": 600, "height": 450});
           $("#modal_iframe").attr("src","/recipes/photos/recipe_id/<?= $recipe->getId() ?>");
           return false;
         }

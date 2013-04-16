@@ -21,29 +21,31 @@ class opengraphActions extends sfActions
     $recipe_title = $parts[1];
     $recipe_url = $parts[2];
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isPrinted($recipe_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe('Print', $recipe_url);
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isPrinted($recipe_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe('Print', $recipe_url);
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
+          $fb_object_id = null;
+          $fb_user_id = null;
+        }
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push print action to UserActions table
-    $id = UserActionsTable::addActionPrinted($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push print action to UserActions table
+      $id = UserActionsTable::addActionPrinted($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
@@ -55,29 +57,31 @@ class opengraphActions extends sfActions
     $this->forward404Unless($recipe_title = urldecode($request->getParameter('recipe_title')));
     $this->forward404Unless($recipe_url = $request->getParameter('recipe_url'));
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isSaved($recipe_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe('Save', $recipe_url);
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isSaved($recipe_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe('Save', $recipe_url);
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
+          $fb_object_id = null;
+          $fb_user_id = null;
+        }
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push save action to UserActions table
-    $id = UserActionsTable::addActionSaved($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push save action to UserActions table
+      $id = UserActionsTable::addActionSaved($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
@@ -89,32 +93,34 @@ class opengraphActions extends sfActions
     $this->forward404Unless($recipe_title = urldecode($request->getParameter('recipe_title')));
     $this->forward404Unless($recipe_url = $request->getParameter('recipe_url'));
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isMade($recipe_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe('Made', $recipe_url);
-        if (!is_string($fb_object_id)) {
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isMade($recipe_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe('Made', $recipe_url);
+          if (!is_string($fb_object_id)) {
+            $fb_object_id = null;
+          }
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
           $fb_object_id = null;
+          $fb_user_id = null;
         }
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push save action to UserActions table
-    $id = UserActionsTable::addActionMade($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push save action to UserActions table
+      $id = UserActionsTable::addActionMade($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
@@ -126,29 +132,31 @@ class opengraphActions extends sfActions
     $this->forward404Unless($recipe_title = urldecode($request->getParameter('recipe_title')));
     $this->forward404Unless($recipe_url = $request->getParameter('recipe_url'));
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isRecommended($recipe_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe('Recommend', $recipe_url);
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isRecommended($recipe_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe('Recommend', $recipe_url);
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
+          $fb_object_id = null;
+          $fb_user_id = null;
+        }
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push save action to UserActions table
-    $id = UserActionsTable::addActionRecommended($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push save action to UserActions table
+      $id = UserActionsTable::addActionRecommended($recipe_id, $recipe_title, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
@@ -189,29 +197,31 @@ class opengraphActions extends sfActions
     $this->forward404Unless($contestant_id = $request->getParameter('contestant_id'));
     $this->forward404Unless($contest_url = $request->getParameter('contest_url'));
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isEnteredContest($contestant_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe_contest('VotedFor', $contest_url);
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isEnteredContest($contestant_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe_contest('VotedFor', $contest_url);
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
+          $fb_object_id = null;
+          $fb_user_id = null;
+        }
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push save action to UserActions table
-    $id = UserActionsTable::addVotedRecipeContest($recipe_id, $recipe_title, $contestant_id, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // note: TODO - evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push save action to UserActions table
+      $id = UserActionsTable::addVotedRecipeContest($recipe_id, $recipe_title, $contestant_id, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // note: TODO - evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
@@ -225,29 +235,31 @@ class opengraphActions extends sfActions
     $contest = $contestant->getContest();
     $contest_url = UrlToolkit::getRoute('contests_detail', array('slug' => $contest->getSlug()));
 
-    // if user is a Facebook user and has social sharing turned on
-    if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
-      if (!UserActionsTable::isEnteredContest($contestant_id, $this->getUser()->getId())) {
-        $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
-        $fb_object_id = $facebook_helper->post_action_recipe_contest('Enter', $contest_url);
-        $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+    if ($this->getUser()->isAuthenticated()) {
+      // if user is a Facebook user and has social sharing turned on
+      if ($this->getUser()->hasFb() && $this->getUser()->isSocial() && $this->getUser()->getRegSourceAttribute('auth_token')) {
+        if (!UserActionsTable::isEnteredContest($contestant_id, $this->getUser()->getId())) {
+          $facebook_helper = new Facebook_helper($this->getGigya(), $this->getUser());
+          $fb_object_id = $facebook_helper->post_action_recipe_contest('Enter', $contest_url);
+          $fb_user_id = $this->getUser()->getSocial('loginProviderUID');
+        } else {
+          $fb_object_id = null;
+          $fb_user_id = null;
+        }
       } else {
         $fb_object_id = null;
         $fb_user_id = null;
       }
-    } else {
-      $fb_object_id = null;
-      $fb_user_id = null;
-    }
-    $user_id = $this->getUser()->getId();
-    // push save action to UserActions table
-    $id = UserActionsTable::addActionEnteredContest($contestant_id, $contest_title, $user_id, $fb_user_id, $fb_object_id);
-    // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
-    $views = Utilities::userLogCompletedIncrement();
-    // note: TODO - evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
-    $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
-    if ($notify && isset($id) && $views == 5) {
-      return $this->renderText(json_encode(array('id' => $id)));
+      $user_id = $this->getUser()->getId();
+      // push save action to UserActions table
+      $id = UserActionsTable::addActionEnteredContest($contestant_id, $contest_title, $user_id, $fb_user_id, $fb_object_id);
+      // as per ET#6800, need to check how many "views" of log is stored in session (must be 5 to force log open)
+      $views = Utilities::userLogCompletedIncrement();
+      // note: TODO - evaluate if user has social "on" in session, if yes, return the ID to ajax caller so that activityCompleted module is displayed
+      $notify = ( $this->getUser()->hasFb() && $this->getUser()->isSocial() ) ? true : false;
+      if ($notify && isset($id) && $views == 5) {
+        return $this->renderText(json_encode(array('id' => $id)));
+      }
     }
     return sfView::NONE;
   }
