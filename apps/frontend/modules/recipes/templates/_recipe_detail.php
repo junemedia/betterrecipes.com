@@ -191,12 +191,19 @@
       <? if ($recipe_user_active): ?>
         <p>Submitted by: <a href="<?= getUrl('User', array('display_name' => $recipe_user->getDisplayName())) ?>" title="Recipe Author" itemprop="author"><?= $recipe_user->getDisplayName() ?></a>
           <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a>
+          <? if ( $recipe_user->getWebsiteName() != '' && $recipe_user->getWebsiteAddress() != '' ): ?>
+          	| website: <a href="<?=$recipe_user->getWebsiteAddress()?>" target="_blank"><?=$recipe_user->getWebsiteName()?></a>
+          <? endif; ?>
           <? if ($origin = $recipe->getOrigin()): ?>
             | Source: <span title="Recipe Source"><?= $origin ?></span>
           <? endif; ?>
         </p>
       <? else: ?>
         <p>Submitted by: <?= $recipe_user->getDisplayName() ?>
+        	<? if ( $recipe_user->getWebsiteName() != '' && $recipe_user->getWebsiteAddress() != '' ): ?>
+          	| website: <a href="<?=$recipe_user->getWebsiteAddress()?>" target="_blank"><?=$recipe_user->getWebsiteName()?></a>
+          <? endif; ?>
+
           <? if ($origin = $recipe->getOrigin()): ?>
             | Source: <span title="Recipe Source"><?= $origin ?></span>
           <? endif; ?>

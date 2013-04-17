@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD COLUMN `website_name` VARCHAR(25), ADD COLUMN `website_address` VARCHAR(255);

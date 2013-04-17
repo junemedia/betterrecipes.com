@@ -2699,6 +2699,20 @@ User:
       primary: false
       notnull: false
       autoincrement: false
+    website_name:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    website_address:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
     Article:
       local: id

@@ -134,7 +134,9 @@ class UserForm extends BaseForm
       'personal_quote' => new sfWidgetFormTextarea(),
       'about_me' => new sfWidgetFormTextarea(),
       'interests_list' => new sfWidgetFormDoctrineChoice(array('model' => 'Interest', 'multiple' => true, 'expanded' => true)),
-      'profile_photo' => new sfWidgetFormInputFile()
+      'profile_photo' => new sfWidgetFormInputFile(),
+      'website_name' => new sfWidgetFormInputText(),
+      'website_address' => new sfWidgetFormInputText(),
     ));
 
     $this->widgetSchema['email']->setAttributes(array("autocomplete" => "off"));
@@ -167,6 +169,8 @@ class UserForm extends BaseForm
       'country' => 'Country',
       'about_me' => 'About Me',
       'interests_list' => 'Areas of Interest',
+      'website_name' => 'Website Name',
+      'website_address' => 'Website Address',
     ));
 
     $this->setValidators(array(
@@ -188,7 +192,9 @@ class UserForm extends BaseForm
       'display_name' => new sfValidatorString(array('max_length' => 16, 'required' => true), array('max_length' => 'Max 16 characters')),
       'about_me' => new sfValidatorString(array('required' => false)),
       'interests_list' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'Interest', 'multiple' => true)),
-      'profile_photo' => new sfValidatorFile(array('required' => false, 'path' => sfConfig::get('sf_upload_dir') . '/tmp', 'mime_types' => 'web_images'))
+      'profile_photo' => new sfValidatorFile(array('required' => false, 'path' => sfConfig::get('sf_upload_dir') . '/tmp', 'mime_types' => 'web_images')),
+      'website_name' => new sfValidatorString(array('max_length' => 25, 'required' => false), array('max_length' => 'Max 25 characters')),
+      'website_address' => new sfValidatorUrl(array('max_length' => 255, 'required' => false), array('max_length' => 'Max 255 characters', 'invalid' => 'A valid URL is required (http://mywebsite.com)')),
     ));
 
 
@@ -246,6 +252,8 @@ class UserForm extends BaseForm
     $this->user->setDisplayName($values['display_name']);
     $this->user->setEmail($values['email']);
     $this->user->setAvatar($values['avatar']);
+    $this->user->setWebsiteName($values['website_name']);
+    $this->user->setWebsiteAddress($values['website_address']);
     $this->user->save();
 
     if (!(empty($values['profile_photo']) && empty($values['profile_photo_choice']) && empty($this->default_profile_photo))) {

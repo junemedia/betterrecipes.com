@@ -46,6 +46,12 @@
         ?><?= ($i++ > 0) ? ', ' : '' ?><?= $interest->getName() ?><? endforeach ?>
       <!-- </div> -->
     <? endif ?>
+    
+    <? if ( $user->getWebsiteName() != '' && $user->getWebsiteAddress() != '' ): ?>
+    	<p class="fs14 ttupp mt20 ml195">My Website</p>
+    	<p class="interests ml195"><a href="<?=$user->getWebsiteAddress()?>" target="_blank"><?=$user->getWebsiteName()?></a></p>
+    <? endif; ?>
+    
     <? if (isset($points) && sizeof($points) > 0): ?>
     <p class="interests ml195"><!-- -->
       Points earned: <strong><?= $points['points'] ?></strong>

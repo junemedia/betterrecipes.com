@@ -196,6 +196,16 @@
           <?= $userForm['about_me'] ?>
           <?= $userForm['about_me']->renderError() ?>
         </fieldset>
+        <fieldset>
+        	<?= $userForm['website_name']->renderLabel() ?>
+        	<?= $userForm['website_name'] ?>
+        	<?= $userForm['website_name']->renderError() ?>
+        </fieldset>
+        <fieldset>
+        	<?= $userForm['website_address']->renderLabel() ?>
+        	<?= $userForm['website_address'] ?>
+        	<?= $userForm['website_address']->renderError() ?>
+        </fieldset>
         <fieldset class="areas">
           <?= $userForm['interests_list']->renderLabel() ?>
           <?= $userForm['interests_list'] ?>

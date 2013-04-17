@@ -27,7 +27,9 @@ class UserProfileForm extends UserForm
       'interests_list',
       'fb_share',
       'avatar',
-      'profile_photo'
+      'profile_photo',
+      'website_name',
+      'website_address'
       ), true);
     
     $this->widgetSchema['last_name']->setAttribute('autocomplete', 'off');
