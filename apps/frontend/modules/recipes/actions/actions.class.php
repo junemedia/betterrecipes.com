@@ -83,6 +83,8 @@ class recipesActions extends sfActions
   public function executePhotos(sfWebRequest $request)
   {
     $this->photos = PhotoTable::getRecipePhotos($request->getParameter('recipe_id'));
+    $this->forward404Unless($this->recipe = Doctrine_Core::getTable('Recipe')->find($request->getParameter('recipe_id')), sprintf('Object recipe does not exist (%s).', $request->getParameter('recipe_id')));
+    
   }
 
   /**

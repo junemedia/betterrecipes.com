@@ -5731,3 +5731,12 @@ div.gig-button-container { padding: 0 !important; }
 #upGigyaContainer { float: right; }
 #upGigya {  }
 
+/* Pin It button on recipe photos */
+
+#pinButtonMain { position: absolute; top:0; right:0; display: none; width: 80px; height: 50px; z-index: 999999; }
+#pinButtonMain a { cursor: pointer; }
+#pinButtonMain a img { width: auto; height: auto; }
+
+#mainImg { background: none; width: 400px; height: 300px; position: absolute; top: 0; left: 0; }
+#mainImg.fade { background: transparent url('/img/pin_transparency.png') repeat 0 0; }
+

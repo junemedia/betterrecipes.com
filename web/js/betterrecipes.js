@@ -939,9 +939,11 @@ jQuery(document).ready(function($){
     $('#recipe-detail .main-image').hover(
       function () {
         $('#saveRecipeHover').show();
+        $('#pinButtonMain').show();
       }, 
       function () {
         $('#saveRecipeHover').hide();
+        $('#pinButtonMain').hide();
       }
       );
     $('#saveRecipeHover').click(function () {
@@ -950,12 +952,26 @@ jQuery(document).ready(function($){
 
   }
   
+  if ( $('#pinButtonMain').length > 0 ) {
+	  $('#pinButtonMain a img').mouseover(function(){
+		  $('#mainImg').addClass('fade');
+	  });
+	  $('#pinButtonMain a img').mouseout(function(){
+	  	$('#mainImg').removeClass('fade');
+	  });
+  }
+  
   if ( $('#friendRibbonContainer').length > 0 ) {
 	  friendRibbonHover();
   }
         
 }); // END: doc ready
 
+function pin_this(e, url) {
+		window.open(url, 'pinterest', 'screenX=100,screenY=100,height=580,width=730');
+		e.preventDefault();
+		e.stopPropagation();
+}
 
 function friendRibbonHover() {
 	$("#friendRibbonContainer img.friend-avatar").mouseover(function() {

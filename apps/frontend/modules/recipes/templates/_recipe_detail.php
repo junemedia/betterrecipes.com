@@ -213,6 +213,8 @@
     <div class="images p402_hide">
       <div class="main-image" style="position:relative;">
         <? if ($recipe->hasPhoto() && $main_img = $recipe->getMainImage()): ?>
+        	<div id="pinButtonMain"><a onclick="pin_this(event, 'http://pinterest.com/pin/create/button/?url=<?=getUrl($recipe)?>&media=<?=getDomainUri().$recipe->getMainImageSrc()?>&description=<?=$recipe->getName()?>');"><img src="/img/pinit_button.png" /></a></div>
+        	<div id="mainImg"></div>
           <script>
             function displayPhotos() {
               $("#modal_div").dialog("open");

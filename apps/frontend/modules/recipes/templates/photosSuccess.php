@@ -1,3 +1,13 @@
+<style>
+#recipePhotosOuter { position: relative; width: 400px; height: 300px; margin: 0 auto; }
+#recipePhotosInner { background: none; width: 400px; height: 300px; position: absolute; top: 0; left: 0; }
+#recipePhotosInner.fade { background: transparent url('/img/pin_transparency.png') repeat 0 0; }
+
+#pinButtonPhotos { position: absolute; top:0; right:0; display: none; width: 80px; height: 50px; z-index: 999999; }
+#pinButtonPhotos a { cursor: pointer; }
+#pinButtonPhotos a img { width: auto; height: auto; }
+</style>
+
 <script type="text/javascript">
   var photos = new Array();
   // note: Rusty Cage, found a bug here, JS arrays are zero based, curphoto was set to 1, now 0
@@ -34,9 +44,42 @@
       $("#next_arrow").removeClass("inactive").attr("onclick","getNext()");
     }
   }
+  
+  function pinit(e) {
+  		var url = 'http://pinterest.com/pin/create/button/?url=<?=getUrl($recipe)?>';
+  		url += '&media=<?=getDomainUri()?>'+$("#photo").attr("src");
+  		url += '&description=<?=$recipe->getName()?>';
+		window.open(url, 'pinterest', 'screenX=100,screenY=100,height=580,width=730');
+		e.preventDefault();
+		e.stopPropagation();
+}
+
+  
+  jQuery(document).ready(function($){
+  
+  $('#recipePhotosOuter').hover(
+      function () {
+        $('#pinButtonPhotos').show();
+      }, 
+      function () {
+        $('#pinButtonPhotos').hide();
+      }
+  );
+  
+  $('#pinButtonPhotos a img').mouseover(function(){
+	  $('#recipePhotosInner').addClass('fade');
+  });
+  $('#pinButtonPhotos a img').mouseout(function(){
+  	$('#recipePhotosInner').removeClass('fade');
+  });
+  
+  }); // END: doc ready
+  
 </script>
-<div>
-  <img id="photo" alt="Recipe Image" src="<?= $photos[0]->getImgSrc() ?>" width="430" />
+<div id="recipePhotosOuter">
+  <div id="pinButtonPhotos"><a onclick="pinit(event)"><img src="/img/pinit_button.png" /></a></div>
+  <div id="recipePhotosInner"></div>
+  <img id="photo" alt="Recipe Image" src="<?= $photos[0]->getImgSrc() ?>" />
 </div>
 <div id="title">
   <?= $photos[0]->getName() ?>  
