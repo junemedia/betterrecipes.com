@@ -5,7 +5,7 @@ dev:
     appnamespace:     'betterrecipes_dev'
     admins:           '24408765'
 
-  
+
 all:
   trending_days_back: 2
   session_ttl:        1209600 # 15 days

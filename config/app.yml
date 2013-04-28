@@ -29,7 +29,7 @@ prod:
     hash_key:         UryBhEva5GhYTzZo-NY7WsDikB6kPl-D
 
 all:
-  session_ttl:              1209600 # 15 days
+  session_ttl:        1209600 # 15 days
 
   baynote:
     cn:               meredith
@@ -38,11 +38,11 @@ all:
     timeout:          5
 
   omniture:
-    tracker: page.track
+    tracker:          page.track
     defaults: 
-      server: www.betterrecipes.com
-      prop18: betterrecipes
-      prop19: Food
+      server:         www.betterrecipes.com
+      prop18:         betterrecipes
+      prop19:         Food
 
   RegServices:
     subscriptions:
@@ -50,7 +50,7 @@ all:
       - {name: "Daily Recipe",                       bundle_id: 28,      newsletter_id: 2400003,  precheck: false}
       - {name: "Your Weekly Dish - Recipe.com",      bundle_id: 3900003, newsletter_id: 10800002, precheck: false}
 
-    topper_dir: /uploads/toppers
+    topper_dir:       /uploads/toppers
 
     toppers:
       8251: BR_reg_4762_RecipesContestTopper.jpg   # Add a Recipe
@@ -90,46 +90,53 @@ all:
       8260: "Join Now"
 
   dailydish:
-    url:             http://blogs.mydevstaging.com/blogs/daily-dish/
+    url:              http://blogs.mydevstaging.com/blogs/daily-dish/
 
   cache:
-    time:            120
-    path:            %SF_CACHE_DIR%/onesite/
+    time:             120
+    path:             %SF_CACHE_DIR%/onesite/
 
   memcache:
     config:
-      prefix:        betterrecipes
+      prefix:         betterrecipes
       servers:
         - { host: mmc, port: 11211, persistent: true }
     keys:
-      user_data: user/%id%/data
+      user_data:      user/%id%/data
 
   resize:
-    path:            "/srv/bin/resize"
-    command:         "/srv/bin/resize"
+    path:             /srv/bin/resize
+    command:          /srv/bin/resize
 
   uploads:
-    tmp:             %SF_UPLOAD_DIR%/tmp
-    max_width:       800
-    max_height:      800
-    levels:          2
+    tmp:              %SF_UPLOAD_DIR%/tmp
+    max_width:        800
+    max_height:       800
+    levels:           2
     photo:
-      dir:           %SF_UPLOAD_DIR%/photo
-      sizes:         [400x300,280x205]
+      dir:            %SF_UPLOAD_DIR%/photo
+      sizes:          [400x300,280x205]
     category:
-      dir:           %SF_UPLOAD_DIR%/category
-      sizes:         [200x200]
+      dir:            %SF_UPLOAD_DIR%/category
+      sizes:          [200x200]
     article:
-      dir:           %SF_UPLOAD_DIR%/article
-      sizes:         [200x200,100x100]
+      dir:            %SF_UPLOAD_DIR%/article
+      sizes:          [200x200,100x100]
 
   dreammail:
-    servername:      dm17
-    clientname:      Meredith_BetterRecip
-    username:        bsanders
-    password:        AppL3TReE7645
-    sitename:        Meredith_BetterRecip
-    campaign:        11_PhotoFaves
-    mailing:         BR_Photos_11
-    mailing_kellogs: BR_Photos_11_Kelloggs
-    dmurl:           http://rtm.na.epidm.net/weblet/weblet.dll
+    servername:       dm17
+    clientname:       Meredith_BetterRecip
+    username:         bsanders
+    password:         AppL3TReE7645
+    sitename:         Meredith_BetterRecip
+    campaign:         11_PhotoFaves
+    mailing:          BR_Photos_11
+    mailing_kellogs:  BR_Photos_11_Kelloggs
+    dmurl:            http://rtm.na.epidm.net/weblet/weblet.dll
+
+  searchreplace:
+    limit:            0 # infinite
+    patterns:
+      - # Jello
+        find:         /\b(jell-?o)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jelloforallseasons.aspx" target="_blank">$1</a>
