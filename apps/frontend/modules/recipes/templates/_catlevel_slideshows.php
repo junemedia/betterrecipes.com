@@ -7,9 +7,10 @@
     timeout: 0
   });   
 </script>
+
  <p class="title">Top <?= $category_name ?> Slideshows</p>
  <div class="recipe-slidesshow-container">
-    <img src="/img/prev.png" id="previous_fr" class="previous-img" <? if($favoriteSlideshowsTotal <= 3): ?> style="display:none;" <? endif; ?> />
+    <img src="/img/prev.png" id="previous_fr" class="previous-img" <? if(count($slideshows) <= 3): ?> style="display:none;" <? endif; ?> />
     <div id="top-friends-recipes" class="recipe-slidesshow">
        <? foreach ($slideshows as $k => $slideshow): ?>
         <? if (($k % 3) == 0): ?>
@@ -30,12 +31,12 @@
                 </p> 
             </div>
           </div>
-          <? if (($k % 3) == 2 || ($k + 1) == $favoriteSlideshowsTotal): ?>
+          <? if (($k % 3) == 2 || ($k + 1) == count($slideshows)): ?>
           </div>
         <? endif; ?>
       <? endforeach; ?>
     </div><!-- // top-friends-recipes -->
-    <img src="/img/next.png" id="next_fr" class="next-img" <? if($favoriteSlideshowsTotal <= 3): ?> style="display:none;" <? endif; ?> />
+    <img src="/img/next.png" id="next_fr" class="next-img" <? if(count($slideshows) <= 3): ?> style="display:none;" <? endif; ?> />
   </div>
   <div class="clear-both"></div>
 
