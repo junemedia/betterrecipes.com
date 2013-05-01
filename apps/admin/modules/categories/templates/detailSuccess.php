@@ -93,3 +93,36 @@
     <? endif; ?>      
   </div>
 </div>
+
+
+<div id="favoriteSlideshowsContainer" class="container overrideSection">
+  <div id="subHeading">
+    <h2>Slideshows</h2>
+    <form id="favoriteSlideshowsContainerEdit" action="<?= url_for('categories/edit?id=' . $category->getId()) ?>">
+      <input type="submit" class="detail btn-grey28" value="Edit" />
+    </form>
+    <ul>
+      <li id="total">Total Slideshows Shown on Page: <?= isset($favoriteSlideshowsTotal) ? $favoriteSlideshowsTotal : "5"; ?></li>
+      <? if (isset($favoriteSlideshows)): ?>
+        <li id="date">Slideshows below are shown from <span class="date"><?= date('m/d/y', strtotime($favoriteSlideshows->getStartDate())) ?></span> to <span class="date"><?= date('m/d/y', strtotime($favoriteSlideshows->getEndDate())) ?></span></li>
+      <? endif; ?>
+    </ul>
+  </div>
+  <div class="list">
+    <ul>
+      <? $numItems = 0; ?>
+      <? if (isset($slideshows) && count($slideshows) > 0): ?>
+        <? foreach ($slideshows as $i => $slideshow): ?>
+          <li>
+            <span class="num"><?= $i + 1 ?>. </span>
+            <span class="data"><?= $slideshow->getName() ?></span>
+          </li>
+          <? $numItems++; ?>
+        <? endforeach; ?>
+      </ul>   
+    <? endif; ?>
+    <? if ((isset($favoriteSlideshowsTotal) && $numItems < $favoriteSlideshowsTotal) || !isset($favoriteSlideshowsTotal)) : ?>
+      <span id="msg">Remaining Slideshows are automatically populated</span>
+    <? endif; ?>      
+  </div>
+</div>

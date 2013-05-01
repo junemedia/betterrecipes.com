@@ -5133,11 +5133,13 @@ BEGINNING OF THE NEW STYLES
 .recipe-slidesshow-container img.previous-img {
   float:left;
   padding: 70px 25px 0 0;
+  cursor: pointer;
 }
 
 .recipe-slidesshow-container img.next-img {
   float:left;
   padding-top: 70px;
+  cursor: pointer;
 }
 
 .recipe-slidesshow-container .activity-container {

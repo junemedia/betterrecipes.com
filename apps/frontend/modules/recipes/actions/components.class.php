@@ -51,6 +51,24 @@ class recipesComponents extends sfComponents
       $this->slideshows = SlideshowTable::getList(array('category_id' => $this->category_id, 'is_global' => 1));
     }
   }
+  
+  public function executeCatlevel_slideshows()
+  {
+    //$this->recipes = RecipeTable::getList(array('category_id' => $this->category_id, 'is_global' => 0));
+    //if ($this->is_main_cat) {
+     // $this->stories = ArticleTable::getList(array('category_id' => $this->category_id, 'is_global' => 1));
+      //$this->slideshows = SlideshowTable::getList(array('category_id' => $this->category_id, 'is_global' => 1));
+    //}
+    //Slideshows
+    $slideshowParams = array('module' => 'slideshow', 'category_id' => $this->category_id, 'is_global' => 1);
+    $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
+    if (count($favoriteSlideshowsOverride) > 0) {
+      $this->favoriteSlideshows = $favoriteSlideshowsOverride[0]; //Only one favorite slideshow override for each category
+      $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favoriteSlideshows->getId());
+      $this->slideshows = SlideshowTable::getWeightedItems($this->favoriteSlideshows);
+    }
+
+  }
 
   /**
    * Executes Catlevel_recipes_slideshows action

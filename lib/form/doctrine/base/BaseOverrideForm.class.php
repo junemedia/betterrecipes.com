@@ -16,7 +16,7 @@ abstract class BaseOverrideForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'module'      => new sfWidgetFormChoice(array('choices' => array('recipe' => 'recipe', 'category' => 'category', 'article' => 'article'))),
+      'module'      => new sfWidgetFormChoice(array('choices' => array('recipe' => 'recipe', 'category' => 'category', 'article' => 'article', 'slideshow' => 'slideshow'))),
       'category_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'add_empty' => true)),
       'is_global'   => new sfWidgetFormInputText(),
       'is_mobile'   => new sfWidgetFormInputText(),
@@ -29,7 +29,7 @@ abstract class BaseOverrideForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'module'      => new sfValidatorChoice(array('choices' => array(0 => 'recipe', 1 => 'category', 2 => 'article'), 'required' => false)),
+      'module'      => new sfValidatorChoice(array('choices' => array(0 => 'recipe', 1 => 'category', 2 => 'article', 3 => 'slideshow'), 'required' => false)),
       'category_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Category'), 'required' => false)),
       'is_global'   => new sfValidatorInteger(array('required' => false)),
       'is_mobile'   => new sfValidatorInteger(array('required' => false)),

@@ -31,6 +31,12 @@
     $("#endDateArticles.datepicker").change(function(){
       $("#articleOverrideModule #override_end_date").val($("#endDateArticles").val());
     });
+    $("#startDateSlideshows.datepicker").change(function(){
+      $("#slideshowOverrideModule #override_start_date").val($("#startDateSlideshows").val());
+    });
+    $("#endDateSlideshows.datepicker").change(function(){
+      $("#slideshowOverrideModule #override_end_date").val($("#endDateSlideshows").val());
+    });
   
     //Autocomplete - Fav Recipes
     $("#addRecipeInput").autocomplete({
@@ -68,6 +74,24 @@
         return false;
       }
     });
+    //Autocomplete - Fav Slideshows
+    $("#addSlideshowInput").autocomplete({
+      minlength: 3,
+      source: function (request, response ){
+        $.get('<?= url_for('categories/autocompleteSlideshows') ?>', { textField : request.term }, function(data){ 
+          response($.map(data, function(item){                  
+            return {
+              label: item.name,
+              value: item.id
+            }
+          })) }, "json");
+      }, 
+      select: function(event, ui){
+        $("#addSlideshowInput").val(ui.item.label);
+        $("#addSlideshowInputId").val(ui.item.value);
+        return false;
+      }
+    });
     
     //Add Recipe    
     $("#addRecipeBtn").click(function(){
@@ -88,7 +112,19 @@
       } else {
         $("#articles").load('<?= url_for('categories/addArticle') ?>', { overrideId : <?= $favArticlesForm->getObject()->getId() ?>, itemId : $("#addArticleInputId").val(), rank : articles});
       }      
+    }); 
+    
+    //Add Slideshow  
+    $("#addSlideshowBtn").click(function(){
+      var slideshows = <?= count($weightedSlideshows) ?>;
+      var totalSlideshows = <?= $favoriteSlideshowsTotal ?>;
+      if (slideshows >= totalSlideshows){
+        alert("You must increase the number total number of slideshows shown on each page to add a new slideshow.");
+      } else {
+        $("#slideshows").load('<?= url_for('categories/addSlideshow') ?>', { overrideId : <?= $favSlideshowsForm->getObject()->getId() ?>, itemId : $("#addSlideshowInputId").val(), rank : slideshows});
+      }      
     });   
+    
     
   }); 
 </script>
@@ -146,7 +182,7 @@
               <? endfor; ?>
     </select>       
     <div class="date">
-      <span class="label">Show the recipes below from</span>
+      <span class="label">Show the articles below from</span>
       <input type="text" id="startDateArticles" class="datepicker" name="startDateArticles" readonly="readonly" value="<?= date('m/d/y', strtotime($favArticlesForm->getObject()->getStartDate())) ?>" />
       <span class="label to"> to </span>
       <input type="text" id="endDateArticles" class="datepicker" name="endDateArticles" readonly="readonly"value="<?= date('m/d/y', strtotime($favArticlesForm->getObject()->getEndDate())) ?>" />
@@ -159,6 +195,46 @@
     </div>
     <div id="articles">
       <? include_partial('favoriteArticles', array('weightedArticles' => $weightedArticles, 'overrideId' => $favArticlesForm->getObject()->getId()));  ?>
+    </div>
+    <div class="action">
+      <a href="<? //= url_for('categories/index')    ?>">Cancel</a>
+      &nbsp;&nbsp;or&nbsp;&nbsp;
+      <input type="submit" class="btn-grey28" id="save" name="save" value="Save" />
+    </div>
+  </form>
+</div>
+
+
+
+<div id="slideshowEdit" class="container overrideEditSection" style="margin-bottom:40px;">
+  <div id="subHeading">
+    <h2>Slideshows</h2>
+  </div> 
+  <form id="slideshowOverrideModule" class="overrideModuleEdit" method="post" action="<?= url_for('categories/updateFavSlideshows?id='.$favSlideshowsForm->getObject()->getId()) ?>">
+    <?= $favSlideshowsForm->renderHiddenFields() ?>
+    <?= $favSlideshowsForm->renderGlobalErrors() ?>
+    <? //= link_to('Delete', 'rightrail/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'id' => 'deleteRecipe')) ?>
+    <span class="total">Total Slideshows Shown on Page:</span>
+    <select class="totalRecipes label" name="totalSlideshows">
+      <? for ($i = 0; $i <= 15; $i++): ?>
+        <option value="<?= $i ?>" <? if ($favoriteSlideshowsTotal == $i)
+        echo "Selected" ?>><?= $i ?></option>
+              <? endfor; ?>
+    </select>       
+    <div class="date">
+      <span class="label">Show the slideshows below from</span>
+      <input type="text" id="startDateSlideshows" class="datepicker" name="startDateSlideshows" readonly="readonly" value="<?= date('m/d/y', strtotime($favSlideshowsForm->getObject()->getStartDate())) ?>" />
+      <span class="label to"> to </span>
+      <input type="text" id="endDateSlideshows" class="datepicker" name="endDateSlideshows" readonly="readonly"value="<?= date('m/d/y', strtotime($favSlideshowsForm->getObject()->getEndDate())) ?>" />
+    </div>
+    <div id="addArticle" class="addAuto">      
+      <label>Add Slideshow</label>
+      <input type="hidden" id="addSlideshowInputId" name="addSlideshowInputId" value="-1"/>
+      <input type="text" id="addSlideshowInput" class="autoInput" name="addSlideshowInput" />
+      <input type="button" class="autoBtn btn-grey28" id="addSlideshowBtn" name="addSlideshowBtn" value="Add" />
+    </div>
+    <div id="slideshows">
+      <? include_partial('favoriteSlideshows', array('weightedSlideshows' => $weightedSlideshows, 'overrideId' => $favSlideshowsForm->getObject()->getId()));  ?>
     </div>
     <div class="action">
       <a href="<? //= url_for('categories/index')    ?>">Cancel</a>

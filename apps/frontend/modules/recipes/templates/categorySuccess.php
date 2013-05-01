@@ -11,8 +11,11 @@
     <? include_component('opengraph', 'trendingRecipes', array('parent_category_id' => $category->getId())) ?>
   </div><!-- /#trending-recipes -->
   <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => true)) ?>
-  <? include_partial('stories', compact('stories', 'category')) ?>
-  <? include_partial('popular_stories', compact('category')) ?>
+  
+  <? include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
+  
+  <? //include_partial('stories', compact('stories', 'category')) ?>
+  <? //include_partial('popular_stories', compact('category')) ?>
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
 <? include_partial('opengraph/facebook_login_modal') ?>

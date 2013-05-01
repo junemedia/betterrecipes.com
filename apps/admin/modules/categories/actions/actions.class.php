@@ -65,6 +65,16 @@ class categoriesActions extends sfActions
       //Override Recipe Items        
       $this->articles = ArticleTable::getWeightedItems($this->favoriteArticles);
     }
+    
+     //Slideshows
+    $slideshowParams = array('module' => 'slideshow', 'category_id' => $this->category->getId(), 'is_global' => 1);
+    $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
+    if (count($favoriteSlideshowsOverride) > 0) {
+      $this->favoriteSlideshows = $favoriteSlideshowsOverride[0]; //Only one favorite slideshow override for each category
+      $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favoriteSlideshows->getId());
+      $this->slideshows = SlideshowTable::getWeightedItems($this->favoriteSlideshows);
+    }
+
 
     //Breadcrumbs
     $this->bread_crumbs = array(
@@ -218,6 +228,44 @@ class categoriesActions extends sfActions
     $this->favoriteArticlesTotal = OverrideTable::getOverrideCount($this->favArticlesForm->getObject()->getId());
     //Override Recipe Items        
     $this->weightedArticles = ArticleTable::getWeightedItems($this->favArticlesForm->getObject());
+    
+    
+    //Slideshows Section
+    $slideshowParams = array('module' => 'slideshow', 'category_id' => $category->getId(), 'is_global' => 1);
+    $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
+    if (count($favoriteSlideshowsOverride) > 0) {
+      $this->favSlideshowsForm = new OverrideForm($favoriteSlideshowsOverride[0]); //Only one favorite recipes override for each section
+    } else {
+      //First time - Create new override module for this category
+      $favSlideshowModule = new Override();
+      $favSlideshowModule->setModule('slideshow');
+      $favSlideshowModule->setCategoryId($category->getId());
+      $favSlideshowModule->setIsGlobal(1);
+      $favSlideshowModule->setStartDate(date('Y-m-d H:i:s'));
+      $favSlideshowModule->setEndDate(date('Y-m-d H:i:s'));
+      $favSlideshowModule->setCreatedAt(date('Y-m-d H:i:s'));
+      $favSlideshowModule->setUpdatedAt(date('Y-m-d H:i:s'));
+      $favSlideshowModule->setUserId(sfContext::getInstance()->getUser()->getAttribute('id'));
+      $favSlideshowModule->save();
+
+      $slideshowParams = array('module' => 'slideshow', 'category_id' => $category->getId(), 'is_global' => 1);
+      $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
+      $favSlideshowModule = $favoriteSlideshowsOverride[0]; //Only one favorite recipes override for each section
+      //Set a position count row for the override module (default count is 5)
+      $positionCount = new PositionCount();
+      $positionCount->setOverrideId($favSlideshowModule->getId());
+      $positionCount->setCount(5);
+      $positionCount->save();
+
+      $this->favSlideshowsForm = new OverrideForm($favSlideshowModule);
+    }
+
+    //Only one favorite recipes override for each section 
+    //Total Recipes for Fav Recipes   
+    $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favSlideshowsForm->getObject()->getId());
+    //Override Recipe Items        
+    $this->weightedSlideshows = SlideshowTable::getWeightedItems($this->favSlideshowsForm->getObject());
+    
   }
 
   public function executeUpdate(sfWebRequest $request)
@@ -255,6 +303,23 @@ class categoriesActions extends sfActions
     $text = $request->getParameter('textField');
 
     $results = Doctrine_Query::create()->select('id, name')->from('Article a')->where('a.name LIKE ?', "%" . $text . "%")->limit(10)->fetchArray();
+
+    foreach ($results as $r) {
+      $r['id'] = (int) $r['id'];
+      $r['name'] = $r['name'];
+      $autoArray[] = $r;
+    }
+
+    return $this->renderText(json_encode($autoArray));
+  }
+  
+  public function executeAutocompleteSlideshows(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isXmlHttpRequest());
+    sfView::NONE;
+    $text = $request->getParameter('textField');
+
+    $results = Doctrine_Query::create()->select('id, name')->from('Slideshow s')->where('s.name LIKE ?', "%" . $text . "%")->andWhere('s.is_active = ?', 1)->limit(10)->fetchArray();
 
     foreach ($results as $r) {
       $r['id'] = (int) $r['id'];
@@ -326,6 +391,37 @@ class categoriesActions extends sfActions
 
     return $this->renderPartial('favoriteArticles', array('weightedArticles' => $weightedArticles, 'overrideId' => $request->getParameter('overrideId'), 'errorArticle' => $error));
   }
+  
+  public function executeAddSlideshow(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isXmlHttpRequest());
+    sfView::NONE;
+    if ($request->getParameter('itemId') != -1) {
+      $duplicateItem = Doctrine_Core::getTable('Weight')->createQuery('w')
+        ->where('w.override_id = ?', $request->getParameter('overrideId'))
+        ->andWhere('w.item_id = ?', $request->getParameter('itemId'))
+        ->execute();
+      if (count($duplicateItem) > 0) {
+        $error = "Slideshow already exists in this section";
+      } else {
+        //Add Item to Weight Table
+        $weightedItem = new Weight();
+        $weightedItem->setOverrideId($request->getParameter('overrideId'));
+        $weightedItem->setItemId($request->getParameter('itemId'));
+        $weightedItem->setRank($request->getParameter('rank') + 1);
+        $weightedItem->save();
+        $error = "";
+      }
+    } else {
+      $error = "Please choose an Slideshow to Add";
+    }
+
+    //Get Updated Weighted Items
+    $override = Doctrine_Core::getTable('Override')->find($request->getParameter('overrideId'));
+    $weightedSlideshows = SlideshowTable::getWeightedItems($override);
+
+    return $this->renderPartial('favoriteSlideshows', array('weightedSlideshows' => $weightedSlideshows, 'overrideId' => $request->getParameter('overrideId'), 'errorSlideshow' => $error));
+  }
 
   public function executeDeleteFavRecipe(sfWebRequest $request)
   {
@@ -361,6 +457,24 @@ class categoriesActions extends sfActions
     $weightedArticles = ArticleTable::getWeightedItems($override);
 
     return $this->renderPartial('favoriteArticles', array('weightedArticles' => $weightedArticles, 'overrideId' => $request->getParameter('overrideId')));
+  }
+  
+  public function executeDeleteFavSlideshow(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isXmlHttpRequest());
+    sfView::NONE;
+
+    $articleItem = Doctrine_Core::getTable('Weight')->createQuery('w')
+      ->where('w.override_id = ?', $request->getParameter('overrideId'))
+      ->andWhere('w.item_id = ?', $request->getParameter('itemId'))
+      ->fetchOne();
+    $articleItem->delete();
+
+    //Get Updated Weighted Items
+    $override = Doctrine_Core::getTable('Override')->find($request->getParameter('overrideId'));
+    $weightedSlideshows = SlideshowTable::getWeightedItems($override);
+
+    return $this->renderPartial('favoriteSlideshows', array('weightedSlideshows' => $weightedSlideshows, 'overrideId' => $request->getParameter('overrideId')));
   }
 
   public function executeUpdateFavRecipes(sfWebRequest $request)
@@ -398,6 +512,11 @@ class categoriesActions extends sfActions
       $this->favArticlesForm = new OverrideForm($favoriteArticlesOverride[0]);
       $this->favoriteArticlesTotal = OverrideTable::getOverrideCount($this->favArticlesForm->getObject()->getId());  //Total Articles          
       $this->weightedArticles = ArticleTable::getWeightedItems($this->favArticlesForm->getObject()); //Override Articles
+      //Slideshows
+      $this->favSlideshowsForm = $form;
+      $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favSlideshowsForm->getObject()->getId());  //Total Slideshows          
+      $this->weightedSlideshows = SlideshowTable::getWeightedItems($this->favSlideshowsForm->getObject()); //Override Slideshows    
+
 
       $this->setTemplate('edit');
     }
@@ -438,6 +557,55 @@ class categoriesActions extends sfActions
       $this->favRecipesForm = new OverrideForm($favoriteRecipesOverride[0]);
       $this->favoriteRecipesTotal = OverrideTable::getOverrideCount($this->favRecipesForm->getObject()->getId());  //Total Recipes for Fav Recipes           
       $this->weightedItems = RecipeTable::getWeightedItems($this->favRecipesForm->getObject()); //Override Recipe Items 
+      //Slideshows
+      $this->favSlideshowsForm = $form;
+      $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favSlideshowsForm->getObject()->getId());  //Total Slideshows          
+      $this->weightedSlideshows = SlideshowTable::getWeightedItems($this->favSlideshowsForm->getObject()); //Override Slideshows    
+
+
+      $this->setTemplate('edit');
+    }
+  }
+  
+  public function executeUpdateFavSlideshows(sfWebRequest $request)
+  {
+    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    $override = Doctrine_Core::getTable('Override')->find($request->getParameter('id'));
+    $form = new OverrideForm($override);
+
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    $catId = $form->getObject()->getCategoryId();
+    if ($form->isValid()) {
+      //Save Override Form
+      $override = $form->save();
+      //Save New Rankings
+      $this->sortItems($request->getParameter('slideshow_ids'), $override->getId());
+
+      //Save Slideshows per Page
+      $form->getObject()->getPositionCount()->getLast()->setCount($request->getParameter('totalSlideshows'));
+      $form->getObject()->getPositionCount()->getLast()->save();
+
+      $this->redirect('categories/edit?id=' . $catId);
+    } else {
+      //Form not valid - set template with errors
+      $this->forward404Unless($category = Doctrine_Core::getTable('category')->find(array($catId)), sprintf('Object category does not exist (%s).', $request->getParameter('id')));
+      $this->form = new categoryForm($category);
+      $file = $category->getImgSrc();
+      $this->form->setImage($file);
+      //How To Stories
+      $this->favArticlesForm = $form;
+      $this->favoriteArticlesTotal = OverrideTable::getOverrideCount($this->favArticlesForm->getObject()->getId());  //Total Articles          
+      $this->weightedArticles = ArticleTable::getWeightedItems($this->favArticlesForm->getObject()); //Override Articles               
+      //Favorite Recipes
+      $recipeParams = array('module' => 'recipe', 'category_id' => $category->getId(), 'is_global' => 0);
+      $favoriteRecipesOverride = OverrideTable::getOverrideAdmin($recipeParams);
+      $this->favRecipesForm = new OverrideForm($favoriteRecipesOverride[0]);
+      $this->favoriteRecipesTotal = OverrideTable::getOverrideCount($this->favRecipesForm->getObject()->getId());  //Total Recipes for Fav Recipes           
+      $this->weightedItems = RecipeTable::getWeightedItems($this->favRecipesForm->getObject()); //Override Recipe Items 
+      //Slideshows
+      $this->favSlideshowsForm = $form;
+      $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favSlideshowsForm->getObject()->getId());  //Total Slideshows          
+      $this->weightedSlideshows = SlideshowTable::getWeightedItems($this->favSlideshowsForm->getObject()); //Override Slideshows    
 
       $this->setTemplate('edit');
     }

@@ -78,6 +78,7 @@ abstract class BaseOverride extends sfDoctrineRecord
               0 => 'recipe',
               1 => 'category',
               2 => 'article',
+              3 => 'slideshow',
              ),
              'primary' => false,
              'default' => 'recipe',

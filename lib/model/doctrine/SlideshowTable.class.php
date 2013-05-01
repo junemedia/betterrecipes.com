@@ -155,5 +155,15 @@ class SlideshowTable extends Doctrine_Table
       return $q;
     }
   }
+  
+  public static function getWeightedItems($override)
+  {
+    //Returns an Array of the Override Items
+    $weightedItemsArray = $override->getWeightedItems('Slideshow');
+    if (count($weightedItemsArray) > 0)
+      return $weightedItemsArray['item_coll'];
+    else
+      return;
+  }
 
 }
