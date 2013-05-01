@@ -251,7 +251,7 @@
           </span>
         <? endif; ?>
       </div>
-      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= $recipe->getIntroduction() ?></span></p>
+      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= SearchReplace::run($recipe->getIntroduction()) ?></span></p>
       <? if ($sf_user->isAuthenticated() && $sf_user->getAttribute('id') == $recipe->getUserId()): ?>
         <p class="w100 mt20 mb20"><a href="<?= getUrl('@edit_recipe', array('id' => $recipe->getId())) ?>" title="<?= $recipe->getName() ?>" class="btn-purple28">Edit Recipe</a></p>
       <? endif; ?>
@@ -287,12 +287,12 @@
       <? endif; ?>
     </ul>
     <p class="title">Ingredients:</p>
-    <p class="lh25"><?= Microformat::tableIngredients($recipe->getIngredients()) ?></p>
+    <p class="lh25"><?= SearchReplace::run(Microformat::tableIngredients($recipe->getIngredients())) ?></p>
     <p class="title mt35">Directions:</p>
-    <div class="instructions" itemprop="instructions"><?= Microformat::parseInstructions($recipe->getInstructions()) ?></div>
+    <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
       <p class="title mt20">Helpful Tips:</p>
-      <p><?= $recipe->getNotes() ?></p>
+      <p><?= SearchReplace::run($recipe->getNotes()) ?></p>
     <? endif; ?>
     <? if ($recipe_user_active): ?>
       <? include_partial('author', array('author' => $recipe->getUser())) ?>
