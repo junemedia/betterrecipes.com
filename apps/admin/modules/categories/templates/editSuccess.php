@@ -113,7 +113,7 @@
       } else {
         $("#articles").load('<?= url_for('categories/addArticle') ?>', { overrideId : <?= $favArticlesForm->getObject()->getId() ?>, itemId : $("#addArticleInputId").val(), rank : articles});
       }  
-      $('#addArticleInput')val('');    
+      $('#addArticleInput').val('');    
     }); 
     
     //Add Slideshow  
