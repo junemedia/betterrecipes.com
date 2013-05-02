@@ -101,7 +101,8 @@
         alert("You must increase the number total number of recipes shown on each page to add a new recipe.");
       } else {
         $("#items").load('<?= url_for('categories/addRecipe') ?>', { overrideId : <?= $favRecipesForm->getObject()->getId() ?>, itemId : $("#addRecipeInputId").val(), rank : recipes});
-      }      
+      }   
+      $('#addRecipeInput').val('');   
     });   
     //Add Article  
     $("#addArticleBtn").click(function(){
@@ -111,18 +112,20 @@
         alert("You must increase the number total number of articles shown on each page to add a new article.");
       } else {
         $("#articles").load('<?= url_for('categories/addArticle') ?>', { overrideId : <?= $favArticlesForm->getObject()->getId() ?>, itemId : $("#addArticleInputId").val(), rank : articles});
-      }      
+      }  
+      $('#addArticleInput')val('');    
     }); 
     
     //Add Slideshow  
     $("#addSlideshowBtn").click(function(){
       var slideshows = <?= count($weightedSlideshows) ?>;
       var totalSlideshows = <?= $favoriteSlideshowsTotal ?>;
-      if (slideshows >= totalSlideshows){
-        alert("You must increase the number total number of slideshows shown on each page to add a new slideshow.");
-      } else {
+      //if (slideshows >= totalSlideshows){
+        //alert("You must increase the number total number of slideshows shown on each page to add a new slideshow.");
+      //} else {
         $("#slideshows").load('<?= url_for('categories/addSlideshow') ?>', { overrideId : <?= $favSlideshowsForm->getObject()->getId() ?>, itemId : $("#addSlideshowInputId").val(), rank : slideshows});
-      }      
+      //}      
+      $("#addSlideshowInput").val('');
     });   
     
     
@@ -214,14 +217,14 @@
     <?= $favSlideshowsForm->renderHiddenFields() ?>
     <?= $favSlideshowsForm->renderGlobalErrors() ?>
     <? //= link_to('Delete', 'rightrail/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'id' => 'deleteRecipe')) ?>
-    <span class="total">Total Slideshows Shown on Page:</span>
-    <select class="totalRecipes label" name="totalSlideshows">
+    <span class="total" style="display:none">Total Slideshows Shown on Page:</span>
+    <select class="totalRecipes label" name="totalSlideshows" style="display:none">
       <? for ($i = 0; $i <= 15; $i++): ?>
         <option value="<?= $i ?>" <? if ($favoriteSlideshowsTotal == $i)
         echo "Selected" ?>><?= $i ?></option>
               <? endfor; ?>
     </select>       
-    <div class="date">
+    <div class="date" style="display:none">
       <span class="label">Show the slideshows below from</span>
       <input type="text" id="startDateSlideshows" class="datepicker" name="startDateSlideshows" readonly="readonly" value="<?= date('m/d/y', strtotime($favSlideshowsForm->getObject()->getStartDate())) ?>" />
       <span class="label to"> to </span>
