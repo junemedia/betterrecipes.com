@@ -27,6 +27,8 @@ default:
     - betterrecipes.js
     - s_code_betterrecipesH.js
     # - /jwysiwyg/src/jquery.wysiwyg.js
+    - http://resolute.com/js/rd.lazy.js
+    - http://resolute.com/js/rd.resize.js
     
 
   has_layout:     true

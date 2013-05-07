@@ -5742,3 +5742,31 @@ div.gig-button-container { padding: 0 !important; }
 #mainImg { background: none; width: 400px; height: 300px; position: absolute; top: 0; left: 0; }
 #mainImg.fade { background: transparent url('/img/pin_transparency.png') repeat 0 0; }
 
+/* popular blog posts */
+.blog_post { 
+  display:inline-block;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  width: 190px;
+  white-space: nowrap;
+}
+.blog_post_img {
+  width: 190px;
+  height: 190px;
+  overflow: hidden;
+}
+.blog_post_img img {
+  opacity: 0;
+  transition: opacity ease-out .25s;
+  -webkit-transition: opacity ease-out .25s;
+  -moz-transition: opacity ease-out .25s;
+  -ms-transition: opacity ease-out .25s;
+  -o-transition: opacity ease-out .25s;
+}
+.blog_post p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.blog_post_date{
+  font-size: 11px;
+}

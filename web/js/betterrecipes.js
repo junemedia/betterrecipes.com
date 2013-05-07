@@ -551,8 +551,10 @@ var brmb_panel_rotate = function () {
 }
  */
 
-
 jQuery(document).ready(function($){
+
+  $('.blog_post_img img').lazy({ callback: rd.resize, css: { opacity: '1' } });
+
   // BEGIN: gallery animation, take 2
   if( $('#gallery .picture .picts').length > 0 ){
     $('#gallery .picture .picts').cycle({ 

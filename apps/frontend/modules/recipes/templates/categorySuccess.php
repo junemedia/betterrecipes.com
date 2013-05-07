@@ -16,6 +16,7 @@
   
   <? //include_partial('stories', compact('stories', 'category')) ?>
   <? //include_partial('popular_stories', compact('category')) ?>
+  <? include_partial('popular_blogs', compact('category')) ?>
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
 <? include_partial('opengraph/facebook_login_modal') ?>
