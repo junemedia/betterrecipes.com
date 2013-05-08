@@ -8,9 +8,9 @@
     ?>
     <? foreach( $blogs as $blog ): ?>
       <div class="blog_post">
-        <div class="blog_post_img mb5">
+        <a href="<?= $blog['guid'] ?>" target="_blank" class="blog_post_img mb5">
           <img class="mb5" src="<?= $blog['picture'] ?>" alt="<?= $blog['title'] ?>" />
-        </div>
+        </a>
         <p class="mb5">
           <a href="<?= $blog['guid'] ?>" target="_blank"><?= $blog['title'] ?></a>
         </p>
