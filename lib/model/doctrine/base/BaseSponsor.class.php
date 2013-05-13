@@ -20,6 +20,7 @@ Doctrine_Manager::getInstance()->bindComponent('Sponsor', 'doctrine');
  * @property timestamp $updated_at
  * @property User $User
  * @property Doctrine_Collection $Article
+ * @property Doctrine_Collection $Content
  * @property Doctrine_Collection $Contest
  * @property Doctrine_Collection $Group
  * @property Doctrine_Collection $Recipe
@@ -38,6 +39,7 @@ Doctrine_Manager::getInstance()->bindComponent('Sponsor', 'doctrine');
  * @method timestamp           getUpdatedAt()   Returns the current record's "updated_at" value
  * @method User                getUser()        Returns the current record's "User" value
  * @method Doctrine_Collection getArticle()     Returns the current record's "Article" collection
+ * @method Doctrine_Collection getContent()     Returns the current record's "Content" collection
  * @method Doctrine_Collection getContest()     Returns the current record's "Contest" collection
  * @method Doctrine_Collection getGroup()       Returns the current record's "Group" collection
  * @method Doctrine_Collection getRecipe()      Returns the current record's "Recipe" collection
@@ -55,6 +57,7 @@ Doctrine_Manager::getInstance()->bindComponent('Sponsor', 'doctrine');
  * @method Sponsor             setUpdatedAt()   Sets the current record's "updated_at" value
  * @method Sponsor             setUser()        Sets the current record's "User" value
  * @method Sponsor             setArticle()     Sets the current record's "Article" collection
+ * @method Sponsor             setContent()     Sets the current record's "Content" collection
  * @method Sponsor             setContest()     Sets the current record's "Contest" collection
  * @method Sponsor             setGroup()       Sets the current record's "Group" collection
  * @method Sponsor             setRecipe()      Sets the current record's "Recipe" collection
@@ -181,6 +184,10 @@ abstract class BaseSponsor extends sfDoctrineRecord
         $this->hasMany('Article', array(
              'local' => 'id',
              'foreign' => 'sponsor_id'));
+
+        $this->hasMany('Content', array(
+             'local' => 'id',
+             'foreign' => 'sporsor_id'));
 
         $this->hasMany('Contest', array(
              'local' => 'id',

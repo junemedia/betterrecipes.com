@@ -76,7 +76,8 @@
   <ul id="activeRows" class="results">
   <? foreach ($pager->getResults() as $i => $c): ?>  
     <li class="row <?= ($i % 2) == 0 ? "even" : "odd"; ?> big" id="<?= $c->getId() ?>">
-      <span class="name"><a href="<?= url_for('contests/detail?id='.$c->getId().'&edit=no') ?>"><?= $c->getName() ?></a></span>
+      <? /*<span class="name"><a href="<?= url_for('contests/detail?id='.$c->getId().'&edit=no') ?>"><?= $c->getName() ?></a></span> */ ?>
+      <span class="name"><a href="<?= url_for('contests/detail?id='.$c->getId()) ?>"><?= $c->getName() ?></a></span>
       <span class="startDate"><?= date('m-d-y', strtotime($c->getStartDate()))?></span>
       <span class="endDate"><?= date('m-d-y', strtotime($c->getEndDate()))?></span>
       <span class="sponsor"><?= is_null($c->getSponsorId()) ? 'N/A' : $c->getSponsor()->getName(); ?></span>

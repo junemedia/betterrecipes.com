@@ -103,6 +103,12 @@
       <?= $form['is_open_to_public'] ?>
     </div>
     <div class="field small">
+      <?= $form['slideshow_url']->renderError() ?>
+      <?= $form['slideshow_url']->renderLabel() ?>      
+      <?= $form['slideshow_url'] ?>
+    </div>
+    
+    <div class="field small">
       <div class="action small">
         <a href="<?php echo url_for('contests/index') ?>">Cancel</a>
         &nbsp;&nbsp;or&nbsp;&nbsp;

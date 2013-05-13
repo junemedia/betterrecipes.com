@@ -96,7 +96,11 @@
             </div>
             <p class="title"><?= $contest->getName() ?></p>
             <p class="ml120 mb10"><?= $contest->getDescription() ?></p>
-            <p class="ml120"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="View Entries" class="btn-grey28">View Entries</a></p>
+            <? if($contest->getSlideshowUrl() != ''): ?>
+            	<p class="ml120"><a href="<?=$contest->getSlideshowUrl()?>" class="btn-grey28">View Entries</a></p>
+            <? else: ?>
+            	<p class="ml120"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="View Entries" class="btn-grey28">View Entries</a></p>
+            <? endif; ?>
           </li>
         <? endforeach; ?>
       </ul>

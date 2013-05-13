@@ -29,6 +29,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @property date $end_date
  * @property string $timezone
  * @property integer $weeks
+ * @property string $slideshow_url
  * @property Sponsor $Sponsor
  * @property User $User
  * @property Doctrine_Collection $ContestPeriod
@@ -56,6 +57,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @method date                getEndDate()           Returns the current record's "end_date" value
  * @method string              getTimezone()          Returns the current record's "timezone" value
  * @method integer             getWeeks()             Returns the current record's "weeks" value
+ * @method string              getSlideshowUrl()      Returns the current record's "slideshow_url" value
  * @method Sponsor             getSponsor()           Returns the current record's "Sponsor" value
  * @method User                getUser()              Returns the current record's "User" value
  * @method Doctrine_Collection getContestPeriod()     Returns the current record's "ContestPeriod" collection
@@ -82,6 +84,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @method Contest             setEndDate()           Sets the current record's "end_date" value
  * @method Contest             setTimezone()          Sets the current record's "timezone" value
  * @method Contest             setWeeks()             Sets the current record's "weeks" value
+ * @method Contest             setSlideshowUrl()      Sets the current record's "slideshow_url" value
  * @method Contest             setSponsor()           Sets the current record's "Sponsor" value
  * @method Contest             setUser()              Sets the current record's "User" value
  * @method Contest             setContestPeriod()     Sets the current record's "ContestPeriod" collection
@@ -298,6 +301,15 @@ abstract class BaseContest extends sfDoctrineRecord
              'notnull' => true,
              'autoincrement' => false,
              'length' => 4,
+             ));
+        $this->hasColumn('slideshow_url', 'string', 255, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 255,
              ));
     }
 
