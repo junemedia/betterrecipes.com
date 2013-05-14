@@ -49,6 +49,9 @@ class ContestForm extends BaseContestForm
     $this->setWidget('timezone', new sfWidgetFormInputHidden());
     $this->setWidget('weeks', new sfWidgetFormInputHidden());
     $this->setWidget('is_open_to_public', new sfWidgetFormChoice(array('choices' => array(0 => 'No', 1 => 'Yes'))));
+    //$this->setWidget('slideshow_url', new sfWidgetFormInputText());
+    
+    $this->widgetSchema['slideshow_url']->setOption('label', 'Slideshow URL Link');
 
 //    $filePath = sfConfig::get('sf_uploads_dir').'/contests/';
 //    $this->validatorSchema['image'] = new sfValidatorFileCustom(array(

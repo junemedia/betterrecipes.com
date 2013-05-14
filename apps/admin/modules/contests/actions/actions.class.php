@@ -90,7 +90,8 @@ class contestsActions extends sfActions
     //Set timezone
     date_default_timezone_set(timezone_name_from_abbr($this->contest->getTimezone()));
     //Editing - If contest is in the past, then do not allow editing
-    ($this->contest->getEndDate() >= date('Y-m-d')) ? $this->edit = true : $this->edit = false;
+    //($this->contest->getEndDate() >= date('Y-m-d')) ? $this->edit = true : $this->edit = false;
+    $this->edit = true;
 
     //All contest periods 
     $this->allContests = ContestPeriodTable::getAllContestPeriods($request->getParameter('id'));

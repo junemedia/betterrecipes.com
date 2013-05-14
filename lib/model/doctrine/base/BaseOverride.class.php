@@ -69,7 +69,7 @@ abstract class BaseOverride extends sfDoctrineRecord
              'autoincrement' => true,
              'length' => 4,
              ));
-        $this->hasColumn('module', 'enum', 8, array(
+        $this->hasColumn('module', 'enum', 9, array(
              'type' => 'enum',
              'fixed' => 0,
              'unsigned' => false,
@@ -84,7 +84,7 @@ abstract class BaseOverride extends sfDoctrineRecord
              'default' => 'recipe',
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 8,
+             'length' => 9,
              ));
         $this->hasColumn('category_id', 'integer', 4, array(
              'type' => 'integer',

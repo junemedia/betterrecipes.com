@@ -332,6 +332,28 @@ Category:
       local: id
       foreign: category_id
       type: many
+CategoryMappingCsv:
+  connection: doctrine
+  tableName: category_mapping_csv
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    old_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: false
+      autoincrement: false
+    new_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: false
+      autoincrement: false
 CategoryRecipe:
   connection: doctrine
   tableName: category_recipe
@@ -661,6 +683,151 @@ CollectionRecipe:
       local: recipe_id
       foreign: id
       type: one
+Content:
+  connection: doctrine
+  tableName: content
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+    type:
+      type: enum(9)
+      fixed: false
+      unsigned: false
+      values:
+        - slideshow
+        - article
+        - video
+        - photo
+      primary: false
+      default: slideshow
+      notnull: true
+      autoincrement: false
+    title:
+      type: string(150)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    description:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    slug:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    keywords:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    photo_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: false
+      autoincrement: false
+    is_active:
+      type: integer(1)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '1'
+      notnull: true
+      autoincrement: false
+    sporsor_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: false
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0000-00-00 00:00:00'
+      notnull: false
+      autoincrement: false
+    updated_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0000-00-00 00:00:00'
+      notnull: false
+      autoincrement: false
+  relations:
+    Sponsor:
+      local: sporsor_id
+      foreign: id
+      type: one
+    User:
+      local: user_id
+      foreign: id
+      type: one
+    ContentMedium:
+      local: id
+      foreign: content_id
+      type: many
+ContentMedium:
+  connection: doctrine
+  tableName: content_medium
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+    content_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    medium_id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+    sequence:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Content:
+      local: content_id
+      foreign: id
+      type: one
 Contest:
   connection: doctrine
   tableName: contest
@@ -822,6 +989,13 @@ Contest:
       primary: false
       default: '0'
       notnull: true
+      autoincrement: false
+    slideshow_url:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
       autoincrement: false
   relations:
     Sponsor:
@@ -1178,6 +1352,107 @@ GroupRecipe:
       local: recipe_id
       foreign: id
       type: one
+Groupmessage:
+  connection: doctrine
+  tableName: groupmessage
+  columns:
+    groupid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    messageid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    memberid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    reftypeid:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    srcgroupid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    creationdt:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    groupmessagecategoryid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    emailssent:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: '0'
+      notnull: false
+      autoincrement: false
+    groupmessageid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    parentpath:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    subject:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    messagebody:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    status:
+      type: string(1)
+      fixed: true
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    targetgroupid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
 Interest:
   connection: doctrine
   tableName: interest
@@ -1364,6 +1639,29 @@ Message:
       primary: false
       notnull: false
       autoincrement: false
+Messagefavs:
+  connection: doctrine
+  tableName: messagefavs
+  columns:
+    groupmessageid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    messageid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    memberid:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
 Meta:
   connection: doctrine
   tableName: meta
@@ -1454,7 +1752,7 @@ Override:
       primary: true
       autoincrement: true
     module:
-      type: enum(8)
+      type: enum(9)
       fixed: false
       unsigned: false
       values:
@@ -2524,6 +2822,10 @@ Sponsor:
       local: id
       foreign: sponsor_id
       type: many
+    Content:
+      local: id
+      foreign: sporsor_id
+      type: many
     Contest:
       local: id
       foreign: sponsor_id
@@ -2540,6 +2842,52 @@ Sponsor:
       local: id
       foreign: sponsor_id
       type: many
+Tempfavs:
+  connection: doctrine
+  tableName: tempfavs
+  columns:
+    id:
+      type: integer(8)
+      autoincrement: true
+      primary: true
+    legacy_recipe_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    user_id:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+Templog:
+  connection: doctrine
+  tableName: templog
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+    content:
+      type: string()
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    created_at:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
 User:
   connection: doctrine
   tableName: user
@@ -2720,6 +3068,10 @@ User:
       foreign: user_id
       type: many
     Collection:
+      local: id
+      foreign: user_id
+      type: many
+    Content:
       local: id
       foreign: user_id
       type: many

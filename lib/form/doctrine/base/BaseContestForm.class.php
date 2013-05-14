@@ -37,6 +37,7 @@ abstract class BaseContestForm extends BaseFormDoctrine
       'end_date'          => new sfWidgetFormDate(),
       'timezone'          => new sfWidgetFormInputText(),
       'weeks'             => new sfWidgetFormInputText(),
+      'slideshow_url'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -62,6 +63,7 @@ abstract class BaseContestForm extends BaseFormDoctrine
       'end_date'          => new sfValidatorDate(array('required' => false)),
       'timezone'          => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'weeks'             => new sfValidatorInteger(array('required' => false)),
+      'slideshow_url'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('contest[%s]');

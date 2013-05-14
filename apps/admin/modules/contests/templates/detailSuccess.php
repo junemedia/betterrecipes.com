@@ -50,6 +50,7 @@
       <li><span class="label">Title Tag</span><span class="data"><?= $contest->getTitleTag() ?></span></li>
       <li><span class="label">Meta Description</span><span class="data"><?= $contest->getSummary() ?></span></li>
       <li><span class="label">Keywords</span><span class="data"><?= $contest->getKeywords() ?></span></li>
+      <li><span class="label">Slideshow URL</span><span class="data"><?=$contest->getSlideshowUrl()?></span></li>
     </ul>      
   </div>
 </div> 
