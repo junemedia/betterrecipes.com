@@ -1,3 +1,4 @@
+/*
 window.Meebo||function(c){
   function p(){
     return["<",i,' onload="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='//cim.meebo.com/cim?iv=",a.v,"&",q,"=",c[q],c[l]?"&"+l+"="+c[l]:"",c[e]?"&"+e+"="+c[e]:"","'\"></",i,">"].join("")
@@ -50,6 +51,7 @@ window.Meebo||function(c){
 }({
   network:"meredith:betterrecipes"
 });
+*/
 
 debug = function (log_txt) {
   if (window.console != undefined) {

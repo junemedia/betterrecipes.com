@@ -143,7 +143,7 @@
       </script>
       <!-- END CROWD_SCIENCE INCLUDE -->
     <? endif ?>
-    <script type="text/javascript">Meebo('domReady');</script>
+    <!--<script type="text/javascript">Meebo('domReady');</script>-->
     <? if (!in_array($this->moduleName, array('contests', 'auth'))): ?>
       <!-- Kontera ContentLink(TM);-->
       <script type='text/javascript'>
