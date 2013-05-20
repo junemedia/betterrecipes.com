@@ -10,9 +10,12 @@
   <div id="trending-recipes">
     <? include_component('opengraph', 'trendingRecipes', array('parent_category_id' => $category->getId())) ?>
   </div><!-- /#trending-recipes -->
+  <? include_partial('baynote_recipes', compact('category')) ?>
+<? /* 
   <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => true)) ?>
   
   <? include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
+*/ ?>
   
   <? //include_partial('stories', compact('stories', 'category')) ?>
   <? //include_partial('popular_stories', compact('category')) ?>

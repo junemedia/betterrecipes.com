@@ -5771,3 +5771,19 @@ div.gig-button-container { padding: 0 !important; }
 .blog_post_date{
   font-size: 11px;
 }
+#baynote_popular_recipes .activity-container{
+  width: 300px;
+  display: inline-block;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  vertical-align: top;
+}
+#baynote_popular_recipes .img-mask img{
+  width: 288px;
+}
+#baynote_popular_recipes .rec_title{
+  padding: 15px 0px;
+}
+#baynote_popular_recipes .rec_desc{
+  height: 50px;
+}
