@@ -97,9 +97,6 @@
               </a>
 			  <? endif; ?>
               
-              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask100">
-                <img src="<?= $contest->getImgSrc() ?>" alt="<?= $contest->getName() ?>" />
-              </a>
             <? endif; ?>
             <div id="sponsor_<?= $contest->getSponsor()->getId() ?>"class="sponsor adsponsor">
               <? include_partial('global/adtags/sponsor', array('sponsor' => $contest->getSponsor())) ?>
