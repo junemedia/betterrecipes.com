@@ -24,12 +24,12 @@ $sql = sprintf('
 SELECT
   `r`.`name` AS `Title`
  ,CONCAT("http://",IF(`c2`.`slug` IS NOT NULL,CONCAT(`c2`.`slug`,"."),CONCAT(`c1`.`slug`,".")),"%s/",`r`.`slug`,".html") AS `Url`
- ,`c1`.`id` AS `CategoryId`
- ,`c1`.`slug` AS `CategorySlug`
- ,`c1`.`name` AS `CategoryName`
- ,`c2`.`id` AS `SubCategoryId`
- ,`c2`.`slug` AS `SubCategorySlug`
- ,`c2`.`name` AS `SubCategoryName`
+ ,`c2`.`id` AS `CategoryId`
+ ,`c2`.`slug` AS `CategorySlug`
+ ,`c2`.`name` AS `CategoryName`
+ ,`c1`.`id` AS `SubCategoryId`
+ ,`c1`.`slug` AS `SubCategorySlug`
+ ,`c1`.`name` AS `SubCategoryName`
  ,`r`.`description` AS `Description`
  ,`r`.`ingredients` AS `Ingredients`
  ,`r`.`servings` AS `Servings`
@@ -47,7 +47,7 @@ SELECT
  ,`r`.`created_at` AS `PubDate`
  ,`u`.`id` AS `AuthorId`
  ,`u`.`display_name` AS `AuthorName`
- ,`u`.`email` AS `AuthorEmail`
+ ,LOWER(`u`.`email`) AS `AuthorEmail`
  ,`p`.`image` AS `Image`
 FROM
   `recipe` AS `r`
@@ -70,8 +70,6 @@ WHERE
   `r`.`is_active`=1
 AND
   `cr`.`sequence`=1
-AND
-  `r`.`is_active`=1
 LIMIT 100000
 ', BASE_HOST
 );

@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?
 
 $blog_tags_array = array
