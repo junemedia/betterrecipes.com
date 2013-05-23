@@ -19,10 +19,18 @@
       <? foreach ($past_contests->getResults() as $i => $c):
 				if($i % 6 == 0 ){ echo '<li class="row wauto"><ul class="hornav">';} ?>
         <li class="mb20 w100 <?= ((fmod(($i + 1), 6)) == 0) ? 'mr0' : 'mr10' ?>">
+        <? if($c->getSlideshowUrl() != ''): ?>
+        	<a href="<?=$c->getSlideshowUrl()?>" title="<?= $c->getName() ?>" class="imgmask100 mb10">
+            <img src="<?= $c->getImgSrc() ?>" height="100" width="100" alt="<?= $c->getName() ?>" />
+          </a>
+          <p><a href="<?=$c->getSlideshowUrl()?>" title="<?= $c->getName() ?>"><?= $c->getName() ?></a></p>
+
+        <? else: ?>
           <a href="<?= getRoute('contests_detail', array('slug' => $c->getSlug())) ?>" title="<?= $c->getName() ?>" class="imgmask100 mb10">
             <img src="<?= $c->getImgSrc() ?>" height="100" width="100" alt="<?= $c->getName() ?>" />
           </a>
           <p><a href="<?= getRoute('contests_detail', array('slug' => $c->getSlug())) ?>" title="<?= $c->getName() ?>"><?= $c->getName() ?></a></p>
+         <? endif; ?>
         </li>
         <? if($i % 6 == 5 ){ echo '</ul></li>';} ?>
       <? endforeach; ?>

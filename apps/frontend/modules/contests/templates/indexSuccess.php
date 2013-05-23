@@ -87,9 +87,16 @@
         <? foreach ($previous_contests as $i => $contest): ?>
           <li class="ovhid <?= (($i + 1) == count($previous_contests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($previous_contests)) ? 'id="no-border"' : '' ?>>
             <? if ($contest->getImgSrc()): ?>
-              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask100">
+              <? if($contest->getSlideshowUrl() != ''): ?>
+              	<a href="<?=$contest->getSlideshowUrl()?>" title="<?= $contest->getName() ?>" class="imgmask100">
                 <img src="<?= $contest->getImgSrc() ?>" alt="<?= $contest->getName() ?>" />
               </a>
+              <? else: ?>
+              	<a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask100">
+                <img src="<?= $contest->getImgSrc() ?>" alt="<?= $contest->getName() ?>" />
+              </a>
+			  <? endif; ?>
+              
             <? endif; ?>
             <div id="sponsor_<?= $contest->getSponsor()->getId() ?>"class="sponsor adsponsor">
               <? include_partial('global/adtags/sponsor', array('sponsor' => $contest->getSponsor())) ?>
