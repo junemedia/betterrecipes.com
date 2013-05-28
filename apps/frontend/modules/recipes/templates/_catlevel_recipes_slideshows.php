@@ -11,11 +11,16 @@
             echo"<ul><li>";
           }
           ?>
+          <?
+          /*
+          * as per MERBETTERR-17 * 
           <? if ($recipe->hasPhoto()): ?>
             <a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>" class="imgmask100 flle mr10">
               <img src="<?= $recipe->getMainImageSrc() ?>" alt="<?= $recipe->getName() ?>" />
             </a>
           <? endif; ?>
+          */
+          ?>
           <p class="mb5"><a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>"><?= Utilities::truncateHtml($recipe->getName(), 50) ?></a></p>
           <p><?= Utilities::truncateHtml($recipe->getIntroduction(), 90) ?></p>
           <?
