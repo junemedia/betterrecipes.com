@@ -5152,7 +5152,7 @@ BEGINNING OF THE NEW STYLES
   height: 40px;
 }
 
-#trending-recipes {
+#trending-recipes, #baynote_popular_recipes {
   clear: both;
 }
 
