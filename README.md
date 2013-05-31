@@ -49,9 +49,14 @@ http://betterrecipes.mydevstaging.com/
     # betterrecipes: Send out emails from message table every hour
     10   * * * * root /srv/sites/betterrecies/symfony br:send-message
 
-    # betterrecipes: should be run nightly to update the contestants rankings
-    #   will also update the unofficial contest winner for each week
-    15   2 * * * root /srv/sites/betterrecipes/symfony br:rankings
+    # betterrecipes: Rank the contests every night at midnight
+    0    0 * * * root /srv/sites/betterrecies/symfony br:rankings
+
+    # betterrecipes: Copy the latest Daily Dish blog entries to memcache every 6 hours
+    34 */6 * * * root /srv/sites/betterrecipes/bin/popular_blogs.php
+
+    # betterrecipes: Pull most popular recipes from Baynote (by category/subcategory) and storing in memcache every 8 hours (TTL of 24 hours)
+    36 */8 * * * root /srv/sites/betterrecipes/bin/baynote_popular_recipes.php
 
 ## Notes
 
