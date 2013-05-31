@@ -8,11 +8,11 @@
     ?>
     <? foreach( $blogs as $blog ): ?>
       <div class="blog_post">
-        <a href="<?= $blog['guid'] ?>" target="_blank" class="blog_post_img mb5">
+        <a href="<?= $blog['guid'] ?>" class="blog_post_img mb5">
           <img class="mb5" src="<?= $blog['picture'] ?>" alt="<?= $blog['title'] ?>" />
         </a>
         <p class="mb5">
-          <a href="<?= $blog['guid'] ?>" target="_blank"><?= $blog['title'] ?></a>
+          <a href="<?= $blog['guid'] ?>"><?= $blog['title'] ?></a>
         </p>
         <p class="blog_post_date">
           Written on: <?= date( 'M d, Y \a\t g:i a ', strtotime($blog['date']) ) ?>

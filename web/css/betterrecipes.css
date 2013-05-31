@@ -4172,8 +4172,7 @@ FEATURE: popup pop up
   background-color:#FFF;
   height:200px;
   width:360px;
-  position:fixed;
-  top:50%;
+  position:absolute;
   left:50%;
   margin:-100px 0 0 -180px;
 }

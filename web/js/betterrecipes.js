@@ -1,3 +1,4 @@
+/*
 window.Meebo||function(c){
   function p(){
     return["<",i,' onload="var d=',g,";d.getElementsByTagName('head')[0].",j,"(d.",h,"('script')).",k,"='//cim.meebo.com/cim?iv=",a.v,"&",q,"=",c[q],c[l]?"&"+l+"="+c[l]:"",c[e]?"&"+e+"="+c[e]:"","'\"></",i,">"].join("")
@@ -50,6 +51,7 @@ window.Meebo||function(c){
 }({
   network:"meredith:betterrecipes"
 });
+*/
 
 debug = function (log_txt) {
   if (window.console != undefined) {
@@ -553,7 +555,10 @@ var brmb_panel_rotate = function () {
 
 jQuery(document).ready(function($){
 
-  $('.blog_post_img img').lazy({ callback: rd.resize, css: { opacity: '1' } });
+  if( $('.blog_post_img img').length > 0 )
+  {
+    $('.blog_post_img img').lazy({ callback: rd.resize, css: { opacity: '1' } });
+  }
 
   // BEGIN: gallery animation, take 2
   if( $('#gallery .picture .picts').length > 0 ){

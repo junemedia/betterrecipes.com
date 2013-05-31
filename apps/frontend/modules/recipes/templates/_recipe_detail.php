@@ -50,6 +50,7 @@
         $("#vote").click(function(){
           $(".popup").removeClass('hide');
           $(".popup").css('height', $(document).height());
+          $(".popup .recipeboxpopup").css('top', $(window).scrollTop() + 300);
         });
       }
       fireOmniture();

@@ -68,7 +68,7 @@ foreach( $blog_tags_array as $subdomain => $tag_array )
 		$count++;
 	}
 	$where .= ") ORDER BY wp_27_posts.post_date DESC LIMIT 6;";
-	$query = "SELECT DISTINCT post_title, post_date, post_content, guid
+	$query = "SELECT DISTINCT post_name, post_title, post_date, post_content, guid
 				FROM wp_27_posts
 				JOIN wp_27_term_relationships ON wp_27_term_relationships.object_id = wp_27_posts.id
 				JOIN wp_27_term_taxonomy ON wp_27_term_relationships.term_taxonomy_id = wp_27_term_taxonomy.term_taxonomy_id
@@ -102,15 +102,18 @@ foreach( $blog_tags_array as $subdomain => $tag_array )
 		{
 			$blog_array['title'] = $row['post_title'];
 			$blog_array['date'] = $row['post_date'];
+			// create the permalink url for the blog
+			$slug = '/blogs/daily-dish/' . date('Y/m/d', strtotime($row['post_date'])) . '/' .$row['post_name'];
+			// find the first image in the post
 			preg_match( '/<img[^>]+src="([^"]+)"/', $row['post_content'], $pictures_array );
 			if( !empty($pictures_array) )
 			{
 				$blog_array['picture'] = $pictures_array[1];
 			}
-			$blog_array['guid'] = $row['guid'];
+			$blog_array['guid'] = $slug;
 			$results_array[] = $blog_array;
 		}
-		
+
 		$memcache->set('br_pop_blogs_' . md5($subdomain), $results_array, 0, 86400); //Queue lasts for 1 day max
 		$memcache->close();
 
@@ -119,14 +122,14 @@ foreach( $blog_tags_array as $subdomain => $tag_array )
 }
 
 function getRefArray($a)
-{ 
-	if (strnatcmp(phpversion(),'5.3')>=0) { 
-	    $ret = array(); 
-	    foreach($a as $key => $val) { 
-	        $ret[$key] = &$a[$key]; 
-	    } 
-	    return $ret; 
-	} 
-	return $a; 
+{
+	if (strnatcmp(phpversion(),'5.3')>=0) {
+	    $ret = array();
+	    foreach($a as $key => $val) {
+	        $ret[$key] = &$a[$key];
+	    }
+	    return $ret;
+	}
+	return $a;
 }
 ?>
