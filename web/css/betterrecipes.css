@@ -3834,6 +3834,7 @@ FEATURE: tabbed navs
   height:28px;
   line-height:28px;
 }
+.enterContestPromo { position: absolute; top: -95px; right: 5px; }
 
 /*-------------------------------------=============================<<<<< BEGIN: Photos/Videos CSS >>>>>>=============================-------------------------------------*/
 .photos #liked ul li,

@@ -3,7 +3,7 @@
   <div id="contest-detail">
     <? include_partial('global/sharebar') ?>
     <p class="title green">Recipe Contests</p>
-    <p class="w500">Think you have a prize-winning dish? Enter your original recipe in one of our recipe contests or vote for someone else's. We have weekly and monthly recipe contests for cooks of all skill levels. Enter now for a chance to win!</p>
+    <p style="width:450px">Think you have a prize-winning dish? Enter your original recipe in one of our recipe contests or vote for someone else's. We have weekly and monthly recipe contests for cooks of all skill levels. Enter now for a chance to win!</p>
   </div>
   <!--
       <div class="mb20">
@@ -11,10 +11,10 @@
       </div>
   -->
   <? if (count($activeContests) > 0): ?>
-    <div id="featured-contests" class="mb20">
+    <div id="featured-contests" class="mb20" style="position:relative;">
       <ul class="border-bottom">
         <? foreach ($activeContests as $i => $contest): ?>
-          <li class="ovhid <?= (($i + 1) == count($activeContests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($activeContests)) ? 'id="no-border"' : '' ?>>
+          <li style="width:450px;" class="ovhid <?= (($i + 1) == count($activeContests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($activeContests)) ? 'id="no-border"' : '' ?>>
             <? if ($contest->getImgSrc()): ?>
               <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask100">
                 <img src="<?= $contest->getImgSrc() ?>" alt="<?= $contest->getName() ?>" />
@@ -32,8 +32,13 @@
               <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?><? //= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug())    ?>" title="View Entries" class="btn-grey28">View Entries</a>
             </p>
           </li>
+          
+          <? if ( $i == 0 ): ?>
+          <div class="enterContestPromo"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>"><img src="/img/enter_recipe_thumb.png" /></a></div>
+          <? endif; ?>
         <? endforeach; ?>
       </ul>
+      
     </div>
   <? endif; ?>
   <div id="contest-entries" class="contest-winners mb20">
