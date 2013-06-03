@@ -22,7 +22,8 @@ mysql_select_db('betterrecipes');
 
 $sql = sprintf('
 SELECT
-  `r`.`name` AS `Title`
+ MIN(`p`.`id`) AS image_id
+ ,`r`.`name` AS `Title`
  ,CONCAT("http://",IF(`c2`.`slug` IS NOT NULL,CONCAT(`c2`.`slug`,"."),CONCAT(`c1`.`slug`,".")),"%s/",`r`.`slug`,".html") AS `Url`
  ,`c2`.`id` AS `CategoryId`
  ,`c2`.`slug` AS `CategorySlug`
@@ -70,6 +71,10 @@ WHERE
   `r`.`is_active`=1
 AND
   `cr`.`sequence`=1
+GROUP BY 
+  `r`.`id`
+ORDER BY
+  `r`.`id`
 LIMIT 100000
 ', BASE_HOST
 );
