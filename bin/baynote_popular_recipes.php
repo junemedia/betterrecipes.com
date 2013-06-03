@@ -69,8 +69,12 @@ while( $row = $results->fetch_assoc() )
     
     foreach( $xml_object as $r )
     {
+        $recipe_array = array();
         $recipe_array['url'] = (string)$r->attributes()->u;
         $recipe_array['title'] = trim( str_replace( "| Better Recipes", "", (string)$r->attributes()->t ));
+        $recipe_url = parse_url( $recipe_array['url'] );
+        $path = explode( '.', $recipe_url['path'] );
+        $recipe_array['slug'] = str_replace( '/', '',  $path[0] );
         foreach( $r as $a )
         {
             if( $a->attributes()->n == 'Description' )
