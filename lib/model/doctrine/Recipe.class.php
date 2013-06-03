@@ -88,8 +88,6 @@ class Recipe extends BaseRecipe
   {
     $photo = $this->getPhoto();
     if ($photo->count() > 0) {
-      print_r( $photo->getFirst()->getImgSrc() );
-      exit;
       return $photo->getFirst()->getImgSrc();
     } else {
       $category = $this->getFirstCategory();
