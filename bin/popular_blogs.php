@@ -42,7 +42,7 @@ $db = new MySQLi(
 );
 
 if ($db->connect_error) {
-    debug("Could not connect to MySQL: ".$db->connect_error);
+    die("Could not connect to MySQL: ".$db->connect_error);
 }
 
 foreach( $blog_tags_array as $subdomain => $tag_array )
