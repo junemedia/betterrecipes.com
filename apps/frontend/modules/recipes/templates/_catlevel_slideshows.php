@@ -19,9 +19,11 @@
           <div class="activity-container">
             <div class="img-mask">
             	<? $slides = $slideshow->getSortedSlides() ?>
-              <a href="<?= getUrl($slideshow) ?>" title="<?= $slideshow->getName() ?>">
-                <img src="<?= url_for($slides[0]->getImgSrc()) ?>" alt="<?= Utilities::truncateHtml($slideshow->getName(), 50) ?>" />
-              </a>
+            	<? if ( sizeof($slides) > 0 ): ?>
+	              <a href="<?= getUrl($slideshow) ?>" title="<?= $slideshow->getName() ?>">
+	                <img src="<?= url_for($slides[0]->getImgSrc()) ?>" alt="<?= Utilities::truncateHtml($slideshow->getName(), 50) ?>" />
+	              </a>
+	            <? endif; ?>
             </div>
             <div class="activity-info">
               <p class="rec_title"><a href="<?= getUrl($slideshow) ?>"><?= $slideshow->getName() ?></a> </p>
