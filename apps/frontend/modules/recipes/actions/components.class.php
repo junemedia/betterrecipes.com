@@ -62,7 +62,6 @@ class recipesComponents extends sfComponents
     //Slideshows
     $slideshowParams = array('module' => 'slideshow', 'category_id' => $this->category_id, 'is_global' => 1);
     $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
-    echo 'how many '.count($favoriteSlideshowsOverride);
     if (count($favoriteSlideshowsOverride) > 0) {
       $this->favoriteSlideshows = $favoriteSlideshowsOverride[0]; //Only one favorite slideshow override for each category
       $this->favoriteSlideshowsTotal = OverrideTable::getOverrideCount($this->favoriteSlideshows->getId());
