@@ -289,6 +289,17 @@
     </ul>
     <p class="title">Ingredients:</p>
     <p class="lh25"><?= SearchReplace::run(Microformat::tableIngredients($recipe->getIngredients())) ?></p>
+    
+    
+    <? /* insert Mulu Ad Code */ ?>
+    <? /*
+    not ready for implementation & testing
+    <div id="mbox_loader" data-charity="51ae3c7f739dd386ff000001" data-color_code="640968" data-footer="Buying any of these items will benefit:" data-headline="Make it at home" data-layout="better_recipes"></div> 
+    <script src="http://mulu-assets.s3.amazonaws.com/mbox_loader.js"></script> 
+    */
+    ?>
+    
+    
     <p class="title mt35">Directions:</p>
     <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
