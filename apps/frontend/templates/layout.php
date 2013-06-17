@@ -144,16 +144,7 @@
       <!-- END CROWD_SCIENCE INCLUDE -->
     <? endif ?>
     <!--<script type="text/javascript">Meebo('domReady');</script>-->
-    <? if (!in_array($this->moduleName, array('contests', 'auth'))): ?>
-      <!-- Kontera ContentLink(TM);-->
-      <script type='text/javascript'>
-      var dc_AdLinkColor = 'blue' ;
-      var dc_PublisherID = 185845 ;
-      </script>
-      <script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
-      </script>
-      <!-- Kontera ContentLink(TM) -->
-    <? endif ?>
+    
     <? /* Google Analytics */ ?>
     <script type="text/javascript">
     var _gaq = _gaq || [];
