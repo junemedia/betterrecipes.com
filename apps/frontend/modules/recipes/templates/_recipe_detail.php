@@ -104,12 +104,20 @@
 <? endif ?>
 <? if (!empty($currentContest)): ?>
   <div id="vote-box">
-    <p>RANK: #<?= $currentContest->getRank() ?> in: <?= $currentContest->getContest()->getName() ?>!</p>
+    <? if ($recipePrev): ?> 
+      <li class="previous nav"><a href="<?= UrlToolkit::getUrl($recipePrev) ?>" title="">PREVIOUS</a></li>
+      <li class="nav gray"> | </li>
+    <? endif; ?>
+    <p>Rank: #<?= $currentContest->getRank() ?> in: <?= $currentContest->getContest()->getName() ?>!</p>
+    <? if ($recipeNext): ?>
+      <li class="nav gray"> | </li>
+      <li class="next nav last"><a href="<?= UrlToolkit::getUrl($recipeNext) ?>" title="">NEXT</a></li>
+    <? endif; ?>
     <ul class="hornav">
       <li id="vote_button_container" class="cta-vote"><span title="VOTE" class="opac50 cursDef">VOTE</span></li>
-      <? if ($recipePrev): ?> <li class="previous nav"><a href="<?= UrlToolkit::getUrl($recipePrev) ?>" title="">PREVIOUS</a></li><? endif; ?>
-      <? if ($recipePrev && $recipeNext): ?>  <li class="nav gray"> | </li><? endif; ?>
-      <? if ($recipeNext): ?> <li class="next nav last"><a href="<?= UrlToolkit::getUrl($recipeNext) ?>" title="">NEXT</a></li><? endif; ?>
+      <? if ($currentContest->getContest()->getIsOpenToPublic()): ?>
+        <a href="<?= getRoute('contests_detail', array('slug' => $currentContest->getContest()->getSlug())) ?>" title="ENTER A RECIPE" class="btn-grey28 mr20">ENTER A RECIPE</a>
+      <? endif; ?>
     </ul>
   </div><!-- /#vote-box -->
 <? endif; ?>

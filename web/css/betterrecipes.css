@@ -1040,19 +1040,19 @@ MAIN: vote box
 }
 #vote-box p {
   font-size:18px;
-  color:#660066;
-  font-weight:bold;
+  color:#81a713;
   margin:0 0 15px 0;
-  padding:10px 0 0 0;
+  padding:10px 10px 0 10px;
   width:auto;
   text-align:center;
   *margin:0 0 15px 20px;
+  display: inline-block;
 }
 #vote-box ul {
   font-size:16px;
   color:#660066;
   text-align:center;
-  padding:0 0 0 25px;
+  padding:0 0 0 45px;
   *margin:0 0 0 150px;
 }
 #vote-box ul li {
@@ -1060,7 +1060,7 @@ MAIN: vote box
   *float:left;
 }
 #vote-box .cta-vote {
-  margin-right:20px;
+  margin-right:10px;
 }
 #vote-box .cta-vote a, #vote-box .cta-vote span {
   background:url(/img/bg-btn-purple-167x35.png) no-repeat center;
@@ -1113,17 +1113,22 @@ MAIN: vote box
 #vote-box ul li {
   height:35px;
   line-height:35px;
+  display: inline-block;
 }
 #vote-box .nav a {
   color:#660066!important;
 }
 #vote-box .previous {
   background:url(/img/btn-nav-prev-arrow.png) no-repeat top left;
-  padding-left:15px;
+  padding: 0 10px 0 20px;
+  display: inline-block;
+  font-weight: bold;
 }
 #vote-box .next {
   background:url(/img/btn-nav-next-arrow.png) no-repeat top right;
-  padding-right:15px;
+  padding: 0 20px 0 10px;
+  display: inline-block;
+  font-weight: bold;
 }
 #vote-box .previous:visited {
   background-position:bottom left;
@@ -1133,6 +1138,11 @@ MAIN: vote box
 }
 #vote-box .nav a:visited {
   color:#666;
+}
+#vote-box .btn-grey28{
+  padding: 8px 6px;
+  position: relative;
+  bottom: 2px;
 }
 
 /* ----- Poll Creation ----- */
@@ -1614,8 +1624,8 @@ some of this is above with #vote-box
   overflow:hidden;
 }
 #recipe-detail .meal-info li {
-  margin:10px 15px 10px 0;
-  padding:0 15px 0 0;
+  margin:10px 10px 10px 0;
+  padding:0 10px 0 0;
   border-right:#660066 solid 2px;
   text-align:center;
   text-transform:uppercase;
@@ -5022,7 +5032,7 @@ table.form td input[type="submit"] {
 .prev_active { background: url('/img/prev.png') top left no-repeat; }
 .prev_disabled { background: url('/img/prev_grey.png') top left no-repeat; color: #666666 !important; cursor: default !important; text-decoration: none !important; }
 
-.next { width: 30px; float: left; text-transform: uppercase; font-size:14px; padding: 1px 14px 0 0px; }
+.next { width: 30px; text-transform: uppercase; font-size:14px; padding: 1px 14px 0 0px; }
 .next_active { background: url('/img/next.png') top right no-repeat; }
 .next_disabled { background: url('/img/next_grey.png') top right no-repeat; color: #666666 !important; cursor: default !important; text-decoration: none !important; }
 
