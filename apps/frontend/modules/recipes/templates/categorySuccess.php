@@ -21,7 +21,8 @@
   <? //include_partial('popular_stories', compact('category')) ?>
   <? include_partial('baynote_recipes', compact('category')) ?>
   <? include_partial('popular_blogs', compact('category')) ?>
-  <? include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
+  <? /* remove slideshows as per JIRA # MERBETTERR-34 (don't ask) */ ?>
+  <? //include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
 <? include_partial('opengraph/facebook_login_modal') ?>
