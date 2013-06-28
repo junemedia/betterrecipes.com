@@ -41,27 +41,17 @@
 
 
 
-    <script type="text/javascript">
-      var yieldbotAvailable = true //database value inserted via jsp....
-           if(yieldbotAvailable || !window.yieldbot) {
-               (function() {
-                   var js = document.createElement('script');
-                   js.src = 'http://cdn.yb0t.com/js/yieldbot.intent.js';
-                   var node = document.getElementsByTagName('script')[0];
-                   node.parentNode.insertBefore(js, node);
-               })();
-           }
-
-
-            if (  yieldbotAvailable === true){
-                var ybotq = ybotq || [];
-                ybotq.push(function () {
-                   
-                    yieldbot.defineSlot('300x250_vsw', 'vsw');
-                    yieldbot.alternateSlot('300x250_vsw',doVswScript);
-                });
-            } else {
-                 doVswScript();
-            }
-    </script>
+      <script type="text/javascript">
+        (function() {
+          var js = document.createElement('script');
+          js.src = 'http://cdn.yb0t.com/js/yieldbot.intent.js';
+          var node = document.getElementsByTagName('script')[0];
+          node.parentNode.insertBefore(js, node);
+        })();
+        var ybotq = ybotq || [];
+        ybotq.push(function () {
+          yieldbot.defineSlot('300x250_vsw', 'vsw');
+          yieldbot.alternateSlot('300x250_vsw',doVswScript);
+        });
+      </script>
 </div>	
