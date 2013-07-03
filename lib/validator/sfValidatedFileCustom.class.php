@@ -11,7 +11,7 @@ class sfValidatedFileCustom extends sfValidatedFile
   public function generateFilename()
   {
     $file_arr = explode('.', $this->originalName); 
-    $extension = $file_arr[1]; 
+    $extension = @$file_arr[1]; 
     $file_name = $this->file_name. '.' . $extension;
     return $file_name;
   }

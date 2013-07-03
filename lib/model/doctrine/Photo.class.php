@@ -19,7 +19,7 @@ class Photo extends BasePhoto
     parent::save();
   }
 
-  public function getImgSrc($size='400x300', $absolute = false)
+  public function getImgSrc($size = '400x300', $absolute = false)
   {
     if ($this->source == 'nw') {
       $config = sfConfig::get('app_uploads_photo');
@@ -28,27 +28,29 @@ class Photo extends BasePhoto
       return $this->image;
     }
   }
-    
-  public function processFile() {
-    if(!$this->getImage()) return;
-    $image_config = sfConfig::get('app_uploads_photo', array('dir' => sfConfig::get('sf_upload_dir').'/photo'));
-    $path = $image_config['dir'].'/';
-    $original = sfConfig::get('app_uploads_tmp').'/'.$this->getImage();
+
+  public function processFile()
+  {
+    if (!$this->getImage())
+      return;
+    $image_config = sfConfig::get('app_uploads_photo', array('dir' => sfConfig::get('sf_upload_dir') . '/photo'));
+    $path = $image_config['dir'] . '/';
+    $original = sfConfig::get('app_uploads_tmp') . '/' . $this->getImage();
     $md5sum = md5_file($original);
-    $ext = explode('.',$original);
-    $ext = '.'.array_pop($ext);
-    $new_name = $md5sum.strtolower($ext);
+    $image_type = new ImageType();
+    $new_name = $md5sum . $image_type->getExtention($original);
     $new_path = Toolkit::getFilePath($path, $new_name);
-    @mkdir($new_path,0777,true);
-    $new = $new_path.$new_name;
-    if(is_file($new)) unlink($new);
+    @mkdir($new_path, 0777, true);
+    $new = $new_path . $new_name;
+    if (is_file($new))
+      unlink($new);
     @rename($original, $new);
     $this->setImage($new_name);
     $this->save();
     $sizes = $image_config['sizes'];
     Toolkit::resizeImages($path, $new_name, $sizes);
   }
-  
+
   public function create($recipe_id)
   {
     $this->setUserId(sfContext::getInstance()->getUser()->getAttribute('id'));
