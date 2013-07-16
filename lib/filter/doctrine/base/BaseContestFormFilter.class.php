@@ -34,6 +34,7 @@ abstract class BaseContestFormFilter extends BaseFormFilterDoctrine
       'end_date'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'timezone'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'weeks'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'slideshow_url'     => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -58,6 +59,7 @@ abstract class BaseContestFormFilter extends BaseFormFilterDoctrine
       'end_date'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'timezone'          => new sfValidatorPass(array('required' => false)),
       'weeks'             => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'slideshow_url'     => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('contest_filters[%s]');
@@ -99,6 +101,7 @@ abstract class BaseContestFormFilter extends BaseFormFilterDoctrine
       'end_date'          => 'Date',
       'timezone'          => 'Text',
       'weeks'             => 'Number',
+      'slideshow_url'     => 'Text',
     );
   }
 }

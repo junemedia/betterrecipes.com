@@ -32,7 +32,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property string $website_address
  * @property Doctrine_Collection $Article
  * @property Doctrine_Collection $Collection
- * @property Doctrine_Collection $Content
  * @property Doctrine_Collection $Contest
  * @property Doctrine_Collection $ContestPeriod
  * @property Doctrine_Collection $Contestant
@@ -76,7 +75,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method string              getWebsiteAddress()  Returns the current record's "website_address" value
  * @method Doctrine_Collection getArticle()         Returns the current record's "Article" collection
  * @method Doctrine_Collection getCollection()      Returns the current record's "Collection" collection
- * @method Doctrine_Collection getContent()         Returns the current record's "Content" collection
  * @method Doctrine_Collection getContest()         Returns the current record's "Contest" collection
  * @method Doctrine_Collection getContestPeriod()   Returns the current record's "ContestPeriod" collection
  * @method Doctrine_Collection getContestant()      Returns the current record's "Contestant" collection
@@ -119,7 +117,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method User                setWebsiteAddress()  Sets the current record's "website_address" value
  * @method User                setArticle()         Sets the current record's "Article" collection
  * @method User                setCollection()      Sets the current record's "Collection" collection
- * @method User                setContent()         Sets the current record's "Content" collection
  * @method User                setContest()         Sets the current record's "Contest" collection
  * @method User                setContestPeriod()   Sets the current record's "ContestPeriod" collection
  * @method User                setContestant()      Sets the current record's "Contestant" collection
@@ -376,10 +373,6 @@ abstract class BaseUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasMany('Collection', array(
-             'local' => 'id',
-             'foreign' => 'user_id'));
-
-        $this->hasMany('Content', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 
