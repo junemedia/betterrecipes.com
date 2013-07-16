@@ -2,8 +2,7 @@
 <div class="article contests">
   <div id="contest-detail">
     <? include_partial('global/sharebar') ?>
-    <p class="title green">Recipe Contests</p>
-    <p style="width:450px">Think you have a prize-winning dish? Enter your original recipe in one of our recipe contests or vote for someone else's. We have weekly and monthly recipe contests for cooks of all skill levels. Enter now for a chance to win!</p>
+    <p class="title green">Active Contests</p>
   </div>
   <!--
       <div class="mb20">
