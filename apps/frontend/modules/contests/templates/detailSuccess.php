@@ -119,15 +119,15 @@
     <ul class="hornav">
       <? if (count($contestants->getResults()) > 0): ?>
         <? foreach ($contestants->getResults() as $i => $c): $recipe = $c->getRecipe() ?>
-          <? if ((fmod($i, 5)) == 0): ?> <li class=""><ul class="hornav"> <? endif; ?>
-              <li class="<?= ((fmod(($i + 1), 5)) == 0) ? 'last' : 'mb20' ?>">
-                <a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>" class="imgmask100 mb10">
+          <? if ((fmod($i, 4)) == 0): ?> <li class=""><ul class="hornav"> <? endif; ?>
+              <li class="<?= ((fmod(($i + 1), 4)) == 0) ? 'last' : 'mb20' ?>">
+                <a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>" class="imgmask150 mb10">
                   <img src="<?= $recipe->getMainImageSrc() ?>" height="100" width="100" alt="<?= $recipe->getName() ?>" />
                 </a>
                 <p><a href="<?= getUrl($recipe) ?>" title="<?= $c->getRecipe()->getName() ?>"><?= $c->getRecipe()->getName() ?></a></p>
                 <p class="fs11"><a href="<?= getRoute('User', array('display_name' => $recipe->getUser()->getDisplayName())) ?>" title="Recipe Author"><?= $recipe->getUser()->getDisplayName() ?></a></p>
               </li>
-              <? if ((fmod(($i + 1), 5)) == 0): ?> </ul></li> <? endif; ?>
+              <? if ((fmod(($i + 1), 4)) == 0): ?> </ul></li> <? endif; ?>
         <? endforeach; ?>  
       <? else : ?>
         <p class="mt20 fs14 green">Be the first to enter your recipe into our contest!</p>
