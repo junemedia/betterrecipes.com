@@ -15,14 +15,14 @@ abstract class BaseTipFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'title'      => new sfWidgetFormFilterInput(),
       'url'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'updated_by' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'updated_by' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
       'updated_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'title'      => new sfValidatorPass(array('required' => false)),
       'url'        => new sfValidatorPass(array('required' => false)),
-      'updated_by' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'updated_by' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('User'), 'column' => 'id')),
       'updated_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
@@ -46,7 +46,7 @@ abstract class BaseTipFormFilter extends BaseFormFilterDoctrine
       'id'         => 'Number',
       'title'      => 'Text',
       'url'        => 'Text',
-      'updated_by' => 'Number',
+      'updated_by' => 'ForeignKey',
       'updated_at' => 'Date',
     );
   }

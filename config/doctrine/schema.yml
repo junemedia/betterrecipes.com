@@ -847,6 +847,10 @@ Contest:
       local: id
       foreign: contest_id
       type: many
+    TipContest:
+      local: id
+      foreign: contest_id
+      type: many
 ContestPeriod:
   connection: doctrine
   tableName: contest_period
@@ -2585,6 +2589,15 @@ Tip:
       primary: false
       notnull: true
       autoincrement: false
+  relations:
+    User:
+      local: updated_by
+      foreign: id
+      type: one
+    TipContest:
+      local: id
+      foreign: tip_id
+      type: many
 TipContest:
   connection: doctrine
   tableName: tip_contest
@@ -2601,6 +2614,15 @@ TipContest:
       unsigned: true
       primary: true
       autoincrement: false
+  relations:
+    Contest:
+      local: contest_id
+      foreign: id
+      type: one
+    Tip:
+      local: tip_id
+      foreign: id
+      type: one
 User:
   connection: doctrine
   tableName: user
@@ -2835,6 +2857,10 @@ User:
     Sponsor:
       local: id
       foreign: user_id
+      type: many
+    Tip:
+      local: id
+      foreign: updated_by
       type: many
     UserActions:
       local: id

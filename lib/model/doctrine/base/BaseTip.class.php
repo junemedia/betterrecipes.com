@@ -12,17 +12,23 @@ Doctrine_Manager::getInstance()->bindComponent('Tip', 'doctrine');
  * @property string $url
  * @property integer $updated_by
  * @property timestamp $updated_at
+ * @property User $User
+ * @property Doctrine_Collection $TipContest
  * 
- * @method integer   getId()         Returns the current record's "id" value
- * @method string    getTitle()      Returns the current record's "title" value
- * @method string    getUrl()        Returns the current record's "url" value
- * @method integer   getUpdatedBy()  Returns the current record's "updated_by" value
- * @method timestamp getUpdatedAt()  Returns the current record's "updated_at" value
- * @method Tip       setId()         Sets the current record's "id" value
- * @method Tip       setTitle()      Sets the current record's "title" value
- * @method Tip       setUrl()        Sets the current record's "url" value
- * @method Tip       setUpdatedBy()  Sets the current record's "updated_by" value
- * @method Tip       setUpdatedAt()  Sets the current record's "updated_at" value
+ * @method integer             getId()         Returns the current record's "id" value
+ * @method string              getTitle()      Returns the current record's "title" value
+ * @method string              getUrl()        Returns the current record's "url" value
+ * @method integer             getUpdatedBy()  Returns the current record's "updated_by" value
+ * @method timestamp           getUpdatedAt()  Returns the current record's "updated_at" value
+ * @method User                getUser()       Returns the current record's "User" value
+ * @method Doctrine_Collection getTipContest() Returns the current record's "TipContest" collection
+ * @method Tip                 setId()         Sets the current record's "id" value
+ * @method Tip                 setTitle()      Sets the current record's "title" value
+ * @method Tip                 setUrl()        Sets the current record's "url" value
+ * @method Tip                 setUpdatedBy()  Sets the current record's "updated_by" value
+ * @method Tip                 setUpdatedAt()  Sets the current record's "updated_at" value
+ * @method Tip                 setUser()       Sets the current record's "User" value
+ * @method Tip                 setTipContest() Sets the current record's "TipContest" collection
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -83,6 +89,12 @@ abstract class BaseTip extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasOne('User', array(
+             'local' => 'updated_by',
+             'foreign' => 'id'));
+
+        $this->hasMany('TipContest', array(
+             'local' => 'id',
+             'foreign' => 'tip_id'));
     }
 }

@@ -34,6 +34,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @property User $User
  * @property Doctrine_Collection $ContestPeriod
  * @property Doctrine_Collection $Contestant
+ * @property Doctrine_Collection $TipContest
  * 
  * @method integer             getId()                Returns the current record's "id" value
  * @method string              getName()              Returns the current record's "name" value
@@ -62,6 +63,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @method User                getUser()              Returns the current record's "User" value
  * @method Doctrine_Collection getContestPeriod()     Returns the current record's "ContestPeriod" collection
  * @method Doctrine_Collection getContestant()        Returns the current record's "Contestant" collection
+ * @method Doctrine_Collection getTipContest()        Returns the current record's "TipContest" collection
  * @method Contest             setId()                Sets the current record's "id" value
  * @method Contest             setName()              Sets the current record's "name" value
  * @method Contest             setSlug()              Sets the current record's "slug" value
@@ -89,6 +91,7 @@ Doctrine_Manager::getInstance()->bindComponent('Contest', 'doctrine');
  * @method Contest             setUser()              Sets the current record's "User" value
  * @method Contest             setContestPeriod()     Sets the current record's "ContestPeriod" collection
  * @method Contest             setContestant()        Sets the current record's "Contestant" collection
+ * @method Contest             setTipContest()        Sets the current record's "TipContest" collection
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -329,6 +332,10 @@ abstract class BaseContest extends sfDoctrineRecord
              'foreign' => 'contest_id'));
 
         $this->hasMany('Contestant', array(
+             'local' => 'id',
+             'foreign' => 'contest_id'));
+
+        $this->hasMany('TipContest', array(
              'local' => 'id',
              'foreign' => 'contest_id'));
     }

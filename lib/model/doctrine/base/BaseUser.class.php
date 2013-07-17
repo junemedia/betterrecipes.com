@@ -45,6 +45,7 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property Doctrine_Collection $Saved
  * @property Doctrine_Collection $Slideshow
  * @property Doctrine_Collection $Sponsor
+ * @property Doctrine_Collection $Tip
  * @property Doctrine_Collection $UserActions
  * @property Doctrine_Collection $UserInterest
  * @property Doctrine_Collection $UserProvider
@@ -88,6 +89,7 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method Doctrine_Collection getSaved()           Returns the current record's "Saved" collection
  * @method Doctrine_Collection getSlideshow()       Returns the current record's "Slideshow" collection
  * @method Doctrine_Collection getSponsor()         Returns the current record's "Sponsor" collection
+ * @method Doctrine_Collection getTip()             Returns the current record's "Tip" collection
  * @method Doctrine_Collection getUserActions()     Returns the current record's "UserActions" collection
  * @method Doctrine_Collection getUserInterest()    Returns the current record's "UserInterest" collection
  * @method Doctrine_Collection getUserProvider()    Returns the current record's "UserProvider" collection
@@ -130,6 +132,7 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method User                setSaved()           Sets the current record's "Saved" collection
  * @method User                setSlideshow()       Sets the current record's "Slideshow" collection
  * @method User                setSponsor()         Sets the current record's "Sponsor" collection
+ * @method User                setTip()             Sets the current record's "Tip" collection
  * @method User                setUserActions()     Sets the current record's "UserActions" collection
  * @method User                setUserInterest()    Sets the current record's "UserInterest" collection
  * @method User                setUserProvider()    Sets the current record's "UserProvider" collection
@@ -427,6 +430,10 @@ abstract class BaseUser extends sfDoctrineRecord
         $this->hasMany('Sponsor', array(
              'local' => 'id',
              'foreign' => 'user_id'));
+
+        $this->hasMany('Tip', array(
+             'local' => 'id',
+             'foreign' => 'updated_by'));
 
         $this->hasMany('UserActions', array(
              'local' => 'id',

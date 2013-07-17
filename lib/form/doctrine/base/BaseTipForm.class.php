@@ -18,7 +18,7 @@ abstract class BaseTipForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'title'      => new sfWidgetFormInputText(),
       'url'        => new sfWidgetFormInputText(),
-      'updated_by' => new sfWidgetFormInputText(),
+      'updated_by' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
       'updated_at' => new sfWidgetFormDateTime(),
     ));
 
@@ -26,7 +26,7 @@ abstract class BaseTipForm extends BaseFormDoctrine
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'title'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'url'        => new sfValidatorString(array('max_length' => 255)),
-      'updated_by' => new sfValidatorInteger(),
+      'updated_by' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
       'updated_at' => new sfValidatorDateTime(),
     ));
 

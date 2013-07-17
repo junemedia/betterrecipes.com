@@ -9,11 +9,17 @@ Doctrine_Manager::getInstance()->bindComponent('TipContest', 'doctrine');
  * 
  * @property integer $tip_id
  * @property integer $contest_id
+ * @property Contest $Contest
+ * @property Tip $Tip
  * 
  * @method integer    getTipId()      Returns the current record's "tip_id" value
  * @method integer    getContestId()  Returns the current record's "contest_id" value
+ * @method Contest    getContest()    Returns the current record's "Contest" value
+ * @method Tip        getTip()        Returns the current record's "Tip" value
  * @method TipContest setTipId()      Sets the current record's "tip_id" value
  * @method TipContest setContestId()  Sets the current record's "contest_id" value
+ * @method TipContest setContest()    Sets the current record's "Contest" value
+ * @method TipContest setTip()        Sets the current record's "Tip" value
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -46,6 +52,12 @@ abstract class BaseTipContest extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasOne('Contest', array(
+             'local' => 'contest_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Tip', array(
+             'local' => 'tip_id',
+             'foreign' => 'id'));
     }
 }
