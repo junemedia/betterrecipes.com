@@ -16,4 +16,13 @@ class TipTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Tip');
     }
+
+    public static function getFilteredTips($params)
+  	{
+	    $q = Doctrine_Core::getTable('Tip')->createQuery('a');
+	    if (isset($params['TipTitle']) && ($params['TipTitle'] != "Tip Title")) {
+	      $q->where('a.title LIKE ?', "%" . $params['tipTitle'] . "%");
+	    }
+	    return $q;
+  	}
 }

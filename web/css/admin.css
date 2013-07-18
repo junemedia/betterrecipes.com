@@ -187,7 +187,7 @@ fieldset.last {
 #navBar { float: left; width: 100%; height: 40px; background: url("/img/bgnavbar.png") repeat-x; }
 #navBar .navButtons { height: 40px; display:block; list-style-type: none; }
 #navBar .navButtons li { float:left; height:40px; display:inline-block; text-align:center; }
-#navBar .navButtons li a { height: 40px; display:inline-block; padding: 0 12px }
+#navBar .navButtons li a { height: 40px; display:inline-block; padding: 0 10px }
 #navBar .navButtons li a:hover { color:#666666; text-decoration: underline; }
 #navBar .navButtons .navText { color:#666666; padding:12px 0 0 0; }
 #navBar .navButtons li a.selected { background: url("/img/bgnavbarselected.png") repeat-x; }
@@ -647,6 +647,30 @@ fieldset.last {
 #articleBodyContainer .content { width: 940px; }
 
 /* ------------------------- Article Edit ------------------------- */
+
+#articleContainer.edit #deleteArticle { float: right; margin-top: -20px; }
+#articleContentContainer.edit .fields .field.small label { float:left; display: block; width:150px;  font-weight: bold; }
+#articleContentContainer.edit .fields .field span { display:inline-block; width: 510px; }
+#articleContentContainer.edit .fields.small { width:960px; }
+#articleContentContainer.edit .fields.small .field.big { width:960px; }
+#articleContentContainer #articleContent { width: 940px; }
+#articleContentContainer #articleContent .field { margin: 10px 0 2px 0; }
+
+/* ------------------------------------------------------------------------------*/
+/* ------------------------------- Tip Section ----------------------------- */
+/* ------------------------------------------------------------------------------*/
+
+#tipsHeadings .title { background-position:95px; }
+#tipsHeadings .url { background-position: 60px; }
+#tipsHeadings .active, #tipsRows .active { width: 75px; text-align: center; }
+#tipsHeadings .title, #tipsRows .title { width: 365px; }
+#tipsHeadings .url, #tipsRows .url { width: 200px; }
+
+/* ------------------------- Tip Detail ------------------------- */
+
+#articleBodyContainer .content { width: 940px; }
+
+/* ------------------------- Tip Edit ------------------------- */
 
 #articleContainer.edit #deleteArticle { float: right; margin-top: -20px; }
 #articleContentContainer.edit .fields .field.small label { float:left; display: block; width:150px;  font-weight: bold; }

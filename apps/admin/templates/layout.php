@@ -47,6 +47,7 @@
             <li><a href="<?=url_for("@users_index") ?>" <? if ($this->moduleName == 'users' && $this->actionName == 'index'): ?>class="selected"<? endif; ?>><div class="navText">Users</div></a></li>
             <li><a href="<?=url_for("@polls_list") ?>" <? if ($this->moduleName == 'polls' && $this->actionName == 'index'): ?>class="selected"<? endif; ?>><div class="navText">Polls</div></a></li>
             <li><a href="<?=url_for("@wonders_index") ?>" <? if ($this->moduleName == 'wonders'): ?>class="selected"<? endif; ?>><div class="navText">Wonders</div></a></li>
+            <li><a href="<?=url_for("@tips_index") ?>" <? if ($this->moduleName == 'tips'): ?>class="selected"<? endif; ?>><div class="navText">Tips</div></a></li>
           </ul>
         </div> <!-- end navbar -->  
       <?= $sf_content ?>

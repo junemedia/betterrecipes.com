@@ -75,6 +75,9 @@ articles_index:
   url: /articles
   param: {module: articles, action: index }
   
+tips_index:
+  url: /tips
+  param: {module: tips, action: index }
 meta_index:
   url: /meta
   param: {module: meta, action: index }
