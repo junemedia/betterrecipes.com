@@ -3,4 +3,4 @@
   <h1>New Tip</h1>
 </div>
 
-<?php include_partial('form', array('form' => $form)) ?>
+<?php include_partial('form', array('form' => $form, 'contests' => $contests )) ?>

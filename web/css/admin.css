@@ -679,6 +679,8 @@ fieldset.last {
 #articleContentContainer.edit .fields.small .field.big { width:960px; }
 #articleContentContainer #articleContent { width: 940px; }
 #articleContentContainer #articleContent .field { margin: 10px 0 2px 0; }
+#tips{ margin-top: 20px;}
+.remove_contest{ margin-left: 20px;}
 
 /* ------------------------------------------------------------------------------*/
 /* ------------------------------- Sponsors Section ----------------------------- */

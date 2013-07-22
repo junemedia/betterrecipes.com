@@ -15,7 +15,7 @@ class TipForm extends BaseTipForm
   	unset($this['updated_by'], $this['updated_at']);
     //$this->setWidget('contest_id', new sfWidgetFormChoice(array('choices' => ContestTable::getContestsAndIds() )));
 
-	//$this->validatorSchema['contest_id'] = new sfValidatorChoice(array('choices' => ContestTable::getContestsAndIds(), 'required' => true));
+	//$this->validatorSchema['contest_id'] = new sfValidatorChoice(array('choices' => ContestTable::getContestsAndIds(), 'required' => false));
 
 	//$this->widgetSchema['contest_id']->setOption('label', 'Contest');
     $this->widgetSchema['title']->setOption('label', 'Title');
@@ -28,6 +28,7 @@ class TipForm extends BaseTipForm
 
     $object = $this->getObject();
     $object->setUpdatedBy($user_id);
+    $object->setUpdatedAt(date('Y-m-d H:i:s'));
 
     $form_obj = self::save($con);
     return $form_obj;

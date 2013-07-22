@@ -1,29 +1,3 @@
-<script>
-
-  function changeActive(obj){
-    //Flip checked value 
-    var checked = !obj.checked;
-    if (checked){
-      msg = "Are you sure you would like to make this inactive?";
-      activeUpdate = 0;
-    } else {
-      msg = "Are you sure you would like to make this Active?";
-      activeUpdate = 1;
-    }
-    var article = $(obj).parents("li");
-    var articleId = $(obj).parents("li").attr("id");
-    
-    //Recipe is Active - Change to inactive if user confirms
-    var answer = confirm(msg);
-    
-    if (answer)      
-      //Ajax to update active status
-      $(obj).parents("li").load("<?= url_for('tips/updateActive')?>", {articleId:articleId, active:activeUpdate});      
-    else 
-      obj.checked = checked;      
-  }
-</script>
-
   
   <div id="mainHeading">
   <h1>Tip</h1>
@@ -74,11 +48,8 @@ function getSortDirection($sortDir){
 <? foreach ($pager->getResults() as $i => $tip): ?>
   <ul id="tipsRows" class="results">
     <li class="row <?= ($i % 2) == 0 ? "even" : "odd"; ?> big" id="<?= $tip->getId() ?>">
-      <span class="title"><a href="<?= url_for('tips/detail?id=' . $tip->getId()) ?>"><?= $tip->getName() ?></a></span>
-      <span class="url"><?= $tip->getUser()->getDisplayName() ?></span>
-      <span class="active">
-        <input type="checkbox" id="active" value="<?= ($tip->getIsActive() == 1) ? "1" : "0"; ?>" <?= $tip->getIsActive() ? "checked='checked'" : ""; ?> onchange="changeActive(this)" />
-      </span>
+      <span class="title"><a href="<?= url_for('tips/detail?id=' . $tip->getId()) ?>"><?= $tip->getTitle() ?></a></span>
+      <span class="url"><?= $tip->getUrl()?></span>
     </li>
   </ul>
 <? endforeach; ?>
@@ -98,8 +69,7 @@ function getSortDirection($sortDir){
         </div>
       <? endforeach; ?>
       <div class="pagination_link">
-        <?= link_to('>>', '@tips
-          _index?page=' . $pager->getNextPage()) ?>
+        <?= link_to('>>', '@tips_index?page=' . $pager->getNextPage()) ?>
       </div>
     </div>
 <? endif; ?>

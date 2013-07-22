@@ -79,12 +79,9 @@ class ContestTable extends Doctrine_Table {
     $contests = array();
 
     date_default_timezone_set(timezone_name_from_abbr("CST"));
-    $q = Doctrine_Core::getTable('Contest')->createQuery('c')->select('c.id, c.name')->where("c.end_date >= ? AND c.timezone = 'CST'", date('Y-m-d', strtotime(date('Y-m-d')."-1 day")))->fetchArray();
+    $q = Doctrine_Core::getTable('Contest')->createQuery('c')->select('c.id, c.name')->where("c.end_date >= ? AND c.timezone = 'CST'", date('Y-m-d', strtotime(date('Y-m-d')."-1 day")));
 
-    foreach ($q as $c)
-      $contests[$c['id']] = $c['name'];
-
-    return $contests;
+    return $q->execute();
   }
 
   public static function updateSponsor($contestId, $sponsorId) {
