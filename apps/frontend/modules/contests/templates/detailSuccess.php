@@ -105,7 +105,7 @@
   <? endif; ?>
   <div id="contest-tips">
     
-    <? if( isset($contest_tips)): ?>
+    <? if( count(@$contest_tips) > 0): ?>
       <p class="title">Tips and Tricks for Great Food Photos</p>
       <p class="tips-subtitle">Modi eu lacus, primis, cum recusandae. Fuga Magni. Ducimus feugiat minim nam elusmod sint mollis.</p>
       <ul id="tips-and-tricks">

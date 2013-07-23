@@ -59,7 +59,7 @@ class contestsActions extends sfActions
     $this->sponsor = $this->contest->getSponsor();
     $this->currentContestPeriod = ContestPeriodTable::getCurrentContestPeriod($this->contest->getId());
     $this->contest_tips = TipContestTable::getTipsByContestSlug($request->getParameter('slug'));
-    //print_r( $request->getParameter('slug') ); exit;
+    //var_dump( count( $this->contest_tips ) ); exit;
     //Contestants entered into contest
     $this->contestants = new sfDoctrinePager('Contestant', 20);
     $this->contestants->setQuery(ContestantTable::getContestantsByContest($this->contest->getId()));
