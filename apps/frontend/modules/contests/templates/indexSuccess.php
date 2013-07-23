@@ -87,7 +87,7 @@
   </div>
   <!-- Past Contests -->
   <? if (count($previous_contests) > 0): ?>
-    <div id="featured-contests" class="mb20 clear">
+    <div id="past-contests" class="mb20 clear">
       <p class="title green mb20">Past Contests</p>
       <ul>
         <? foreach ($previous_contests as $i => $contest): ?>
