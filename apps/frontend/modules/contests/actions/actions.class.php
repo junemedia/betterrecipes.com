@@ -58,6 +58,8 @@ class contestsActions extends sfActions
     $this->forward404If(($request->getParameter('mode', '') == 'preview' && intval($request->getCookie('lis') < 2)) || ($request->getParameter('mode', '') != 'preview' && $this->contest->getIsActive() == 0));
     $this->sponsor = $this->contest->getSponsor();
     $this->currentContestPeriod = ContestPeriodTable::getCurrentContestPeriod($this->contest->getId());
+    $this->contest_tips = TipContestTable::getTipsByContestSlug($request->getParameter('slug'));
+    //print_r( $request->getParameter('slug') ); exit;
     //Contestants entered into contest
     $this->contestants = new sfDoctrinePager('Contestant', 20);
     $this->contestants->setQuery(ContestantTable::getContestantsByContest($this->contest->getId()));

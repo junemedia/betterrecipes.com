@@ -17,10 +17,16 @@ class TipContestTable extends Doctrine_Table
         return Doctrine_Core::getTable('TipContest');
     }
 
-    public static function getSelectedContests($tip_id)
+    public static function getSelectedContestsByTipId($tip_id)
     {
     	$q = Doctrine_Core::getTable('Contest')->createQuery('c')->select('c.name, tc.contest_id')->innerjoin('c.TipContest tc')->where('tc.tip_id = ?', $tip_id);
     	return $q->execute();
+    }
+
+    public static function getTipsByContestSlug($contest_slug)
+    {
+        $q = Doctrine_Core::getTable('Tip')->createQuery('t')->select('t.title, t.url, tc.contest_id')->innerjoin('t.TipContest tc')->innerjoin('tc.Contest c')->where('c.slug = ?', $contest_slug);
+        return $q->execute();
     }
 
     public static function getTipContest($tip_id, $contest_id)

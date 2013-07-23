@@ -670,15 +670,16 @@ fieldset.last {
 
 #articleBodyContainer .content { width: 940px; }
 
+
 /* ------------------------- Tip Edit ------------------------- */
 
-#articleContainer.edit #deleteArticle { float: right; margin-top: -20px; }
-#articleContentContainer.edit .fields .field.small label { float:left; display: block; width:150px;  font-weight: bold; }
-#articleContentContainer.edit .fields .field span { display:inline-block; width: 510px; }
-#articleContentContainer.edit .fields.small { width:960px; }
-#articleContentContainer.edit .fields.small .field.big { width:960px; }
-#articleContentContainer #articleContent { width: 940px; }
-#articleContentContainer #articleContent .field { margin: 10px 0 2px 0; }
+#tipContainer.edit #deleteTip { float: right; margin-top: -20px; }
+#tipContentContainer.edit .fields .field.small label { float:left; display: block; width:150px;  font-weight: bold; }
+#tipContentContainer.edit .fields .field span { display:inline-block; width: 510px; }
+#tipContentContainer.edit .fields.small { width:960px; }
+#tipContentContainer.edit .fields.small .field.big { width:960px; }
+#tipContentContainer #tipContent { width: 940px; }
+#tipContentContainer #tipContent .field { margin: 10px 0 2px 0; }
 #tips{ margin-top: 20px;}
 .remove_contest{ margin-left: 20px;}
 

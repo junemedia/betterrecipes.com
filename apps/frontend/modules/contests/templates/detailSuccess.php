@@ -103,8 +103,20 @@
   <? else: ?>
     <p class="mb10 clear"></p>
   <? endif; ?>
+  <div id="contest-tips">
+    
+    <? if( isset($contest_tips)): ?>
+      <p class="title">Tips and Tricks for Great Food Photos</p>
+      <p class="tips-subtitle">Modi eu lacus, primis, cum recusandae. Fuga Magni. Ducimus feugiat minim nam elusmod sint mollis.</p>
+      <ul id="tips-and-tricks">
+        <? foreach($contest_tips as $tip): ?>
+          <li class="tip"><a href="<?= $tip->url ?>"><?= $tip->title ?></a></li>
+        <? endforeach ?>
+      </ul>
+    <? endif ?>
+  </div>
   <div id="contest-entries">
-    <p class="title">View Entries</p>
+    <p class="title">View Current Entries</p>
     <? if ($contestants->haveToPaginate()): ?>
       <div class="sorting mt20">
         <ul class="pager hornav">

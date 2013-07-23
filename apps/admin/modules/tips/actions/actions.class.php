@@ -77,7 +77,7 @@ class tipsActions extends sfActions
   {
     $this->forward404Unless($recipe = Doctrine_Core::getTable('Tip')->find(array($request->getParameter('id'))), sprintf('Object tip does not exist (%s).', $request->getParameter('id')));
     $this->tip = Doctrine_Core::getTable('Tip')->find($request->getParameter('id'));
-    $this->contests = TipContestTable::getSelectedContests($request->getParameter('id'));
+    $this->contests = TipContestTable::getSelectedContestsByTipId($request->getParameter('id'));
 
     $this->bread_crumbs = array(
       'Tips' => UrlToolkit::getDomainUri() . '/admin/tips', 
@@ -90,7 +90,7 @@ class tipsActions extends sfActions
     $this->forward404Unless($tip = Doctrine_Core::getTable('Tip')->find(array($request->getParameter('id'))), sprintf('Object tip does not exist (%s).', $request->getParameter('id')));
     $this->form = new TipForm($tip);
     $this->contests = ContestTable::getContestsAndIds();
-    $this->selected_contests = TipContestTable::getSelectedContests($request->getParameter('id'));
+    $this->selected_contests = TipContestTable::getSelectedContestsByTipId($request->getParameter('id'));
     $this->bread_crumbs = array(
       'Tips' => UrlToolkit::getDomainUri() . '/admin/tips', 
       ucwords($this->form->getObject()->getTitle()) => null
@@ -104,7 +104,7 @@ class tipsActions extends sfActions
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $this->forward404Unless($tip = Doctrine_Core::getTable('Tip')->find(array($request->getParameter('id'))), sprintf('Object tip does not exist (%s).', $request->getParameter('id')));
     $this->form = new TipForm($tip);
-    $current_selected_contests = TipContestTable::getSelectedContests($request->getParameter('id'));
+    $current_selected_contests = TipContestTable::getSelectedContestsByTipId($request->getParameter('id'));
     $id_list = $request->getParameter('contest_ids');
     $contest_array = explode(',', $id_list);
 
@@ -134,7 +134,7 @@ class tipsActions extends sfActions
       }
     }
 
-    $this->selected_contests = TipContestTable::getSelectedContests($request->getParameter('id'));
+    $this->selected_contests = TipContestTable::getSelectedContestsByTipId($request->getParameter('id'));
     $this->contests = ContestTable::getContestsAndIds();
     $this->setTemplate('edit');
   }

@@ -42,7 +42,7 @@ function remove_contest(a_object, id)
             <option value="<?= $contest->getId() ?>"><?= $contest->getName() ?></option>
           <? endforeach; ?>
         </select>
-        <a href="#" id="save_contests">Save</a> 
+        <a href="#" id="save_contests">Add Contest</a> 
       </div>
       <div class="field small">
         <ul id="contest_list">

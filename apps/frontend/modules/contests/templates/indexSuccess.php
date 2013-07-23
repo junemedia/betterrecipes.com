@@ -11,11 +11,12 @@
   -->
   <? if (count($activeContests) > 0): ?>
     <div id="featured-contests" class="mb20" style="position:relative;">
-      <ul class="border-bottom">
+      <ul>
+        <img id="contest_banner" src="/img/contest_banner.png"/>
         <? foreach ($activeContests as $i => $contest): ?>
-          <li style="width:450px;" class="ovhid <?= (($i + 1) == count($activeContests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($activeContests)) ? 'id="no-border"' : '' ?>>
+          <li class="ovhid <?= (($i + 1) == count($activeContests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($activeContests)) ? 'id="no-border"' : '' ?>>
             <? if ($contest->getImgSrc()): ?>
-              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask100">
+              <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>" title="<?= $contest->getName() ?>" class="imgmask150">
                 <img src="<?= $contest->getImgSrc() ?>" alt="<?= $contest->getName() ?>" />
               </a>
             <? endif; ?>
@@ -31,10 +32,11 @@
               <a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?><? //= (!is_null($contest->getLeadingContestant())) ? getUrl($contest->getLeadingContestant()->getRecipe()) : getUrl('@contests_detail?slug=' . $contest->getSlug())    ?>" title="View Entries" class="btn-grey28">View Entries</a>
             </p>
           </li>
-          
+<? /* Commented out for MERBETTERR-37
           <? if ( $i == 0 ): ?>
           <div class="enterContestPromo"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug())) ?>"><img src="/img/enter_recipe_thumb.png" /></a></div>
           <? endif; ?>
+*/ ?>
         <? endforeach; ?>
       </ul>
       
