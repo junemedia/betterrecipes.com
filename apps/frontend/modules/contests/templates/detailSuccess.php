@@ -107,7 +107,6 @@
     
     <? if( count(@$contest_tips) > 0): ?>
       <p class="title">Tips and Tricks for Great Food Photos</p>
-      <p class="tips-subtitle">Modi eu lacus, primis, cum recusandae. Fuga Magni. Ducimus feugiat minim nam elusmod sint mollis.</p>
       <ul id="tips-and-tricks">
         <? foreach($contest_tips as $tip): ?>
           <li class="tip"><a href="<?= $tip->url ?>"><?= $tip->title ?></a></li>
