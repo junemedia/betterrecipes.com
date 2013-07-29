@@ -139,4 +139,16 @@ all:
     patterns:
       - # Jello
         find:         /\b(jell-?o)\b/i
-        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jelloforallseasons.aspx" target="_blank">$1</a>
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jello-holiday.aspx" target="_blank">$1</a>
+      - # Jet Puffed
+        find:         /\b(jet puffed)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/Products/jet-puffed.aspx" target="_blank">$1</a>
+      - # Kraft Mayo
+        find:         /\b(kraft mayo)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/lunch-ideas/mayo-with-olive-oil.aspx" target="_blank">$1</a>
+      - # Miracle Whip
+        find:         /\b(miracle whip)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/miracle-whip-recipes.aspx" target="_blank">$1</a>
+      - # Oscar Mayer
+        find:         /\b(oscar mayer)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/oscar-mayer-bacon-chicken.aspx" target="_blank">$1</a>
