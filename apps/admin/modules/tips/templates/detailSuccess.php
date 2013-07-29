@@ -26,7 +26,7 @@ function remove_contest(a_object, id)
 </div>
 <div id="tipContainer" class="container small">
   <div id="subHeading">
-    <h2>General Details</h2><a href="<?= UrlToolkit::getUrl($tip, array('mode' => 'preview')) ?>" title="Preview '<?= $tip->getTitle() ?>'" target="_blank" class="lp150">Preview "<?= $tip->getTitle() ?>"</a>
+    <h2>General Details</h2>
     <form id="recipeSearch" action="<?= url_for('tips/edit?id=' . $tip->getId()) ?>">
       <input type="submit" class="detail btn-grey28" value="Edit" />
     </form>

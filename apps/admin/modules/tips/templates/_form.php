@@ -27,7 +27,7 @@ function remove_contest(a_object, id)
     <input type="hidden" name="sf_method" value="put" />
   <? endif; ?>
   <div id="tipContainer" class="container small edit">
-    <h2>General Details<? if (!$tip->isNew()): ?> <a href="<?= UrlToolkit::getUrl($tip, array('mode' => 'preview')) ?>" title="Preview '<?= $tip->getTitle() ?>'" target="_blank" class="lp150">Preview "<?= $tip->getTitle() ?>"</a><? endif; ?></h2>
+    <h2>General Details</h2>
     <? if (!$tip->isNew()): ?>
       <?= link_to('Delete', 'tips/delete?id=' . $tip->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?', 'id' => 'deletetip')) ?>
     <? endif; ?>
