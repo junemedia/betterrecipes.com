@@ -68,6 +68,7 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
 	    $error = new sfValidatorError($this, 'Your password is outdated and requires a reset.');
 	    $errorschema = new sfValidatorErrorSchema($this, array($error));
 	    throw new sfValidatorErrorSchema($this, array($field => $errorschema));
+	    return array_merge($values, array('code' = 2));
 	    //$this->setMessage('invalid', 'Your password is outdated and requires a reset.');
 	    //throw new sfValidatorError($this, 'invalid');
 

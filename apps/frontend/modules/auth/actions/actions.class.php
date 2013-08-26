@@ -231,7 +231,7 @@ class authActions extends sfActions
       $this->goToReferrer();*/
     } else {
 	    //$values = $this->signinForm->getValues();
-	    print_r($this->signinForm);
+	    print_r($this->signinForm->getValues());
     }
 
     $this->signupForm = new SignupForm();
