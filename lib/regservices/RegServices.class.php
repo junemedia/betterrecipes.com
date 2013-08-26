@@ -451,7 +451,7 @@ Class RegServices
   private function getConnection($function_name)
   {
     $full_url = $this->base_url . $function_name . '?WSDL';
-    //echo $full_url;
+    echo $full_url;
     try {
       $result = new SoapClient($full_url, array('login' => $this->auth_user, 'password' => $this->auth_pass, 'connection_timeout' => 90));
       /* var_dump($result);
