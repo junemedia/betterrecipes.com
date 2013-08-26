@@ -2881,7 +2881,7 @@ form.standard-form fieldset .error_list {
       margin:0 0 0 193px;
       padding:10px 0 0 0;
   */
-  height:20px;
+  /*height:20px;*/
   line-height:20px;
   /* height:20px;
   line-height:20px;  this was done for ET#5448, hopefully there are any unforseen complications... */

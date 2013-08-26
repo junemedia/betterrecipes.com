@@ -41,8 +41,8 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
     $reg_services = new RegServices();
 
     $result = $reg_services->authenticate($username, $password);
-    //print_r($result);
-    if ($result['code'] == 0) {
+    print_r($result);
+    /*if ($result['code'] == 0) {
       // get user profile from database
       $user = UserTable::getUserByProfileId(strval($result['xml']->profileid));
       if (!$user) {
@@ -58,11 +58,16 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
       $user->commitUserData($user_profile);
       $user_data = array_merge($user_profile, $user->toArray()); // The order of the values in array_merge is important. Don't change it. Otherwise the id field will not have the correct value Toros Tarpinyan
       return array_merge($values, compact('user_data'));
-    } else {
+    } elseif ($result['code'] == 1) {
       //$this->setMessage('invalid', $result['message']);
       $this->setMessage('invalid', 'The login and password do not match.');
       throw new sfValidatorError($this, 'invalid');
-    }
+    } else {
+	    // result code 2: password reset is required
+	    $this->setMessage('invalid', 'Your password is outdated and requires a reset.');
+	    throw new sfValidatorError($this, 'invalid');
+
+    }*/
   }
 
 }

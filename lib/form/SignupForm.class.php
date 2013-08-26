@@ -40,7 +40,7 @@ class SignupForm extends BaseForm
       'display_name' => new ValidatorRegServicesDisplayName(),
       'firstname' => new sfValidatorString(array('required' => true, 'min_length' => 1, 'max_length' => 12), array('max_length' => 'Max 12 characters')),
       'email' => new sfValidatorEmail(array('required' => true, 'max_length' => 50), array('max_length' => 'Max 50 characters')),
-      'password' => new sfValidatorString(array('required' => true, 'min_length' => 6), array('min_length' => 'Min 6 characters'))
+      'password' => new ValidatorRegServicesPassword()
     ));
 
     if ($subscriptions) {
