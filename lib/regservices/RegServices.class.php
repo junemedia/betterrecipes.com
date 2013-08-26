@@ -237,7 +237,7 @@ Class RegServices
   public function authenticate($login, $password)
   {
     $connection = $this->getConnection(__FUNCTION__);
-	//echo 'connnection :'.$connection;
+	echo 'connnection :'.$connection;
     if ($connection != false) {
       $result = $connection->{__FUNCTION__}($login, $password, $this->client_code);
       return $this->getResult($result);
