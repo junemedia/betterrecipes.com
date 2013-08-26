@@ -41,7 +41,7 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
     $reg_services = new RegServices();
 
     $result = $reg_services->authenticate($username, $password);
-    //print_r($result);
+    print_r($result);
     if ($result['code'] == 0) {
       // get user profile from database
       $user = UserTable::getUserByProfileId(strval($result['xml']->profileid));
