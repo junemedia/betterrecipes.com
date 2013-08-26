@@ -216,6 +216,7 @@ class authActions extends sfActions
    */
   public function executeSignin(sfWebRequest $request)
   {
+  	$this->doRedirect = false;
     $this->processReferrer($request);
     if (!$request->isMethod(sfRequest::POST)) {
       $this->forward('auth', 'index');
@@ -230,13 +231,12 @@ class authActions extends sfActions
       $this->setLisCookie($values['user_data']);
       $this->goToReferrer();*/
     } else {
-	    //$values = $this->signinForm->getValues();
-	    //print_r($this->signinForm->getValues());
 	    //var_dump($this->signinForm->getFormFieldSchema());
 	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
-		    if( $formField->getError( ) != "" )
+		    if( $formField->getError( ) == 'Your password is outdated and requires a reset.' )
 			{
-				print( $name . " : " . $formField->getError( ) . "\n" );
+				//print( $name . " : " . $formField->getError( ) . "\n" );
+				$this->doRedirect = true;
 			}
 	    }
     }
