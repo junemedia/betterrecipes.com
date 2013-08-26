@@ -110,6 +110,7 @@ class authActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+  	$this->doRedirect = false;
     $this->processReferrer($request);
     if ($this->getUser()->isAuthenticated()) {
       $this->goToReferrer();
@@ -216,7 +217,7 @@ class authActions extends sfActions
    */
   public function executeSignin(sfWebRequest $request)
   {
-  	$this->doRedirect = false;
+  	
     $this->processReferrer($request);
     if (!$request->isMethod(sfRequest::POST)) {
       $this->forward('auth', 'index');

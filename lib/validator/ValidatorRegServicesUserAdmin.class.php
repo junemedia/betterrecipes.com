@@ -40,8 +40,8 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
 
     $reg_services = new RegServices();
 
-    /*$result = $reg_services->authenticate($username, $password);
-    print_r($result);
+    $result = $reg_services->authenticate($username, $password);
+    //print_r($result);
     if ($result['code'] == 0) {
       // get user profile from database
       $user = UserTable::getUserByProfileId(strval($result['xml']->profileid));
@@ -59,20 +59,22 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
       $user_data = array_merge($user_profile, $user->toArray()); // The order of the values in array_merge is important. Don't change it. Otherwise the id field will not have the correct value Toros Tarpinyan
       return array_merge($values, compact('user_data'));
     } elseif ($result['code'] == 1) {
+    	$field = 'password';
+	    $error = new sfValidatorError($this, 'The login and password do not match.');
+	    $errorschema = new sfValidatorErrorSchema($this, array($error));
+	    throw new sfValidatorErrorSchema($this, array($field => $errorschema));
+
       //$this->setMessage('invalid', $result['message']);
-      $this->setMessage('invalid', 'The login and password do not match.');
-      throw new sfValidatorError($this, 'invalid');
-    } else {*/
+      //$this->setMessage('invalid', 'The login and password do not match.');
+      //throw new sfValidatorError($this, 'invalid');
+    } else {
 	    // result code 2: password reset is required
 	    $field = 'password';
 	    $error = new sfValidatorError($this, 'Your password is outdated and requires a reset.');
 	    $errorschema = new sfValidatorErrorSchema($this, array($error));
 	    throw new sfValidatorErrorSchema($this, array($field => $errorschema));
-	    //return array_merge($values, array('code' => 2));
-	    //$this->setMessage('invalid', 'Your password is outdated and requires a reset.');
-	    //throw new sfValidatorError($this, 'invalid');
 
-    //}
+    }
   }
 
 }
