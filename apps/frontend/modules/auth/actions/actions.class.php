@@ -232,7 +232,13 @@ class authActions extends sfActions
     } else {
 	    //$values = $this->signinForm->getValues();
 	    //print_r($this->signinForm->getValues());
-	    var_dump($this->signinForm->getFormFieldSchema());
+	    //var_dump($this->signinForm->getFormFieldSchema());
+	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
+		    if( $formField->getError( ) != "" )
+			{
+				print( $name . " : " . $formField->getError( ) . "\n" );
+			}
+	    }
     }
 
     $this->signupForm = new SignupForm();
