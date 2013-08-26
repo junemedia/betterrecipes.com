@@ -42,7 +42,7 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
 
     $result = $reg_services->authenticate($username, $password);
     print_r($result);
-    /*if ($result['code'] == 0) {
+    if ($result['code'] == 0) {
       // get user profile from database
       $user = UserTable::getUserByProfileId(strval($result['xml']->profileid));
       if (!$user) {
@@ -67,7 +67,7 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
 	    $this->setMessage('invalid', 'Your password is outdated and requires a reset.');
 	    throw new sfValidatorError($this, 'invalid');
 
-    }*/
+    }
   }
 
 }
