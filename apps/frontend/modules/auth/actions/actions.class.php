@@ -230,8 +230,8 @@ class authActions extends sfActions
       $this->setLisCookie($values['user_data']);
       $this->goToReferrer();*/
     } else {
-	    $values = $this->signinForm->getValues();
-	    print_r($values);
+	    //$values = $this->signinForm->getValues();
+	    print_r($this->signinForm);
     }
 
     $this->signupForm = new SignupForm();
