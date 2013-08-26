@@ -21,7 +21,7 @@
     <label for="signin_password">Password:</label>
     <?= $signinForm['password']->render(array('id' => 'signin_password')) ?>
     <?= $signinForm['password']->renderError() ?>
-    <? if ($doRedirect): ?>
+    <? if (@$doRedirect): ?>
     	<ul class="error_list" style="color:#000;">
     		<li>Please <a href="<?='https://'.sfConfig::get('app_regservices_url').sfConfig::get('app_regservices_redirect')?>">click here</a> to set up your new password.</li>
     	</ul>
