@@ -23,7 +23,7 @@
     <?= $signinForm['password']->renderError() ?>
     <? if (@$doRedirect): ?>
     	<ul class="error_list" style="color:#000;">
-    		<li>Please <a href="<?='https://'.sfConfig::get('app_regservices_url').sfConfig::get('app_regservices_redirect')?>">click here</a> to set up your new password.</li>
+    		<li>Please <a href="<?='https://'.sfConfig::get('app_regservices_url').sfConfig::get('app_regservices_redirect').'http://'.$_SERVER['HTTP_HOST']?>">click here</a> to set up your new password.</li>
     	</ul>
     <? endif; ?>
     <input type="submit" value="Login" class="btn-purple28 mr20" />

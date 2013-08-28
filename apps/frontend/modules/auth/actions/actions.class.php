@@ -226,13 +226,12 @@ class authActions extends sfActions
     $this->signinForm = new SigninForm();
     $this->signinForm->bind($request->getParameter($this->signinForm->getName()));
     if ($this->signinForm->isValid()) {
-      /*$values = $this->signinForm->getValues();
+      $values = $this->signinForm->getValues();
       $this->getUser()->signin($values['user_data']);
       $this->getUser()->setFlash('onSignin', true);
       $this->setLisCookie($values['user_data']);
-      $this->goToReferrer();*/
+      $this->goToReferrer();
     } else {
-	    //var_dump($this->signinForm->getFormFieldSchema());
 	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
 		    if( $formField->getError( ) == 'Your password is outdated and requires a reset.' )
 			{

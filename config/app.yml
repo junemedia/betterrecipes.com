@@ -8,7 +8,7 @@ dev:
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
-    redirect:         /common/profile/password/reset.jsp
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    -UiGuJh36qy9xacVg5VB8qBGun9ZnQ3g
     verification_key: yKKkq1jO7-fSXPFl6szWx-DdESMMvOGP
@@ -24,7 +24,7 @@ prod:
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
-    redirect:         /common/profile/password/reset.jsp
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    Vh1y5TEidP5lYG52HkgMMsVkHSzCxb-1
     verification_key: 9TPC5aqQ8.VIsGUsK55ljY.EoApJH7Rh
