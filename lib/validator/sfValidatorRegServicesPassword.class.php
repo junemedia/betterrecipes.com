@@ -26,7 +26,7 @@ class ValidatorRegServicesPassword extends sfValidatorRegex {
    */
   public function configure($options = array(), $messages = array()) {
     parent::configure($options, $messages);
-    $this->setMessage('invalid', 'Must be from 6 to 20 characters in lenghth. Must contain at least one capital letter or special character.');
+    $this->setMessage('invalid', 'Must be from 6 to 20 characters in length. Must contain at least one capital letter or special character.');
     $this->setOption('pattern', self::REGEX_SUBDIR);
   }
 }

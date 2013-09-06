@@ -21,7 +21,7 @@ class ValidatorRegServicesDisplayName extends sfValidatorRegex {
    */
   public function configure($options = array(), $messages = array()) {
     parent::configure($options, $messages);
-    $this->setMessage('invalid', 'Must be from 3 to 15 characters in lenghth. Please use only letter, numbers, dashes and underscores.');
+    $this->setMessage('invalid', 'Must be from 3 to 15 characters in length. Please use only letter, numbers, dashes and underscores.');
     $this->setOption('pattern', self::REGEX_SUBDIR);
   }
 }
