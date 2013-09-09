@@ -29,7 +29,7 @@
     <input type="submit" value="Login" class="btn-purple28 mr20" />
   </form>
   <p class="title green">Forgot Your Password?</p>
-  <p class="mb10">Enter your e-mail address and we will send your password to you right away!</p>
+  <p class="mb10">Enter your e-mail address and we will send you a link to reset your password</p>
   <? if ($passwordForm->hasGlobalErrors()): ?>
     <?= $passwordForm->renderGlobalErrors() ?>
   <? endif ?>
