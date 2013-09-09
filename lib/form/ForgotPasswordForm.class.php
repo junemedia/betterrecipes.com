@@ -57,7 +57,7 @@ class ForgotPasswordForm extends BaseForm
       if ($response['code'] == '102') {
         $message = 'The login could not be found.';
       } else {
-        $message = 'An error occured. Please try again later';
+        $message = $response['message'];
       }
       $this->errorSchema->addError(new sfValidatorError($this->validatorSchema, $message, array('field' => 'email')), 'email');
       return false;
