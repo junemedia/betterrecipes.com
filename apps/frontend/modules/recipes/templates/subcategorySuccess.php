@@ -40,12 +40,12 @@
   <? include_partial('global/body_sharebar') ?>
   <? include_component('recipes', 'catlevel_category_block', compact('category')) ?>
   <div id="trending-recipes">
-    <? // include_component('opengraph', 'trendingRecipes', array('parent_category_id' => $category->getParentId())) ?>
+    <? include_component('opengraph', 'trendingRecipes', array('parent_category_id' => $category->getParentId())) ?>
   </div><!-- /#trending-recipes -->
 <? /*
   <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => false)) ?>
 */ ?>
-  <? include_partial('baynote_recipes', compact('category')) ?>
+  <? //include_partial('baynote_recipes', compact('category')) ?>
   <div id="subcat-recipes" class="mt20 clear"></div><!-- /#recipes -->
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
