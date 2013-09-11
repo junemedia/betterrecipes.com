@@ -19,7 +19,7 @@
 */ ?>
   <? //include_partial('stories', compact('stories', 'category')) ?>
   <? //include_partial('popular_stories', compact('category')) ?>
-  <? // include_partial('baynote_recipes', compact('category')) ?>
+  <? include_partial('baynote_recipes', compact('category')) ?>
   <? include_partial('popular_blogs', compact('category')) ?>
   <? /* remove slideshows as per JIRA # MERBETTERR-34 (don't ask) */ ?>
   <? //include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
