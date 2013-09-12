@@ -178,7 +178,7 @@ class UserForm extends BaseForm
       'profile_id' => new sfValidatorInteger(),
       'avatar' => new sfValidatorString(array('max_length' => 50, 'required' => false), array('max_length' => 'Max 50 characters')),
       'fb_share' => new sfValidatorInteger(),
-      'password' => new sfValidatorString(array('max_length' => 20, 'required' => false), array('max_length' => 'Max 20 characters')),
+      'password' => new ValidatorRegServicesPassword(),
       'email' => new sfValidatorEmail(array('max_length' => 50, 'required' => true), array('max_length' => 'Max 50 characters')),
       'first_name' => new sfValidatorString(array('max_length' => 12, 'required' => true), array('max_length' => 'Max 12 characters')),
       'last_name' => new sfValidatorString(array('max_length' => 17, 'required' => false), array('max_length' => 'Max 17 characters')),
