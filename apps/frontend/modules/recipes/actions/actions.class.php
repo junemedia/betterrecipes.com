@@ -286,6 +286,8 @@ class recipesActions extends sfActions
 
     $subcategory = $category_recipe->getCategory();
     $category = $subcategory->getParent();
+    $this->subcat = $category;
+    $this->maincat = $subcategory;
     if (!$print) {
       if ($this->getUser()->isAuthenticated()) {
         $this->user_rating = RateTable::getUserRating($this->recipe->getId(), $this->getUser()->getAttribute('id'));

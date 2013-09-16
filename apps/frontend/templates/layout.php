@@ -53,6 +53,9 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+    <?
+    /*
     <!-- BEGIN Krux Control Tag for betterrecipes -->
     <script class="kxct" data-id="HzmEwRvl" data-version="async:1.7" type="text/javascript">
     window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
@@ -93,6 +96,8 @@
     })();
     </script>
     <!-- END Krux Interchange config -->
+    */
+    ?>
   </head>
   <body>
     <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
@@ -167,6 +172,44 @@
     }(document, 'script'));
     /* ]]> */
     </script>
+    
+    <script>
+        var adService = {
+            kruxEnabled: false, /* Set if applicable */
+            yieldbotEnabled:false,  /* Set if applicable */
+            yielbotPub:'',  /* Set to the site's psn code. See table below for values */
+            
+            <? if (has_slot('gpt')): ?>
+            
+            	<? include_slot('gpt') ?>
+            
+            <? else: ?>
+            
+            unitValues: {
+                	channel: '', /* Set to the top level category id, if applicable */
+                
+                	parent: '', /* Set to the secondary level category id, if applicable */
+                
+                	child: '' /* Set to the tertiary level category id, if applicable */
+                
+            },
+            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+                	type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                	search: '' /* On search results, set to the search term */
+                
+            }
+            
+            <? endif; ?>
+        };
+        (function() {
+            var gadsCore = document.createElement('script');
+            gadsCore.src = 'http://s2.mdpcdn.com/web/js-min/js/mdp/app/gpt/gpt.core.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gadsCore, node);
+        })();
+	</script>
+    
   </body>
 </html>
 

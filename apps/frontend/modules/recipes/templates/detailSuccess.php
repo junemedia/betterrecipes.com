@@ -1,3 +1,23 @@
+<? slot('gpt') ?>
+
+unitValues: {
+                	channel: '<?=$subcat->getName()?>', /* Set to the top level category id, if applicable */
+                
+                	parent: '<?=$maincat->getName()?>', /* Set to the secondary level category id, if applicable */
+                
+                	child: '<?=$recipe->getName()?>' /* Set to the tertiary level category id, if applicable */
+                
+            },
+            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+                	type: 'recipe', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                	search: '' /* On search results, set to the search term */
+                
+            }
+
+
+<? end_slot() ?>
+
 <? session_cache_limiter('nocache'); ?>
 <? include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
 <? if (isset($omniParams)): ?>

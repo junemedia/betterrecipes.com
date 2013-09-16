@@ -24,6 +24,8 @@ document.write(src);
 */
 ?>
 
+<?
+/*
 <!-- Yieldbot + Krux Ad Tag begin -->
 <script type="text/javascript">
   var ord = Math.floor(Math.random()*9999999999);
@@ -51,5 +53,7 @@ document.write(src);
   <a href=http://ad.doubleclick.net/N3865/jump/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=1;sz=728x90;ord=123456789? target="_top">
   <img src=http://ad.doubleclick.net/N3865/ad/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=1;sz=728x90;ord=123456789? border="0"></a>
 </noscript>
-
+*/
+?>
+<div id="div-gpt-topBanner"></div>
 
