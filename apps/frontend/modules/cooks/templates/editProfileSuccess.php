@@ -61,6 +61,7 @@
   <? /* include_partial('cooks/user_links', compact('user', 'my_profile')) */ ?>
   <p class="title green">Edit Settings <a href="javascript:;" title="Edit your profile" id="open_editprofile" class="btn-grey28 ml20 cta_edit<? if (!$sf_user->hasFlash('notice')): ?> hidden<? endif ?>">edit information</a></p>
   <form autocomplete="off" class="standard-form profile-edit-form mt20" action="<?= getRoute('@cook_profile_edit', array('display_name' => $sf_user->getDisplayName())) ?>" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="user[email-old]" value="<?=$user->getEmail()?>" />
     <fieldset class="user-details flle inline-changes values<? if (!$sf_user->hasFlash('notice')): ?> hidden<? endif ?>">
       <fieldset>
         <label for="user_username">Display Name:</label>

@@ -323,7 +323,7 @@ Class RegServices
 
     //build XML
     $profile_data = "<registration>";
-    if (isset($user_info['email']) && trim($user_info['email']) != '') {
+    if (isset($user_info['email']) && trim($user_info['email']) != '' && $user_info['email'] != $user_info['email-old']) {
       $profile_data .= "<login>" . $user_info['email'] . "</login>";
     }
     if (isset($user_info['password']) && trim($user_info['password']) != '') {
