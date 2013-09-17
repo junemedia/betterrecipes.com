@@ -4,7 +4,7 @@ dev:
     partner_id:       1754801
     secret_key:       Dm9Uk24en4lGxl5aPzUw2nNlG/djisE9ADMcCpYN7Kg=
   regservices:
-    url:              dev.secure.recipes.betterrecipes.com
+    url:              test.secure.recipes.betterrecipes.com
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
