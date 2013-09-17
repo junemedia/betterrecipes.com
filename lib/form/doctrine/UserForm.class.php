@@ -175,7 +175,7 @@ class UserForm extends BaseForm
 
     $this->setValidators(array(
       'user_id' => new sfValidatorInteger(),
-      'profile_id' => new sfValidatorInteger(),
+      'profile_id' => new sfValidatorString(array('max_length' => 40, 'required' => false), array('max_length' => 'Max 40 characters')),
       'avatar' => new sfValidatorString(array('max_length' => 50, 'required' => false), array('max_length' => 'Max 50 characters')),
       'fb_share' => new sfValidatorInteger(),
       'password' => new sfValidatorRegex( array('required' => false, 'pattern' => '/^(?=.*[A-Z!@#$,.%\/^&\'"*()\-_=+`~\[\]{}?|]).{6,20}$/'), array('invalid' => 'Must be from 6 to 20 characters in length. Must contain at least one capital letter or special character.') ),

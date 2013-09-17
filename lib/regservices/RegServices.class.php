@@ -365,7 +365,6 @@ Class RegServices
       $code = $this->simplexmlFindAttribute($xml, "code");
       $msg = $this->simplexmlFindAttribute($xml, "message");
       $field = null;
-      print_r($xml);
       switch ($code) {
         case '0':
           $error = "";
