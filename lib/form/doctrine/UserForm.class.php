@@ -115,7 +115,6 @@ class UserForm extends BaseForm
     $this->years = array_combine($years, $years);
 
     $this->setWidgets(array(
-      'email_old' => new sfWidgetFormInputHidden(array(),array('value' => $this->user->getEmail())),
       'user_id' => new sfWidgetFormInputHidden(),
       'profile_id' => new sfWidgetFormInputHidden(),
       'avatar' => new sfWidgetFormInputHidden(),
@@ -179,7 +178,7 @@ class UserForm extends BaseForm
       'profile_id' => new sfValidatorInteger(),
       'avatar' => new sfValidatorString(array('max_length' => 50, 'required' => false), array('max_length' => 'Max 50 characters')),
       'fb_share' => new sfValidatorInteger(),
-      'password' => new ValidatorRegServicesPassword(),
+      'password' => new sfValidatorRegex( array('required' => false, 'pattern' => '/^(?=.*[A-Z!@#$,.%\/^&\'"*()\-_=+`~\[\]{}?|]).{6,20}$/'), array('invalid' => 'Must be from 6 to 20 characters in length. Must contain at least one capital letter or special character.') ),
       'email' => new sfValidatorEmail(array('max_length' => 50, 'required' => true), array('max_length' => 'Max 50 characters')),
       'first_name' => new sfValidatorString(array('max_length' => 12, 'required' => true), array('max_length' => 'Max 12 characters')),
       'last_name' => new sfValidatorString(array('max_length' => 17, 'required' => false), array('max_length' => 'Max 17 characters')),
@@ -227,7 +226,7 @@ class UserForm extends BaseForm
     unset($values['password_again']);
 
     $user_data = $values;
-
+	$user_data['email_old'] = $this->user->getEmail();
 
     $reg_services = new RegServices();
     $user_data['old_display_name'] = $this->defaults['display_name'];
