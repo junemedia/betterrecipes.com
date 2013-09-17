@@ -426,6 +426,10 @@ Class RegServices
               $error = 'The country field was provided, but was not 2 characters in length.';
               $field = "country";
               break;
+            case 'alreadyExistingEmailAddress':
+            	$error = 'Email address is already in use. Please choose a new one.'
+            	$field = 'email';
+				break;
             default:
               $error = "There was an error. Please check your information and try again";
               break;
