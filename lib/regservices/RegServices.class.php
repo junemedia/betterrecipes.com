@@ -427,7 +427,7 @@ Class RegServices
               $field = "country";
               break;
             case 'alreadyExistingEmailAddress':
-            	$error = 'Email address is already in use. Please choose a new one.'
+            	$error = 'Email address is already in use. Please choose a new one.';
             	$field = 'email';
 				break;
             default:
