@@ -115,6 +115,7 @@ class UserForm extends BaseForm
     $this->years = array_combine($years, $years);
 
     $this->setWidgets(array(
+      'email_old' => new sfWidgetFormInputHidden(array(),array('value' => $this->user->getEmail())),
       'user_id' => new sfWidgetFormInputHidden(),
       'profile_id' => new sfWidgetFormInputHidden(),
       'avatar' => new sfWidgetFormInputHidden(),
