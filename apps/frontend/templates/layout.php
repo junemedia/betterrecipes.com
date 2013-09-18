@@ -44,9 +44,9 @@
     </script>
     <? if (sfConfig::get('sf_web_debug')): ?>
       <script>
-        /*$(document).ready(function() {
+        $(document).ready(function() {
           sfWebDebugToggleMenu();
-        });*/
+        });
       </script>
     <? endif ?>
     <? include_component('adtags', 'header_code') ?>
