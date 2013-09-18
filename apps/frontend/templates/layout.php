@@ -109,6 +109,7 @@
       <div id="theme-wrap">
         <div class="wrapper">
           <div class="section">
+          helllooo
             <? if ($sf_user->hasFlash('notice')): ?>
               <div class="flash notice">
                 <?= $sf_user->getFlash('notice') ?>
