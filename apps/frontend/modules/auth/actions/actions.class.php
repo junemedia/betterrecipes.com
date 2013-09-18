@@ -202,12 +202,12 @@ class authActions extends sfActions
 
     if ($this->passwordForm->isValid() && $this->passwordForm->send()) {
       $this->getUser()->setFlash('notice', 'Instructions to reset your password have been sent. Please check your inbox.');
-      $this->redirect('@signin');
+      //$this->redirect('@signin');
     }
 
-    /*$this->signinForm = new SigninForm();
+    $this->signinForm = new SigninForm();
     $this->signupForm = new SignupForm();
-    $this->setTemplate('index');*/
+    $this->setTemplate('index');
   }
 
   /**
