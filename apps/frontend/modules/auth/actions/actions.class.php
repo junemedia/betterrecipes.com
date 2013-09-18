@@ -205,9 +205,9 @@ class authActions extends sfActions
       $this->redirect('@signin');
     }
 
-    $this->signinForm = new SigninForm();
+    /*$this->signinForm = new SigninForm();
     $this->signupForm = new SignupForm();
-    $this->setTemplate('index');
+    $this->setTemplate('index');*/
   }
 
   /**
