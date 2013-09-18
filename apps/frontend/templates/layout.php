@@ -110,15 +110,15 @@
         <div class="wrapper">
           <div class="section">
           helllooo
-            <? if ($sf_user->hasFlash('notice')): ?>
+            <? //if ($sf_user->hasFlash('notice')): ?>
               <div class="flash notice">
                 <?= $sf_user->getFlash('notice') ?>
               </div>
-            <? elseif ($sf_user->hasFlash('error')): ?>
+            <? //elseif ($sf_user->hasFlash('error')): ?>
               <div class="flash error">
                 <?= $sf_user->getFlash('error') ?>
               </div>
-            <? endif ?>
+            <? //endif ?>
             <?= $sf_content ?>
           </div><!-- /.section -->
         </div><!-- /.wrapper -->
