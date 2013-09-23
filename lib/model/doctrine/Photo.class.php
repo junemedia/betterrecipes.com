@@ -38,7 +38,7 @@ class Photo extends BasePhoto
     $original = sfConfig::get('app_uploads_tmp') . '/' . $this->getImage();
     $md5sum = md5_file($original);
     $image_type = new ImageType();
-    $new_name = $md5sum . '.' . $image_type->getExtention($original);
+    $new_name = $md5sum . $image_type->getExtention($original);
     $new_path = Toolkit::getFilePath($path, $new_name);
     @mkdir($new_path, 0777, true);
     $new = $new_path . $new_name;
