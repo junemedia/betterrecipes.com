@@ -1,11 +1,11 @@
 <? slot('gpt') ?>
 
 unitValues: {
-                	channel: '<?=$subcat->getName()?>', /* Set to the top level category id, if applicable */
+                	channel: 'Recipe', /* Set to the top level category id, if applicable */
                 
-                	parent: '<?=$maincat->getName()?>', /* Set to the secondary level category id, if applicable */
+                	parent: '<?=$sub?>', /* Set to the secondary level category id, if applicable */
                 
-                	child: '<?=$recipe->getName()?>' /* Set to the tertiary level category id, if applicable */
+                	child: '<?=$recipe->getSlug()?>' /* Set to the tertiary level category id, if applicable */
                 
             },
             pageTargetingValues: { /* Additional key-values can be added to this section if needed */
