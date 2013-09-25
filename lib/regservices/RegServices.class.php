@@ -77,7 +77,7 @@ Class RegServices
     $profile_data .= "<optin>" . (@$user_info['optin'] ? 'true' : 'false') . "</optin>";
     $profile_data .= "<sendregistrationemails>" . $user_info['send_registration_emails'] . "</sendregistrationemails>";
     $profile_data .= "</registration>";
-
+	//echo 'connection '.$connection;
     if ($connection != false) {
       $result = $connection->register($profile_data, $this->client_code);
       $xml = new SimpleXMLElement($result);
@@ -111,6 +111,18 @@ Class RegServices
             case 'lastNameTooLong':
               $error = 'The last name you entered is too long';
               break;
+            case 'invalidEmailAddressFormat':
+            	$error = 'The login is not a valid email address format';
+				break;
+			case 'firstNameRequired':
+				$error = 'The first name field is required, but no value given';
+				break;
+			case 'displayNameRequired':
+				$error = 'The display name is required for the specified registration source, but no value given';
+				break;
+			case 'insufficientPassword':
+				$error = 'The password does not meet minimum requirements';
+				break;
             default:
               $error = "There was an error. Please check your information and try again";
               break;
@@ -225,7 +237,6 @@ Class RegServices
   public function authenticate($login, $password)
   {
     $connection = $this->getConnection(__FUNCTION__);
-
     if ($connection != false) {
       $result = $connection->{__FUNCTION__}($login, $password, $this->client_code);
       return $this->getResult($result);
@@ -312,7 +323,7 @@ Class RegServices
 
     //build XML
     $profile_data = "<registration>";
-    if (isset($user_info['email']) && trim($user_info['email']) != '') {
+    if (isset($user_info['email']) && trim($user_info['email']) != '' && $user_info['email'] != $user_info['email_old']) {
       $profile_data .= "<login>" . $user_info['email'] . "</login>";
     }
     if (isset($user_info['password']) && trim($user_info['password']) != '') {
@@ -415,6 +426,10 @@ Class RegServices
               $error = 'The country field was provided, but was not 2 characters in length.';
               $field = "country";
               break;
+            case 'alreadyExistingEmailAddress':
+            	$error = 'Email address is already in use. Please choose a new one.';
+            	$field = 'email';
+				break;
             default:
               $error = "There was an error. Please check your information and try again";
               break;
