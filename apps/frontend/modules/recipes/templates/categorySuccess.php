@@ -1,9 +1,9 @@
 <? slot('gpt') ?>
 
 unitValues: {
-                	channel: '<?=$category->getName()?>', /* Set to the top level category id, if applicable */
+                	channel: 'Recipe', /* Set to the top level category id, if applicable */
                 
-                	parent: '', /* Set to the secondary level category id, if applicable */
+                	parent: '<?=UrlToolkit::getSubDomain($sf_request)?>', /* Set to the secondary level category id, if applicable */
                 
                 	child: '' /* Set to the tertiary level category id, if applicable */
                 
