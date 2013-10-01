@@ -4,10 +4,11 @@ dev:
     partner_id:       1754801
     secret_key:       Dm9Uk24en4lGxl5aPzUw2nNlG/djisE9ADMcCpYN7Kg=
   regservices:
-    url:              secure.recipes.betterrecipes.com
+    url:              test.secure.recipes.betterrecipes.com
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    -UiGuJh36qy9xacVg5VB8qBGun9ZnQ3g
     verification_key: yKKkq1jO7-fSXPFl6szWx-DdESMMvOGP
@@ -23,6 +24,7 @@ prod:
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    Vh1y5TEidP5lYG52HkgMMsVkHSzCxb-1
     verification_key: 9TPC5aqQ8.VIsGUsK55ljY.EoApJH7Rh

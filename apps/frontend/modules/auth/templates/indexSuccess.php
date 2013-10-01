@@ -21,10 +21,15 @@
     <label for="signin_password">Password:</label>
     <?= $signinForm['password']->render(array('id' => 'signin_password')) ?>
     <?= $signinForm['password']->renderError() ?>
+    <? if (@$doRedirect): ?>
+    	<ul class="error_list" style="color:#000;">
+    		<li>Please <a href="<?='https://'.sfConfig::get('app_regservices_url').sfConfig::get('app_regservices_redirect').'http://'.$_SERVER['HTTP_HOST'].'/signin'?>">click here</a> to set up your new password.</li>
+    	</ul>
+    <? endif; ?>
     <input type="submit" value="Login" class="btn-purple28 mr20" />
   </form>
   <p class="title green">Forgot Your Password?</p>
-  <p class="mb10">Enter your e-mail address and we will send your password to you right away!</p>
+  <p class="mb10">Enter your e-mail address and we will send you a link to reset your password</p>
   <? if ($passwordForm->hasGlobalErrors()): ?>
     <?= $passwordForm->renderGlobalErrors() ?>
   <? endif ?>

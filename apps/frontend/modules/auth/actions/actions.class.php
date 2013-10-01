@@ -110,6 +110,7 @@ class authActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+  	$this->doRedirect = false;
     $this->processReferrer($request);
     if ($this->getUser()->isAuthenticated()) {
       $this->goToReferrer();
@@ -200,8 +201,8 @@ class authActions extends sfActions
     $this->passwordForm->bind($request->getParameter($this->passwordForm->getName()));
 
     if ($this->passwordForm->isValid() && $this->passwordForm->send()) {
-      $this->getUser()->setFlash('notice', 'Password reminder was sent. Please check your inbox.');
-      $this->redirect('@signin');
+      $this->getUser()->setFlash('notice', 'Instructions to reset your password have been sent. Please check your inbox.');
+      //$this->redirect('@signin');
     }
 
     $this->signinForm = new SigninForm();
@@ -216,6 +217,7 @@ class authActions extends sfActions
    */
   public function executeSignin(sfWebRequest $request)
   {
+  	
     $this->processReferrer($request);
     if (!$request->isMethod(sfRequest::POST)) {
       $this->forward('auth', 'index');
@@ -229,6 +231,14 @@ class authActions extends sfActions
       $this->getUser()->setFlash('onSignin', true);
       $this->setLisCookie($values['user_data']);
       $this->goToReferrer();
+    } else {
+	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
+		    if( $formField->getError( ) == 'Your password is outdated and requires a reset.' )
+			{
+				//print( $name . " : " . $formField->getError( ) . "\n" );
+				$this->doRedirect = true;
+			}
+	    }
     }
 
     $this->signupForm = new SignupForm();
