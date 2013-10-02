@@ -286,7 +286,7 @@ class recipesActions extends sfActions
 
     $subcategory = $category_recipe->getCategory();
     $category = $subcategory->getParent();
-    $this->subcat = $category;
+    $this->sub = UrlToolkit::getSubDomain($request);
     $this->maincat = $subcategory;
     if (!$print) {
       if ($this->getUser()->isAuthenticated()) {
