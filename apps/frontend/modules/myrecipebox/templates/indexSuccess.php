@@ -1,3 +1,23 @@
+<? slot('gpt') ?>
+
+unitValues: {
+                	channel: 'MixingBowl', /* Set to the top level category id, if applicable */
+                
+                	parent: '', /* Set to the secondary level category id, if applicable */
+                
+                	child: '' /* Set to the tertiary level category id, if applicable */
+                
+            },
+            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+                	type: 'RecipeBox', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                	search: '' /* On search results, set to the search term */
+                
+            }
+
+
+<? end_slot() ?>
+
 <script>
   function getUrl(order_by){
     url = "<?= getDomainUri() . url_for('@myrecipebox?folder=' . $sf_request->getParameter('folder', 'all') . '&order_by=orderby&page_no=' . $sf_request->getParameter('page_no', 1)) ?>";

@@ -1,3 +1,4 @@
+
 <!--/* OpenX Javascript Tag v2.8.7 */-->
 
 <!--/*
@@ -18,6 +19,8 @@
   * users.
   */-->
 
+<?
+/*
 <script type='text/javascript'><!--//<![CDATA[
    var m3_u = (location.protocol=='https:'?'https://ads.meredithads.com/www/delivery/ajs.php':'http://ads.meredithads.com/www/delivery/ajs.php');
    var m3_r = Math.floor(Math.random()*99999999999);
@@ -33,3 +36,6 @@
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    document.write ("'><\/scr"+"ipt>");
 //]]>--></script><noscript><a href='http://ads.meredithads.com/www/delivery/ck.php?n=a1f6c43c&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.meredithads.com/www/delivery/avw.php?zoneid=249&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a1f6c43c' border='0' alt='' /></a></noscript>
+*/
+?>
+<div id="div-gpt-pushdownBanner"></div>

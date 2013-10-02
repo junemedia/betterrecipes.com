@@ -1,3 +1,23 @@
+<? slot('gpt') ?>
+
+unitValues: {
+                	channel: '<?=$maincategory->getName()?>', /* Set to the top level category id, if applicable */
+                
+                	parent: '<?=$category->getName()?>', /* Set to the secondary level category id, if applicable */
+                
+                	child: '' /* Set to the tertiary level category id, if applicable */
+                
+            },
+            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+                	type: 'recipe', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                	search: '' /* On search results, set to the search term */
+                
+            }
+
+
+<? end_slot() ?>
+
 <script>
   $(document).ready(function() {
     pageno = parseInt(window.location.hash.replace("#",""));

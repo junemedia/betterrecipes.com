@@ -1,3 +1,5 @@
+<?
+/*
 <!-- *** start of right side ad *** -->
 <script language="JavaScript" type="text/javascript">
   document.write('<scr'+'ipt language="JavaScript" src="http://ad.doubleclick.net/N3865/adj/betterrecipes.mdp.com/' + adchannelid + ';channel=' + adchannelid + ';parent=' + adparentid + ';child1=' + adchild1id + ';site=betterrecipes;id=' + adid + ';cmn=mn;tile=8;sz=120x60;ord=' + ord + '?" type="text/javascript"></scr'+'ipt>');
@@ -18,3 +20,6 @@
    <img src=http://ad.doubleclick.net/N3865/ad/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;cmn=mn;tile=8;sz=120x60;ord=123456789? border="0"></a>
 </noscript>
 <!-- *** end of right side ad *** -->
+*/
+?>
+<div id="div-gpt-sponsorLogo"></div>
