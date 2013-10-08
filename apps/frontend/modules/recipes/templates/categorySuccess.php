@@ -34,9 +34,7 @@ unitValues: {
   </div><!-- /#trending-recipes -->
   */
   ?>
-<? /*
   <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => true)) ?>
-*/ ?>
   <? //include_partial('stories', compact('stories', 'category')) ?>
   <? //include_partial('popular_stories', compact('category')) ?>
   <? include_partial('baynote_recipes', compact('category')) ?>
