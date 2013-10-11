@@ -221,15 +221,17 @@
 	
 	
     <script type="text/javascript">
-	var zflag_parent="zedo_loader";
+	var zflag_parent="InRead";
 	var zflag_vast_domain="http://c5.zedo.com/";
 	var zflag_nid="2340";
-	var zflag_cid="63";
+	var zflag_cid="127";
 	var zflag_sz="85";
-	var zflag_sid="0";
+	var zflag_sid="44";
 	var zflag_width="426";
 	var zflag_height="340";
-	var zflag_bchan="64";
+	var zflag_bchan="128";
+	var zflag_breplay="1";
+	var zflag_dimension="1";
 	</script>
 	<script type="text/javascript" src="http://c5.zedo.com/jsc/c5/frd.js"></script>
   </body>
