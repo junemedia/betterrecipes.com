@@ -221,7 +221,7 @@
 	
 	
     <script type="text/javascript">
-	var zflag_parent="InRead";
+	var zflag_parent="zedo_loader";
 	var zflag_vast_domain="http://c5.zedo.com/";
 	var zflag_nid="2340";
 	var zflag_cid="127";
