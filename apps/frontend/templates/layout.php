@@ -109,7 +109,7 @@
 	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-5VTT4K');</script>
 	<!-- End Google Tag Manager -->
-    <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
+    <? /*<script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>*/ ?>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -184,9 +184,9 @@
     
     <script>
         var adService = {
-            kruxEnabled: false, /* Set if applicable */
-            yieldbotEnabled:false,  /* Set if applicable */
-            yielbotPub:'',  /* Set to the site's psn code. See table below for values */
+            kruxEnabled: true, /* Set if applicable */
+            yieldbotEnabled:true,  /* Set if applicable */
+            yielbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
             
             <? if (has_slot('gpt')): ?>
             
