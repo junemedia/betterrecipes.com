@@ -186,7 +186,7 @@
         var adService = {
             kruxEnabled: true, /* Set if applicable */
             yieldbotEnabled:true,  /* Set if applicable */
-            yielbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
+            yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
             
             <? if (has_slot('gpt')): ?>
             
