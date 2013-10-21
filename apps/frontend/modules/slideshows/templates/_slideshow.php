@@ -86,8 +86,10 @@
     }
   }
 </script>
+<!--INFOLINKS_ON-->
 <p class="title green"><?= $slideshow->getName() ?></p>
 <p class="mb20 summary"><?= $slideshow->getDescription() ?></p>
+<!--INFOLINKS_OFF-->
 <? include_partial('global/sharebar', compact('slideshow', 'showall')); ?>
 <div id="slideshow">
   <ul class="hornav">
@@ -103,8 +105,10 @@
     <? if ($slide_count > 0): ?>
       <div class="slide">
         <img id="slide" src="/img/spinning-wheel-1.gif" height="225" width="300" alt="Recipe Title" />
+        <!--INFOLINKS_ON-->
         <p class="green" id="title"></p>
         <p id="content"></p>
+        <!--INFOLINKS_OFF-->
         <p class="mt10"><a id="sliderecipe">View Recipe &raquo;</a></p>
       </div>
     <? else: ?>
