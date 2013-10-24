@@ -141,7 +141,7 @@ all:
     patterns:
       - # Jello
         find:         /\b(jell-?o)\b/i
-        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jello-holiday.aspx" target="_blank">$1</a>
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/holiday-jello-recipes.aspx" target="_blank">$1</a>
       - # Jet Puffed
         find:         /\b(jet puffed)\b/i
         repl:         <a href="http://www.kraftrecipes.com/Products/jet-puffed.aspx" target="_blank">$1</a>
@@ -154,3 +154,16 @@ all:
       - # Oscar Mayer
         find:         /\b(oscar mayer)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/oscar-mayer-bacon-chicken.aspx" target="_blank">$1</a>
+      - # kool-aid
+        find:         /\b(kool aid)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/beverages/kool-aid-recipes/main.aspx" target="_blank">$1</a>
+      - # cool whip
+        find:         /\b(cool whip)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/cool-whip-desserts.aspx" target="_blank">$1</a>
+      - # phil cream cheese
+        find:         /\b(philadelphia cream cheese)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/philly-recipes/main.aspx" target="_blank">$1</a>
+      - # stove top
+        find:         /\b(stove-top)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
+        

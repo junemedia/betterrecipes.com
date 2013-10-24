@@ -17,7 +17,8 @@ unitValues: {
 
 
 <? end_slot() ?>
-
+<?
+/*
 <? slot('infolinks') ?>
 <script type="text/javascript">
 var infolinks_pid = 1790157;
@@ -25,6 +26,8 @@ var infolinks_wsid = 0;
 </script>
 <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 <? end_slot() ?>
+*/
+?>
 
 <? include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
 <div class="article">
