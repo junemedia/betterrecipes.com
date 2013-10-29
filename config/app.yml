@@ -155,7 +155,7 @@ all:
         find:         /\b(oscar mayer)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/oscar-mayer-bacon-chicken.aspx" target="_blank">$1</a>
       - # kool-aid
-        find:         /\b(kool aid)\b/i
+        find:         /\b(kool-?aid)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/beverages/kool-aid-recipes/main.aspx" target="_blank">$1</a>
       - # cool whip
         find:         /\b(cool whip)\b/i
@@ -164,6 +164,6 @@ all:
         find:         /\b(philadelphia cream cheese)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/philly-recipes/main.aspx" target="_blank">$1</a>
       - # stove top
-        find:         /\b(stove-top)\b/i
+        find:         /\b(stove-?top)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
         
