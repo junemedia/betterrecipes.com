@@ -166,4 +166,6 @@ all:
       - # stove top
         find:         /\b(stove-?top)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
+        find:         /\b(stovetop)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
         
