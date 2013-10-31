@@ -349,7 +349,8 @@ class authActions extends sfActions
     // Set lls cookie for nginx usage
     $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
 
-    $this->getResponse()->setCookie('DYN_USER_ID', $this->getUser()->getId(), time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+   // set the DYN_USER_ID for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
 
     $user->signin($local_user);
     $user->setFlash('onSignin', true);
