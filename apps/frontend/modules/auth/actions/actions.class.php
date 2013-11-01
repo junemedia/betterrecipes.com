@@ -349,7 +349,7 @@ class authActions extends sfActions
     // Set lls cookie for nginx usage
     $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
 
-   // set the DYN_USER_ID for Krux
+    // set the DYN_USER_ID for Krux
     $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
 
     $user->signin($local_user);
@@ -508,11 +508,11 @@ class authActions extends sfActions
 
   protected function setLisCookie($user_data)
   {
-//  set lis cookie for nginx usage (2 for admin 1 for normal user)
+    // set lis cookie for nginx usage (2 for admin 1 for normal user)
     $lis_status = ($user_data['is_admin'] == 1 || $user_data['is_super_admin'] == 1) ? 2 : 1;
     $this->getResponse()->setCookie('lis', $lis_status, time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
    // set the DYN_USER_ID for Krux
-    $this->getResponse()->setCookie('DYN_USER_ID', $values['user']['id'], time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
    }
 
 }
