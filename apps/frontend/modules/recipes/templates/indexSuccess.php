@@ -1,7 +1,7 @@
 <? slot('gpt') ?>
 
 unitValues: {
-                	channel: '', /* Set to the top level category id, if applicable */
+                	channel: 'Recipe', /* Set to the top level category id, if applicable */
                 
                 	parent: '', /* Set to the secondary level category id, if applicable */
                 

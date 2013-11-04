@@ -10,10 +10,10 @@
 class authActions extends sfActions
 {
   /**
-   * Both Signin and Signout use the same templates 
+   * Both Signin and Signout use the same templates
    * so I have a bit of a messy controller here trying to separate the logic.
    * Basically, this is the best aproach I could see in order to have
-   * all of signin and signup into their own actions. 
+   * all of signin and signup into their own actions.
    * In the eventuality they will live off 2 separate pages, the changes will be minor.
    */
 
@@ -68,7 +68,7 @@ class authActions extends sfActions
 
   /**
    * Eventually this will map the referrer to a regSource code
-   * 
+   *
    * @return integer regSource code
    */
   public function getRegSource()
@@ -83,7 +83,7 @@ class authActions extends sfActions
         $regSource = $this->getUser()->getRegSourceAttribute('code');
       } else {
         // if not in the request, could be that this is a secured section
-        // and this is an internal forward rather than a redirect. 
+        // and this is an internal forward rather than a redirect.
         // In this case, the current URI is also our referrer and regSource.
         // In the case we were redirected, then referrer is our regSource.
         $regSourceCodes = sfConfig::get('app_RegServices_source_codes');
@@ -110,6 +110,7 @@ class authActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+  	$this->doRedirect = false;
     $this->processReferrer($request);
     if ($this->getUser()->isAuthenticated()) {
       $this->goToReferrer();
@@ -171,6 +172,10 @@ class authActions extends sfActions
   {
     // destroy the 'lis' nginx cookie
     $this->getResponse()->setCookie('lis', '', time() - 3600, '/', UrlToolkit::getDomain());
+
+    // destroy the 'DYN_USER_ID' cookie for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', '', time() - 3600, '/', UrlToolkit::getDomain());
+
     $this->processReferrer($request);
     if (!$this->getUser()->isAuthenticated()) {
       $this->getUser()->signout();
@@ -200,8 +205,8 @@ class authActions extends sfActions
     $this->passwordForm->bind($request->getParameter($this->passwordForm->getName()));
 
     if ($this->passwordForm->isValid() && $this->passwordForm->send()) {
-      $this->getUser()->setFlash('notice', 'Password reminder was sent. Please check your inbox.');
-      $this->redirect('@signin');
+      $this->getUser()->setFlash('notice', 'Instructions to reset your password have been sent. Please check your inbox.');
+      //$this->redirect('@signin');
     }
 
     $this->signinForm = new SigninForm();
@@ -216,6 +221,7 @@ class authActions extends sfActions
    */
   public function executeSignin(sfWebRequest $request)
   {
+
     $this->processReferrer($request);
     if (!$request->isMethod(sfRequest::POST)) {
       $this->forward('auth', 'index');
@@ -229,6 +235,14 @@ class authActions extends sfActions
       $this->getUser()->setFlash('onSignin', true);
       $this->setLisCookie($values['user_data']);
       $this->goToReferrer();
+    } else {
+	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
+		    if( $formField->getError( ) == 'Your password is outdated and requires a reset.' )
+			{
+				//print( $name . " : " . $formField->getError( ) . "\n" );
+				$this->doRedirect = true;
+			}
+	    }
     }
 
     $this->signupForm = new SignupForm();
@@ -238,11 +252,11 @@ class authActions extends sfActions
 
   /**
    * Callback for Gigya
-   * 
+   *
    * This action auto signin the user if the user has an account and have linked the provider
    * otherwise the user is presented with normal signup and signin forms which will then link with the provider
-   * 
-   * @param sfWebRequest $request 
+   *
+   * @param sfWebRequest $request
    */
   public function executeSocialize(sfWebRequest $request)
   {
@@ -316,7 +330,7 @@ class authActions extends sfActions
       // Update local user data
       $local_user->commitUserData($user_profile);
 
-      // Update reg services user first name and last name from facebook 
+      // Update reg services user first name and last name from facebook
       $user_data = array_merge($user_profile, $local_user->toArray());
       if ($request->hasParameter('loginProviderUID')) {
         $user_data['fb_id'] = $request->getParameter('loginProviderUID');
@@ -332,8 +346,12 @@ class authActions extends sfActions
       $local_user->setFbId($user->getSocial('loginProviderUID'));
       $local_user->save();
     }
-    // Set lls cookie for nginx usage 
+    // Set lls cookie for nginx usage
     $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+
+    // set the DYN_USER_ID for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+
     $user->signin($local_user);
     $user->setFlash('onSignin', true);
     $user->setUserData($user_data);
@@ -439,8 +457,8 @@ class authActions extends sfActions
 
   /**
    * What is this for?
-   * 
-   * @return type 
+   *
+   * @return type
    */
   protected function getRecipes()
   {
@@ -490,9 +508,11 @@ class authActions extends sfActions
 
   protected function setLisCookie($user_data)
   {
-//  set lis cookie for nginx usage (2 for admin 1 for normal user)
+    // set lis cookie for nginx usage (2 for admin 1 for normal user)
     $lis_status = ($user_data['is_admin'] == 1 || $user_data['is_super_admin'] == 1) ? 2 : 1;
     $this->getResponse()->setCookie('lis', $lis_status, time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
-  }
+   // set the DYN_USER_ID for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+   }
 
 }

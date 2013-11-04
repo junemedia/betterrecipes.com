@@ -1,11 +1,11 @@
 <? slot('gpt') ?>
 
 unitValues: {
-                	channel: '<?=$subcat->getName()?>', /* Set to the top level category id, if applicable */
+                	channel: 'Recipe', /* Set to the top level category id, if applicable */
                 
-                	parent: '<?=$maincat->getName()?>', /* Set to the secondary level category id, if applicable */
+                	parent: '<?=$sub?>', /* Set to the secondary level category id, if applicable */
                 
-                	child: '<?=$recipe->getName()?>' /* Set to the tertiary level category id, if applicable */
+                	child: '<?=$recipe->getSlug()?>' /* Set to the tertiary level category id, if applicable */
                 
             },
             pageTargetingValues: { /* Additional key-values can be added to this section if needed */
@@ -16,6 +16,14 @@ unitValues: {
             }
 
 
+<? end_slot() ?>
+
+<? slot('infolinks') ?>
+<script type="text/javascript">
+var infolinks_pid = 1790157;
+var infolinks_wsid = 14;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
 <? end_slot() ?>
 
 <? session_cache_limiter('nocache'); ?>

@@ -1,26 +1,15 @@
+<?/*
+
+  Per MBR-44 and an email thread (Re: Open X tags), we are implementing both the
+  gpt-pushdownBanner *and* the Openx tag in the same place.If Meredith AdOps
+  adds creative to both of these tags, then they will stack on top of each
+  other.
+
+*/?>
+<div id="div-gpt-pushdownBanner"></div>
 
 <!--/* OpenX Javascript Tag v2.8.7 */-->
 
-<!--/*
-  * The backup image section of this tag has been generated for use on a
-  * non-SSL page. If this tag is to be placed on an SSL page, change the
-  *   'http://ads.meredithads.com/www/delivery/...'
-  * to
-  *   'https://ads.meredithads.com/www/delivery/...'
-  *
-  * This noscript section of this tag only shows image banners. There
-  * is no width or height in these banners, so if you want these tags to
-  * allocate space for the ad before it shows, you will need to add this
-  * information to the <img> tag.
-  *
-  * If you do not want to deal with the intricities of the noscript
-  * section, delete the tag (from <noscript>... to </noscript>). On
-  * average, the noscript tag is called from less than 1% of internet
-  * users.
-  */-->
-
-<?
-/*
 <script type='text/javascript'><!--//<![CDATA[
    var m3_u = (location.protocol=='https:'?'https://ads.meredithads.com/www/delivery/ajs.php':'http://ads.meredithads.com/www/delivery/ajs.php');
    var m3_r = Math.floor(Math.random()*99999999999);
@@ -35,7 +24,4 @@
    if (document.context) document.write ("&context=" + escape(document.context));
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://ads.meredithads.com/www/delivery/ck.php?n=a1f6c43c&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.meredithads.com/www/delivery/avw.php?zoneid=249&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a1f6c43c' border='0' alt='' /></a></noscript>
-*/
-?>
-<div id="div-gpt-pushdownBanner"></div>
+//]]>--></script><noscript><a href='http://ads.meredithads.com/www/delivery/ck.php?n=a84acf9a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.meredithads.com/www/delivery/avw.php?zoneid=249&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a84acf9a' border='0' alt='' /></a></noscript>

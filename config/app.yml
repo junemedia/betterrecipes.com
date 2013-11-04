@@ -4,10 +4,11 @@ dev:
     partner_id:       1754801
     secret_key:       Dm9Uk24en4lGxl5aPzUw2nNlG/djisE9ADMcCpYN7Kg=
   regservices:
-    url:              secure.recipes.betterrecipes.com
+    url:              test.secure.recipes.betterrecipes.com
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    -UiGuJh36qy9xacVg5VB8qBGun9ZnQ3g
     verification_key: yKKkq1jO7-fSXPFl6szWx-DdESMMvOGP
@@ -23,6 +24,7 @@ prod:
     user:             betterrecipes
     pass:             TXV5r6wH#v
     clientcode:       1023
+    redirect:         /common/profile/password/reset.jsp?returnPage=
   adcopy:
     challenge_key:    Vh1y5TEidP5lYG52HkgMMsVkHSzCxb-1
     verification_key: 9TPC5aqQ8.VIsGUsK55ljY.EoApJH7Rh
@@ -139,7 +141,7 @@ all:
     patterns:
       - # Jello
         find:         /\b(jell-?o)\b/i
-        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jello-holiday.aspx" target="_blank">$1</a>
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/holiday-jello-recipes.aspx" target="_blank">$1</a>
       - # Jet Puffed
         find:         /\b(jet puffed)\b/i
         repl:         <a href="http://www.kraftrecipes.com/Products/jet-puffed.aspx" target="_blank">$1</a>
@@ -152,3 +154,18 @@ all:
       - # Oscar Mayer
         find:         /\b(oscar mayer)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/oscar-mayer-bacon-chicken.aspx" target="_blank">$1</a>
+      - # kool-aid
+        find:         /\b(kool-?aid)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/beverages/kool-aid-recipes/main.aspx" target="_blank">$1</a>
+      - # cool whip
+        find:         /\b(cool whip)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/cool-whip-desserts.aspx" target="_blank">$1</a>
+      - # phil cream cheese
+        find:         /\b(philadelphia cream cheese)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/philly-recipes/main.aspx" target="_blank">$1</a>
+      - # stove top
+        find:         /\b(stove-?top)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
+        find:         /\b(stovetop)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
+        

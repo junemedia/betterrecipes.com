@@ -10,10 +10,10 @@
 class authActions extends sfActions
 {
   /**
-   * Both Signin and Signout use the same templates 
+   * Both Signin and Signout use the same templates
    * so I have a bit of a messy controller here trying to separate the logic.
    * Basically, this is the best aproach I could see in order to have
-   * all of signin and signup into their own actions. 
+   * all of signin and signup into their own actions.
    * In the eventuality they will live off 2 separate pages, the changes will be minor.
    */
 
@@ -68,7 +68,7 @@ class authActions extends sfActions
 
   /**
    * Eventually this will map the referrer to a regSource code
-   * 
+   *
    * @return integer regSource code
    */
   public function getRegSource()
@@ -83,7 +83,7 @@ class authActions extends sfActions
         $regSource = $this->getUser()->getRegSourceAttribute('code');
       } else {
         // if not in the request, could be that this is a secured section
-        // and this is an internal forward rather than a redirect. 
+        // and this is an internal forward rather than a redirect.
         // In this case, the current URI is also our referrer and regSource.
         // In the case we were redirected, then referrer is our regSource.
         $regSourceCodes = sfConfig::get('app_RegServices_source_codes');
@@ -207,6 +207,9 @@ class authActions extends sfActions
     // destroy the 'lis' nginx cookie
     $this->getResponse()->setCookie('lis', '', time() - 3600, '/', UrlToolkit::getDomain());
 
+    // destroy the 'DYN_USER_ID' cookie for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', '', time() - 3600, '/', UrlToolkit::getDomain());
+
     $this->processReferrer($request);
     if (!$this->getUser()->isAuthenticated()) {
       $this->getUser()->signout();
@@ -292,11 +295,11 @@ class authActions extends sfActions
 
   /**
    * Callback for Gigya
-   * 
+   *
    * This action auto signin the user if the user has an account and have linked the provider
    * otherwise the user is presented with normal signup and signin forms which will then link with the provider
-   * 
-   * @param sfWebRequest $request 
+   *
+   * @param sfWebRequest $request
    */
   public function executeSocialize(sfWebRequest $request)
   {
@@ -341,6 +344,10 @@ class authActions extends sfActions
         // set lls cookie for nginx usage
         if (!$this->getRequest()->getCookie('lis')) {
           $this->getResponse()->setCookie('lis', 1, 0, '/', UrlToolkit::getDomain());
+        }
+        // set DYN_USER_ID cookie for Krux
+        if (!$this->getRequest()->getCookie('DYN_USER_ID')) {
+          $this->getResponse()->setCookie('DYN_USER_ID', $this->getUser()->getId(), 0, '/', UrlToolkit::getDomain());
         }
         $this->getUser()->signin($user);
         $this->getUser()->setFlash('onSignin', true);
@@ -505,8 +512,8 @@ class authActions extends sfActions
 
   /**
    * Used to skip steps in the signup and redirect user to referrer.
-   * 
-   * @param sfWebRequest $request 
+   *
+   * @param sfWebRequest $request
    */
   public function executeSignupSkip(sfWebRequest $request)
   {
@@ -516,8 +523,8 @@ class authActions extends sfActions
 
   /**
    * What is this for?
-   * 
-   * @return type 
+   *
+   * @return type
    */
   protected function getRecipes()
   {
@@ -552,7 +559,7 @@ class authActions extends sfActions
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $response = $rest->viewUserDetail(117796290);
 //    $this->renderText(print_r($response, true));
-//   
+//
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $this->renderText(PHP_EOL.'NEW USER DATA'.PHP_EOL);
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
@@ -571,32 +578,32 @@ class authActions extends sfActions
 //        'email' => 'bkuberek@resolute.com'
 //    );
 //    $this->renderText(print_r($user_profile_fields, true));
-//    
+//
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $this->renderText(PHP_EOL.'REST.updateUser'.PHP_EOL);
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $response = $rest->updateUserProfile($user_profile_fields);
 //    $this->renderText('<pre>'.print_r($response, true).'</pre>');
-//    
+//
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $this->renderText(PHP_EOL.'VIEW USER DETAIL'.PHP_EOL);
 //    $this->renderText(PHP_EOL.str_repeat('=', 80).PHP_EOL);
 //    $response = $rest->viewUserDetail(117796290);
 //    $this->renderText(print_r($response, true));
-//    
+//
 //    $response = $rest->viewUserExtendedProfile('117276270');
 //    $this->renderText('<pre>'.print_r($response, true).'</pre>');
 //    return sfView::NONE;
     // test record data
-//    
+//
 //    $user = UserTable::getInstance()->createQuery('user')
 //            ->select('user.id, user.display_name, 12345 as number')
 //            ->where('user.display_name = ?', 'bkuberek')
 //            ->limit(1)
 //            ->fetchOne();
-//    
+//
 //    echo $user->getNumber();
-//    
+//
 //    $user->exposeData();
 //    die;
 //    // test User hydration
@@ -616,23 +623,23 @@ class authActions extends sfActions
 //    $rest->userLogin('Kim.Steffens@meredith.com', 'ksteffens123');
 //    $this->renderText('<pre>'.print_r($rest->getLastResponse(), true).'</pre>');
 //    return sfView::NONE;
-//    
-//    
+//
+//
 //    $response = $rpc->emailCheck('bkuberek@resolute.com');
 //    $this->renderText("emailcheck\n".'<pre>'.print_r($response, true).'</pre>');
-//    
+//
 //    $response = $rpc->subdirCheck('bkuberek');
 //    $this->renderText("subfircheck\n".'<pre>'.print_r($response, true).'</pre>');
-//    
+//
 //    $response = $rpc->userCheck('bkuberek@resolute.com');
 //    $this->renderText("usercheck\n".'<pre>'.print_r($response, true).'</pre>');
-//    
+//
 //    return sfView::NONE;
 //    $this->renderText('<pre>'.print_r($rest->getLastResponse(), true).'</pre>');
 //    return sfView::NONE;
 //    // test registration
 //    $this->getResponse()->setHttpHeader('Content-Type', 'text/xml');
-//    
+//
 //    $user = substr(md5(mt_rand(0, 9999999999)), 0, 10);
 //    ob_start();
 //    $response = $rest->userRegister(array(
@@ -648,10 +655,10 @@ class authActions extends sfActions
 //        'birth_day' => date('d')
 //    ));
 //    ob_end_flush();
-//    
+//
 //    if ($rest->isError()) {
 //      //throw $rest->getLastError();
-//      
+//
 //      echo $response;
 //      exit;
 //    }
@@ -692,7 +699,7 @@ class authActions extends sfActions
     }
   }
 
-  // for mobile users, sets cookie so that they can view full site 
+  // for mobile users, sets cookie so that they can view full site
   public function executeViewfullsite(sfWebRequest $request)
   // note: ffs stands for "force full site"
   {
@@ -708,6 +715,8 @@ class authActions extends sfActions
     // set lis cookie for nginx usage (2 for admin 1 for normal user)
     $lis_status = ($values['user']['is_admin'] == 1) ? 2 : 1;
     $this->getResponse()->setCookie('lis', $lis_status, time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    // set the DYN_USER_ID for Krux
+    $this->getResponse()->setCookie('DYN_USER_ID', $values['user']['id'], time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
   }
 
 }

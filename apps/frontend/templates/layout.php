@@ -98,9 +98,23 @@
     <!-- END Krux Interchange config -->
     */
     ?>
+    
+    <? if (has_slot('infolinks')): ?>
+      <? include_slot('infolinks'); ?>
+    <? endif; ?>
+    
   </head>
   <body>
-    <script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5VTT4K"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-5VTT4K');</script>
+	<!-- End Google Tag Manager -->
+    <? /*<script type="text/javascript" src="http://cdn.yb0t.com/p/d45f/js/interstitial-config.js"></script>*/ ?>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -175,9 +189,9 @@
     
     <script>
         var adService = {
-            kruxEnabled: false, /* Set if applicable */
-            yieldbotEnabled:false,  /* Set if applicable */
-            yielbotPub:'',  /* Set to the site's psn code. See table below for values */
+            kruxEnabled: true, /* Set if applicable */
+            yieldbotEnabled:true,  /* Set if applicable */
+            yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
             
             <? if (has_slot('gpt')): ?>
             
@@ -209,7 +223,22 @@
             node.parentNode.insertBefore(gadsCore, node);
         })();
 	</script>
-    
+	
+	
+    <script type="text/javascript">
+var zflag_parent="zedo_loader";
+var zflag_vast_domain="http://xp1.zedo.com/";
+var zflag_nid="2340";
+var zflag_cid="127";
+var zflag_sz="85";
+var zflag_sid="44";
+var zflag_width="426";
+var zflag_height="340";
+var zflag_bchan="128";
+var zflag_breplay="1";
+var zflag_dimension="1";
+</script>
+<script type="text/javascript" src="http://c5.zedo.com/jsc/c5/frd.js"></script>
   </body>
 </html>
 

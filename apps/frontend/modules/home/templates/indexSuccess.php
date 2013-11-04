@@ -1,3 +1,23 @@
+<? slot('gpt') ?>
+
+unitValues: {
+                	channel: 'Homepage', /* Set to the top level category id, if applicable */
+                
+                	parent: '', /* Set to the secondary level category id, if applicable */
+                
+                	child: '' /* Set to the tertiary level category id, if applicable */
+                
+            },
+            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+                	type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                	search: '' /* On search results, set to the search term */
+                
+            }
+
+
+<? end_slot() ?>
+
 <div class="article homepage">
   <? include_partial('featured_contents', compact('hpWonder')) ?>
   <? if ($sf_user->isAuthenticated() && $sf_user->getFbId() && $sf_user->getRegSourceAttribute('auth_token')): ?>

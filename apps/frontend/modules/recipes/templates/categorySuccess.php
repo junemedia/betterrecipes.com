@@ -1,9 +1,9 @@
 <? slot('gpt') ?>
 
 unitValues: {
-                	channel: '<?=$category->getName()?>', /* Set to the top level category id, if applicable */
+                	channel: 'Recipe', /* Set to the top level category id, if applicable */
                 
-                	parent: '', /* Set to the secondary level category id, if applicable */
+                	parent: '<?=UrlToolkit::getSubDomain($sf_request)?>', /* Set to the secondary level category id, if applicable */
                 
                 	child: '' /* Set to the tertiary level category id, if applicable */
                 
@@ -34,15 +34,12 @@ unitValues: {
   </div><!-- /#trending-recipes -->
   */
   ?>
-<? /*
-  <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => true)) ?>
-*/ ?>
+  <? //include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => true)) ?>
   <? //include_partial('stories', compact('stories', 'category')) ?>
   <? //include_partial('popular_stories', compact('category')) ?>
   <? include_partial('baynote_recipes', compact('category')) ?>
   <? include_partial('popular_blogs', compact('category')) ?>
-  <? /* remove slideshows as per JIRA # MERBETTERR-34 (don't ask) */ ?>
-  <? //include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
+  <? include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
 <? include_partial('opengraph/facebook_login_modal') ?>
