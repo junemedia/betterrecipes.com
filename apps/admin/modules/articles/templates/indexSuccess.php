@@ -109,8 +109,7 @@ function getSortDirection($sortDir){
         </div>
       <? endforeach; ?>
       <div class="pagination_link">
-        <?= link_to('>>', '@articles
-          _index?page=' . $pager->getNextPage()) ?>
+        <?= link_to('>>', '@articles_index?page=' . $pager->getNextPage()) ?>
       </div>
     </div>
 <? endif; ?>
