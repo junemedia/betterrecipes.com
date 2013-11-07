@@ -1,4 +1,4 @@
-#!/usr/bin/php
+ #!/usr/bin/php
 <?
 error_reporting(10);
 ini_set('memory_limit', '1G');
@@ -86,7 +86,7 @@ $query = mysql_query($sql);
 echo <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 <update-all-attributes>
-<attributes list="PageType,Title,Description,Ingredients,Servings,PrepTime,CookTime,TotalTime,Summary,Keywords,Notes,Rating,MainIngredient,Course,Instructions,Views,PubDate,AuthorId,AuthorName,AuthorEmail,Image,RootIngredients,BlogCategory,PubDate"></attributes>
+<attributes list="PageType,Title,Description,Ingredients,Servings,PrepTime,CookTime,TotalTime,Summary,Keywords,Notes,Rating,MainIngredient,Course,Instructions,Views,PubDate,AuthorId,AuthorName,AuthorEmail,Image,RootIngredients,BlogCategory,PubDate,ImageExist"></attributes>
 
 XML;
 
@@ -102,6 +102,11 @@ while ($r = mysql_fetch_assoc($query)) {
   $r = array_map(array('Microformat', 'correct_spaces'), $r);
   $r['Title'] = Microformat::correct_caps($r['Title']);
   $r['PageType'] = 'recipe';
+  if ( isset($r['Image']) && $r['Image'] != '' ) {
+	  printf('<attribute name="ImageExist" value="1"/>' . PHP_EOL);
+  } else {
+	  printf('<attribute name="ImageExist" value="0"/>' . PHP_EOL);
+  }
   foreach ($r as $key => $val) {
     switch ($key) {
       case 'Image':

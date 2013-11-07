@@ -80,7 +80,7 @@ class Baynote_rest
 //      $url .= http_build_query($params, '', '&', PHP_QUERY_RFC3986); // PHP5.4
       $url .= $this->paramToQueryString($params);
     }
-    //echo $url.'<br><br>';
+    //echo '<br><br>'.$url.'<br><br>';
     curl_setopt($curl, CURLOPT_URL, $url);
 
 //      if ($this->handle_cookies) {
