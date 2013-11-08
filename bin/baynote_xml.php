@@ -1,4 +1,4 @@
- #!/usr/bin/php
+#!/usr/bin/php
 <?
 error_reporting(10);
 ini_set('memory_limit', '1G');
