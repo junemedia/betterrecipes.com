@@ -280,7 +280,7 @@ class Baynote_rest
     $data = array();
     $items = array();
     $att = (isset($attrList)) ? $attrList : '*';
-    $attSort = (isset($attrSort)) ? $attrSort : '';
+    $attSort = (isset($attrSort)) ? $attrSort.',ImageExist:desc' : 'ImageExist:desc';
     $page = 'PageType:' . $PageType;
     $result = $PageType;
 
