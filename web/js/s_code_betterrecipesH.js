@@ -26,6 +26,8 @@ function s_doPlugins(s) {
             s.campaign=s.getQueryParam('ordersrc');
             if(!s.campaign)
                         s.campaign=s.getQueryParam('sssdmh');
+            if(!s.eVar68)
+                        s.eVar68=s.getQueryParam('hid');
             s.eVar8=s.getQueryParam('psrc');
             s.eVar15=s.getQueryParam('esrc');
 }
