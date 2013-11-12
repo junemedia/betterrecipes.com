@@ -141,7 +141,7 @@ all:
     patterns:
       - # Jello
         find:         /\b(jell-?o)\b/i
-        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/holiday-jello-recipes.aspx" target="_blank">$1</a>
+        repl:         <a href="http://www.kraftrecipes.com/recipes/dessert/jelloforallseasons.aspx" target="_blank">$1</a>
       - # Jet Puffed
         find:         /\b(jet puffed)\b/i
         repl:         <a href="http://www.kraftrecipes.com/Products/jet-puffed.aspx" target="_blank">$1</a>
@@ -168,4 +168,12 @@ all:
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
         find:         /\b(stovetop)\b/i
         repl:         <a href="http://www.kraftrecipes.com/recipes/dinner/side-dishes/stuffing-recipes.aspx" target="_blank">$1</a>
-        
+      - # planters
+        find:         /\b(planters)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/Products/planters-peanut-butter.aspx" target="_blank">$1</a>
+      - # bakers
+        find:         /\b(baker\'s)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/Products/bakers-chocolate.aspx" target="_blank">$1</a>
+      - # jet-puffed
+        find:         /\b(jet-?puffed)\b/i
+        repl:         <a href="http://www.kraftrecipes.com/Products/jet-puffed.aspx" target="_blank">$1</a>
