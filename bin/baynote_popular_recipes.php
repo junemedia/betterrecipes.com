@@ -53,7 +53,7 @@ while( $row = $results->fetch_assoc() )
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
         CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_URL => 'http://meredith-betrec.baynote.net/baynote/guiderest?customerId=meredith&code=betrec&guide=MostPopularRecipes&resultsPerPage=10&attrFilter=' . $filter . '&attrList=*&url=' . urlencode($url) . '&v=1',
+        CURLOPT_URL => 'http://meredith-betrec.baynote.net/baynote/guiderest?customerId=meredith&code=betrec&guide=MostPopularRecipes&resultsPerPage=10&attrSort=ImageExist:desc&attrFilter=' . $filter . '&attrList=*&url=' . urlencode($url) . '&v=1',
         CURLOPT_USERAGENT => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17'
     ));
     // Send the request & save response to $resp
