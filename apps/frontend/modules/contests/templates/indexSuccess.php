@@ -32,7 +32,7 @@ unitValues: {
   <? if (count($activeContests) > 0): ?>
     <div id="featured-contests" class="mb20" style="position:relative;">
       <ul>
-        <img id="contest_banner" src="/img/contest_banner.png"/>
+        <? /* <img id="contest_banner" src="/img/contest_banner.png"/> */ ?>
         <? foreach ($activeContests as $i => $contest): ?>
           <li class="ovhid <?= (($i + 1) == count($activeContests)) ? 'last no-border' : '' ?>" <?= (($i + 1) == count($activeContests)) ? 'id="no-border"' : '' ?>>
             <? if ($contest->getImgSrc()): ?>
