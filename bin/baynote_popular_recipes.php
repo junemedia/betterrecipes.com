@@ -13,7 +13,7 @@ if ($db->connect_error) {
     debug("Could not connect to MySQL: ".$db->connect_error);
 }
 
-$query = "SELECT id, slug, parent_id FROM category WHERE is_active = 1";
+$query = "SELECT id, slug, parent_id FROM category WHERE is_active = 1 LIMIT 1";
 
 if(!($stmt = $db->prepare( $query )))
 {
@@ -47,7 +47,7 @@ while( $row = $results->fetch_assoc() )
         $url .= $row['slug'] . ".betterrecipes.com/";
         $filter = 'CategoryId:' . $row['id'];
     }
-
+	//echo 'http://meredith-betrec.baynote.net/baynote/guiderest?customerId=meredith&code=betrec&guide=MostPopularRecipes&resultsPerPage=10&attrSort=ImageExist:desc&attrFilter=' . $filter . '&attrList=*&url=' . urlencode($url) . '&v=1';
     // Get cURL resource
     $curl = curl_init();
     // Set some options - we are passing in a useragent too here
@@ -66,7 +66,7 @@ while( $row = $results->fetch_assoc() )
     curl_close($curl);
 
     $xml_object = simplexml_load_string( $resp );
-    
+    //print_r($xml_object);
     foreach( $xml_object as $r )
     {
         $recipe_array = array();
@@ -77,16 +77,27 @@ while( $row = $results->fetch_assoc() )
         $recipe_array['slug'] = str_replace( '/', '',  $path[0] );
         foreach( $r as $a )
         {
-            if( $a->attributes()->n == 'Description' )
+            /*if( $a->attributes()->n == 'Description' )
             {
                 $recipe_array['description'] =  (string)$a->attributes()->v;
             }else if( $a->attributes()->n == 'Image' )
             {
                 $recipe_array['image_url'] = (string)$a->attributes()->v;
+            }*/ 
+            // rcage: I have no idea what Chris was thinking above
+            
+            if( $a->attributes()->n == 'Description' ) {
+                $recipe_array['description'] =  (string)$a->attributes()->v;
             }
+            if( $a->attributes()->n == 'Image' ) {
+	            $recipe_array['image_url'] = (string)$a->attributes()->v;
+            }
+            
+            
         }
         $results_array[] = $recipe_array;
     }
+    //print_r($results_array);
     $memcache = new Memcache();
     $memcache->connect('mmc', 11211);
     $memcache->set('br_pop_recipes_' . md5($row['slug']), $results_array, 0, 86400); //Queue lasts for 1 day max
