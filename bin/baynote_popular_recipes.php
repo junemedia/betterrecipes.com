@@ -13,7 +13,7 @@ if ($db->connect_error) {
     debug("Could not connect to MySQL: ".$db->connect_error);
 }
 
-$query = "SELECT id, slug, parent_id FROM category WHERE is_active = 1 LIMIT 1";
+$query = "SELECT id, slug, parent_id FROM category WHERE is_active = 1";
 
 if(!($stmt = $db->prepare( $query )))
 {
