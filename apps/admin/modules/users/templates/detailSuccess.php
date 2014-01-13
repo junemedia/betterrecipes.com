@@ -16,6 +16,7 @@
       <li><span class="label">Is Active</span><span class="data"><? if ($user->getIsActive() == 1): ?>Yes<? else: ?>No<? endif; ?></span></li>
       <li><span class="label">Is Admin</span><span class="data"><? if ($user->getIsAdmin() == 1): ?>Yes<? else: ?>No<? endif; ?></span></li>
       <li><span class="label">Is Super Admin</span><span class="data"><? if ($user->getIsSuperAdmin() == 1): ?>Yes<? else: ?>No<? endif; ?></span></li>
+      <li><span class="label">Is Featured Blogger</span><span class="data"><? if ($user->getIsFeaturedBlogger() == 1): ?>Yes<? else: ?>No<? endif; ?></span></li>
     </ul>      
   </div>
 </div> 
