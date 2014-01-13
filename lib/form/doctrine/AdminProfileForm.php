@@ -10,6 +10,7 @@ class AdminProfileForm extends BaseUserForm {
     $this->setWidget('is_admin', new sfWidgetFormInput(array(), array('style' => 'display:none')));
     $this->setWidget('is_super_admin', new sfWidgetFormInput(array(), array('style' => 'display:none')));
     $this->setWidget('is_active', new sfWidgetFormInput(array(), array('style' => 'display:none')));
+    $this->setWidget('is_featured_blogger', new sfWidgetFormInput(array(), array('style' => 'display:none')));
   }
   
   public function update($con = null) {
