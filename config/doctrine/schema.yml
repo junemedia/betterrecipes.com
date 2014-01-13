@@ -2744,6 +2744,14 @@ User:
       default: '1'
       notnull: false
       autoincrement: false
+    is_featured_blogger:
+      type: integer(1)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: false
+      autoincrement: false
     reg_source:
       type: integer(2)
       fixed: false

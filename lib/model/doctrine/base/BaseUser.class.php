@@ -23,6 +23,7 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property integer $is_premium
  * @property integer $fb_share
  * @property integer $is_active
+ * @property integer $is_featured_blogger
  * @property integer $reg_source
  * @property timestamp $created_at
  * @property timestamp $updated_at
@@ -51,92 +52,94 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property Doctrine_Collection $UserProvider
  * @property Doctrine_Collection $Vote
  * 
- * @method integer             getId()              Returns the current record's "id" value
- * @method integer             getOnesiteId()       Returns the current record's "onesite_id" value
- * @method integer             getBlogId()          Returns the current record's "blog_id" value
- * @method string              getProfileId()       Returns the current record's "profile_id" value
- * @method string              getFbId()            Returns the current record's "fb_id" value
- * @method string              getFirstName()       Returns the current record's "first_name" value
- * @method string              getLastName()        Returns the current record's "last_name" value
- * @method string              getDisplayName()     Returns the current record's "display_name" value
- * @method string              getSubdir()          Returns the current record's "subdir" value
- * @method string              getEmail()           Returns the current record's "email" value
- * @method string              getAvatar()          Returns the current record's "avatar" value
- * @method integer             getIsAdmin()         Returns the current record's "is_admin" value
- * @method integer             getIsSuperAdmin()    Returns the current record's "is_super_admin" value
- * @method integer             getIsPremium()       Returns the current record's "is_premium" value
- * @method integer             getFbShare()         Returns the current record's "fb_share" value
- * @method integer             getIsActive()        Returns the current record's "is_active" value
- * @method integer             getRegSource()       Returns the current record's "reg_source" value
- * @method timestamp           getCreatedAt()       Returns the current record's "created_at" value
- * @method timestamp           getUpdatedAt()       Returns the current record's "updated_at" value
- * @method enum                getSource()          Returns the current record's "source" value
- * @method string              getLegacyId()        Returns the current record's "legacy_id" value
- * @method string              getWebsiteName()     Returns the current record's "website_name" value
- * @method string              getWebsiteAddress()  Returns the current record's "website_address" value
- * @method Doctrine_Collection getArticle()         Returns the current record's "Article" collection
- * @method Doctrine_Collection getCollection()      Returns the current record's "Collection" collection
- * @method Doctrine_Collection getContest()         Returns the current record's "Contest" collection
- * @method Doctrine_Collection getContestPeriod()   Returns the current record's "ContestPeriod" collection
- * @method Doctrine_Collection getContestant()      Returns the current record's "Contestant" collection
- * @method Doctrine_Collection getMadeit()          Returns the current record's "Madeit" collection
- * @method Doctrine_Collection getMeta()            Returns the current record's "Meta" collection
- * @method Doctrine_Collection getOverride()        Returns the current record's "Override" collection
- * @method Doctrine_Collection getPhoto()           Returns the current record's "Photo" collection
- * @method Doctrine_Collection getRate()            Returns the current record's "Rate" collection
- * @method Doctrine_Collection getRecipe()          Returns the current record's "Recipe" collection
- * @method Doctrine_Collection getRecipeLike()      Returns the current record's "RecipeLike" collection
- * @method Doctrine_Collection getSaved()           Returns the current record's "Saved" collection
- * @method Doctrine_Collection getSlideshow()       Returns the current record's "Slideshow" collection
- * @method Doctrine_Collection getSponsor()         Returns the current record's "Sponsor" collection
- * @method Doctrine_Collection getTip()             Returns the current record's "Tip" collection
- * @method Doctrine_Collection getUserActions()     Returns the current record's "UserActions" collection
- * @method Doctrine_Collection getUserInterest()    Returns the current record's "UserInterest" collection
- * @method Doctrine_Collection getUserProvider()    Returns the current record's "UserProvider" collection
- * @method Doctrine_Collection getVote()            Returns the current record's "Vote" collection
- * @method User                setId()              Sets the current record's "id" value
- * @method User                setOnesiteId()       Sets the current record's "onesite_id" value
- * @method User                setBlogId()          Sets the current record's "blog_id" value
- * @method User                setProfileId()       Sets the current record's "profile_id" value
- * @method User                setFbId()            Sets the current record's "fb_id" value
- * @method User                setFirstName()       Sets the current record's "first_name" value
- * @method User                setLastName()        Sets the current record's "last_name" value
- * @method User                setDisplayName()     Sets the current record's "display_name" value
- * @method User                setSubdir()          Sets the current record's "subdir" value
- * @method User                setEmail()           Sets the current record's "email" value
- * @method User                setAvatar()          Sets the current record's "avatar" value
- * @method User                setIsAdmin()         Sets the current record's "is_admin" value
- * @method User                setIsSuperAdmin()    Sets the current record's "is_super_admin" value
- * @method User                setIsPremium()       Sets the current record's "is_premium" value
- * @method User                setFbShare()         Sets the current record's "fb_share" value
- * @method User                setIsActive()        Sets the current record's "is_active" value
- * @method User                setRegSource()       Sets the current record's "reg_source" value
- * @method User                setCreatedAt()       Sets the current record's "created_at" value
- * @method User                setUpdatedAt()       Sets the current record's "updated_at" value
- * @method User                setSource()          Sets the current record's "source" value
- * @method User                setLegacyId()        Sets the current record's "legacy_id" value
- * @method User                setWebsiteName()     Sets the current record's "website_name" value
- * @method User                setWebsiteAddress()  Sets the current record's "website_address" value
- * @method User                setArticle()         Sets the current record's "Article" collection
- * @method User                setCollection()      Sets the current record's "Collection" collection
- * @method User                setContest()         Sets the current record's "Contest" collection
- * @method User                setContestPeriod()   Sets the current record's "ContestPeriod" collection
- * @method User                setContestant()      Sets the current record's "Contestant" collection
- * @method User                setMadeit()          Sets the current record's "Madeit" collection
- * @method User                setMeta()            Sets the current record's "Meta" collection
- * @method User                setOverride()        Sets the current record's "Override" collection
- * @method User                setPhoto()           Sets the current record's "Photo" collection
- * @method User                setRate()            Sets the current record's "Rate" collection
- * @method User                setRecipe()          Sets the current record's "Recipe" collection
- * @method User                setRecipeLike()      Sets the current record's "RecipeLike" collection
- * @method User                setSaved()           Sets the current record's "Saved" collection
- * @method User                setSlideshow()       Sets the current record's "Slideshow" collection
- * @method User                setSponsor()         Sets the current record's "Sponsor" collection
- * @method User                setTip()             Sets the current record's "Tip" collection
- * @method User                setUserActions()     Sets the current record's "UserActions" collection
- * @method User                setUserInterest()    Sets the current record's "UserInterest" collection
- * @method User                setUserProvider()    Sets the current record's "UserProvider" collection
- * @method User                setVote()            Sets the current record's "Vote" collection
+ * @method integer             getId()                  Returns the current record's "id" value
+ * @method integer             getOnesiteId()           Returns the current record's "onesite_id" value
+ * @method integer             getBlogId()              Returns the current record's "blog_id" value
+ * @method string              getProfileId()           Returns the current record's "profile_id" value
+ * @method string              getFbId()                Returns the current record's "fb_id" value
+ * @method string              getFirstName()           Returns the current record's "first_name" value
+ * @method string              getLastName()            Returns the current record's "last_name" value
+ * @method string              getDisplayName()         Returns the current record's "display_name" value
+ * @method string              getSubdir()              Returns the current record's "subdir" value
+ * @method string              getEmail()               Returns the current record's "email" value
+ * @method string              getAvatar()              Returns the current record's "avatar" value
+ * @method integer             getIsAdmin()             Returns the current record's "is_admin" value
+ * @method integer             getIsSuperAdmin()        Returns the current record's "is_super_admin" value
+ * @method integer             getIsPremium()           Returns the current record's "is_premium" value
+ * @method integer             getFbShare()             Returns the current record's "fb_share" value
+ * @method integer             getIsActive()            Returns the current record's "is_active" value
+ * @method integer             getIsFeaturedBlogger()   Returns the current record's "is_featured_blogger" value
+ * @method integer             getRegSource()           Returns the current record's "reg_source" value
+ * @method timestamp           getCreatedAt()           Returns the current record's "created_at" value
+ * @method timestamp           getUpdatedAt()           Returns the current record's "updated_at" value
+ * @method enum                getSource()              Returns the current record's "source" value
+ * @method string              getLegacyId()            Returns the current record's "legacy_id" value
+ * @method string              getWebsiteName()         Returns the current record's "website_name" value
+ * @method string              getWebsiteAddress()      Returns the current record's "website_address" value
+ * @method Doctrine_Collection getArticle()             Returns the current record's "Article" collection
+ * @method Doctrine_Collection getCollection()          Returns the current record's "Collection" collection
+ * @method Doctrine_Collection getContest()             Returns the current record's "Contest" collection
+ * @method Doctrine_Collection getContestPeriod()       Returns the current record's "ContestPeriod" collection
+ * @method Doctrine_Collection getContestant()          Returns the current record's "Contestant" collection
+ * @method Doctrine_Collection getMadeit()              Returns the current record's "Madeit" collection
+ * @method Doctrine_Collection getMeta()                Returns the current record's "Meta" collection
+ * @method Doctrine_Collection getOverride()            Returns the current record's "Override" collection
+ * @method Doctrine_Collection getPhoto()               Returns the current record's "Photo" collection
+ * @method Doctrine_Collection getRate()                Returns the current record's "Rate" collection
+ * @method Doctrine_Collection getRecipe()              Returns the current record's "Recipe" collection
+ * @method Doctrine_Collection getRecipeLike()          Returns the current record's "RecipeLike" collection
+ * @method Doctrine_Collection getSaved()               Returns the current record's "Saved" collection
+ * @method Doctrine_Collection getSlideshow()           Returns the current record's "Slideshow" collection
+ * @method Doctrine_Collection getSponsor()             Returns the current record's "Sponsor" collection
+ * @method Doctrine_Collection getTip()                 Returns the current record's "Tip" collection
+ * @method Doctrine_Collection getUserActions()         Returns the current record's "UserActions" collection
+ * @method Doctrine_Collection getUserInterest()        Returns the current record's "UserInterest" collection
+ * @method Doctrine_Collection getUserProvider()        Returns the current record's "UserProvider" collection
+ * @method Doctrine_Collection getVote()                Returns the current record's "Vote" collection
+ * @method User                setId()                  Sets the current record's "id" value
+ * @method User                setOnesiteId()           Sets the current record's "onesite_id" value
+ * @method User                setBlogId()              Sets the current record's "blog_id" value
+ * @method User                setProfileId()           Sets the current record's "profile_id" value
+ * @method User                setFbId()                Sets the current record's "fb_id" value
+ * @method User                setFirstName()           Sets the current record's "first_name" value
+ * @method User                setLastName()            Sets the current record's "last_name" value
+ * @method User                setDisplayName()         Sets the current record's "display_name" value
+ * @method User                setSubdir()              Sets the current record's "subdir" value
+ * @method User                setEmail()               Sets the current record's "email" value
+ * @method User                setAvatar()              Sets the current record's "avatar" value
+ * @method User                setIsAdmin()             Sets the current record's "is_admin" value
+ * @method User                setIsSuperAdmin()        Sets the current record's "is_super_admin" value
+ * @method User                setIsPremium()           Sets the current record's "is_premium" value
+ * @method User                setFbShare()             Sets the current record's "fb_share" value
+ * @method User                setIsActive()            Sets the current record's "is_active" value
+ * @method User                setIsFeaturedBlogger()   Sets the current record's "is_featured_blogger" value
+ * @method User                setRegSource()           Sets the current record's "reg_source" value
+ * @method User                setCreatedAt()           Sets the current record's "created_at" value
+ * @method User                setUpdatedAt()           Sets the current record's "updated_at" value
+ * @method User                setSource()              Sets the current record's "source" value
+ * @method User                setLegacyId()            Sets the current record's "legacy_id" value
+ * @method User                setWebsiteName()         Sets the current record's "website_name" value
+ * @method User                setWebsiteAddress()      Sets the current record's "website_address" value
+ * @method User                setArticle()             Sets the current record's "Article" collection
+ * @method User                setCollection()          Sets the current record's "Collection" collection
+ * @method User                setContest()             Sets the current record's "Contest" collection
+ * @method User                setContestPeriod()       Sets the current record's "ContestPeriod" collection
+ * @method User                setContestant()          Sets the current record's "Contestant" collection
+ * @method User                setMadeit()              Sets the current record's "Madeit" collection
+ * @method User                setMeta()                Sets the current record's "Meta" collection
+ * @method User                setOverride()            Sets the current record's "Override" collection
+ * @method User                setPhoto()               Sets the current record's "Photo" collection
+ * @method User                setRate()                Sets the current record's "Rate" collection
+ * @method User                setRecipe()              Sets the current record's "Recipe" collection
+ * @method User                setRecipeLike()          Sets the current record's "RecipeLike" collection
+ * @method User                setSaved()               Sets the current record's "Saved" collection
+ * @method User                setSlideshow()           Sets the current record's "Slideshow" collection
+ * @method User                setSponsor()             Sets the current record's "Sponsor" collection
+ * @method User                setTip()                 Sets the current record's "Tip" collection
+ * @method User                setUserActions()         Sets the current record's "UserActions" collection
+ * @method User                setUserInterest()        Sets the current record's "UserInterest" collection
+ * @method User                setUserProvider()        Sets the current record's "UserProvider" collection
+ * @method User                setVote()                Sets the current record's "Vote" collection
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -293,6 +296,16 @@ abstract class BaseUser extends sfDoctrineRecord
              'unsigned' => true,
              'primary' => false,
              'default' => '1',
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 1,
+             ));
+        $this->hasColumn('is_featured_blogger', 'integer', 1, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => true,
+             'primary' => false,
+             'default' => '0',
              'notnull' => false,
              'autoincrement' => false,
              'length' => 1,
