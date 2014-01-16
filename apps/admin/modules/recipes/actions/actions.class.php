@@ -65,6 +65,22 @@ class recipesActions extends sfActions {
         else
             return $this->renderText("None");
     }
+    
+    public function executeUpdateFeaturedRecipe(sfWebRequest $request)
+    {
+        $this->forward404Unless($request->isXmlHttpRequest());
+
+        if (!$recipeId = $this->getRequestParameter('id'))
+        {
+            return $this->renderText(json_encode('Please choose a recipe'));
+        } 
+
+        RecipeTable::updateFeatured($recipeId, $this->getRequestParameter('is_featured'));
+
+        
+        sfView::NONE;
+        return $this->renderText(json_encode('Featured Recipe Updated'));
+    }
 
     public function executeUpdateActive(sfWebRequest $request)
     {

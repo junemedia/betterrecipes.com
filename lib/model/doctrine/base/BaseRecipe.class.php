@@ -40,6 +40,7 @@ Doctrine_Manager::getInstance()->bindComponent('Recipe', 'doctrine');
  * @property timestamp $updated_at
  * @property enum $source
  * @property string $legacy_id
+ * @property integer $is_featured
  * @property User $User
  * @property Sponsor $Sponsor
  * @property Doctrine_Collection $CategoryRecipe
@@ -88,6 +89,7 @@ Doctrine_Manager::getInstance()->bindComponent('Recipe', 'doctrine');
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
  * @method enum                getSource()           Returns the current record's "source" value
  * @method string              getLegacyId()         Returns the current record's "legacy_id" value
+ * @method integer             getIsFeatured()       Returns the current record's "is_featured" value
  * @method User                getUser()             Returns the current record's "User" value
  * @method Sponsor             getSponsor()          Returns the current record's "Sponsor" value
  * @method Doctrine_Collection getCategoryRecipe()   Returns the current record's "CategoryRecipe" collection
@@ -135,6 +137,7 @@ Doctrine_Manager::getInstance()->bindComponent('Recipe', 'doctrine');
  * @method Recipe              setUpdatedAt()        Sets the current record's "updated_at" value
  * @method Recipe              setSource()           Sets the current record's "source" value
  * @method Recipe              setLegacyId()         Sets the current record's "legacy_id" value
+ * @method Recipe              setIsFeatured()       Sets the current record's "is_featured" value
  * @method Recipe              setUser()             Sets the current record's "User" value
  * @method Recipe              setSponsor()          Sets the current record's "Sponsor" value
  * @method Recipe              setCategoryRecipe()   Sets the current record's "CategoryRecipe" collection
@@ -478,6 +481,16 @@ abstract class BaseRecipe extends sfDoctrineRecord
              'notnull' => false,
              'autoincrement' => false,
              'length' => 40,
+             ));
+        $this->hasColumn('is_featured', 'integer', 1, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => true,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 1,
              ));
     }
 

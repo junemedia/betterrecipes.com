@@ -217,6 +217,17 @@ class RecipeTable extends Doctrine_Table
       return $q;
     }
   }
+  
+  public static function updateFeatured($recipeId, $isFeatured)
+  {
+    if (isset($recipeId) && isset($isFeatured)) {
+      $q = Doctrine_Query::create()->update('Recipe r');
+      $q->set('r.is_featured', '?', $isFeatured);
+      $q->set('r.updated_at', '?', date('Y-m-d H:i:s'));
+      $q->where('r.id = ?', $recipeId)->execute();
+      return $q;
+    }
+  }
 
   public static function updateActive($recipeId, $active)
   {
@@ -294,6 +305,18 @@ class RecipeTable extends Doctrine_Table
     $q = Doctrine_Core::getTable('Sponsor')->createQuery('s')->leftJoin('s.Recipe r')->where('r.id = ?', $id);
     $sponsor = $q->fetchOne();
     return $sponsor['name'];
+  }
+  
+  public static function getFeaturedBloggerRecipes()
+  {
+	  // fetch single user who is featured
+	  $u = Doctrine_Core::getTable('User')->createQuery('u')->where('u.is_active = ?', 1)->andWhere('u.is_featured_blogger = ?', 1)->orderby('u.updated_at desc')->fetchOne();
+	  if ( is_object($u) ) {
+		  // fetch 4 featured recipes
+		  $q = Doctrine_Core::getTable('Recipe')->createQuery('r')->innerJoin('r.User u')->where('r.user_id = ?', $u->getId())->andWhere('r.is_featured = ?', 1)->orderby('r.created_at desc')->limit(4);
+		  return $q->execute();
+		  //return $a = array('user' => $u, 'recipes' => $q->execute());
+	  }
   }
 
 }

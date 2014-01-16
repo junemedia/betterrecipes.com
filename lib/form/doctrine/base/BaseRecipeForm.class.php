@@ -48,6 +48,7 @@ abstract class BaseRecipeForm extends BaseFormDoctrine
       'updated_at'      => new sfWidgetFormDateTime(),
       'source'          => new sfWidgetFormChoice(array('choices' => array('nw' => 'nw', 'br' => 'br', 'mb' => 'mb'))),
       'legacy_id'       => new sfWidgetFormInputText(),
+      'is_featured'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -84,6 +85,7 @@ abstract class BaseRecipeForm extends BaseFormDoctrine
       'updated_at'      => new sfValidatorDateTime(array('required' => false)),
       'source'          => new sfValidatorChoice(array('choices' => array(0 => 'nw', 1 => 'br', 2 => 'mb'), 'required' => false)),
       'legacy_id'       => new sfValidatorString(array('max_length' => 40, 'required' => false)),
+      'is_featured'     => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('recipe[%s]');

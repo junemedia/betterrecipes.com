@@ -651,6 +651,60 @@ MAIN FOOTER ITEMS
 #main-footer p a {
   text-decoration:underline;
 }
+
+.blogger {
+	float: left;
+	width: 300px;
+}
+.blogger_gallery {
+	height:225px;
+	margin: 0 20px 20px 0;
+	width: 300px;
+	-moz-box-shadow: 0px 0px 4px #888;
+  -webkit-box-shadow: 0px 0px 4px #888;
+  box-shadow: 0px 0px 4px #888;
+  border:#FFF solid 6px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.blogger_gallery img {
+	width: 300px;
+	height: auto;
+	display: block;
+}
+#featuredBlogger h3 {
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 22px;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+.blogger_recipes {
+	width: 330px;
+	float: left;
+	margin-left: 30px;
+}
+.blogger_recipes ul {
+	margin-left: 15px;
+}
+.blogger_recipes .recipe-block {
+	float: left;
+	margin: 0 30px 30px 0;
+	width: 100px;
+}
+.blogger_recipes .recipe-block .img-link {
+	width: 100px;
+	height: 100px;
+	display: block;
+}
+.blogger_recipes .recipe-block .link {
+	width: 100px;
+	margin-top: 5px;
+	display: block;
+}
+
+
 /*-----
 HOMEPAGE: GALLERY
 -----*/

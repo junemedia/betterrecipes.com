@@ -23,9 +23,12 @@ class homeActions extends sfActions
     if (UrlToolkit::getDomain() != $request->getHost() && $host_parts[0] != 'www') {
       $this->forward('recipes', 'category');
     }
-    $this->poll = PollTable::getHomepagePoll();
+    //$this->poll = PollTable::getHomepagePoll();
     $this->hpWonder = WondersTable::getHomepageWonder();
     $this->categoryWonder = CategoryWondersTable::getWonder();
+    
+    // fetch featured blogger recipes
+    $this->featured_blogger = RecipeTable::getFeaturedBloggerRecipes();
 
     // meta
     $response = $this->getResponse();

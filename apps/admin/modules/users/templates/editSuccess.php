@@ -26,9 +26,9 @@
     
     $("#is_featured_blogger_chkbox").change(function(){
       if($(this).attr("checked")){
-        $("#is_featured_blogger").val(1);
+        $("#user_is_featured_blogger").val(1);
       } else {
-        $("#is_featured_blogger").val(0);
+        $("#user_is_featured_blogger").val(0);
       }
     });  
       

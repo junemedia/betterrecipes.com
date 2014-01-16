@@ -2095,6 +2095,14 @@ Recipe:
       primary: false
       notnull: false
       autoincrement: false
+    is_featured:
+      type: integer(1)
+      fixed: false
+      unsigned: true
+      primary: false
+      default: '0'
+      notnull: false
+      autoincrement: false
   relations:
     User:
       local: user_id

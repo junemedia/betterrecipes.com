@@ -90,6 +90,9 @@ class usersActions extends sfActions
   public function executeDetail(sfWebRequest $request)
   {
     $this->forward404Unless($this->user = Doctrine_Core::getTable('User')->find(array($request->getParameter('id'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
+    // get recipes by user limit 60
+    $p = array('user_id' => $request->getParameter('id'), 'limit' => 60);
+    $this->user_recipes = RecipeTable::getRecipes($p);
   }
 
   public function executeEdit(sfWebRequest $request)

@@ -30,10 +30,20 @@ unitValues: {
     <? include_component('opengraph', 'trendingRecipes', array('limit' => 15)) ?>
   </div><!-- /#trending-recipes -->
   <div class="clear-both"></div>
+  <?
+  /*
   <div id="todays-poll">
     <? include_partial('vote', compact('poll')) ?>
   </div><!-- /#todays-poll -->
   <div class="clear-both"></div>
+  */
+  ?>
+  
+  <div id="featuredBlogger">
+  	<? include_partial('featured_blogger', compact('featured_blogger')) ?>
+  </div><!-- // #featuredBlogger -->
+  <div class="clear-both"></div>
+  
   <? include_partial('featured_contests') ?>
   <div class="clear-both"></div>
   <? include_partial('editorials', compact('categoryWonder')) ?>
