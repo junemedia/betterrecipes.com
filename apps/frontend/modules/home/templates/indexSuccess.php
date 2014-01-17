@@ -47,6 +47,9 @@ unitValues: {
   <? include_partial('featured_contests') ?>
   <div class="clear-both"></div>
   <? include_partial('editorials', compact('categoryWonder')) ?>
+  
+  <?
+  /* MBR-57 -> Remove
   <p class="title">Trending Food</p>
   <div id="trendingFood">
     <script type='text/javascript'>
@@ -63,6 +66,9 @@ unitValues: {
     ref.parentNode.insertBefore(script, ref);
     })(); </script>
   </div>
+  */
+  ?>
+  
   <? include_partial('opengraph/facebook_login_modal') ?>
 </div><!-- /.article -->
 <? include_partial('global/right_rail/right_rail') ?>

@@ -53,6 +53,9 @@ var infolinks_wsid = 14;
   <div id="recipe-comments" class="clear mt20">
     <fb:comments href="<?= $sf_request->getUri() ?>" num_posts="5" width="660"></fb:comments>
   </div><!-- /#recipe-comments -->
+  
+  <?
+  /* MBR-57 -> Remove
   <p class="title">Trending Food</p>
   <div id="trendingFood">
     <script type='text/javascript'>
@@ -69,6 +72,8 @@ var infolinks_wsid = 14;
     ref.parentNode.insertBefore(script, ref);
     })(); </script>
   </div>
+  */
+  ?>
 </div><!-- /.section -->
 <? include_partial('global/right_rail/right_rail') ?>
 <? include_partial('opengraph/facebook_login_modal') ?>
