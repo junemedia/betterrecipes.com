@@ -105,6 +105,21 @@ a:hover {
 .clri {
   clear:right!important;
 }
+
+.cfix {
+  *zoom: 1;
+}
+.cfix:before,
+.cfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.cfix:after {
+  clear: both;
+}
+
+
 #main-header,
 #main-content,
 #main-footer {

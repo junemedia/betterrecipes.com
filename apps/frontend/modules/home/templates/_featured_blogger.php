@@ -15,7 +15,7 @@
 	<? endif; ?>
 	<? endforeach; ?>
 	
-	<div class="blogger_recipes">
+	<div class="blogger_recipes cfix">
 			<? foreach( $featured_blogger as $index => $recipe ): ?>
 					<div class="recipe-block">
 					<a class="img-link" title="<?= $recipe->getName() ?>" href="<?= getUrl($recipe) ?>"><img width="100" height="100" src="<?= $recipe->getMainImageSrc() ?>"/></a>
