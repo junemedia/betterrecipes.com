@@ -9,14 +9,6 @@
 			<a href="<?= getUrl('User', array('display_name' => $value->getUser()->getDisplayName())) ?>"><img src="<?= $value->getUser()->getAvatarSrc() ?>" alt="<?= $value->getUser()->getDisplayName() ?>" /></a>
 		</div>
 		<h3><a href="<?= getUrl('User', array('display_name' => $value->getUser()->getDisplayName())) ?>"><?= $value->getUser()->getDisplayName() ?></a></h3>
-		<? if (($interests = $value->getUser()->getInterests()) && $interests->count()): ?>
-		<p class="fs14 ttupp mt20">Interests</p>
-		<p>
-		<? $i = 0; foreach ($interests as $interest): ?>
-		<?= ($i++ > 0) ? ', ' : '' ?><?= $interest->getName() ?>
-		<? endforeach ?>
-		</p>
-		<? endif; ?>
 		
 	</div>
 	<? break; ?>
