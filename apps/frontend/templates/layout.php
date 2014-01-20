@@ -216,12 +216,22 @@
             
             <? endif; ?>
         };
-        (function() {
-            var gadsCore = document.createElement('script');
-            gadsCore.src = 'http://s2.mdpcdn.com/web/js-min/js/mdp/app/gpt/gpt.core.js';
-            var node = document.getElementsByTagName('script')[0];
-            node.parentNode.insertBefore(gadsCore, node);
-        })();
+		(function() {
+			var d = new Date(), dateBits = [], dow, diff, gadsCore, cdnPath;
+			d.setUTCHours(d.getUTCHours() - 9);
+			dow = d.getUTCDay();
+			diff = ((dow < 2) ? 2 : 5) - dow;
+			diff = (diff < 1) ? diff+4 : diff;
+			d.setUTCDate(d.getUTCDate() + diff);
+			dateBits.push(d.getUTCFullYear());
+			dateBits.push(d.getUTCMonth()+1);
+			dateBits.push(d.getUTCDate());
+			adService.cacheBuster = '?' + dateBits.join('-');
+			gadsCore = document.createElement('script');
+			gadsCore.src = 'http://s2.mdpcdn.com/web/js-min/js/mdp/app/gpt/gpt.core.js' + adService.cacheBuster;
+			var node = document.getElementsByTagName('script')[0];
+			node.parentNode.insertBefore(gadsCore, node);
+		})();
 	</script>
 	
 	

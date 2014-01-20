@@ -55,5 +55,4 @@ document.write(src);
 </noscript>
 */
 ?>
-<div id="div-gpt-topBanner"></div>
-
+<div id="div-gpt-narrowTopBanner "></div>
