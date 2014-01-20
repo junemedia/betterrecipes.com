@@ -684,8 +684,8 @@ MAIN FOOTER ITEMS
   -webkit-box-sizing: border-box;
 }
 .blogger_gallery img {
-	width: 300px;
-	height: auto;
+	width: 288px;
+	height: 212px;
 	display: block;
 }
 #featuredBlogger h3 {
