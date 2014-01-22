@@ -19,7 +19,8 @@ unitValues: {
 <? end_slot() ?>
 
 <script>
-  var has_fb = <?= $user->hasFb() ? 1 : 0 ?>;
+  <? /* var has_fb = <?= $user->hasFb() ? 1 : 0 ?>; */ ?>
+  var has_fb =  0;
   var current_avatar = "<?= $user->getAvatarSrc() ?>";
   var alt_avatar = "<?= $user->getLocalAvatarSrc() ?>";
   $(document).ready(function() {
