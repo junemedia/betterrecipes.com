@@ -129,7 +129,8 @@ unitValues: {
           </span>
         </fieldset>
       </fieldset>
-      <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list">
+      <? /* <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list"> */ ?>
+      <fieldset class="profile-photo" id="avatar_list">
         <fieldset class="profile-photo-toggles hidden avatars">
           <ul class="avatar-list">
             <? for ($i = 1; $i <= 16; $i++): ?>
