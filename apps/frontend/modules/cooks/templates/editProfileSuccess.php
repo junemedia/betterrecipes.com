@@ -110,7 +110,8 @@ unitValues: {
         <?= $userForm->renderGlobalErrors() ?>
       <? endif ?>
       <br>
-      <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list">
+      <? /* <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list"> */ ?>
+      <fieldset class="profile-photo" id="avatar_list">
         <label><a id="change_avatar" class="show">Change Avatar</a></label>
         <fieldset class="profile-photo-toggles hidden options">
           <span class="action">

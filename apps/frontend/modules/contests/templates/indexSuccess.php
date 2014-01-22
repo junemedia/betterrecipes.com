@@ -23,7 +23,7 @@ unitValues: {
   <div id="contest-detail">
     <? include_partial('global/sharebar') ?>
     
-    <img src="/img/contests/BestBloggersContest.jpg" class="mb20" />
+    <!-- <img src="/img/contests/BestBloggersContest.jpg" class="mb20" /> -->
     
     <p class="title green">Active Contests</p>
   </div>
