@@ -208,7 +208,8 @@
                 
             },
             pageTargetingValues: { /* Additional key-values can be added to this section if needed */
-            		id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
+					id: '<?=md5($sf_request->getPathInfo())?>', /* Set to a page-specific unique id*/
+            		/*id: '<?php echo md5($sf_request->getUri())?>',//*/ /* Set to a page-specific unique id*/
                 	type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
                 	search: '' /* On search results, set to the search term */
                 
@@ -216,6 +217,8 @@
             
             <? endif; ?>
         };
+		if (window.location.hostname.match(/\.resolute\.com$/))
+		{adService.unitValues.adDomain = 'betterrecipes.com';}
 		(function() {
 			var d = new Date(), dateBits = [], dow, diff, gadsCore, cdnPath;
 			d.setUTCHours(d.getUTCHours() - 9);
