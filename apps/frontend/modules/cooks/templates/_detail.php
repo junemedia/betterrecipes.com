@@ -1,6 +1,6 @@
 <div id="public-profile">
   <div class="main-image">
-  	<? if ( $user->getAvatarSrc() == '' ): ?>
+  	<? if ( $user->getAvatarSrc() == '/uploads/avatars/' ): ?>
     <img src="/img/avatars/default_1.jpg" width="150" alt="<?= $user->getDisplayName() ?>" />
     <? else: ?>
     <img src="<?= $user->getAvatarSrc() ?>" width="150" alt="<?= $user->getDisplayName() ?>" />
