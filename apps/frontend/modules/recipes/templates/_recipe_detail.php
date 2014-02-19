@@ -196,8 +196,8 @@
       </div><!-- // utility -->
       <h3 class="title green" itemprop="name" id="recipe_title"><?= Microformat::correct_caps($recipe->getName()) ?></h3>
       <? $recipe_user = $recipe->getUser() ?>
-      <? $recipe_user_active = $recipe_user->getSubdir() && $recipe_user->getSubdir() != '' && $recipe_user->getIsActive() == 1 ?>
-      <? if ($recipe_user_active): ?>
+      <? //$recipe_user_active = $recipe_user->getSubdir() && $recipe_user->getSubdir() != '' && $recipe_user->getIsActive() == 1 ?>
+      <? if ($recipe_user->getIsActive() == 1): ?>
         <p>Submitted by: <a href="<?= getUrl('User', array('display_name' => $recipe_user->getDisplayName())) ?>" title="Recipe Author" itemprop="author"><?= $recipe_user->getDisplayName() ?></a>
           <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a>
           <? if ( $recipe_user->getWebsiteName() != '' && $recipe_user->getWebsiteAddress() != '' ): ?>

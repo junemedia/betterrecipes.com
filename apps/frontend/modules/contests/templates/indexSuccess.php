@@ -23,7 +23,11 @@ unitValues: {
   <div id="contest-detail">
     <? include_partial('global/sharebar') ?>
     
-    <img src="/img/contests/BestBloggersContest.jpg" class="mb20" /> 
+    <? if ($contestImage && (sizeof($contestImage) > 0)): ?>
+	    <? foreach ($contestImage as $i => $c): ?>
+	    <img src="/img/contests<?=$c->getImageName()?>" class="mb20" /> 
+		<? endforeach; ?>
+    <? endif; ?>
     
     <p class="title green">Active Contests</p>
   </div>
