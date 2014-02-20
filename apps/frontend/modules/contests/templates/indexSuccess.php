@@ -29,7 +29,7 @@ unitValues: {
 		<? endforeach; ?>
     <? endif; ?>
     
-    <p class="title green">Active Contests</p>
+    <p class="title green">Current Contest</p>
   </div>
   <!--
       <div class="mb20">
