@@ -218,7 +218,7 @@
             <? endif; ?>
         };
 		if (window.location.hostname.match(/\.resolute\.com$/))
-		{adService.unitValues.adDomain = 'betterrecipes.com';}
+            {adService.unitValues.adDomain = 'betterrecipes.mdp.com';}
 		(function() {
 			var d = new Date(), dateBits = [], dow, diff, gadsCore, cdnPath;
 			d.setUTCHours(d.getUTCHours() - 9);
