@@ -102,6 +102,10 @@
     <? if (has_slot('infolinks')): ?>
       <? include_slot('infolinks'); ?>
     <? endif; ?>
+<!-- krux tag -->
+    <script class="kxct" data-id="Hx-jOfl8" data-version="async:1.7" type="text/javascript">window.Krux || ((Krux = function () {Krux.q.push(arguments)}).q = []);
+    (function () {var k = document.createElement('script');k.type = 'text/javascript';k.async = true;var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && (m[1]);k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=Hx-jOfl8";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k, s);})(); </script>
+<!-- end krux tag -->
     
   </head>
   <body>
