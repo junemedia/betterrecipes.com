@@ -315,7 +315,7 @@
       <p><?= SearchReplace::run($recipe->getNotes()) ?></p>
       <!--INFOLINKS_OFF-->
     <? endif; ?>
-    <? if ($recipe_user_active): ?>
+    <? if (@$recipe_user_active): ?>
       <? include_partial('author', array('author' => $recipe->getUser())) ?>
     <? endif; ?>
     <div id="modal_div"><iframe id="modal_iframe" width="100%" height="100%" marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto"></iframe></div>
