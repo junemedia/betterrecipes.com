@@ -6,7 +6,11 @@
 	<? if ( $index == 0): ?>
 	<div class="blogger">
 		<div class="blogger_gallery">
+			<? if ( $value->getUser()->getAvatarSrc() == '/uploads/avatars/' ): ?>
+			<a href="<?= getUrl('User', array('display_name' => $value->getUser()->getDisplayName())) ?>"><img src="/img/avatars/default_1.jpg" alt="<?= $value->getUser()->getDisplayName() ?>" /></a>
+			<? else: ?>
 			<a href="<?= getUrl('User', array('display_name' => $value->getUser()->getDisplayName())) ?>"><img src="<?= $value->getUser()->getAvatarSrc() ?>" alt="<?= $value->getUser()->getDisplayName() ?>" /></a>
+			<? endif; ?>
 		</div>
 		<h3><a href="<?= getUrl('User', array('display_name' => $value->getUser()->getDisplayName())) ?>"><?= $value->getUser()->getDisplayName() ?></a></h3>
 		

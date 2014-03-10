@@ -19,7 +19,8 @@ unitValues: {
 <? end_slot() ?>
 
 <script>
-  var has_fb = <?= $user->hasFb() ? 1 : 0 ?>;
+  <? /* var has_fb = <?= $user->hasFb() ? 1 : 0 ?>; */ ?>
+  var has_fb =  0;
   var current_avatar = "<?= $user->getAvatarSrc() ?>";
   var alt_avatar = "<?= $user->getLocalAvatarSrc() ?>";
   $(document).ready(function() {
@@ -110,7 +111,8 @@ unitValues: {
         <?= $userForm->renderGlobalErrors() ?>
       <? endif ?>
       <br>
-      <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list">
+      <? /* <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list"> */ ?>
+      <fieldset class="profile-photo" id="avatar_list">
         <label><a id="change_avatar" class="show">Change Avatar</a></label>
         <fieldset class="profile-photo-toggles hidden options">
           <span class="action">
@@ -128,7 +130,8 @@ unitValues: {
           </span>
         </fieldset>
       </fieldset>
-      <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list">
+      <? /* <fieldset class="profile-photo<? if ($user->isSocial()): ?> hidden<? endif; ?>" id="avatar_list"> */ ?>
+      <fieldset class="profile-photo" id="avatar_list">
         <fieldset class="profile-photo-toggles hidden avatars">
           <ul class="avatar-list">
             <? for ($i = 1; $i <= 16; $i++): ?>

@@ -851,6 +851,45 @@ Contest:
       local: id
       foreign: contest_id
       type: many
+ContestImage:
+  connection: doctrine
+  tableName: contest_image
+  columns:
+    id:
+      type: integer(4)
+      fixed: false
+      unsigned: true
+      primary: true
+      autoincrement: true
+    image_name:
+      type: string(255)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    start_date:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    end_date:
+      type: date(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    timezone:
+      type: string(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      default: CST
+      notnull: true
+      autoincrement: false
 ContestPeriod:
   connection: doctrine
   tableName: contest_period

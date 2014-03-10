@@ -164,6 +164,17 @@ unitValues: {
         <p class="mt20 fs14 green">Be the first to enter your recipe into our contest!</p>
       <? endif; ?>
     </ul>
+    <? if ($contestants->haveToPaginate()): ?>
+      <div class="sorting mt20">
+        <ul class="pager hornav">
+          <li class="<?= ($contestants->getFirstPage() == $contestants->getPage()) ? 'unavailable' : '' ?>"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug(), 'page' => $contestants->getPreviousPage())) ?>" title="Previous">&laquo;</a></li>
+          <? foreach ($contestants->getLinks() as $page): ?>
+            <li class="<?= ($page == $contestants->getPage()) ? 'active' : '' ?>"><a href="<?= ($page == $contestants->getPage()) ? '' : getRoute('contests_detail', array('slug' => $contest->getSlug(), 'page' => $page)) ?>" title="Page <?= $page ?>"><?= $page ?></a></li>
+          <? endforeach; ?>
+          <li class="<?= ($contestants->getLastPage() == $contestants->getPage()) ? 'unavailable' : '' ?>"><a href="<?= getRoute('contests_detail', array('slug' => $contest->getSlug(), 'page' => $contestants->getNextPage())) ?>" title="Next">&raquo;</a></li>
+        </ul>
+      </div>
+    <? endif; ?>
   </div>
 </div><!-- /.article -->
 <div class="popup hide brdn contestpopup">

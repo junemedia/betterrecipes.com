@@ -14,6 +14,8 @@ class contestsActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->activeContests = ContestTable::getActiveContests()->execute();
+    $this->contestImage = ContestImageTable::getActiveContestImage()->execute();
+    //var_dump($this->contestImage);
 
     $this->contestWinners = new sfDoctrinePager('Contestant', 24);
     $this->contestWinners->setQuery(ContestantTable::getAllPastWinners());

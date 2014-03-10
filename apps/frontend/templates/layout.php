@@ -102,6 +102,25 @@
     <? if (has_slot('infolinks')): ?>
       <? include_slot('infolinks'); ?>
     <? endif; ?>
+    <!-- Facebook Conversion Code for BetterRecipes Tracker -->
+  <script>
+  var fb_param = {};
+  fb_param.pixel_id = '6012117290081';
+  fb_param.value = '0.00';
+  fb_param.currency = 'USD';
+  (function(){
+    var fpw = document.createElement('script');
+    fpw.async = true;
+    fpw.src = '//connect.facebook.net/en_US/fp.js';
+    var ref = document.getElementsByTagName('script')[0];
+    ref.parentNode.insertBefore(fpw, ref);
+  })();
+  </script>
+  <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012117290081&amp;value=0&amp;currency=USD" /></noscript>
+<!-- krux tag -->
+    <script class="kxct" data-id="Hx-jOfl8" data-version="async:1.7">window.Krux || ((Krux = function () {Krux.q.push(arguments)}).q = []);
+    (function () {var k = document.createElement('script');k.type = 'text/javascript';k.async = true;var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && (m[1]);k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=Hx-jOfl8";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k, s);})(); </script>
+<!-- end krux tag -->
 
   </head>
   <body>
@@ -188,34 +207,38 @@
     </script>
 
     <script>
-        var adService = {
-            kruxEnabled: true, /* Set if applicable */
-            yieldbotEnabled:true,  /* Set if applicable */
-            yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
+      var adService = {
+          kruxEnabled: true, /* Set if applicable */
+          yieldbotEnabled:true,  /* Set if applicable */
+          yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
 
-            <? if (has_slot('gpt')): ?>
+          <? if (has_slot('gpt')): ?>
 
-              <? include_slot('gpt') ?>
+            <? include_slot('gpt') ?>
 
-            <? else: ?>
+          <? else: ?>
 
-            unitValues: {
-                  channel: '', /* Set to the top level category id, if applicable */
+          unitValues: {
+                channel: '', /* Set to the top level category id, if applicable */
 
-                  parent: '', /* Set to the secondary level category id, if applicable */
+                parent: '', /* Set to the secondary level category id, if applicable */
 
-                  child: '' /* Set to the tertiary level category id, if applicable */
+                child: '' /* Set to the tertiary level category id, if applicable */
 
-            },
-            pageTargetingValues: { /* Additional key-values can be added to this section if needed */
-                id: '<?php echo md5($sf_request->getUri())?>', /* Set to a page-specific unique id*/
-                  type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
-                  search: '' /* On search results, set to the search term */
+          },
+          pageTargetingValues: { /* Additional key-values can be added to this section if needed */
+        id: '<?=md5($sf_request->getPathInfo())?>', /* Set to a page-specific unique id*/
+              /*id: '<?php echo md5($sf_request->getUri())?>',//*/ /* Set to a page-specific unique id*/
+                type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
+                search: '' /* On search results, set to the search term */
 
-            }
+          }
 
-            <? endif; ?>
-        };
+          <? endif; ?>
+      };
+      if (window.location.hostname.match(/\.resolute\.com$/)) {
+        adService.unitValues.adDomain = 'betterrecipes.mdp.com';
+      }
       (function() {
         var d = new Date(), dateBits = [], dow, diff, gadsCore, cdnPath;
         d.setUTCHours(d.getUTCHours() - 9);
@@ -232,8 +255,7 @@
         var node = document.getElementsByTagName('script')[0];
         node.parentNode.insertBefore(gadsCore, node);
       })();
-   </script>
-
+    </script>
 
     <script>
       var zflag_parent="zedo_loader";
@@ -267,4 +289,3 @@
 
   </body>
 </html>
-
