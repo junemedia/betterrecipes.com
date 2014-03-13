@@ -1,8 +1,8 @@
 dev:
   facebook:
-    appid:            120653551405606
-    appsecret:        '393055708641dedc2d8ca7e5b6cf84a4'
-    appnamespace:     'betterrecipes_dev'
+    appid:            547870738660367
+    appsecret:        '7288095f1104bb9ff12aed2a75f32aa9'
+    appnamespace:     'br_staging'
     admins:           '24408765'
 
 
