@@ -76,6 +76,8 @@
     }
     // refresh GPT ad tags (globally)
     googletag.pubads().refresh();return false;
+    // refresh yieldbot
+    doVswScript();return false;
     updateOmniture();
   }
   function updateOmniture(){
