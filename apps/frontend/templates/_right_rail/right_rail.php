@@ -7,7 +7,7 @@
     <? include_partial('global/adtags/300x250') ?>
   </div><!-- /.ad300x250 -->
   <? include_component('recipes', 'rr_recipes', compact('rr_recipes')) ?>
-  <? include_partial('global/right_rail/vsw') ?>
+  <div id="vsw-container"><? include_partial('global/right_rail/vsw') ?></div><!-- // #vsw-container -->
   <? include_partial('global/right_rail/contest') ?>
   
   <div id="sponsor">

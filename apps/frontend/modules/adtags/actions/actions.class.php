@@ -19,11 +19,16 @@ class adTagsActions extends sfActions
   public function executeRefresh(sfWebRequest $request)
   {
     $tagname = $request->getParameter('tagname');
-    if ($tagname == 'sponsor') {
-      $sponsor = Doctrine_Core::getTable('Sponsor')->find($request->getParameter('spid'));
-      return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'), compact('sponsor'));
-    } else {
-      return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'));
+    switch($tagname) {
+	    case 'sponsor' :
+	    	$sponsor = Doctrine_Core::getTable('Sponsor')->find($request->getParameter('spid'));
+			return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'), compact('sponsor'));
+	    break;
+	    case 'vsw' :
+	    	return $this->renderPartial('global/right_rail/' . $request->getParameter('tagname'));
+	    break;
+	    default :
+	    	return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'));
     }
   }
 

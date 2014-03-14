@@ -74,10 +74,10 @@
     {
       //refreshAdtags('slide_show');
     }
-    // refresh GPT ad tags (globally)
-    googletag.pubads().refresh();return false;
-    // refresh yieldbot
-    doVswScript();return false;
+    // refresh GPT ad tags (leaderboard / right rail)
+    refreshAdFrame();
+    // refresh VSW ad
+    refreshVsw();
     updateOmniture();
   }
   function updateOmniture(){

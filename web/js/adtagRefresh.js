@@ -1,3 +1,9 @@
+function refreshVsw() {
+	if ( $('#vsw-container').length > 0 ) {
+		$('#vsw-container').load("/adtags/refresh?tagname=vsw");
+	}
+}
+
 function refreshAdtags(location){
   refreshAd728x90(location);
 }
