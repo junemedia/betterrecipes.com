@@ -74,6 +74,8 @@
     {
       refreshAdtags('slide_show');
     }
+    // refresh GPT ad tags (globally)
+    googletag.pubads().refresh();return false;
     updateOmniture();
   }
   function updateOmniture(){

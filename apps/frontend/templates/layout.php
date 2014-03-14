@@ -287,9 +287,7 @@
     </noscript>
     <!-- End comScore Tag -->
     
-    <form onsubmit="googletag.pubads().refresh();return false;">
-  <input type="submit" value="refresh" />
-</form> 
+    
 
   </body>
 </html>
