@@ -23,6 +23,10 @@
         // <![CDATA[
 
         function doVswScript() {
+        		<? if ( isset($refresh) ): ?>
+        			window.ERA_RC = window.ERA_RC || {};
+        			window.ERA_RC['Global'] = {linkid:'',linkindex:0};
+        		<? endif; ?>
               var v = 'ERA_AD_BLOCK';
               var sch = (location.protocol == 'https:' ? 'https' : 'http');
               var host = sch == 'http' ? 'as.featurelink.com' : 'secure.featurelink.com';

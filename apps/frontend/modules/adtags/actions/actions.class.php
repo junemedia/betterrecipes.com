@@ -25,7 +25,7 @@ class adTagsActions extends sfActions
 			return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'), compact('sponsor'));
 	    break;
 	    case 'vsw' :
-	    	return $this->renderPartial('global/right_rail/' . $request->getParameter('tagname'));
+	    	return $this->renderPartial('global/right_rail/' . $request->getParameter('tagname'), array('refresh' => true));
 	    break;
 	    default :
 	    	return $this->renderPartial('global/adtags/' . $request->getParameter('tagname'));
