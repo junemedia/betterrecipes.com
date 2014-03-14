@@ -72,7 +72,7 @@
     }
     if( refresh_ads )
     {
-      refreshAdtags('slide_show');
+      //refreshAdtags('slide_show');
     }
     // refresh GPT ad tags (globally)
     googletag.pubads().refresh();return false;
