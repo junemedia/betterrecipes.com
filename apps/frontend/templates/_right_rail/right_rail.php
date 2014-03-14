@@ -8,7 +8,7 @@
   </div><!-- /.ad300x250 -->
   <? include_component('recipes', 'rr_recipes', compact('rr_recipes')) ?>
   
-  <div id="vswContainer"><? include_partial('global/right_rail/vsw') ?></div><!-- // #vswContainer -->
+  <div id="vswContainer"><? //include_partial('global/right_rail/vsw') ?></div><!-- // #vswContainer -->
   <? include_partial('global/right_rail/contest') ?>
   
   <div id="sponsor">
