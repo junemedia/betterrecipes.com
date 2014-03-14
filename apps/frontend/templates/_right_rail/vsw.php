@@ -23,7 +23,6 @@
         // <![CDATA[
 
         function doVswScript() {
-        	alert('test');
               var v = 'ERA_AD_BLOCK';
               var sch = (location.protocol == 'https:' ? 'https' : 'http');
               var host = sch == 'http' ? 'as.featurelink.com' : 'secure.featurelink.com';
