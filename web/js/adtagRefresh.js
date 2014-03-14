@@ -1,5 +1,4 @@
 function refreshVsw() {
-	alert('func called');
 	if ( $('#vswContainer').length > 0 ) {
 		$('#vswContainer').load("/adtags/refresh?tagname=vsw");
 	}
