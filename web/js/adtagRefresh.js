@@ -1,6 +1,7 @@
 function refreshVsw() {
-	if ( $('#vsw-container').length > 0 ) {
-		$('#vsw-container').load("/adtags/refresh?tagname=vsw");
+	alert('func called');
+	if ( $('#vswContainer').length > 0 ) {
+		$('#vswContainer').load("/adtags/refresh?tagname=vsw");
 	}
 }
 
