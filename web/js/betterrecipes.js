@@ -286,10 +286,10 @@ var brmb = {
         enableCount: true
       }
       //Note this image is CSS hidden and we use our own image, if this order is changed, the CSS must change.
-      , {
+      /*, {
         provider: 'pinterest',
         enableCount: true,
-      }
+      }*/
       , {
         provider: 'twitter-tweet'
       }
