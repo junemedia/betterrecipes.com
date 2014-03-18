@@ -1,9 +1,9 @@
 <div id="public-profile">
   <div class="main-image">
-  	<? if ( $user->getAvatarSrc() == '/uploads/avatars/' ): ?>
-    <img src="/img/avatars/default_1.jpg" width="150" alt="<?= $user->getDisplayName() ?>" />
+  	<? if ( $user->getAvatarSrc() == '/uploads/avatars/' || $user->getAvatarSrc() == '/img/avatars/' ): ?>
+    <img src="/img/avatars/default_1.jpg" alt="<?= $user->getDisplayName() ?>" />
     <? else: ?>
-    <img src="<?= $user->getAvatarSrc() ?>" width="150" alt="<?= $user->getDisplayName() ?>" />
+    <img src="<?= $user->getAvatarSrc() ?>" alt="<?= $user->getDisplayName() ?>" />
     <? endif; ?>
   </div>
   <h3 class="title green ml195">
