@@ -87,6 +87,7 @@ class cooksActions extends sfActions
     $user_data = $user->getUserData();
 
     $user_data['user_id'] = $user_data['id'];
+    print_r($user_data);
     $this->userForm = new UserProfileForm($user_data);
     if ($request->isMethod(sfRequest::POST)) {
       $this->userForm->bind($request->getParameter($this->userForm->getName()), $request->getFiles($this->userForm->getName()));
