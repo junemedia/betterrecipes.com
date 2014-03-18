@@ -254,12 +254,12 @@ class BetterrecipesUser extends sfBasicSecurityUser
    */
   public function getLocalAvatarSrc()
   {
-    $user_data = $this->getUserData();
+    /*$user_data = $this->getUserData();
     if (strpos($user_data['avatar'], 'default_') === false) {
       return '/uploads/avatars/' . $user_data['avatar'];
     } else {
       return '/img/avatars/' . $user_data['avatar'];
-    }
+    }*/
   }
 
   /**
