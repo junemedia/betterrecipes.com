@@ -268,11 +268,11 @@ class User extends BaseUser
    */
   public function getAvatarSrc()
   {
-    if (sfContext::getInstance()->getUser()->getRegSourceAttribute('auth_token')) {
+    /*if (sfContext::getInstance()->getUser()->getRegSourceAttribute('auth_token')) {
       return 'http://graph.facebook.com/' . $this->fb_id . '/picture';
     } else {
       return $this->getLocalAvatarSrc();
-    }
+    }*/
   }
 
 }
