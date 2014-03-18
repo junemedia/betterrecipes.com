@@ -190,7 +190,7 @@ class UserForm extends BaseForm
       'zipcode' => new sfValidatorString(array('max_length' => 10, 'required' => false), array('max_length' => 'Max 10 characters')),
       'country' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->country_list))),
       'display_name' => new sfValidatorString(array('max_length' => 16, 'required' => true), array('max_length' => 'Max 16 characters')),
-      'about_me' => new sfValidatorString(array('required' => false)),
+      'about_me' => new sfValidatorString(array('max_length' => 16, 'required' => false), array('max_length' => 'Max 16 characters')),
       'interests_list' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'Interest', 'multiple' => true)),
       'profile_photo' => new sfValidatorFile(array('required' => false, 'path' => sfConfig::get('sf_upload_dir') . '/tmp', 'mime_types' => 'web_images')),
       'website_name' => new sfValidatorString(array('max_length' => 25, 'required' => false), array('max_length' => 'Max 25 characters')),
@@ -254,6 +254,7 @@ class UserForm extends BaseForm
     $this->user->setAvatar($values['avatar']);
     $this->user->setWebsiteName($values['website_name']);
     $this->user->setWebsiteAddress($values['website_address']);
+    $this->user->setAboutMe($values['about_me']);
     $this->user->save();
 
     if (!(empty($values['profile_photo']) && empty($values['profile_photo_choice']) && empty($this->default_profile_photo))) {

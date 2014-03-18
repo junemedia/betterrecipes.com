@@ -31,7 +31,6 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'is_premium'          => new sfWidgetFormInputText(),
       'fb_share'            => new sfWidgetFormInputText(),
       'is_active'           => new sfWidgetFormInputText(),
-      'is_featured_blogger' => new sfWidgetFormInputText(),
       'reg_source'          => new sfWidgetFormInputText(),
       'created_at'          => new sfWidgetFormDateTime(),
       'updated_at'          => new sfWidgetFormDateTime(),
@@ -39,6 +38,8 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'legacy_id'           => new sfWidgetFormInputText(),
       'website_name'        => new sfWidgetFormInputText(),
       'website_address'     => new sfWidgetFormInputText(),
+      'is_featured_blogger' => new sfWidgetFormInputText(),
+      'about_me'            => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -58,7 +59,6 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'is_premium'          => new sfValidatorInteger(array('required' => false)),
       'fb_share'            => new sfValidatorInteger(array('required' => false)),
       'is_active'           => new sfValidatorInteger(array('required' => false)),
-      'is_featured_blogger' => new sfValidatorInteger(array('required' => false)),
       'reg_source'          => new sfValidatorInteger(array('required' => false)),
       'created_at'          => new sfValidatorDateTime(array('required' => false)),
       'updated_at'          => new sfValidatorDateTime(array('required' => false)),
@@ -66,6 +66,8 @@ abstract class BaseUserForm extends BaseFormDoctrine
       'legacy_id'           => new sfValidatorString(array('max_length' => 40, 'required' => false)),
       'website_name'        => new sfValidatorString(array('max_length' => 25, 'required' => false)),
       'website_address'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'is_featured_blogger' => new sfValidatorInteger(array('required' => false)),
+      'about_me'            => new sfValidatorString(array('max_length' => 500, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user[%s]');

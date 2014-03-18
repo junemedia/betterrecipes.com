@@ -9,20 +9,20 @@ Doctrine_Manager::getInstance()->bindComponent('ContestImage', 'doctrine');
  * 
  * @property integer $id
  * @property string $image_name
+ * @property string $timezone
  * @property date $start_date
  * @property date $end_date
- * @property string $timezone
  * 
  * @method integer      getId()         Returns the current record's "id" value
  * @method string       getImageName()  Returns the current record's "image_name" value
+ * @method string       getTimezone()   Returns the current record's "timezone" value
  * @method date         getStartDate()  Returns the current record's "start_date" value
  * @method date         getEndDate()    Returns the current record's "end_date" value
- * @method string       getTimezone()   Returns the current record's "timezone" value
  * @method ContestImage setId()         Sets the current record's "id" value
  * @method ContestImage setImageName()  Sets the current record's "image_name" value
+ * @method ContestImage setTimezone()   Sets the current record's "timezone" value
  * @method ContestImage setStartDate()  Sets the current record's "start_date" value
  * @method ContestImage setEndDate()    Sets the current record's "end_date" value
- * @method ContestImage setTimezone()   Sets the current record's "timezone" value
  * 
  * @package    betterrecipes
  * @subpackage model
@@ -51,6 +51,16 @@ abstract class BaseContestImage extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
+        $this->hasColumn('timezone', 'string', 25, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'default' => 'CST',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 25,
+             ));
         $this->hasColumn('start_date', 'date', 25, array(
              'type' => 'date',
              'fixed' => 0,
@@ -66,16 +76,6 @@ abstract class BaseContestImage extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
-             'autoincrement' => false,
-             'length' => 25,
-             ));
-        $this->hasColumn('timezone', 'string', 25, array(
-             'type' => 'string',
-             'fixed' => 0,
-             'unsigned' => false,
-             'primary' => false,
-             'default' => 'CST',
-             'notnull' => true,
              'autoincrement' => false,
              'length' => 25,
              ));

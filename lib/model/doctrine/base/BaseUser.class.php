@@ -23,7 +23,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property integer $is_premium
  * @property integer $fb_share
  * @property integer $is_active
- * @property integer $is_featured_blogger
  * @property integer $reg_source
  * @property timestamp $created_at
  * @property timestamp $updated_at
@@ -31,8 +30,11 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @property string $legacy_id
  * @property string $website_name
  * @property string $website_address
+ * @property integer $is_featured_blogger
+ * @property string $about_me
  * @property Doctrine_Collection $Article
  * @property Doctrine_Collection $Collection
+ * @property Doctrine_Collection $Content
  * @property Doctrine_Collection $Contest
  * @property Doctrine_Collection $ContestPeriod
  * @property Doctrine_Collection $Contestant
@@ -68,7 +70,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method integer             getIsPremium()           Returns the current record's "is_premium" value
  * @method integer             getFbShare()             Returns the current record's "fb_share" value
  * @method integer             getIsActive()            Returns the current record's "is_active" value
- * @method integer             getIsFeaturedBlogger()   Returns the current record's "is_featured_blogger" value
  * @method integer             getRegSource()           Returns the current record's "reg_source" value
  * @method timestamp           getCreatedAt()           Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()           Returns the current record's "updated_at" value
@@ -76,8 +77,11 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method string              getLegacyId()            Returns the current record's "legacy_id" value
  * @method string              getWebsiteName()         Returns the current record's "website_name" value
  * @method string              getWebsiteAddress()      Returns the current record's "website_address" value
+ * @method integer             getIsFeaturedBlogger()   Returns the current record's "is_featured_blogger" value
+ * @method string              getAboutMe()             Returns the current record's "about_me" value
  * @method Doctrine_Collection getArticle()             Returns the current record's "Article" collection
  * @method Doctrine_Collection getCollection()          Returns the current record's "Collection" collection
+ * @method Doctrine_Collection getContent()             Returns the current record's "Content" collection
  * @method Doctrine_Collection getContest()             Returns the current record's "Contest" collection
  * @method Doctrine_Collection getContestPeriod()       Returns the current record's "ContestPeriod" collection
  * @method Doctrine_Collection getContestant()          Returns the current record's "Contestant" collection
@@ -112,7 +116,6 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method User                setIsPremium()           Sets the current record's "is_premium" value
  * @method User                setFbShare()             Sets the current record's "fb_share" value
  * @method User                setIsActive()            Sets the current record's "is_active" value
- * @method User                setIsFeaturedBlogger()   Sets the current record's "is_featured_blogger" value
  * @method User                setRegSource()           Sets the current record's "reg_source" value
  * @method User                setCreatedAt()           Sets the current record's "created_at" value
  * @method User                setUpdatedAt()           Sets the current record's "updated_at" value
@@ -120,8 +123,11 @@ Doctrine_Manager::getInstance()->bindComponent('User', 'doctrine');
  * @method User                setLegacyId()            Sets the current record's "legacy_id" value
  * @method User                setWebsiteName()         Sets the current record's "website_name" value
  * @method User                setWebsiteAddress()      Sets the current record's "website_address" value
+ * @method User                setIsFeaturedBlogger()   Sets the current record's "is_featured_blogger" value
+ * @method User                setAboutMe()             Sets the current record's "about_me" value
  * @method User                setArticle()             Sets the current record's "Article" collection
  * @method User                setCollection()          Sets the current record's "Collection" collection
+ * @method User                setContent()             Sets the current record's "Content" collection
  * @method User                setContest()             Sets the current record's "Contest" collection
  * @method User                setContestPeriod()       Sets the current record's "ContestPeriod" collection
  * @method User                setContestant()          Sets the current record's "Contestant" collection
@@ -300,16 +306,6 @@ abstract class BaseUser extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 1,
              ));
-        $this->hasColumn('is_featured_blogger', 'integer', 1, array(
-             'type' => 'integer',
-             'fixed' => 0,
-             'unsigned' => true,
-             'primary' => false,
-             'default' => '0',
-             'notnull' => false,
-             'autoincrement' => false,
-             'length' => 1,
-             ));
         $this->hasColumn('reg_source', 'integer', 2, array(
              'type' => 'integer',
              'fixed' => 0,
@@ -379,6 +375,25 @@ abstract class BaseUser extends sfDoctrineRecord
              'autoincrement' => false,
              'length' => 255,
              ));
+        $this->hasColumn('is_featured_blogger', 'integer', 1, array(
+             'type' => 'integer',
+             'fixed' => 0,
+             'unsigned' => true,
+             'primary' => false,
+             'default' => '0',
+             'notnull' => true,
+             'autoincrement' => false,
+             'length' => 1,
+             ));
+        $this->hasColumn('about_me', 'string', 500, array(
+             'type' => 'string',
+             'fixed' => 0,
+             'unsigned' => false,
+             'primary' => false,
+             'notnull' => false,
+             'autoincrement' => false,
+             'length' => 500,
+             ));
     }
 
     public function setUp()
@@ -389,6 +404,10 @@ abstract class BaseUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasMany('Collection', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Content', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 
