@@ -255,11 +255,12 @@ class User extends BaseUser
    */
   public function getLocalAvatarSrc()
   {
-    if (strpos($this->avatar, 'default_') === false) {
+  	echo $this->avatar;
+    /*if (strpos($this->avatar, 'default_') === false) {
       return '/uploads/avatars/' . $this->avatar;
     } else {
       return '/img/avatars/' . $this->avatar;
-    }
+    }*/
   }
 
   /**
