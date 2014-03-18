@@ -674,7 +674,7 @@ MAIN FOOTER ITEMS
 .blogger_gallery {
 	height:250px;
 	margin: 0 20px 20px 0;
-	width: 350px;
+	width: 250px;
 	-moz-box-shadow: 0px 0px 4px #888;
   -webkit-box-shadow: 0px 0px 4px #888;
   box-shadow: 0px 0px 4px #888;
@@ -699,7 +699,7 @@ MAIN FOOTER ITEMS
 .blogger_recipes {
 	width: 330px;
 	float: left;
-	margin-left: 30px;
+	margin-left: 3px;
 }
 .blogger_recipes ul {
 	margin-left: 15px;
