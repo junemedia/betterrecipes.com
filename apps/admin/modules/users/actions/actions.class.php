@@ -100,7 +100,7 @@ class usersActions extends sfActions
     $this->forward404Unless($this->user = Doctrine_Core::getTable('User')->find(array($request->getParameter('id'))), sprintf('Object user does not exist (%s).', $request->getParameter('id')));
     $this->form = new AdminProfileForm($this->user);
     if ($request->isMethod(sfRequest::POST)) {
-      $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+      $this->form->bind($request->getParameter($this->form->getName()));
       if ($this->form->isValid()) {
         $this->form->update();
         $this->getUser()->setFlash('notice', 'Your profile was saved');
