@@ -86,12 +86,10 @@ class contestsActions extends sfActions
   public function executeExportcontest(sfWebRequest $request)
   {
 	$this->forward404Unless($this->contest = Doctrine_Core::getTable('Contest')->find(array($request->getParameter('id'))), sprintf('Object contest does not exist (%s).', $request->getParameter('id')));
-	sfView::NONE;
-	header('Content-Type: text/csv; charset=utf-8');
-	header('Content-Disposition: attachment; filename=data.csv');
-	$output = fopen('php://output', 'w');
-	fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
-	//return $this->renderText("OK!");  
+	$this->setlayout('csv');
+	$this->getResponse()->clearHttpHeaders();
+	$this->getResponse()->setHttpHeader('Content-Type', 'application/vnd.ms-excel');
+	$this->getResponse()->setHttpHeader('Content-Disposition', 'attachment; filename=contest_report_' . $request->getParameter('id') . '.csv');
   }
 
   public function executeDetail(sfWebRequest $request)
