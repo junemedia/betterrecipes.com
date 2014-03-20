@@ -92,5 +92,7 @@ class ContestTable extends Doctrine_Table {
       return $q;
     }
   }
+  
+  
 
 }
