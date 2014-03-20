@@ -87,7 +87,11 @@ class contestsActions extends sfActions
   {
 	$this->forward404Unless($this->contest = Doctrine_Core::getTable('Contest')->find(array($request->getParameter('id'))), sprintf('Object contest does not exist (%s).', $request->getParameter('id')));
 	sfView::NONE;
-	return $this->renderText("OK!");  
+	header('Content-Type: text/csv; charset=utf-8');
+	header('Content-Disposition: attachment; filename=data.csv');
+	$output = fopen('php://output', 'w');
+	fputcsv($output, array('Column 1', 'Column 2', 'Column 3'));
+	//return $this->renderText("OK!");  
   }
 
   public function executeDetail(sfWebRequest $request)
