@@ -41,8 +41,8 @@
       <li><span class="name nosort">Contest Name</span></li>
       <li><span class="startDate nosort">Start Date</span></li>                
       <li><span class="endDate nosort">End Date</span></li>
-      <li><span class="sponsor nosort">Sponsor</span></li>
-      <li><span class="sponsor nosort">Report</span></li>
+      <li><span class="sponsor nosort" style="width:75px;">Sponsor</span></li>
+      <li><span class="sponsor nosort" style="width:75px;">Report</span></li>
     </ul>
   </div> 
   <ul id="activeRows" class="results">
