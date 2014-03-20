@@ -84,7 +84,7 @@
       <span class="startDate"><?= date('m-d-y', strtotime($c->getStartDate()))?></span>
       <span class="endDate"><?= date('m-d-y', strtotime($c->getEndDate()))?></span>
       <span class="sponsor" style="width:75px;"><?= is_null($c->getSponsorId()) ? 'N/A' : $c->getSponsor()->getName(); ?></span>
-      <li><span class="sponsor nosort" style="width:75px;"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span></li>
+      <span class="sponsor nosort" style="width:75px;"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span>
     </li>   
   <? endforeach; ?>
   </ul> 
