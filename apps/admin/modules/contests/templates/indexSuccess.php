@@ -51,14 +51,14 @@
       <span class="name"><a href="<?= url_for('contests/detail?id='.$c->getId()) ?>"><?= $c->getName() ?></a></span>
       <span class="startDate"><?= date('m-d-y', strtotime($c->getStartDate()))?></span>
       <span class="endDate"><?= date('m-d-y', strtotime($c->getEndDate()))?></span>
-      <span class="sponsor">
+      <span class="sponsor" style="width:75px;">
         <? if(is_null($c->getSponsorId())) { ?>
           <a onclick="addSponsor(this, '<?=url_for('contests/addSponsor')?>')">Add</a>
         <? } else { ?>
           <?= $c->getSponsor()->getName() ?>
         <? } ?>
       </span>
-      <span class="sponsor"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span>
+      <span class="sponsor" style="width:75px;"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span>
     </li>   
   <? endforeach; ?>
   </ul> 
