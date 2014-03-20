@@ -72,7 +72,8 @@
       <li><span class="name nosort">Contest Name</span></li>
       <li><span class="startDate nosort">Start Date</span></li>                
       <li><span class="endDate nosort">End Date</span></li>
-      <li><span class="sponsor nosort">Sponsor</span></li>
+      <li><span class="sponsor nosort" style="width:75px;">Sponsor</span></li>
+      <li><span class="sponsor nosort" style="width:75px;">Report</span></li>
     </ul>
   </div> 
   <ul id="activeRows" class="results">
@@ -82,7 +83,8 @@
       <span class="name"><a href="<?= url_for('contests/detail?id='.$c->getId()) ?>"><?= $c->getName() ?></a></span>
       <span class="startDate"><?= date('m-d-y', strtotime($c->getStartDate()))?></span>
       <span class="endDate"><?= date('m-d-y', strtotime($c->getEndDate()))?></span>
-      <span class="sponsor"><?= is_null($c->getSponsorId()) ? 'N/A' : $c->getSponsor()->getName(); ?></span>
+      <span class="sponsor" style="width:75px;"><?= is_null($c->getSponsorId()) ? 'N/A' : $c->getSponsor()->getName(); ?></span>
+      <li><span class="sponsor nosort" style="width:75px;"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span></li>
     </li>   
   <? endforeach; ?>
   </ul> 
