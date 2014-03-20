@@ -73,7 +73,7 @@ class ContestantTable extends Doctrine_Table
   public static function getContestReport($contestId) {
   	  $a = array();
 	  if (isset($contestId) ) {
-	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.recipe_id) as total_recipes')->innerJoin('c.Recipe r')->where('c.contest_id = ?', $contest_id);
+	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.recipe_id) as total_recipes')->innerJoin('c.Recipe r')->where('c.contest_id = ?', $contestId);
 	  	$total_recipes = $q->fetchArray();
 	  	print_r($total_recipes);
 	  }
