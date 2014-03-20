@@ -82,6 +82,13 @@ class contestsActions extends sfActions
     }
     return $this->renderText($alert . '<input type="checkbox" value="' . $contestant->getIsActive() . '" onchange="updateContestantStatus($(this))"' . ($contestant->getIsActive() ? ' checked' : '') . '>');
   }
+  
+  public function executeExportcontest(sfWebRequest $request)
+  {
+	$this->forward404Unless($this->contest = Doctrine_Core::getTable('Contest')->find(array($request->getParameter('id'))), sprintf('Object contest does not exist (%s).', $request->getParameter('id')));
+	sfView::NONE;
+	return $this->renderText("OK!");  
+  }
 
   public function executeDetail(sfWebRequest $request)
   {

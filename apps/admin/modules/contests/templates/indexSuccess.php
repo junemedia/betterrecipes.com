@@ -42,6 +42,7 @@
       <li><span class="startDate nosort">Start Date</span></li>                
       <li><span class="endDate nosort">End Date</span></li>
       <li><span class="sponsor nosort">Sponsor</span></li>
+      <li><span class="sponsor nosort">Report</span></li>
     </ul>
   </div> 
   <ul id="activeRows" class="results">
@@ -57,6 +58,7 @@
           <?= $c->getSponsor()->getName() ?>
         <? } ?>
       </span>
+      <span class="sponsor"><a href="<?= url_for('contests/exportcontest?id='.$c->getId()) ?>">Export</a></span>
     </li>   
   <? endforeach; ?>
   </ul> 
