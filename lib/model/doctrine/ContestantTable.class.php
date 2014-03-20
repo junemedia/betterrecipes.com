@@ -70,13 +70,20 @@ class ContestantTable extends Doctrine_Table
     return $q->count();
   }
   
-  public static function getContestReport($contestId) {
+  public static function getContestReport($contestId, $startDate) {
   	  $a = array();
 	  if (isset($contestId) ) {
 	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.recipe_id) as total_recipes')->innerJoin('c.Recipe r')->where('c.contest_id = ?', $contestId);
 	  	$total_recipes = $q->fetchArray();
-	  	print_r($total_recipes);
+	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.recipe_id) as new_recipes')->innerJoin('c.Recipe r')->where('c.contest_id = ?', $contestId)->andWhere('r.created_at >= ?', $startDate.' 00:00:00');
+	  	$new_recipes = $q->fetchArray();
+	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.user_id) as total_users')->innerJoin('c.User u')->where('c.contest_id = ?', $contestId);
+	  	$total_users = $q->fetchArray();
+	  	$q = Doctrine_Core::getTable('Contestant')->createQuery('c')->select('COUNT(c.user_id) as new_users')->innerJoin('c.User u')->where('c.contest_id = ?', $contestId)->andWhere('u.created_at >= ?', $startDate.' 00:00:00');
+	  	$new_users = $q->fetchArray();
+	  	$a = array('total_recipes' => $total_recipes[0]['total_recipes'], 'new_recipes' => $new_recipes[0]['new_recipes'], 'total_users' => $total_users[0]['total_users'], 'new_users' => $new_users[0]['new_users']);
 	  }
+	  return $a;
   }
 
 }
