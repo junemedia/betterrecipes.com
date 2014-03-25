@@ -706,24 +706,24 @@ MAIN FOOTER ITEMS
 }
 .blogger_recipes .recipe-block {
 	float: left;
-	margin: 0 30px 0 0;
-	width: 100px;
-	height: 180px;
+	margin: 0 12px 0 0;
+	width: 150px;
+	height: 175px;
 	overflow: hidden;
 }
 .blogger_recipes .recipe-block .img-link {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 50px;
 	display: block;
 }
 .blogger_recipes .recipe-block .img-link img {
 	width: inherit;
-	
+	height: auto;
 	display: block;
 }
 .blogger_recipes .recipe-block .link {
-	width: 100px;
-	margin-top: 5px;
+	width: 150px;
+	margin-top: 68px;
 	display: block;
 }
 
