@@ -22,7 +22,7 @@
 	<div class="blogger_recipes cfix">
 			<? foreach( $featured_blogger as $index => $recipe ): ?>
 					<div class="recipe-block">
-					<a class="img-link" title="<?= $recipe->getName() ?>" href="<?= getUrl($recipe) ?>"><img width="100" height="100" src="<?= $recipe->getMainImageSrc() ?>"/></a>
+					<a class="img-link" title="<?= $recipe->getName() ?>" href="<?= getUrl($recipe) ?>"><img src="<?= $recipe->getMainImageSrc() ?>"/></a>
 					<a class="link" href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>"><?= $recipe->getName() ?></a>
 					</div>
 			<? endforeach; ?>
