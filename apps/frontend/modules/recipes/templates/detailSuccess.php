@@ -50,13 +50,16 @@ var infolinks_wsid = 14;
   <? // include_partial('contest') ?>
   <? include_partial('recipe_detail', compact('recipe', 'is_saved', 'is_made', 'user_rating', 'currentContest', 'recipeNext', 'recipePrev', 'showVoteButton', 'showPopup', 'msg')) ?>
   <a name="write_review"></a>
-  <div id="recipe-comments" class="clear mt20">
-    <fb:comments href="<?= $sf_request->getUri() ?>" num_posts="5" width="660"></fb:comments>
-  </div><!-- /#recipe-comments -->
   
   <script id="mNCC" language="javascript"> medianet_width='656'; medianet_height= '175'; medianet_crid='342352778'; </script> <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUPTG615" language="javascript"></script>
   <div class="OUTBRAIN" data-src="<?= UrlToolkit::getUrl($recipe) ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
   <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+  
+  <div id="recipe-comments" class="clear mt20">
+    <fb:comments href="<?= $sf_request->getUri() ?>" num_posts="5" width="660"></fb:comments>
+  </div><!-- /#recipe-comments -->
+  
+  
   
   <?
   /* MBR-57 -> Remove
