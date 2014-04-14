@@ -199,7 +199,8 @@
       <? //$recipe_user_active = $recipe_user->getSubdir() && $recipe_user->getSubdir() != '' && $recipe_user->getIsActive() == 1 ?>
       <? if ($recipe_user->getIsActive() == 1): ?>
         <p>Submitted by: <a href="<?= getUrl('User', array('display_name' => $recipe_user->getDisplayName())) ?>" title="Recipe Author" itemprop="author"><?= $recipe_user->getDisplayName() ?></a>
-          <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a>
+          
+          <? /* <a href="/search?recipeOwner=<?= $recipe_user->getDisplayName() ?>&term=*&PageType=Recipe" title="Recipe Author">(see all recipes)</a> */ ?>
           <? if ( $recipe_user->getWebsiteName() != '' && $recipe_user->getWebsiteAddress() != '' ): ?>
           	| website: <a href="<?=$recipe_user->getWebsiteAddress()?>" target="_blank"><?=$recipe_user->getWebsiteName()?></a>
           <? endif; ?>
