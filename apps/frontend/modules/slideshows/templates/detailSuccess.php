@@ -39,12 +39,16 @@ var infolinks_wsid = 14;
     <? endif; ?>
     <? include_partial('slideshow', compact('slideshow', 'slides', 'showall')) ?>
     <? include_partial('groups', compact('groups')) ?>
-    <? include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>
-  </div><!-- /#slideshow -->  
-  
-  <script id="mNCC" language="javascript"> medianet_width='656'; medianet_height= '175'; medianet_crid='164139270'; </script> <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUPTG615" language="javascript"></script>
+    
+    <script id="mNCC" language="javascript"> medianet_width='656'; medianet_height= '175'; medianet_crid='164139270'; </script> <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUPTG615" language="javascript"></script>
 
 <div class="OUTBRAIN" data-src="<?= getUrl($slideshow) ?>" data-widget-id="AR_4" data-ob-template="BetterRecipes"></div>
 <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+    
+    
+    <? include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>
+  </div><!-- /#slideshow -->  
+  
+  
 </div><!-- /.section -->
 <? include_partial('right_rail', compact('rr_recipes')) ?>
