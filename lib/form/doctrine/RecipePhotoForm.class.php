@@ -18,8 +18,8 @@ class RecipePhotoForm extends PhotoForm
 
     $params = $this->getOption('params');
     if (!$this->hasEntry($params)) {
-      $this->validatorSchema['name']->setOption('required', false);
-      $this->validatorSchema['image']->setOption('required', false);
+      $this->validatorSchema['name']->setOption('required', true);
+      $this->validatorSchema['image']->setOption('required', true);
     }
   }
 
