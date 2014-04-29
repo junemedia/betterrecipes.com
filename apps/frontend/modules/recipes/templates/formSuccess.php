@@ -61,7 +61,7 @@
         <?= $form['servings']->renderLabel() ?>
         <?= $form['servings']->renderError() ?>
         <?= $form['servings'] ?>
-        <span class="required">*</span>
+        <span style="right:-12px" class="required">*</span>
       </fieldset>
     </fieldset>
     <fieldset>
