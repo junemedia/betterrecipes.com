@@ -208,6 +208,8 @@
 
     <script>
       var adService = {
+      		 pubmaticEnabled: true,
+      		 pubmaticPub: 37576, 
           kruxEnabled: true, /* Set if applicable */
           yieldbotEnabled:true,  /* Set if applicable */
           yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */

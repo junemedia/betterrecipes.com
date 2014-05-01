@@ -61,6 +61,7 @@
         <?= $form['servings']->renderLabel() ?>
         <?= $form['servings']->renderError() ?>
         <?= $form['servings'] ?>
+        <span style="right:-12px" class="required">*</span>
       </fieldset>
     </fieldset>
     <fieldset>
@@ -108,6 +109,7 @@
         <?= $form['photo']['name']->renderLabel() ?>
         <?= $form['photo']['name']->renderError() ?>
         <?= $form['photo']['name'] ?>
+        <span class="required">*</span>
       </fieldset>
       <fieldset>
         <?= $form['photo']['description']->renderLabel() ?>
@@ -118,6 +120,7 @@
         <?= $form['photo']['image']->renderLabel() ?>
         <?= $form['photo']['image']->renderError() ?>
         <?= $form['photo']['image'] ?>
+        <span class="required">*</span>
       </fieldset>  
       <fieldset>
         <?= $form['contests']->renderLabel() ?>

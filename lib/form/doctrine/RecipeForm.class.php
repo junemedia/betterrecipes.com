@@ -35,6 +35,7 @@ class RecipeForm extends BaseRecipeForm
     $this->validatorSchema['ingredients']->setOption('required', true);
     $this->validatorSchema['instructions']->setOption('required', true);
     $this->validatorSchema['keywords']->setOption('required', true);
+    $this->validatorSchema['servings']->setOption('required', true);
   }
 
 }

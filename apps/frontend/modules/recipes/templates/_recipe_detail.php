@@ -108,13 +108,14 @@
       <li class="previous nav"><a href="<?= UrlToolkit::getUrl($recipePrev) ?>" title="">PREVIOUS</a></li>
       <li class="nav gray"> | </li>
     <? endif; ?>
-    <p>Rank: #<?= $currentContest->getRank() ?> in: <?= $currentContest->getContest()->getName() ?>!</p>
+    <? /* <p>Rank: #<?= $currentContest->getRank() ?> in: <?= $currentContest->getContest()->getName() ?>!</p> */ ?>
+    <p><?= $currentContest->getContest()->getName() ?></p>
     <? if ($recipeNext): ?>
       <li class="nav gray"> | </li>
       <li class="next nav last"><a href="<?= UrlToolkit::getUrl($recipeNext) ?>" title="">NEXT</a></li>
     <? endif; ?>
     <ul class="hornav">
-      <li id="vote_button_container" class="cta-vote"><span title="VOTE" class="opac50 cursDef">VOTE</span></li>
+      <? /* <li id="vote_button_container" class="cta-vote"><span title="VOTE" class="opac50 cursDef">VOTE</span></li> */ ?>
       <? if ($currentContest->getContest()->getIsOpenToPublic()): ?>
         <a href="<?= getRoute('contests_detail', array('slug' => $currentContest->getContest()->getSlug())) ?>" title="ENTER A RECIPE" class="btn-grey28 mr20">ENTER A RECIPE</a>
       <? endif; ?>
@@ -122,6 +123,9 @@
   </div><!-- /#vote-box -->
 <? endif; ?>
 <? include_partial('recipe_sharebar', compact('recipe', 'is_saved')) ?>
+
+<?
+/*
 <div class="popup hide brdn contestpopup">
   <div class="recipeboxpopup brdn captchapopup">
     <a id="closePopup"></a>
@@ -146,6 +150,9 @@
     </div>
   </div>
 </div>
+*/
+?>
+
 <div class="p402_premium">  
   <div id="recipe-detail" itemscope itemtype="http://data-vocabulary.org/Recipe">
     <div class="recipeHeader">
