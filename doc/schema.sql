@@ -106,7 +106,7 @@ CREATE TABLE `category_recipe` (
   KEY `FK_category_recipe_recipe` (`recipe_id`),
   CONSTRAINT `FK_category_recipe_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE,
   CONSTRAINT `FK_category_recipe_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=148213 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=148388 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `category_wonders` */
 
@@ -272,7 +272,7 @@ CREATE TABLE `contestant` (
   CONSTRAINT `FK_contestant_contest_period` FOREIGN KEY (`contest_id`) REFERENCES `contest_period` (`contest_id`) ON DELETE CASCADE,
   CONSTRAINT `FK_contestant_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
   CONSTRAINT `FK_contestant_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10533 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10622 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `daily_dish` */
 
@@ -443,7 +443,7 @@ CREATE TABLE `photo` (
   KEY `FK_photo_user` (`user_id`),
   CONSTRAINT `FK_photo_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE SET NULL,
   CONSTRAINT `FK_photo_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47791 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47884 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `poll` */
 
@@ -556,7 +556,7 @@ CREATE TABLE `recipe` (
   KEY `FK_recipe_updated_by` (`updated_by_id`),
   CONSTRAINT `FK_recipe` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `FK_recipe_sponsor` FOREIGN KEY (`sponsor_id`) REFERENCES `sponsor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102741 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102820 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `recipe_like` */
 
@@ -589,7 +589,7 @@ CREATE TABLE `saved` (
   KEY `FK_saved_recipe` (`recipe_id`),
   CONSTRAINT `FK_saved_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`),
   CONSTRAINT `FK_saved_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1420063 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1421087 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `slideshow` */
 
@@ -728,7 +728,7 @@ CREATE TABLE `user` (
   KEY `onesite_id_idx` (`onesite_id`),
   KEY `display_name` (`display_name`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=365778 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=366684 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `user_actions` */
 
@@ -760,7 +760,7 @@ CREATE TABLE `user_actions` (
   CONSTRAINT `user_actions_action` FOREIGN KEY (`action_id`) REFERENCES `actions` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_actions_recipe` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_actions_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=475776 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=479731 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `user_interest` */
 
@@ -806,7 +806,7 @@ CREATE TABLE `vote` (
   KEY `FK_vote_user` (`user_id`),
   CONSTRAINT `FK_vote_contestant` FOREIGN KEY (`contestant_id`) REFERENCES `contestant` (`id`),
   CONSTRAINT `FK_vote_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=119674 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=124303 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `weight` */
 
@@ -950,8 +950,8 @@ SET @sql_stmt = CONCAT('
 SELECT
 (SELECT COUNT(1) FROM rate) AS `Total Number of Ratings`,
 (SELECT COUNT(1) FROM vote WHERE created_at LIKE "',DATE_FORMAT(in_date,"%Y-%m"),'%") AS `Total Number of Votes in ',date_format(in_date, "%M %Y") ,'`,
-(SELECT COUNT(1) FROM recipe WHERE created_at < "',DATE_FORMAT(DATE_ADD(in_date,INTERVAL 1 MONTH),"%Y-%m"),'") AS `Total Number of Recipes (as off ',DATE_FORMAT(in_date, "%M %e") ,')`,
-(SELECT COUNT(1) FROM recipe WHERE created_at < "',DATE_FORMAT(DATE_ADD(in_date,INTERVAL 1 MONTH),"%Y-%m"),'" AND is_active = 1) AS `Total Number of Active Recipes (as off ',DATE_FORMAT(in_date, "%M %e") ,')`,
+(SELECT COUNT(1) FROM recipe WHERE created_at < "',DATE_FORMAT(DATE_ADD(in_date,INTERVAL 1 MONTH),"%Y-%m"),'") AS `Total Number of Recipes (as of ',DATE_FORMAT(in_date, "%M %e") ,')`,
+(SELECT COUNT(1) FROM recipe WHERE created_at < "',DATE_FORMAT(DATE_ADD(in_date,INTERVAL 1 MONTH),"%Y-%m"),'" AND is_active = 1) AS `Total Number of Active Recipes (as of ',DATE_FORMAT(in_date, "%M %e") ,')`,
 (SELECT COUNT(1) FROM recipe WHERE created_at LIKE "',DATE_FORMAT(in_date, "%Y-%m"),'%") AS `Total Number of Recipes created in ',DATE_FORMAT(in_date, "%M %Y") ,'`,
 (SELECT COUNT(1) FROM recipe WHERE created_at LIKE "',DATE_FORMAT(in_date, "%Y-%m"),'%" AND is_active = 1) AS `Total Number of Active Recipes created in ',DATE_FORMAT(in_date, "%M %Y") ,'`;'
 );
