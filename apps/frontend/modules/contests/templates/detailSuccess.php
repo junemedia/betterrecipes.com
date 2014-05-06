@@ -113,7 +113,7 @@ unitValues: {
     </div>
     <p><?= $contest->getDescription() ?></p>
     <ul class="mt20 mb20">
-      <li>Prize: <?= $contest->getPrize() ?></li>
+     <? /* <li>Prize: <?= $contest->getPrize() ?></li> */ ?>
       <li>End Date: <?= date('m/d/y', strtotime($contest->getEndDate())) ?></li>
       <li><a href="<?= getUrl('@contests_rules?slug=' . $contest->getSlug()) ?>">Official Rules</a></li>
     </ul>
