@@ -13,7 +13,7 @@
         //sfWebDebugToggleMenu();
       });
     </script>
-    <? endif ?>    
+    <? endif ?>
   </head>
   <body>
 	<!-- Google Tag Manager -->
@@ -58,10 +58,12 @@
             <li><a href="<?=url_for("@wonders_index") ?>" <? if ($this->moduleName == 'wonders'): ?>class="selected"<? endif; ?>><div class="navText">Wonders</div></a></li>
             <li><a href="<?=url_for("@tips_index") ?>" <? if ($this->moduleName == 'tips'): ?>class="selected"<? endif; ?>><div class="navText">Tips</div></a></li>
           </ul>
-        </div> <!-- end navbar -->  
+        </div> <!-- end navbar -->
       <?= $sf_content ?>
-      <div id="footer"></div>
+      <div id="footer" style="padding-top:1em">
+        <a href="/kristina_vanni_recipes.html" taget="_blank">Kristina Vanni’s Recipes</a>
+      </div>
     </div> <!-- end wrapper -->
-    
+
   </body>
 </html>
