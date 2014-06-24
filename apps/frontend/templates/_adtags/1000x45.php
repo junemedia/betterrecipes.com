@@ -7,10 +7,10 @@
 
 */?>
 <div id="div-gpt-pushdownBanner"></div>
-
+<a href = "http://crockpot.betterrecipes.com/slideshows/top-15-blogger-slow-cooker-recipes/?psrc=R1406BR1000x45default" border=0><img src="/img/slowcookerad.JPG"  border='0' ></a>
 <!--/* OpenX Javascript Tag v2.8.7 */-->
-
-<script type='text/javascript'><!--//<![CDATA[
+<!--
+<script type='text/javascript'>
    var m3_u = (location.protocol=='https:'?'https://ads.meredithads.com/www/delivery/ajs.php':'http://ads.meredithads.com/www/delivery/ajs.php');
    var m3_r = Math.floor(Math.random()*99999999999);
    if (!document.MAX_used) document.MAX_used = ',';
@@ -24,4 +24,6 @@
    if (document.context) document.write ("&context=" + escape(document.context));
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    document.write ("'><\/scr"+"ipt>");
-//]]>--></script><noscript><a href='http://ads.meredithads.com/www/delivery/ck.php?n=a84acf9a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.meredithads.com/www/delivery/avw.php?zoneid=249&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a84acf9a' border='0' alt='' /></a></noscript>
+</script><noscript><a href='http://ads.meredithads.com/www/delivery/ck.php?n=a84acf9a&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.meredithads.com/www/delivery/avw.php?zoneid=249&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a84acf9a' border='0' alt='' /></a></noscript>
+-->
+<!--//<![CDATA[//]]>-->
