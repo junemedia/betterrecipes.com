@@ -163,11 +163,13 @@
     </div><!-- /#main-content -->
     <? include_partial('global/footer') ?>
     <!-- BEGIN BAYNOTE INCLUDE -->
+<!--
     <script src="<?= getDomainUri() . '/js/baynote.js' ?>" ></script>
+-->
     <!-- END BAYNOTE INCLUDE -->
     <? include_partial('global/omniture') ?>
     <? include_partial('global/ga') ?>
-    <? if (strpos($_SERVER['HTTPS'], 'on') === false): ?>
+    <? if (isset($_SERVER['HTTPS']) && strpos($_SERVER['HTTPS'], 'on') === false): ?>
       <!-- BEGIN CROWD_SCIENCE INCLUDE -->
       <script>
       (function() {

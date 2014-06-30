@@ -75,7 +75,9 @@
     <? include_partial('global/footer-main') ?>
 
     <!-- BEGIN BAYNOTE INCLUDE -->
+<!--
     <script type="text/javascript" src="<?= getDomainUri() . '/js/baynote.js' ?>" ></script>
+-->
     <!-- END BAYNOTE INCLUDE -->
     <? include_partial('global/omniture') ?>
     <? include_partial('global/ga') ?>
