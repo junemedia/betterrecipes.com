@@ -47,8 +47,12 @@ while( $row = $results->fetch_assoc() )
         $url .= $row['slug'] . ".betterrecipes.com/";
         $filter = 'CategoryId:' . $row['id'];
     }
+
+	$filename = "./baynote_files/".str_replace("/","",str_replace("http://","",$url)).".".date("Y-m-d",time());
+	$resp = file_get_contents($filename);
 	//echo 'http://meredith-betrec.baynote.net/baynote/guiderest?customerId=meredith&code=betrec&guide=MostPopularRecipes&resultsPerPage=10&attrSort=ImageExist:desc&attrFilter=' . $filter . '&attrList=*&url=' . urlencode($url) . '&v=1';
     // Get cURL resource
+/*
     $curl = curl_init();
     // Set some options - we are passing in a useragent too here
     curl_setopt_array($curl, array(
@@ -64,7 +68,29 @@ while( $row = $results->fetch_assoc() )
     }
     // Close request to clear up some resources
     curl_close($curl);
-
+//*/
+/*
+	$filename = "./baynote_files/".str_replace("/","",str_replace("http://","",$url)).".".date("Y-m-d",time());
+	// Let's make sure the file exists and is writable first.
+	if (is_writable($filename)) {
+		// In our example we're opening $filename in append mode.
+		// The file pointer is at the bottom of the file hence
+		// that's where $somecontent will go when we fwrite() it.
+		if (!$handle = fopen($filename, 'a')) {
+			 echo "Cannot open file ($filename)";
+			 exit;
+		}
+		// Write $somecontent to our opened file.
+		if (fwrite($handle, $resp) === FALSE) {
+			echo "Cannot write to file ($filename)";
+			exit;
+		}
+		echo "Success, wrote ($somecontent) to file ($filename)";
+		fclose($handle);
+	} else {
+		echo "The file $filename is not writable";
+	}
+//*/
     $xml_object = simplexml_load_string( $resp );
     //print_r($xml_object);
     foreach( $xml_object as $r )
