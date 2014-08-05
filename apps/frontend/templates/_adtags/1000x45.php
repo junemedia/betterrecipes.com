@@ -8,9 +8,7 @@
 */?>
 
 <div id="div-gpt-pushdownBanner"></div>
-<!--
-<a href = "http://crockpot.betterrecipes.com/slideshows/top-15-blogger-slow-cooker-recipes/?psrc=R1406BR1000x45default" border=0><img src="/img/slowcookerad.JPG"  border='0' ></a>
--->
+<a href = "http://chicken.betterrecipes.com/slideshows/best-chicken-breast-recipe-ever-1" border=0><img src="/img/brr_1000x45_8810ContestPromos_ChickenBreast.gif"  border='0' ></a>
 <!--/* OpenX Javascript Tag v2.8.7 */-->
 <!--
 <script type='text/javascript'>
