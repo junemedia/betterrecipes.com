@@ -9,19 +9,19 @@ Class RegServices
   /** Settings/initial values  * */
   //  HTTP authentication userid
   private $auth_user;
-  //  HTTP authentication password      
+  //  HTTP authentication password
   private $auth_pass;
-  // Client code for Agriculture    
+  // Client code for Agriculture
   private $client_code;
-  // Client code for Agriculture forgot password    
+  // Client code for Agriculture forgot password
   private $client_code_fp = "1013";
-  //  Turn on WSDL caching for production by making true (DO THIS!!)        
+  //  Turn on WSDL caching for production by making true (DO THIS!!)
   private $use_cache = 1;
-  // Update path to your local wsdl cache location (IE: /tmp)        
+  // Update path to your local wsdl cache location (IE: /tmp)
   private $cache_path = "/tmp";
-  //  WSDL cache timeout - 86400 = 1 day     
+  //  WSDL cache timeout - 86400 = 1 day
   private $cache_timeout = 86400;
-  //  Registration sources     
+  //  Registration sources
   private $registration_source = 8273;
   private $registration_source_sweeps = 2525;
   //private $url = '';
@@ -77,7 +77,7 @@ Class RegServices
     $profile_data .= "<optin>" . (@$user_info['optin'] ? 'true' : 'false') . "</optin>";
     $profile_data .= "<sendregistrationemails>" . $user_info['send_registration_emails'] . "</sendregistrationemails>";
     $profile_data .= "</registration>";
-	//echo 'connection '.$connection;
+  //echo 'connection '.$connection;
     if ($connection != false) {
       $result = $connection->register($profile_data, $this->client_code);
       $xml = new SimpleXMLElement($result);
@@ -112,17 +112,17 @@ Class RegServices
               $error = 'The last name you entered is too long';
               break;
             case 'invalidEmailAddressFormat':
-            	$error = 'The login is not a valid email address format';
-				break;
-			case 'firstNameRequired':
-				$error = 'The first name field is required, but no value given';
-				break;
-			case 'displayNameRequired':
-				$error = 'The display name is required for the specified registration source, but no value given';
-				break;
-			case 'insufficientPassword':
-				$error = 'The password does not meet minimum requirements';
-				break;
+              $error = 'The login is not a valid email address format';
+        break;
+      case 'firstNameRequired':
+        $error = 'The first name field is required, but no value given';
+        break;
+      case 'displayNameRequired':
+        $error = 'The display name is required for the specified registration source, but no value given';
+        break;
+      case 'insufficientPassword':
+        $error = 'The password does not meet minimum requirements';
+        break;
             default:
               $error = "There was an error. Please check your information and try again";
               break;
@@ -427,9 +427,9 @@ Class RegServices
               $field = "country";
               break;
             case 'alreadyExistingEmailAddress':
-            	$error = 'Email address is already in use. Please choose a new one.';
-            	$field = 'email';
-				break;
+              $error = 'Email address is already in use. Please choose a new one.';
+              $field = 'email';
+        break;
             default:
               $error = "There was an error. Please check your information and try again";
               break;
@@ -456,7 +456,15 @@ Class RegServices
     $full_url = $this->base_url . $function_name . '?WSDL';
     //echo $full_url;
     try {
-      $result = new SoapClient($full_url, array('login' => $this->auth_user, 'password' => $this->auth_pass, 'connection_timeout' => 90));
+      $result = new SoapClient($full_url, array(
+        'login'              => $this->auth_user,
+        'password'           => $this->auth_pass,
+        'connection_timeout' => 90,
+        'exceptions'         => true,
+        'trace'              => true,
+        'cache_wsdl'         => WSDL_CACHE_BOTH,
+        'compression'        => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP)
+      );
       /* var_dump($result);
         if (is_soap_fault($result)) {
         trigger_error("SOAP Fault: (faultcode: {$result->faultcode}, faultstring: {$result->faultstring})", E_USER_ERROR);
