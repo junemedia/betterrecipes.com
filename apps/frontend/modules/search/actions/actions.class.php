@@ -77,6 +77,11 @@ class searchActions extends sfActions
 			foreach ($withParam as $ww)
 				$q .= "%20+text:%22".$ww."%22";
 		
+		if ($q)
+		{
+			$q = str_replace("+","%20",$q);
+			$q = str_replace(" ","%20",$q);
+		}	
 		
 		$url = 'http://23.251.155.98:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;
 //		$url = 'http://192.168.59.103:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;
@@ -106,6 +111,7 @@ class searchActions extends sfActions
 		));
 		// Send the request & save response to $resp
 		$resp = curl_exec($curl);
+//echo $resp;
 
 		if(!curl_exec($curl)){
 			die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
@@ -115,7 +121,7 @@ class searchActions extends sfActions
 
       
 //      $s = $this->baynote->search($this->term, $startingDoc, $perPage, $PageType, $Rating, $CategoryName, $withParam, $withoutParam, $recipeOwner);
-
+//echo $resp;
 		$xml_object = simplexml_load_string( $resp );
 //		echo $xml_object->result["numFound"].":".$s['total']."<BR>\n";
 //		echo $xml_object->result[0]->doc[0]->str[0]."<BR>\n";
