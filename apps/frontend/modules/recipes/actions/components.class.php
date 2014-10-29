@@ -59,6 +59,10 @@ class recipesComponents extends sfComponents
      // $this->stories = ArticleTable::getList(array('category_id' => $this->category_id, 'is_global' => 1));
       //$this->slideshows = SlideshowTable::getList(array('category_id' => $this->category_id, 'is_global' => 1));
     //}
+
+    // disabling for now--BREAKS A TON OF CATEGORY PAGES
+    return;
+
     //Slideshows
     $slideshowParams = array('module' => 'slideshow', 'category_id' => $this->category_id, 'is_global' => 1);
     $favoriteSlideshowsOverride = OverrideTable::getOverrideAdmin($slideshowParams);
