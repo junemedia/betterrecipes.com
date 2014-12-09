@@ -90,7 +90,7 @@ if ($sf_user->hasFlash('onUpload')) {
 }
 
 // Signout
-if ($sf_user->hasFlash('onSignout')) {
+if ($sf_user->getFlash('onSignout')) {
   // Logout - Track number of logouts
   // 
   // Pass "event9" on the page that follows a logout confirmation

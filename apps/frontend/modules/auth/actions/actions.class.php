@@ -183,8 +183,9 @@ class authActions extends sfActions
     }
     if ($request->isMethod(sfRequest::POST)) {
       if ($request->getPostParameter('signout')) {
+        // // Cannot set this flash, because signout destroys session
+        // $this->getUser()->setFlash('onSignout', true);
         $this->getUser()->signout();
-        $this->getUser()->setFlash('onSignout', true);
       }
       $this->goToReferrer();
     }
