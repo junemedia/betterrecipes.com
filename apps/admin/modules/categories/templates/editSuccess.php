@@ -209,6 +209,7 @@
 
 
 
+<?php /*
 <div id="slideshowEdit" class="container overrideEditSection" style="margin-bottom:40px;">
   <div id="subHeading">
     <h2>Slideshows</h2>
@@ -246,3 +247,4 @@
     </div>
   </form>
 </div>
+*/ ?>

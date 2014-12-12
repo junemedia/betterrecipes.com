@@ -171,10 +171,10 @@ class authActions extends sfActions
   public function executeSignout(sfWebRequest $request)
   {
     // destroy the 'lis' nginx cookie
-    $this->getResponse()->setCookie('lis', '', time() - 3600, '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('lis', '', time() - 3600, '/', '.' . UrlToolkit::getDomain());
 
     // destroy the 'DYN_USER_ID' cookie for Krux
-    $this->getResponse()->setCookie('DYN_USER_ID', '', time() - 3600, '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('DYN_USER_ID', '', time() - 3600, '/', '.' . UrlToolkit::getDomain());
 
     $this->processReferrer($request);
     if (!$this->getUser()->isAuthenticated()) {
@@ -183,8 +183,9 @@ class authActions extends sfActions
     }
     if ($request->isMethod(sfRequest::POST)) {
       if ($request->getPostParameter('signout')) {
+        // // Cannot set this flash, because signout destroys session
+        // $this->getUser()->setFlash('onSignout', true);
         $this->getUser()->signout();
-        $this->getUser()->setFlash('onSignout', true);
       }
       $this->goToReferrer();
     }
@@ -347,10 +348,10 @@ class authActions extends sfActions
       $local_user->save();
     }
     // Set lls cookie for nginx usage
-    $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('lis', 1, time()+sfConfig::get('app_session_ttl'), '/', '.' . UrlToolkit::getDomain());
 
     // set the DYN_USER_ID for Krux
-    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time()+sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time()+sfConfig::get('app_session_ttl'), '/', '.' . UrlToolkit::getDomain());
 
     $user->signin($local_user);
     $user->setFlash('onSignin', true);
@@ -510,9 +511,9 @@ class authActions extends sfActions
   {
     // set lis cookie for nginx usage (2 for admin 1 for normal user)
     $lis_status = ($user_data['is_admin'] == 1 || $user_data['is_super_admin'] == 1) ? 2 : 1;
-    $this->getResponse()->setCookie('lis', $lis_status, time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('lis', $lis_status, time() + sfConfig::get('app_session_ttl'), '/', '.' . UrlToolkit::getDomain());
    // set the DYN_USER_ID for Krux
-    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time() + sfConfig::get('app_session_ttl'), '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('DYN_USER_ID', $user_data['id'], time() + sfConfig::get('app_session_ttl'), '/', '.' . UrlToolkit::getDomain());
    }
 
 }

@@ -25,8 +25,8 @@ class authActions extends sfActions {
         $values = $this->form->getValues();
         $this->getUser()->signin($values['user_data']);
           // set lis cookie for nginx usage, is admin user?
-		  		$is_admin = ($values['user_data']['is_admin'] == 1 || $values['user_data']['is_super_admin'] == 1) ? 2 : 1;
-		  		$this->getResponse()->setCookie('lis', $is_admin, 0, '/', UrlToolkit::getDomain());
+        $is_admin = ($values['user_data']['is_admin'] == 1 || $values['user_data']['is_super_admin'] == 1) ? 2 : 1;
+        $this->getResponse()->setCookie('lis', $is_admin, 0, '/', '.' . UrlToolkit::getDomain());
         $this->redirect(($referrer = $request->getParameter('referrer')) ? $referrer : '@homepage');
       }
     }
@@ -40,7 +40,7 @@ class authActions extends sfActions {
   public function executeSignout(sfWebRequest $request) {
     $this->getUser()->signout();
     // destroy the lis nginx cookie
-  	$this->getResponse()->setCookie('lis', '', time() - 3600, '/', UrlToolkit::getDomain());
+    $this->getResponse()->setCookie('lis', '', time() - 3600, '/', '.' . UrlToolkit::getDomain());
     $this->redirect('homepage');
   }
   

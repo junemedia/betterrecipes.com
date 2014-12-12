@@ -60,9 +60,23 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
           <li>&nbsp;|&nbsp;<a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
           <li>&nbsp;|&nbsp;<a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Customer Service</a></li>
           <li id="footer_login"></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html" target="_blank">Data Policy</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html" target="_blank">Privacy Policy</a></li>
-          <li>&nbsp;|&nbsp;<a id="_bapw-link" href="#" target="_blank" style=""> <span style="vertical-align:middle !important;padding-right:2px;">AdChoices</span></a><img id="_bapw-icon" style="height:14px;border:0 !important;display:inline !important;vertical-align:middle !important"/><script>/*<![CDATA[*/(function(){var g=282,i=1333,a=false,h=document,j=h.getElementById("_bapw-link"),e=(h.location.protocol=="https:"),f=(e?"https":"http")+"://",c=f+(e?"a248.e.akamai.net/betterad.download.akamai.com/91609":"cdn.betrad.com")+"/pub/";function b(k){var d=new Image();d.src=f+"l.betrad.com/pub/p.gif?pid="+g+"&ocid="+i+"&i"+k+"=1&r="+Math.random()}h.getElementById("_bapw-icon").src=c+"icon1.png";j.onmouseover=function(){if(/#$/.test(j.href)){j.href="http://info.evidon.com/pub_info/"+g+"?v=1"}};j.onclick=function(){var k=window._bap_p_overrides;function d(n,q){var o=h.getElementsByTagName("head")[0]||h.documentElement,m=a,l=h.createElement("script");function p(){l.onload=l.onreadystatechange=null;o.removeChild(l);q()}l.src=n;l.onreadystatechange=function(){if(!m&&(this.readyState=="loaded"||this.readyState=="complete")){m=true;p()}};l.onload=p;o.insertBefore(l,o.firstChild)}if(k&&k.hasOwnProperty(g)){if(k[g].new_window){b("c");return true}}this.onclick="return "+a;d(f+"ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js",function(){d(c+"pub2.js",function(){BAPW.i(j,{pid:g,ocid:i})})});return a};b("i")}());/*]]>*/</script><script>/*<![CDATA[*/var _bap_p_overrides=_bap_p_overrides||{};if (document.location.protocol == 'https:'){_bap_p_overrides[282]={new_window:true};}/*]]>*/</script></li>
+          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html">Data Policy</a></li>
+          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html">Privacy Policy - New!</a></li>
+          <li>&nbsp;|&nbsp;
+            <!--
+             Ghostery Inc tag
+             cid: 1333
+             pid: 282
+            -->
+            <a id="_bapw-link" href="#" target="_blank"><img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;"/><span style="vertical-align:middle !important">AdChoices</span></a>
+            <script type="text/javascript">
+            (function() {
+                var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', 282); ev.setAttribute('data-ev-tag-ocid', 1333);
+                ev.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/pub/tag.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+            })();
+            </script>
+          </li>
         </ul>
       </div>
     </div>
@@ -142,7 +156,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       <div class="title"><img src="/img/logo-womens-network.png" alt="Meredith Women's Network" class="mb0 pb20" style="vertical-align: middle;" /></div>
       <div class="links">
         <ul>
-          <li>&copy; Copyright 2012, Meredith Corporation.  All Rights Reserved</li>
+          <li>© Copyright <?= date('Y') ?>, Meredith Corporation.  All Rights Reserved</li>
           <li>&nbsp;|&nbsp;By using this site, you agree to our <a href="<?= getUrl('@terms') ?>">Terms of Service</a>.</li>
         </ul>
       </div>

@@ -95,6 +95,7 @@
 </div>
 
 
+<?php /*
 <div id="favoriteSlideshowsContainer" class="container overrideSection">
   <div id="subHeading">
     <h2>Slideshows</h2>
@@ -119,3 +120,4 @@
     <? endif; ?>
   </div>
 </div>
+<?php */ ?>

@@ -99,9 +99,6 @@
     */
     ?>
 
-    <? if (has_slot('infolinks')): ?>
-      <? include_slot('infolinks'); ?>
-    <? endif; ?>
     <!-- Facebook Conversion Code for BetterRecipes Tracker -->
   <script>
   var fb_param = {};
