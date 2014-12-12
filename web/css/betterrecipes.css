@@ -150,6 +150,7 @@ a:hover {
   background:url(/img/bg-mh-searchbar.jpg) repeat-y top left;
   width:100%;
   height:46px;
+  margin-top:15px;
 }
 #main-content {
   clear:both;
