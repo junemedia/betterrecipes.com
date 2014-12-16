@@ -54,9 +54,10 @@
               s.src = src;
           }
         // ]]>
+				*/
     </script>
 
-		*/
+
 
 
       <script type="text/javascript">
