@@ -5608,6 +5608,7 @@ BEGINNING OF THE NEW STYLES
   position:relative;
   border: 2px solid #823a84;
   margin-top: 0px !important;
+  display: none;
 }
 
 /* gigya reset */
