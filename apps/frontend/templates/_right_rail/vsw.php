@@ -6,22 +6,35 @@
                     body div.vsw-ad-rc .vsw-ad-domain {font-family:Arial !important; color:black !important; font-size:11px !important;}
                 </style>
                 <span class="heading2">More Smart Savings</span>
-                <div id="ERA_AD_BLOCK"></div>
-                <script type="text/javascript">
-					//values same as your existing vsw	
-                    era_rc = {
-                           ERADomain: 'as.vs4food.com',
-                           MaxRelatedItems: 4,
-                           PubID: 'recipe',
-                           BlockID: 'standard',
-                           Layout: 'default',
-                           ClassName: 'era_ad_block',
-                           at: 0
-                    };
-                </script>
+                
+				<div id="ERA_AD_BLOCK1"></div>
+                 <!-- NTENT ADS -->
+				<style type="text/css">
+				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-item {margin-right: -3px !important; margin-left: 8px !important; margin-bottom: -15px !important;}
+				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-header {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif !important; color: #666666 !important; font-size: 16px !important; text-transform: uppercase !important; line-height: 22px !important; font-weight: normal !important; }
+				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-item:hover .vsw-ad-title {color: #660066 !important;}
+				</style>
+				<script type="text/javascript" language="JavaScript">
+				var era_rc = {
+				   ERADomain: 'as.vs4food.com',
+				   PubID: 'betterrecipes1',
+				   Layout: 'thumbnail',
+				   MaxRelatedItems: '4',
+				   BlockID: 'thumbnail',
+				   SearchWidgetPosition: '0',
+				   SearchBoxCaption: 'Find More ...',
+				   HeaderText: 'You Might Like'
+				};
+				(function(){var v='ERA_AD_BLOCK1';var i=1;while(document.getElementById(v)){if(i==25)break;v='ERA_AD_BLOCK'+i++;}document.write("<"+"div id='"+v+"'><"+"/div>");
+				var sch=(location.protocol=='https:'?'https':'http');var host=sch=='http'?'as.ntent.com':'secure.ntent.com';var s=document.createElement('script');var src=sch+"://"+host+"/ERALinks/era_rl.aspx?elid="+v;for(var p in era_rc)
+				{if(era_rc.hasOwnProperty(p)){src+=decodeURIComponent('%26')+p.toLowerCase()+"="+encodeURIComponent(era_rc[p]);}};s.src=src;document.getElementsByTagName("head")[0].appendChild(s);})();
+				</script>
+				<!-- END NTENT ADS -->
+				
                 <script type="text/javascript">
         // <![CDATA[
 
+		/*
         function doVswScript() {
         		<? if ( isset($refresh) ): ?>
         			window.ERA_RC = window.ERA_RC || {};
@@ -43,6 +56,7 @@
         // ]]>
     </script>
 
+		*/
 
 
       <script type="text/javascript">
