@@ -40,6 +40,7 @@
     <? if ($sf_context->getRouting()->getCurrentRouteName() == 'signin' || $sf_context->getRouting()->getCurrentRouteName() == 'signup'): ?>
 
     <? else: ?>
+	  <!--
       <div class="banner ad1000x45">
         <? include_partial('global/adtags/1000x45') ?>
       </div><!-- /.banner -->
