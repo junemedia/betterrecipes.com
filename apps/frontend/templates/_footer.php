@@ -18,11 +18,13 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
 <div id="main-footer">
   <div class="wrapper pb60">
     <div class="header search-bar">
+	<!--
       <form id="ft-search" action="<?= getDomainUri() . '/search' ?>" method="get" onsubmit="return validateSearch(this)">
         <input type="text" value="Search for recipe" name="term" onFocus="clearText(this)" onBlur="clearText(this)" />
         <input type="hidden" name="PageType" value="Recipe" />
         <input type="submit" value="SEARCH" class="cssbutton" />
       </form>
+	-->
     </div>
   <div class="banner"><center>
 
@@ -164,3 +166,8 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
   </div>
 </div>
 </div><!-- /#main-footer -->
+<script type="text/javascript">
+var infolinks_pid = 1863387;
+var infolinks_wsid = 3;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>

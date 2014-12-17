@@ -150,6 +150,7 @@ a:hover {
   background:url(/img/bg-mh-searchbar.jpg) repeat-y top left;
   width:100%;
   height:46px;
+  margin-top:15px;
 }
 #main-content {
   clear:both;
@@ -524,7 +525,7 @@ MAIN CONTENT ITEMS
   overflow:hidden;
 }
 #main-content .article {
-  width:660px;
+  width:650px;
   float:left;
   margin:15px 0 20px 20px;
   min-height:300px;
@@ -535,8 +536,8 @@ MAIN CONTENT ITEMS
 }
 #main-content .sidebar {
   float:right;
-  width:300px;
-  margin:15px 0 0 0;
+  width:325px;
+  margin:0 0 0 0;
 }
 #main-content form {
   position:relative;
@@ -5607,6 +5608,7 @@ BEGINNING OF THE NEW STYLES
   position:relative;
   border: 2px solid #823a84;
   margin-top: 0px !important;
+  display: none;
 }
 
 /* gigya reset */
