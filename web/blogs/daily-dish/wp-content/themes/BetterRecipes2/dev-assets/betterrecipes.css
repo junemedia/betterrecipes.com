@@ -1,0 +1,2741 @@
+@charset "UTF-8";
+/*----- BEGIN: reset -----*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+:focus {
+	outline: 0;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary, video { 
+    display:block;
+}
+.group:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+/*----- END: reset -----*/
+/*-----
+BASIC LAYOUT & CROSS SITE ITEMS
+-----*/
+body {
+	background-color:#f4f3f3;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#666666;
+	line-height:1.3em;
+}
+a {
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+.purple {
+	color:#660066;
+}
+.gray {
+	color:#666;
+}
+.green {
+	color:#83af1b;
+}
+.clearfix {
+	clear:both;
+}
+#main-header,
+#main-content,
+#main-footer {
+	width:100%;
+}
+.wrapper {
+	width:1020px;
+	margin:0 auto;
+}
+#main-header {
+	height:210px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mh.jpg) repeat-x top left;
+}
+#main-header .wrapper {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mc.png) repeat-y top left;
+	height:100%;
+}
+#main-header .wrapper .sign-in {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mh-signin.jpg) repeat-y top left;
+	width:100%;
+	height:30px;
+}
+#main-header .wrapper .logo-space {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mh-logo.jpg) repeat-y top left;
+	width:100%;
+	height:90px;
+}
+#main-header .wrapper .search-bar {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mh-searchbar.jpg) repeat-y top left;
+	width:100%;
+	height:46px;
+}
+#main-content {
+	clear:both;
+}
+#main-content .wrapper {
+	/*
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mc.png) repeat-y top left;
+	*/
+}
+#main-content-footer .wrapper {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mc.png) repeat-y top left;
+	padding:35px 0 15px;
+}
+#main-footer {
+	background:#e6dae5 url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mf.png) repeat-x top left;
+	clear:both;
+}
+#main-footer .wrapper {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mf-wrapper.png) repeat-y top left;
+}
+.hornav li {
+	float:left;
+	display:inline-block;
+	clear:none;
+}
+#main-content-footer {
+	clear:both;
+}
+/*-----
+MAIN HEADER ITEMS
+-----*/
+.sign-in ul li,
+.sign-in ul li a {
+	font-size:12px;
+	color:#666;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	display:block;
+}
+ul.members {
+	margin:0 0 0 282px;
+}
+ul.members li {
+}
+ul.members li a {
+	height:100%;
+	display:block;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-membersorb.png) no-repeat center right;
+	padding:0 19px 0 0;
+}
+ul.members li a.first {
+	border-right:#eaeaea solid 1px;
+	padding:0 34px 0 0;
+	margin:0 9px 0 0;
+	background-position:44px center;
+}
+ul.social {
+	float:right;
+	margin:0 20px 0 0;
+}
+ul.social li.bdrt {
+	border-right:#eaeaea solid 1px;
+}
+ul.social li .cta-fb {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-fb.png) center no-repeat;
+	width:26px;
+	text-indent:-9999px;
+}
+ul.social li .cta-tw {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-tw.png) center no-repeat;
+	text-indent:-9999px;
+	width:27px;
+	margin-right:5px;
+}
+ul.social li .cta-nl {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-nl.png) no-repeat center left;
+	padding:0 0 0 24px;
+	margin:0 0 0 10px;
+}
+.logo-space h1 {
+	height:100%;
+	width:272px;
+	float:left;
+	margin-left:10px;
+}
+.logo-space h1 a {
+	height:100%;
+	width:100%;
+	display:block;
+	text-indent:-9999px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/logo-betterrecipes.png) no-repeat top left;
+}
+.logo-space .hd-ad {
+	float:left;
+}
+.search-bar form {
+	float:left;
+	width:272px;
+	margin-left:10px;
+}
+#main-footer .search-bar {
+	position:relative;
+}
+#main-footer .search-bar form {
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:-25px 0 0 -169px;
+}
+.search-bar form input[type=text],
+.sidebar-search form  input[type=text] {
+	height:27px;
+	line-height:27px;
+	width:162px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-search-text.png) no-repeat top left;
+	border:none;
+	font-size:12px;
+	color:#838383;
+	margin:10px 0 0 21px;
+	padding:0 5px;
+	float:left;
+}
+
+.sidebar-search form  input[type=submit] {
+	border:none;
+	width:66px;
+	height:28px;
+	line-height:27px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-search-btn.png) no-repeat top left;
+	font-size:14px;
+	color:#660066;
+	font-weight:bold;
+	text-align:center;
+	float:left;
+	margin:10px 0 0 0;
+	text-transform:uppercase;
+}
+.sidebar-search form  input[type=text],
+.sidebar-search form  input[type=submit] {
+	margin:0;
+}
+.sidebar-search {
+	margin:0 0 20px;
+	overflow:hidden;
+}
+.sidebar-search h2 {
+	display:none;
+}
+.search-bar ul .recipes {
+	margin-left:29px;
+}
+.searchbar ul li,
+.search-bar ul li a {
+	height:46px;
+	line-height:46px;
+	color:#FFF;
+	font-size:25px;
+	display:block;
+}
+.search-bar ul li a {
+	text-indent:-9999px;
+}
+.search-bar ul li a:hover {
+	background-position:center -46px;
+}
+.search-bar .recipes a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-recipes.png) no-repeat top center;
+	width:127px;
+}
+.search-bar .dd a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-dd.png) no-repeat top center;
+	width:198px;
+}
+.search-bar .contests a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-contests.png) no-repeat top center;
+	width:141px;
+}
+.search-bar .sweeps a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-sweeps.png) no-repeat top center;
+	width:183px;
+}
+.mb-nav {
+	height:46px;
+	width:1000px;
+	margin:0 0 0 10px;
+}
+.mb-nav li,
+.mb-nav li a {
+	height:46px;
+	line-height:46px;
+	display:block;
+}
+.mb-nav li a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mbnav-sprite.png) no-repeat top left;
+	text-indent:-9999px;
+}
+.mb-nav .logo a {
+	background-position:0 0;
+	width:177px;
+}
+.mb-nav .groups a {
+	background-position:-177px 0;
+	width:76px;
+}
+.mb-nav .cooks a {
+	background-position:-253px 0;
+	width:66px;
+}
+.mb-nav .polls a {
+	background-position:-319px 0;
+	width:61px;
+}
+.mb-nav .disc a {
+	background-position:-380px 0;
+	width:106px;
+}
+.mb-nav .photos a {
+	background-position:-486px 0;
+	width:74px;
+}
+.mb-nav .videos a {
+	background-position:-560px 0;
+	width:71px;
+}
+.mb-nav .rewards a {
+	background-position:-631px 0;
+	width:81px;
+}
+.mb-nav .journals a {
+	background-position:-712px 0;
+	width:81px;
+}
+.mb-nav .groups a:hover {
+	background-position:-177px -45px;
+}
+.mb-nav .cooks a:hover {
+	background-position:-253px -45px;
+}
+.mb-nav .polls a:hover {
+	background-position:-319px -45px;
+}
+.mb-nav .disc a:hover {
+	background-position:-380px -45px;
+}
+.mb-nav .photos a:hover {
+	background-position:-486px -45px;
+	width:74px;
+}
+.mb-nav .videos a:hover {
+	background-position:-560px -45px;
+	width:71px;
+}
+.mb-nav .rewards a:hover {
+	background-position:-631px -45px;
+	width:81px;
+}
+.mb-nav .journals a:hover {
+	background-position:-712px -45px;
+	width:81px;
+}
+.mb-nav .journals {
+	margin-right:11px;
+}
+.mb-nav .add a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/cta-addrecipe.jpg) no-repeat top left;
+	width:176px;
+	height:39px;
+}
+.mb-nav .add a:hover {
+	background-position:0 -39px;
+}
+#main-header .banner {
+	width:1000px;
+	margin:0 0 0 10px;
+	background-color:#e5e5e5;
+	min-height:45px;
+	float:left;
+}
+#main-header .banner p {
+	height:45px;
+	line-height:45px;
+	padding-left:20px;
+}
+/*-----
+MAIN CONTENT ITEMS
+-----*/
+#main-content .section {
+	margin:0 10px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mb-content.jpg) repeat-x top left;
+}
+#main-content .article {
+	width:660px;
+	float:left;
+	margin:15px 0 20px 20px;
+}
+#main-content .sidebar {
+	float:right;
+	width:300px;
+	margin:15px 0 0 0;
+}
+#main-content.has-breadcrumbs .sidebar {
+	margin-top:-10px;
+}
+#main-content .title {
+	font-size:18px;
+	margin-bottom:5px;
+	text-transform:uppercase;
+	line-height:22px;
+}
+#main-content .cta-more {
+	width:100%;
+	text-align:right;
+	clear:both;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+#main-content .sidebar .cta-more a {
+	padding-right:10px;
+}
+#main-content a {
+	color:#660066;
+}
+#main-content .article a:visited {
+	color:#660066;
+}
+/*-----
+MAIN CONTENT FOOTER
+-----*/
+#main-content-footer .banner {
+	height:70px;
+	width:660px;
+	margin:0 0 0 30px;
+	clear:both;
+	background-color:#d8d7d7;
+}
+#main-content-footer .banner p {
+	color:#FFF;
+	font-size:18px;
+	width:100%;
+	text-align:center;
+	height:70px;
+	line-height:70px;
+}
+/*-----
+MAIN FOOTER ITEMS
+-----*/
+#main-footer {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+#main-footer a {
+	color:#666;
+}
+#main-footer .header {
+	height:52px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-mf-wr-head.png) no-repeat top left;
+}
+#main-footer .nav {
+	margin-left:30px;
+	clear:both;
+	padding-top:15px;
+}
+#main-footer .nav ul {
+	float:left;
+	width:176px;
+}
+#main-footer .nav ul li {
+	height:24px;
+}
+#main-footer .upper {
+	height:144px;
+}
+#main-footer .lower {
+	height:185px;
+}
+#main-footer .title {
+	margin:20px 0 0 30px;
+}
+#main-footer .copyright {
+	margin-top:30px;
+	margin-bottom:5px;
+}
+#main-footer p img {
+	margin-bottom:-12px;
+	margin-right:10px;
+}
+#main-footer p a {
+	text-decoration:underline;
+}
+/*-----
+HOMEPAGE: GALLERY
+-----*/
+#gallery {
+	position:relative;
+	z-index:1;
+	height:225px;
+	margin-bottom:25px;
+}
+#gallery .picture {
+	height:100%;
+	width:300px;
+	overflow:hidden;
+	float:left;
+	position:relative;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+	*background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-feat-moms.png) center no-repeat;
+	*padding:6px;
+}
+#gallery .picture .picts {
+	height:100%;
+	width:900px;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10;
+}
+#gallery .picture .picts img {
+	float:left;
+	border:#FFF solid 6px;
+	width:288px;
+	height:auto;
+}
+#gallery .marker {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/btn-galleryarrow.png) no-repeat top left;
+	width:15px;
+	height:38px;
+	position:absolute;
+	top:20px;
+	left:300px;
+	z-index:20;
+}
+#gallery ul {
+	width:340px;
+	float:right;
+	font-size:18px;
+	margin-top:23px;
+}
+#gallery ul li {
+	margin-bottom:30px;
+}
+#gallery ul li a {
+	color:#666;
+}
+#gallery ul li .current {
+	color:#660066;
+}
+/*-----
+MAIN: breadcrumbs
+-----*/
+#breadcrumbs {
+	height:27px;
+	line-height:27px;
+	padding-left:20px;
+	width:980px;
+	font-size:11px;
+}
+#breadcrumbs a {
+	color:#666;
+}
+#breadcrumbs .last {
+	color:#660066;
+}
+/*-----
+MAIN: popular groups & sponsored groups
+-----*/
+#popular-groups,
+#sponsored-groups,
+#my-friends,
+.sidebar #my-groups {
+	width:100%;
+	clear:both;
+	margin-bottom:10px;
+}
+.group-landing .article #popular-groups,
+.group-landing .article #sponsored-groups {
+	border-bottom:#ebebeb solid 1px;
+	margin-bottom:20px;
+	padding-bottom:20px;
+}
+#popular-groups ul,
+#sponsored-groups ul,
+.sidebar #my-groups ul {
+	margin-top:15px;
+	line-height:1.1em;
+}
+#popular-groups ul li,
+#sponsored-groups ul li {
+	width:150px;
+	float:left;
+	position:relative;
+	z-index:1;
+	margin:0 20px 20px 0;
+}
+#sponsored-groups ul li {
+	padding-bottom:20px;
+}
+#popular-groups ul li.last,
+#sponsored-groups ul li.last {
+	margin-right:0;
+}
+#popular-groups ul li p,
+#sponsored-groups ul li p {
+	position:absolute;
+	top:117px;
+	left:6px;
+	width:138px;
+	z-index:20;
+	font-size:13px;
+}
+#popular-groups ul li p span,
+#sponsored-groups ul li p span {
+	font-size:11px;
+}
+#popular-groups ul li p a,
+#sponsored-groups ul li p a {
+	color:#FFF!important;
+}
+#popular-groups ul li p img,
+#sponsored-groups ul li p img {
+	float:right;
+}
+#popular-groups ul li div,
+#sponsored-groups ul li div {
+	background-color:#74a500;
+	width:100%;
+	height:39px;
+	position:absolute;
+	left:0;
+	top:111px;
+	filter:alpha(opacity=90);   /* Internet Explorer       */
+	-moz-opacity:0.9;           /* Mozilla 1.6 and below   */
+	opacity: 0.9;               /* newer Mozilla and CSS-3 */
+	z-index:10;
+}
+#sponsored-groups ul li .sponsor {
+	font-size:11px;
+	position:absolute;
+	left:0;
+	top:160px;
+}
+/*-----
+MAIN: top discussions
+&
+SIDEBAR: recipes
+-----*/
+#top-discussions {
+	float:left;
+	width:320px;
+	margin-right:20px;
+}
+#top-discussions ul {
+}
+#top-discussions ul li,
+#sidebar-recipes ul li {
+	clear:both;
+}
+#top-discussions ul li img,
+#sidebar-recipes ul li img {
+	float:left;
+	width:100px;
+	height:auto;
+	margin:0 20px 20px 0;
+}
+#top-discussions a,
+#sidebar-recipes ul a {
+	color:#660066;
+}
+#top-discussions ul li .art_title,
+#sidebar-recipes ul li .rec-title {
+	margin:0 0 15px 0;
+	padding:20px 0 0 0;
+}
+#top-discussions ul li .art_author,
+#sidebar-recipes ul li .rec-author {
+	font-size:11px;
+}
+/*-----
+MAIN: today's poll
+-----*/
+#todays-poll {
+	float:right;
+	width:320px;
+}
+#todays-poll a {
+	color:#660066;
+}
+#todays-poll ul li {
+	float:left;
+	width:150px;
+	margin-right:20px;
+}
+#todays-poll ul li.last {
+	margin-right:0;
+}
+#todays-poll ul li p {
+	width:100%;
+	text-align:center;
+}
+#todays-poll .rec_votebtn {
+	width:118px;
+	height:31px;
+	line-height:31px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray.jpg) no-repeat center;
+	margin:20px auto;
+}
+#todays-poll .social_icons {
+	width:320px;
+	clear:both;
+	padding:20px 0;
+}
+#todays-poll .social_icons .fb-like {
+	margin-right:20px;
+}
+/*-----
+MAIN: top trending recipes
+-----*/
+#top-trending {
+	float:left;
+	width:320px;
+}
+/*-----
+MAIN: popular cooks & recent photos
+-----*/
+#popular-cooks,
+#recent-photos {
+	width:100%;
+	clear:both;
+}
+#popular-cooks ul,
+#recent-photos ul {
+	margin-top:15px;
+}
+#popular-cooks ul li,
+#recent-photos ul li {
+	float:left;
+	width:100px;
+	margin-right:20px;
+}
+#popular-cooks ul li.last,
+#recent-photos ul li.last {
+	margin-right:0;
+}
+#popular-cooks ul li p,
+#recent-photos ul li p {
+	font-size:11px;
+	line-height:1.2em;
+}
+#popular-cooks ul li a,
+#recent-photos ul li a {
+	color:#660066;
+}
+/*-----
+MAIN: featured contests
+-----*/
+.article #featured-contest {
+	background-color:#dae2c7;
+	padding:20px 15px 20px 20px;
+	width:265px;
+	height:160px;
+	float:right;
+}
+.article #featured-contest p {
+	float:right;
+	width:140px;
+}
+.article #featured-contest .purple {
+	color:#660066;
+	font-size:18px;
+	line-height:1.5em;
+}
+.article #featured-contest img {
+	float:left;
+	margin:4px 20px 20px 4px;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+	*background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-feat-moms.png) center no-repeat;
+	*padding:6px;
+}
+.article #featured-contest .cta {
+	margin-top:20px;
+	clear:both;
+	float:none;
+}
+.article #featured-contest .cta a  {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-purple-wide.png) no-repeat center bottom;
+	width:265px;
+	padding-top:5px;
+}
+/*-----
+MAIN: vote box 
+-----*/
+#vote-box {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-votebox.jpg) repeat-x top left;
+	width:100%;
+	height:71px;
+	margin-left:-20px;
+	padding-left:20px;
+}
+#vote-box p {
+	font-size:18px;
+	color:#FFF;
+	font-weight:bold;
+	margin:0 0 5px 0;
+	padding:10px 0 0 0;
+}
+#vote-box ul {
+	font-size:14px;
+	color:#660066;
+}
+#vote-box .cta-vote {
+	margin-right:20px;
+}
+#vote-box .cta-vote a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-72x25.jpg) no-repeat center;
+	height:25px;
+	width:72px;
+	line-height:25px;
+	text-align:center;
+	display:block;
+	color:#660066;
+}
+#vote-box .share {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-132x25.jpg) no-repeat top left;
+	height:25px;
+	line-height:25px;
+	width:112px;
+	padding:0 10px;
+	color:#660066;
+	margin-right:277px;
+}
+#vote-box .share ul,
+#recipe-detail .recipe-meta ul li ul {
+	float:right;
+	margin-top:5px;
+}
+#vote-box .share ul li,
+#recipe-detail .recipe-meta ul li ul li {
+	margin-left:3px;
+}
+#vote-box .share ul li a,
+#recipe-detail .recipe-meta ul li ul li a {
+	height:16px;
+	width:16px;
+	display:block;
+	text-indent:-99999px;
+}
+#vote-box .share ul .cta-facebook a,
+#recipe-detail .recipe-meta ul li ul .cta-facebook a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/icon-facebook-14x14.jpg) no-repeat center;
+}
+#vote-box .share ul .cta-twitter a,
+#recipe-detail .recipe-meta ul li ul .cta-twitter a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/icon-twitter-16x16.jpg) no-repeat center;
+}
+#vote-box .share ul .cta-email a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/icon-email-14x14.jpg) no-repeat center;
+}
+#vote-box .nav,
+#vote-box .nav a {
+	height:25px;
+	line-height:25px;
+}
+#vote-box .nav a {
+	color:#660066;
+}
+#vote-box .previous {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/btn-nav-prev-arrow.png) no-repeat top left;
+	padding-left:15px;
+}
+#vote-box .next {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/btn-nav-next-arrow.png) no-repeat top right;
+	padding-right:15px;
+}
+#vote-box .previous:visited {
+	background-position:bottom left;
+}
+#vote-box .next:visited {
+	background-position:bottom right;
+}
+#vote-box .nav a:visited {
+	color:#666;
+}
+/*-----
+THEME: facts
+-----*/
+.theme-facts {
+	position:absolute;
+	top:197px;
+	left:50%;
+	margin:0 0 0 535px;
+	height:226px;
+	width:111px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-themefacts.png) no-repeat top left;
+	color:#FFF;
+	z-index:2;
+}
+.theme-facts p {
+	width:94px;
+	text-align:center;
+	margin-left:3px;
+	margin-bottom:20px;
+}
+.theme-facts .title {
+	margin-top:12px;
+	margin-bottom:10px;
+	font-size:18px;
+	text-transform:uppercase;
+}
+.theme-facts .copy {
+	height:97px;
+}
+.theme-facts p a {
+	color:#5f8603;
+	margin-top:20px;
+	text-transform:uppercase;
+}
+/*-----
+THEME: body background
+-----*/
+#theme-left {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-theme-left.jpg) no-repeat top right;
+	width:200px;
+	height:750px;
+	position:absolute;
+	left:50%;
+	top:166px;
+	margin:0 0 0 -700px;
+}
+#theme-right {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-theme-right.jpg) no-repeat top left;
+	width:200px;
+	height:750px;
+	position:absolute;
+	left:50%;
+	top:166px;
+	margin:0 0 0 500px;
+	z-index:1;
+}
+#theme-right {
+}
+/*-----
+SIDEBAR: sign in block
+-----*/
+#signin .footer,
+#signed-in {
+	height:115px;
+	width:100%;
+	background-color:#efe5ef;
+}
+#signed-in {
+	padding:16px;
+	height:83px;
+}
+#signin .footer img {
+	margin:10px 0 10px 18px;
+	width:263px;
+}
+#signin .footer .title {
+	font-size:24px;
+	padding:10px 0 5px 0;
+	width:100%;
+	text-align:center;
+	color:#83af1b;
+}
+#signin .footer p {
+	width:220px;
+	margin:0 auto;
+	text-align:center;
+}
+#signin .footer a {
+	margin:5px auto;
+	/* the rest of this buttons style are mashed in with another purple button below */
+}
+#signed-in img {
+	float:left;
+	margin:0 20px 0 0;
+}
+#signed-in .cta-more {
+	width:268px;
+}
+/*-----
+SIDEBAR: Kellogs push
+-----*/
+#kellogs-push {
+	height:46px;
+	clear:both;
+}
+#kellogs-push img {
+	float:left;
+	width:81px;
+}
+#kellogs-push p {
+	float:left;
+	width:165px;
+	margin:0 6px;
+	font-size:10px;
+}
+#kellogs-push a {
+	color:#660066;
+	font-size:14px;
+	width:36px;
+	height:31px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-small.jpg) no-repeat center;
+	display:block;
+	float:left;
+	text-align:center;
+	line-height:31px;
+}
+/*-----
+SIDEBAR: ad 300 x 250
+-----*/
+.ad300x250 {
+	margin-top:10px;
+}
+/*-----
+SIDEBAR: newsletter & sweeps
+-----*/
+#newsletter {
+	margin:10px 0 15px 0;
+}
+#sweeps {
+	margin:0 0 15px 0;
+}
+#newsletter p,
+#sweeps p {
+	height:40px;
+	line-height:40px;
+	width:100%;
+	text-align:center;
+	background-color:#e5e5e5;
+}
+/*-----
+SIDEBAR: recipes (parts of this are also above with the Top Discussions stuff
+-----*/
+#sidebar-recipes,
+#sidebar-recipes ul {
+	clear:both;
+	margin-top:10px;
+}
+/*-----
+SIDEBAR: featured contest
+-----*/
+.sidebar #featured-contest {
+	background-color:#e5eed0;
+	padding:10px;
+	width:280px;
+	height:110px;
+	color:#660066;
+	font-size:18px;
+	clear:both;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+.sidebar #featured-contest img {
+	float:left;
+	margin:4px 20px 0 4px;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+	*background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-feat-moms.png) center no-repeat;
+	*padding:6px;
+}
+.sidebar #featured-contest .cta {
+	margin-top:20px;
+	float:left;
+}
+#featured-contest .cta a,
+#signin .footer a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-purple.png) no-repeat center;
+	height:28px;
+	line-height:28px;
+	width:144px;
+	text-align:center;
+	color:#FFF;
+	font-size:13px;
+	display:block;
+}
+/*-----
+SIDEBAR: popular groups & my groups
+-----*/
+.sidebar #popular-groups a {
+	color:#660066;
+}
+.sidebar #popular-groups ul li,
+.sidebar #my-groups ul li {
+	float:none;
+	clear:both;
+	width:auto;
+	margin:0;
+}
+.sidebar #popular-groups ul li img,
+.sidebar #my-groups ul li img {
+	float:left;
+	margin:0 20px 20px 0;
+}
+.sidebar #popular-groups ul li p,
+.sidebar #my-groups ul li p {
+	position:relative;
+	top:auto;
+	left:auto;
+	width:auto;
+}
+.sidebar #popular-groups ul li .group-title,
+.sidebar #my-groups ul li .group-title {
+	padding-top:30px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Mixing Bowl Page CSS >>>>>=============================-------------------------------------*/
+.mixing-bowl .wrapper .section {
+}
+#mb-header {
+	height:36px;
+	width:100%;
+	margin-bottom:15px;
+}
+#mb-header img {
+	float:left;
+	margin-right:10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Detail Page CSS >>>>>>=============================-------------------------------------*/
+/*-----
+some of this is above with #vote-box
+-----*/
+
+.recipe-detail .wrapper .section {
+}
+#recipe-detail {
+	margin-top:20px;
+}
+#recipe-detail .images {
+	width:300px;
+	float:left;
+	margin:0 20px 20px 0;
+}
+#recipe-detail .recipe-meta {
+	float:left;
+	width:338px;
+}
+.main-image {
+	width:280px;
+	height:205px;
+	overflow:hidden;
+	border:#FFF solid 10px;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+	*background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-feat-moms.png) center no-repeat;
+	*padding:6px;
+}
+.main-image img {
+	width:280px;
+	height:auto;
+}
+#recipe-detail .images ul {
+	margin-top:20px;
+}
+#recipe-detail .images ul li.last a img {
+	margin-left:5px;
+}
+#recipe-detail .images ul li a span {
+	height:100px;
+	line-height:64px;
+	display:block;
+	float:left;
+	width:47px;
+	text-align:left;
+}
+#recipe-detail .images ul li.last a span {
+	text-align:right;
+	margin-bottom:5px;
+}
+#recipe-detail .images ul li a img {
+	width:100px;
+	height:auto;
+	float:left;
+}
+#recipe-detail .cta-addaphoto {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-206x31.jpg) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:205px;
+	text-align:center;
+	margin:0 auto;
+	font-size:18px;
+	display:block;
+	clear:both;
+}
+#recipe-detail .recipe-meta .recipe-options {
+	color:#660066;
+	height:22px;
+	line-height:22px;
+	margin-bottom:10px;
+}
+#recipe-detail .recipe-meta .recipe-options > li {
+	margin-right:10px;
+}
+#recipe-detail .recipe-meta ul .last {
+	margin-right:0;
+}
+#recipe-detail .recipe-meta .recipe-options > li > a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-72x22.jpg) no-repeat center;
+	height:22px;
+	width:72px;
+	line-height:22px;
+	text-align:center;
+	display:block;
+	color:#660066;
+}
+#recipe-detail .recipe-meta .recipe-options .share {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-86x22.jpg) no-repeat top left;
+	width:76px;
+	height:22px;
+	line-height:22px;
+	padding:0 5px;
+	color:#660066;
+}
+#recipe-detail .recipe-meta .recipe-options li ul {
+	margin-top:3px;
+}
+#recipe-detail .recipe-meta #recipe-detail-desc {
+	border-bottom:#ebebeb solid 1px;
+	margin:20px 0 10px 0;
+	padding:0 0 10px 0;
+}
+#recipe-detail .recipe-meta iframe {
+	float:left;
+}
+#recipe-detail .recipe-meta .rating {
+	width:134px;
+	float:left;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-empty.png) no-repeat top right;
+	margin-right:15px;
+	position:relative;
+}
+#recipe-detail .recipe-meta .rating p span {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-full.png) no-repeat top left;
+	width:26px;
+	height:20px;
+	display:block;
+	position:absolute;
+	top:0;
+	left:46px;
+}
+#recipe-detail .recipe-meta .addrate {
+	padding:20px 0;
+	height:31px;
+}
+#recipe-detail .recipe-meta .addrate a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-160x31.png) no-repeat top left;
+	height:31px;
+	width:160px;
+	display:block;
+	line-height:31px;
+	text-align:center;
+	font-size:14px;
+	float:left;
+}
+#recipe-detail .recipe-meta .addrate .first {
+	margin-right:17px;
+}
+#recipe-detail .recipe-meta .author-meta {
+	font-size:11px;
+	color:#666;
+	float:left;
+	width:160px;
+	margin:0 0 20px 0;
+}
+#recipe-detail .recipe-meta .author-meta.first {
+	margin-right:17px;
+}
+#recipe-detail .recipe-meta .author-meta li {
+	height:13px;
+	margin:0;
+}
+#recipe-detail .meal-info {
+	clear:both;
+	width:100%;
+	background-color:#efe5ef;
+	height:38px;
+	color:#660066;
+	font-size:14px;
+	font-weight:bold;
+	padding:0 0 0 10px;
+	margin:0 0 20px 0;
+}
+#recipe-detail .meal-info li {
+	height:18px;
+	line-height:18px;
+	margin:10px 15px 0 0;
+	padding:0 15px 0 0;
+	border-right:#660066 solid 2px;
+	text-align:center;
+}
+#recipe-detail .meal-info li.last {
+	padding:0;
+	margin:10px 0 0 0;
+	border:none;	
+}
+#recipe-detail .love {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/img-heart.png) no-repeat left center;
+	padding-left:20px;
+	clear:both;
+}
+#recipe-detail .love a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-purple-162x31.png) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:162px;
+	text-align:center;
+	color:#FFF;
+	display:block;
+	float:right;	
+}
+#recipe-comments {
+	border-top:#ebebeb solid 1px;
+	clear:both;
+	margin:20px 0 0 0;
+	padding:20px 0 0 0;
+	position:relative;
+}
+#recipe-comments .title {
+	width:50%;
+}
+#recipe-comments .cta-comments {
+	position:absolute;
+	top:20px;
+	right:0;
+}
+#recipe-comments .cta-comments li a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-136x31.png) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:136px;
+	text-align:center;
+	display:block;
+}
+#recipe-comments .cta-comments li.last a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-111x31.png);
+	width:111px;
+	margin-left:10px;
+}
+#recipe-comments .comments {
+	clear:both;
+	margin-top:20px;
+}
+#recipe-comments .comments li {
+	clear:both;
+}
+#recipe-comments .comments li img {
+	float:left;
+	margin:0 10px 20px 0;
+}
+#recipe-comments .comments li p {
+	margin-left:110px;
+}
+#recipe-comments .comments li .hornav {
+	margin-left:110px;
+}
+#recipe-comments .comments li .hornav li {
+	clear:none;
+	color:#660066;
+	margin-bottom:20px;
+}
+#recipe-comments .comments li .hornav li.last {
+	float:right;
+}
+#polls #recipe-comments {
+	border:none;
+	padding:0;
+	margin:20px 0 0 0;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Group Detail Page CSS >>>>>>=============================-------------------------------------*/
+#group-detail .main-image {
+	float:left;
+}
+#group-detail .title {
+	text-transform:none;
+	color:#7fac14;
+}
+#group-detail p {
+	margin-left:324px;
+}
+#group-detail .mt35 a,
+#group-landing .cta-join {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-206x31.jpg) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:206px;
+	text-align:center;
+	display:block;
+}
+#group-tabs {
+	width:100%;
+	clear:both;
+	padding-top:20px;
+}
+#group-tabs .section-wrap {
+	clear:both;
+	display:none;
+	margin-bottom:20px;	
+}
+#group-tabs .tabbednav,
+#group-tabs .active {
+	display:block;
+}
+#group-tabs table {
+	margin:20px 0;
+}
+#group-tabs table tbody tr {
+	border-bottom:#ebebeb solid 1px;
+}
+#group-tabs table tbody td {
+	padding:20px 0 15px 0;
+}
+#group-tabs table th,
+#group-tabs table td {
+	text-align:left;
+}
+#group-tabs table th a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-table-sort-arrow.jpg) no-repeat center right;
+	padding:0 12px 0 0;
+	color:#666!important;
+}
+#group-tabs table tbody td .comment {
+	margin:5px 0 10px 0;
+}
+#group-tabs table tbody td .replies {
+	color:#FFF;
+	width:100%;
+	text-align:center;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-group-replies.jpg) no-repeat center center;
+	height:23px;
+	line-height:20px;
+}
+.empty {
+	color:#FFF;
+}
+#group-tabs table tfoot .pager {
+	display:block;
+	float:right;
+	margin-top:10px;
+}
+#group-tabs #photos .content li {
+	margin:0 30px 20px 0;
+}
+/*-----
+GROUP RECIPES
+-----*/
+#group-recipes {
+	border-bottom:#ebebeb solid 1px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+	clear:both;
+}
+#group-recipes .section-wrap ul li {
+	clear:both;
+	margin-bottom:20px;
+}
+#group-recipes .section-wrap ul > li:last-child {
+	margin-bottom:0;
+}
+#group-recipes .section-wrap ul li img {
+	float:left;
+	margin:0 20px 20px 0;
+}
+#group-recipes .section-wrap ul li p {
+	margin:0 0 5px 0;
+}
+/*-----
+SIDEBAR: Member activity
+-----*/
+#member-activity .section-wrap ul li,
+#recent-activity ul li {
+	clear:both;
+	position:relative;
+}
+#recent-activity ul li {
+	border-bottom:#ebebeb solid 1px;
+	padding-bottom:10px;
+	margin-bottom:10px;
+}
+#recent-activity ul > li:last-child {
+	border:none;
+	padding:0;
+	margin:0;
+}
+#recent-activity ul li.has-img {
+	min-height:75px;
+}
+.article #recent-activity ul li.has-img {
+	min-height:100px;
+}
+#member-activity .section-wrap ul li img,
+#recent-activity ul li img {
+	float:left;
+	margin:0 10px 10px 0;
+}
+#recent-activity ul li img {
+	height:75px;
+	width:auto;
+}
+.article #recent-activity ul li img {
+	height:100px;
+	width:auto;
+}
+#member-activity .section-wrap ul li .mem-name,
+.article #recent-activity ul li.has-img .mem-name {
+	padding-top:25px;
+}
+#member-activity .section-wrap ul li .mem-title {
+	position:absolute;
+	top:10px;
+	left:85px;
+}
+/*-----
+SIDEBAR: recipe poll
+-----*/
+#recipe-poll {
+	margin-bottom:20px;
+}
+#recipe-poll ul li {
+	width:50%;
+	float:left;
+}
+#recipe-poll ul li img {
+	width:100px;
+	height:auto;
+	margin:5px 25px;
+}
+#recipe-poll ul li p {
+	text-align:center;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+#recipe-poll ul li .cta-vote a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-97x31.png) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:97px;
+	margin:5px auto;
+	display:block;
+}
+#recipe-poll .social_icons {
+	margin:10px auto;
+	padding:0 10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Group Landing Page & Recipe category CSS >>>>>>=============================-------------------------------------*/
+#group-landing {
+	min-height:306px;
+	border-bottom:#ebebeb solid 1px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+#group-landing .summary {
+	margin-bottom:20px;
+}
+#group-landing .summary .cta-create {
+	float:right;
+	margin:0 0 0 20px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-141x31.png) no-repeat top left;
+	height:31px;
+	line-height:31px;
+	width:141px;
+	text-align:center;
+}
+#group-landing .main-image,
+#recipe-category .main-image {
+	float:left;
+	margin-right:20px;
+}
+#group-landing .cta-join {
+	margin-top:35px;
+	display:inline-block;
+}
+#recipe-category .cta-upload {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-136x31.png) no-repeat top left;
+	width:136px;
+}
+#recipe-category ul li {
+	width:50%;
+	height:20px;
+}
+#recipe-category ul > li:last-child {
+	margin-bottom:20px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Public Profile Page CSS >>>>>>=============================-------------------------------------*/
+#public-profile .main-image {
+	float:left;
+	margin:0 20px 20px 0;
+}
+#public-profile  .cta-friend {
+	float:right;
+}
+
+#public-profile  .cta-friend a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-115x31.png) no-repeat top left;
+	width:115px;
+}
+#public-profile .interests {
+	margin-left:325px;
+}
+#public-profile .interests li {
+	margin:0 15px 5px 0;
+}
+#public-profile .flare {
+	padding-top:20px;
+	margin-left:325px;
+}
+#public-profile .flare li {
+	margin:20px 5px 0 0;
+}
+#recent-recipes,
+#recent-recipes li {
+	clear:both;
+}
+#recent-recipes li {
+	margin-bottom:20px;
+}
+#recent-recipes ul > li:last-child {
+	margin-bottom:0;
+}
+#recent-recipes,
+#my-discussions,
+#contest-entries,
+#group-media,
+#my-polls {
+	border-bottom:#ebebeb solid 1px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+#recent-recipes li img {
+	float:left;
+	margin:0 10px 20px 0;
+}
+/*-----
+MY DISCUSSIONS
+-----*/
+#my-discussions ul li,
+#my-journals ul li {
+	margin-bottom:20px;
+}
+#my-discussions ul > li:last-child,
+#my-journals ul > li:last-child {
+	margin:0;
+}
+#my-discussions ul li p,
+#my-journals ul li p {
+	margin-bottom:10px;
+}
+/*-----
+Contest Entries
+-----*/
+#contest-entries ul li {
+	margin-right:20px;
+}
+#contest-entries .winner {
+	position:relative;
+}
+#contest-entries .winner .star {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/img-winnerstar.png) no-repeat top left;
+	height:37px;
+	width:39px;
+	position:absolute;
+	top:-16px;
+	left:78px;
+}
+/*-----
+MY POLLS
+-----*/
+#my-polls ul li {
+	margin-bottom:20px;
+}
+#my-polls ul > li:last-child {
+	margin-bottom:0;
+}
+#my-polls ul li .meta span,
+#group-tabs #polls table tbody tr td .meta span,
+#polls .poll-detail .meta span {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-poll-check.png) no-repeat top left;
+	height:17px;
+	padding-left:23px;
+	display:inline-block;
+}
+#group-tabs #polls table {
+	margin-bottom:0;
+}
+#group-tabs #polls table thead tr td a {
+	color:#666;
+	text-transform:uppercase;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-table-sort-arrow.jpg) no-repeat right 3px;
+	padding-right:15px;
+}
+/*-----
+POLL DETAIL
+-----*/
+#polls .poll-detail {
+	margin:20px 0;
+	position:relative;
+	min-height:100px;
+}
+#polls .poll-detail img {
+	float:left;
+	margin-right:20px;
+}
+#polls .poll-detail .date {
+	position:absolute;
+	top:0;
+	right:0;
+}
+#polls .poll-detail p {
+	margin-bottom:10px;
+}
+#vote-bar {
+	width:100%;
+	height:35px;
+	background-color:#efe5ef;
+}
+#vote-bar form label {
+	margin:0 23px 0 20px;
+}
+#vote-bar ul li {
+	margin-right:30px;
+}
+#vote-bar form ul li input[type="radio"] {
+	margin:0 5px 0 0;
+}
+#vote-bar form label,
+#vote-bar ul li {
+	font-size:18px;
+	height:35px;
+	line-height:35px;
+}
+#vote-bar form label,
+#vote-bar form ul {
+	float:left;
+}
+#vote-bar ul {
+	margin-left:20px;
+}
+#vote-bar form input[type="submit"] {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-111x31.png) no-repeat top left;
+	width:111px;
+	margin:2px 2px 0 0;
+	border:none;
+	color:#660066;
+	font-size:18px;
+	cursor:pointer;
+	float:right;
+}
+#vote-bar ul li span {
+	color:#74a500;
+}
+/*-----
+MY RAVES
+-----*/
+#my-raves,
+#my-friends {
+	position:relative;
+}
+#my-raves .cta-writerave {
+	position:absolute;
+	top:0;
+	right:10px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-115x31.png) no-repeat top left;
+	width:115px;
+}
+#my-raves ul li,
+#my-friends ul li {
+	margin-bottom:20px;
+	clear:both;
+}
+#my-raves ul > li:first-child {
+	padding-bottom:20px;
+	border-bottom:#ebebeb solid 1px;
+}
+#my-raves ul li img,
+#my-friends ul li img {
+	float:left;
+	margin:0 10px 10px 0;
+}
+#my-raves ul li .rave-title {
+	clear:both;
+}
+#my-raves ul li .first,
+#my-friends ul li .first {
+	padding-top:30px;
+}
+/*-----
+MY FRIENDS
+-----*/
+#my-friends .btn-grey31 {
+	position:absolute;
+	top:0;
+	right:10px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-115x31.png) no-repeat top left;
+	width:115px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: SERP Page CSS >>>>>>=============================-------------------------------------*/
+#main-content.serp .sidebar {
+	float:right;
+	width:218px;
+	margin:20px 0 0 0;
+}
+#main-content.serp .article {
+	float:right;
+	margin-right:56px;
+	margin-left:46px;
+}
+#main-content.serp .sidebar .underlined li {
+	height:24px;
+	line-height:24px;	
+}
+#main-content.serp .sidebar .underlined li a,
+#main-content.serp .sidebar .underlined li a:hover {
+	padding-left:20px;
+	width:218px;
+	border-bottom:#ebebeb solid 1px;
+	display:block;
+	margin-left:-20px;
+	text-decoration:none;
+}
+#main-content.serp .sidebar .underlined > li:first-child a,
+#main-content.serp .sidebar .underlined > li:first-child a:hover {
+	display:inline;
+	float:right;
+	width:auto;
+	padding:0;
+	margin:0;
+	border:none;
+	background:none;
+}
+#main-content.serp .sidebar .underlined > li:last-child a,
+#main-content.serp .sidebar .underlined > li:last-child a:hover {
+	border:none;
+}
+ul.stars li a,
+#serp-results .results-list .rating {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-empty.png) no-repeat 20px center;
+}
+#serp-results .results-list .rating {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-empty.png) no-repeat left center;
+	text-indent:-99999px;
+	width:88px;
+	position:absolute;
+	top:-3px;
+	right:0;
+	height:17px;
+}
+#serp-results .results-list .rating span {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-full.png) no-repeat center left;
+	height:100%;
+	display:block;
+}
+.rating p span.fivestar,
+p.rating span.fivestar {
+	width:88px;
+}
+.rating p span.fourstar,
+p.rating span.fourstar {
+	width:70px;
+}
+.rating p span.threestar,
+p.rating span.threestar {
+	width:54px;
+}
+.rating p span.twostar,
+p.rating span.twostar {
+	width:36px;
+}
+.rating p span.onestar,
+p.rating span.onestar {
+	width:18px;
+}
+.rating p span.zerostar,
+p.rating span.zerostar {
+	width:0;
+}
+ul.stars li a span {
+	display:inline-block;
+	text-indent:-99999px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-rating-full.png) no-repeat center left;
+	height:24px;
+	width:88px;
+}
+ul.stars .fourstars a span {
+	width:70px;
+	margin-right:18px;
+}
+ul.stars .threestars a span {
+	width:52px;
+	margin-right:36px;
+}
+ul.stars .twostars a span {
+	width:36px;
+	margin-right:52px;
+}
+ul.stars .onestar a span {
+	width:18px;
+	margin-right:70px;
+}
+form .no-style {
+	border:none;
+	background:none;
+	color:#660066;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+#main-content.serp .sidebar form .no-style {
+	float:right;
+}
+#main-content.serp .sidebar form label {
+	height:20px;
+	display:inline-block;
+}
+#main-content.serp .sidebar form input[type="text"] {
+	color:#838383;
+	background-color:#FFF;
+	border:#dedede solid 1px;
+	width:169px;
+	height:23px;
+	line-height:23px;
+	padding-left:5px;
+	border-right:none;
+	float:left;
+}
+#main-content.serp .sidebar form input[type="submit"] {
+	color:#660066;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-serp-form-go.png) no-repeat top left;
+	width:38px;
+	height:28px;
+	line-height:27px;
+	border:none;
+	float:left;
+	cursor:pointer;
+}
+#serp-results .header {
+	padding-bottom:20px;
+	margin-top:30px;
+	border-bottom:#ebebeb solid 1px;
+}
+#serp-results .header .search-count {
+	position:absolute;
+	top:20px;
+	right:20px;
+}
+.sorting {
+	height:18px;
+	margin:20px 0;
+	clear:both;
+}
+.sorting p {
+	float:left;
+}
+.sorting .pager {
+	float:right;
+}
+#serp-results .results-list li p {
+	margin-bottom:5px;
+}
+#serp-results .results-list li {
+	border-bottom:#ebebeb solid 1px;
+	padding-bottom:20px;
+	margin-bottom:20px;
+	clear:both;
+	position:relative;
+}
+#serp-results .results-list > li:last-child {
+	border:none;
+	margin-bottom:0;
+	padding-bottom:0;
+}
+#serp-results .results-list li img {
+	float:left;
+	margin-right:20px;
+}
+#serp-results .results-list li.has-img {
+	min-height:100px;
+}
+#serp-results .results-list li.has-img p {
+	margin-left:120px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: SLIDESHOW Page CSS >>>>>>=============================-------------------------------------*/
+#slideshow-wrap .actions {
+	height:22px;
+}
+#slideshow-wrap .actions li {
+	margin-right:10px;
+}
+#slideshow-wrap .actions li a {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-72x22.jpg) no-repeat top left;
+	width:72px;
+}
+#slideshow-wrap #slideshow {
+	padding:20px;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+	*background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-feat-moms.png) center no-repeat;
+	*padding:6px;
+	position:relative;
+	clear:both;
+	margin-bottom:20px;
+}
+#slideshow-wrap #slideshow .slides,
+#slideshow-wrap #slideshow .slides .slide {
+	height:225px;
+}
+#slideshow-wrap #slideshow .slide img {
+	float:left;
+	margin:0 20px 0 0;
+}
+#slideshow-wrap #slideshow .slide .green {
+	margin-top:50px;
+}
+#slideshow-wrap #slideshow .hornav {
+	position:absolute;
+	top:20px;
+	left:340px;
+	z-index:1000;
+}
+#slideshow-wrap #slideshow .hornav .cta a {
+	width:92px;
+}
+#slideshow-wrap #slideshow .hornav #caption1 {
+	height:28px;
+	line-height:28px;
+	width:87px;
+	text-align:center;
+}
+#slideshow-wrap #slideshow .cta-more {
+	text-align:left;
+	margin-top:5px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: ARTICLE DETAIL Page CSS >>>>>>=============================-------------------------------------*/
+#article-detail img {
+	/*float:left;*/
+	margin:0 20px 20px 0;
+}
+#article-detail p {
+	margin-bottom:10px;
+}
+/*-----
+POPULAR RECIPES
+-----*/
+.recipe-category #popular-recipes,
+.recipe-category #popular-groups {
+	border-top:#ebebeb solid 1px;
+	padding-top:20px;
+}
+#popular-recipes {
+	margin-top:20px;
+	clear:both;
+}
+#popular-recipes ul li {
+	width:330px;
+	float:left;
+	margin-bottom:20px;
+}
+#popular-recipes ul li img {
+	float:left;
+	margin:0 10px 10px 0;
+}
+#popular-recipes ul li p {
+	padding-right:10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: COOKS Page CSS >>>>>>=============================-------------------------------------*/
+#cooks p .btn-grey31 {
+	float:right;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-115x31.png) no-repeat top left;
+	width:115px;
+	margin-left:20px;
+}
+#cooks .main-image {
+	float:left;
+	margin:0 25px 20px 0;
+}
+#cooks .flare li {
+	margin:20px 5px 0 0;
+}
+#most-decorated-cooks {
+	clear:both;
+	border-bottom:#ebebeb solid 1px;
+	border-top:#ebebeb solid 1px;
+	margin:20px 0;
+	padding:20px 0;
+}
+#most-decorated-cooks ul li {
+	width:33%;
+	position:relative;
+}
+#most-decorated-cooks ul li .flare {
+	position:absolute;
+	bottom:0;
+	left:110px;
+}
+#most-decorated-cooks .flare li {
+	width:auto;
+}
+#most-decorated-cooks ul li img {
+	float:left;
+	margin:0 10px 0 0;	
+}
+#most-active-cooks .title {
+	float:left;
+}
+#most-active-cooks .pager {
+	float:right;
+}
+#most-active-cooks .imgleft li {
+	width:33%;
+}
+/*-----
+TOP PHOTOS
+-----*/
+#top-photos {
+	width:300px;
+	float:left;
+	margin:0 20px 20px 0;
+}
+#top-photos ul li {
+	clear:both;
+}
+/*-----
+TOP VIDEOS
+-----*/
+#top-videos {
+	width:300px;
+	float:left;
+}
+#top-videos ul li {
+	clear:both;
+}
+/*-----
+TOP STORIES
+-----*/
+#top-stories {
+	margin-top:20px;
+	padding-top:20px;
+	border-top:#ebebeb solid 1px;
+	clear:both;
+}
+#top-stories ul li {
+	clear:both;
+}
+#top-stories ul li p {
+	margin-bottom:5px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: CREATE GROUP Pages CSS >>>>>>=============================-------------------------------------*/
+.create-group form {
+	margin-top:35px;
+}
+.create-group form fieldset {
+	clear:both;
+	margin-bottom:15px;
+	position:relative;
+}
+.create-group form fieldset label {
+	float:left;
+	width:175px;
+	text-align:right;
+	font-size:14px;
+	text-transform:uppercase;
+	height:25px;
+	line-height:25px;
+}
+textarea {
+	resize: none;
+}
+.create-group form fieldset input[type="text"],
+.create-group form fieldset textarea {
+	float:right;
+	margin-right:85px;
+	border:#acacac solid 1px;
+	height:21px;
+	line-height:21px;
+	width:380px;
+	padding:0 5px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left;
+}
+.create-group form fieldset textarea {
+	height:148px;
+	line-height:normal;
+}
+.create-group form fieldset select {
+	width:390px;
+	float:right;
+	margin-right:88px;
+	border:#acacac solid 1px;
+	height:23px;
+	line-height:23px;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-select.png) repeat-x top left;
+}
+.create-group form fieldset p,
+.create-group form fieldset ul,
+.create-group form fieldset .wrapper {
+	width:478px;
+	float:right;
+	background:none!important;
+}
+.create-group form fieldset .hornav li {
+	width:33%;
+	margin-bottom:10px;
+}
+.create-group form fieldset .wrapper .photo_preview {
+	height:100px;
+	width:100px;
+	float:left;
+	background:#666 url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/img-creategroup1.png) no-repeat top left;
+	margin-right:20px;
+}
+.create-group form fieldset.grp-addphoto .wrapper a,
+.create-group form#add-a-recipe fieldset.addrec-addphoto .wrapper a {
+	width:100%;
+	margin:15px 0 20px 0;
+	display:block;
+	text-transform:uppercase;
+}
+.create-group form fieldset.grp-notif ul {
+	width:290px;
+	margin-right:188px;
+}
+.create-group form fieldset.grp-notif ul li {
+	width:50%;
+}
+.create-group form fieldset.last {
+	padding-top:20px;
+	border-top:#eaeaea solid 1px;
+	text-align:right;
+}
+.create-group form fieldset .cta-cancel {
+	padding:none;
+	border:none;
+	background:none;
+	color:#660066;
+	font-size:14px;
+	text-transform:capitalize;
+}
+.create-group form fieldset input[type="submit"] {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-126x28.png) no-repeat top left;
+	height:28px;
+	line-height:28px;
+	width:126px;
+	text-align:center;
+	color:#660066;
+	border:none;
+	font-size:13px;
+}
+/*----------
+FORM: add friends
+----------*/
+.create-group form.add-friends fieldset {
+	width:50%;
+	float:left;
+	clear:none;
+}
+.create-group form.add-friends fieldset p,
+.create-group form.add-friends fieldset ul,
+.create-group form.add-friends fieldset label {
+	width:auto;
+	float:none;
+	text-align:left;
+}
+.create-group form.add-friends fieldset.last {
+	width:100%;
+}
+.create-group form.add-friends fieldset textarea {
+	width:300px;
+	margin:0;
+	float:none;
+	height:97px;
+}
+.create-group form.add-friends fieldset.drag-from {
+	border:#a6a6a6 solid 1px;
+	width:298px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left;
+	margin-right:20px;
+}
+.create-group form.add-friends fieldset.drag-from p {
+	border:#a6a6a6 solid 1px;
+	width:294px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left!important;
+	height:27px;
+	line-height:27px;
+	margin:2px;
+}
+.create-group form.add-friends fieldset.drag-from ul li,
+.create-group form.add-friends fieldset .drag-to ul li,
+form#add-recipes .recipe-list li {
+	height:20px;
+	line-height:20px;
+	padding-left:10px;
+}
+.create-group form.add-friends fieldset.drag-from ul li:hover,
+.create-group form.add-friends fieldset .drag-to ul li:hover,
+form#add-recipes .recipe-list li:hover {
+	background-color:#efefef;
+}
+.create-group form.add-friends fieldset .drag-to ul {
+	height:97px;
+	width:298px;
+	border:#a6a6a6 solid 1px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left!important;
+}
+/*----------
+FORM: add recipes
+----------*/
+form#add-recipes .search {
+	width:648px;
+	border:#a6a6a6 solid 1px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left!important;
+	height:29px;
+	line-height:29px;
+	padding:0 5px;
+}
+form#add-recipes .recipe-list {
+	clear:both;
+	border:#a6a6a6 solid 1px;
+	background:#fff url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-input-text.png) repeat-x top left!important;
+	padding:10px 0;
+}
+form#add-recipes fieldset.last {
+	border:0;
+}
+form#add-a-recipe fieldset.double label {
+	margin-right:9px;
+}
+form#add-a-recipe fieldset.double label.second {
+	width:94px;
+}
+form#add-a-recipe fieldset.double input {
+	width:132px;
+	float:left;
+	margin-right:0;
+}
+form#add-a-recipe .cta-add {
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-btn-gray-155x28.png) no-repeat top left;
+	height:28px;
+	line-height:28px;
+	width:155px;
+	text-align:center;
+	color:#660066;
+	border:none;
+	font-size:13px;
+}
+.add-recipes form {
+	display:none;
+}
+.add-recipes form.active {
+	display:block;
+}
+.create-group .tooltip {
+	position:absolute;
+	top:0;
+	right:63px;
+}
+.create-group .tooltip.shift {
+	top:20px;
+}
+.create-group .tooltip a {
+	font-size:18px;
+	height:25px;
+	line-height:25px;
+	width:25px;
+	display:block;
+	text-align:center;
+	color:#666!important;
+}
+.create-group .tooltip a p {
+	display:none;
+	position:absolute;
+	top:-12px;
+	left:50px;
+	font-size:13px;
+	padding:10px;
+	background-color:#FFF;
+	border:#c6c6c6 solid 1px;
+	width:210px;
+	line-height:normal;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+}
+.create-group .tooltip a p .point {
+	border-color:transparent #FFF transparent transparent;
+	border-style: solid;
+	border-width: 10px;
+	height:0;
+	width:0;
+	position:absolute;
+	top:15px;
+	left:-20px;
+}
+.create-group .tooltip a p .point-shadow {
+	border-color:transparent #c6c6c6 transparent transparent;
+	border-style: solid;
+	border-width: 13px;
+	height:0;
+	width:0;
+	position:absolute;
+	top:12px;
+	left:-26px;
+}
+.create-group .tooltip a:hover p {
+	display:block;
+}
+/*-----
+WINNERS GALLERY
+-----*/
+#winners-gallery {
+	clear:both;
+	position:relative;
+}
+#winners-gallery .title {
+	float:left;
+}
+#winners-gallery ul {
+	clear:both;
+}
+#winners-gallery ul li {
+	margin:0 20px 20px 0;
+}
+#winners-gallery .pager {
+	float:right;
+}
+#winners-gallery .pager.topnav {
+	position:absolute;
+	top:0;
+	right:0;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Journal Page CSS >>>>>>=============================-------------------------------------*/
+#journals #recent ul.imgleft li {
+	clear:both;
+}
+#journals #recent ul li p {
+	margin-left:120px;
+	margin-bottom:10px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Landing Page CSS >>>>>>=============================-------------------------------------*/
+#recipe-landing {
+	margin-bottom:20px;
+}
+#recipe-landing p a {
+	float:right;	
+}
+#recland-list > ul > li {
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom:#ebebeb solid 1px;
+}
+#recland-list > ul > li:last-child {
+	margin-bottom:0;
+	padding-bottom:0;
+	border-bottom:none;
+}
+#recland-list ul li ul {
+	clear:both;
+	height:40px;
+}
+#recland-list ul li ul li {
+	width:25%;
+	margin-bottom:5px;
+}
+/*-----
+FEATURE: grey button basics || the width and background are assigned specifically in it's section
+-----*/
+.btn-grey31 {
+	height:31px;
+	line-height:31px;
+	text-align:center;
+	display:block;
+}
+.btn-grey28,
+#respond input[type="submit"] {
+	height:28px;
+	line-height:28px;
+	text-align:center;
+	display:inline-block;
+	background-color:#ebebeb;
+	border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+	border-style:solid;
+	border-width:1px;
+	-moz-box-shadow: 1px 1px 0px #262626;
+	-webkit-box-shadow: 1px 1px 0px #262626;
+	box-shadow: 1px 1px 0px #262626;
+	color:#660066;
+	cursor:pointer;
+}
+.commentlist li .reply {
+	position: absolute;
+	right: 100px;
+	top: 2px;
+	width: auto;
+}
+.commentlist li .reply a {
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.btn-grey22 {
+	height:22px;
+	line-height:22px;
+	text-align:center;
+	display:block;
+}
+.w120 {
+	width:120px;
+}
+.w140 {
+	width:140px;
+}
+/*-----
+FEATURE: tabbed navs
+-----*/
+.tabbednav {
+	width:100%;
+	height:33px;
+	margin:20px 0;
+	background:url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-tabbed-nav.png) repeat-x bottom left;
+}
+.sidebar .tabbednav {
+	width:299px;
+	border-right:none;
+}
+.tabbednav li a {
+	height:32px;
+	line-height:33px;
+	padding:0 20px;
+	text-transform:uppercase;
+	display:block;
+	color:#660066;
+	border-left:#e1e1e1 solid 1px;
+	border-top:#e1e1e1 solid 1px;
+	border-right:#e1e1e1 solid 1px;
+	background:#FFF url(http://www.betterrecipes.com/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/bg-tabbednav.png) repeat-x top left;
+}
+.tabbednav .last a {
+	border-right:none;
+}
+.tabbednav .active {
+	background-color:#FFF;
+	margin-top:-4px;
+	margin-left:-1px;
+}
+.tabbednav .active a {
+	padding:0 15px;
+	color:#74a500!important;
+	font-size:18px;
+	height:36px;
+	line-height:37px;
+	border-left:#e1e1e1 solid 1px;
+	border-top:#e1e1e1 solid 1px;
+	border-right:#e1e1e1 solid 1px;
+	background-image:none;
+}
+.fifty50 li {
+	margin-right:20px;
+}
+.sidebar .tabbednav > li:last-child a {
+	border-right:none;
+}
+.section-wrap {
+	display:none;
+	clear:both;
+}
+.section-wrap.active {
+	display:block;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Recipe Contest Page CSS >>>>>>=============================-------------------------------------*/
+.imgleft.clearb > li {
+	clear:both;
+}
+#recipe-contest ul li p {
+	margin-left:170px;
+}
+#recipe-contest ul li p .flright {
+	height:28px;
+	line-height:28px;
+	float:right;
+}
+#recipe-contest ul li .links {
+	margin:20px 0 0 170px;
+}
+#recipe-contest ul li .links li {
+	float:left;
+	margin-right:20px;
+}
+#recipe-contest ul li .links li img {
+	float:none;
+	margin:0;
+	vertical-align:middle;
+}
+#recipe-contest ul li .links li a {
+	height:28px;
+	line-height:28px;
+}
+/*-------------------------------------=============================<<<<< BEGIN: Photos CSS >>>>>>=============================-------------------------------------*/
+.photos #liked ul li {
+	margin-right:20px;
+}
+.photos #liked ul > li:last-child {
+	/* margin-right:0; */
+}
+/*-----
+FEATURE: in list, float img left
+-----*/
+.imgleft {
+	clear:both;
+}
+.imgleft li img {
+	float:left;
+	margin:0 20px 20px 0;
+}
+/*-----
+FEATURE: pager
+-----*/
+.pager li {
+	margin:0!important;
+}
+.pager li a {
+	height:12px;
+	line-height:12px;
+	width:auto;
+	text-align:center;
+	display:block;
+	color:#666!important;
+	padding:0 5px;
+}
+.pager li.active a {
+	color:#660066!important;
+	text-decoration:underline;
+}
+.pager li.unavailable a {
+	color:#CCC!important;
+	cursor:default;
+}
+.pager li.unavailable a:hover {
+	text-decoration:none;
+}
+/*-----
+FEATURE: img with border & drop shadow
+-----*/
+.bordshad {
+	border:#FFF solid 6px;
+	-moz-box-shadow: 0px 0px 4px #888;
+	-webkit-box-shadow: 0px 0px 4px #888;
+	box-shadow: 0px 0px 4px #888;
+}
+/*-----
+SHORTKUTS
+-----*/
+.mt5 {
+	margin-top:5px;
+}
+.mt10 {
+	margin-top:10px;
+}
+.mt20 {
+	margin-top:20px;
+}
+.mt30 {
+	margin-top:30px;
+}
+.mt35 {
+	margin-top:35px;
+}
+.mt40 {
+	margin-top:40px;
+}
+.mr20 {
+	margin-right:20px;
+}
+.mb5 {
+	margin-bottom:5px;
+}
+.mb10 {
+	margin-bottom:10px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
+.ml320 {
+	margin-left:320px;
+}
+.ml325 {
+	margin-left:325px;
+}
+.pt10 {
+	padding-top:10px;
+}
+.pt20 {
+	padding-top:20px;
+}
+.pb20 {
+	padding-bottom:20px;
+}
+.fs11 {
+	font-size:11px;
+}
+.fs14 {
+	font-size:14px;
+}
+.ttupp {
+	text-transform:uppercase;
+}
+
+
+/*--------------===================///////////////
+BONUS MATERIALS
+\\\\\\\\\\\\\\==================----------------*/
+.masthead {
+	padding:20px;
+}
+.catTitle {
+	padding-left:3.1%;
+}
+.daily-dish .posts-wrap p {
+	padding-bottom:1em;
+}

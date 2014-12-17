@@ -1,0 +1,13 @@
+.paulund-pinterest-container{
+	width:100%;
+	position: relative;
+}
+.paulund-pinterest-button{
+	margin:0 auto;
+	position: relative;
+}
+.paulund-pinterest-button iframe{
+	position:absolute;
+	left:10px;
+	top:10px;
+}

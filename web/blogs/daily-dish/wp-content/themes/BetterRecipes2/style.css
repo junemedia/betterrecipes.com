@@ -1,0 +1,718 @@
+/* 
+Theme Name: Daily Dish: Better Recipes 2011
+Theme URL: 
+Description: Better Recipes' Daily Dish blog.
+Author: Resolute Digital
+Author URI: 
+Version: 1.1
+*/
+
+.widgettitle {
+	font-size: 18px;
+    font-weight: lighter;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
+.widget {
+	margin: 10px 0;
+}
+.widget li {
+	padding: 10px 0;
+	border-bottom: 1px solid #eaeaea;
+}
+hr {
+    background-color: #eaeaea;
+    border: none;
+	color: #eaeaea;
+    height: 1px;
+	clear: both;
+}
+.article-detail img {
+	/* float:left;
+	clear: left; why put a float left in all the images, that doesn't make sense because they have different widths... */
+	margin:0 20px 10px 0;
+	border: 10px solid white;
+	box-shadow: 0 0 4px #888;
+	max-width:640px;
+	height:auto;
+}
+#article-detail img {
+	max-width:640px;
+	height:auto;
+}
+.wp-caption {
+	float: left;
+	clear: left;
+	margin: 10px 30px 0 0;
+}
+.article-detail p {
+	margin-bottom:10px;
+}
+.sidebar {
+    margin-top: -113px !important;
+}
+.ButtonLinks a {
+	float: left;
+	margin-right: 15px;
+}
+
+/* -- [BlogMain] -- */
+div#singlecolumn {
+	margin-top:10px;
+}
+.twoColumn #mainColumn {
+	overflow: visible !important;
+}
+.breadCrumb {
+	margin:0 0 0 20px;
+}
+/*IE6*/
+div#singlecolumn {
+	_overflow:hidden;
+}
+body {
+    background: url("http://www.betterrecipes.com/img/bg-mc.png") repeat-y scroll center top #F4F3F3;
+}
+/* -- Header Image -- */
+div.blogbody #CommunityBlogHeader img {
+	margin: 0px;
+	padding:10px 0px 10px 0px;
+}
+div.blogbody #CommunityBlogHeader a {
+	border-bottom:0 solid;
+}
+/* -- Blog Body  -- */
+div.blogbody {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	font-size:11px;
+	text-align:left;
+	padding:0px 10px 0px 10px;
+}
+div.blogbody p {
+	font-family:verdana, serif;
+	color:#656565;
+	font-size:12px;
+	line-height:16px;
+	padding:0 0 5px;
+}
+div.blogbody div.imgLP {
+	clear:both;
+}
+div.blogbody div.imgLP p {
+	padding-top:10px;
+}
+div.blogbody ul {
+	color:#656565;
+	font-family:verdana, serif;
+	font-size:12px;
+	left:10px;
+	line-height:16px;
+	margin:10px;
+.padding-left:10px;
+	position:relative;
+}
+div.blogbody div.content div.post a:link {
+	font-weight:normal;
+	color:#666666;
+	text-decoration:none;
+	border-bottom:1px solid #EDEAD6;
+}
+div.blogbody div.content div.post a:visited {
+	font-weight:normal;
+	color:#666666;
+	text-decoration:none;
+	border-bottom:1px solid #EDEAD6;
+}
+div.blogbody div.content div.post a:hover {
+	font-weight:normal;
+	color:#666666;
+	text-decoration:none;
+	border-bottom:1px solid #E68900;
+}
+
+/* over-ride link containing image bottom-border */
+div.blogbody a[href*="jpg"] {
+border-bottom:0px solid;
+}
+div#content {
+	width:635px
+}
+div.blogbody #post {
+	color:#333;
+	font-size:12px;
+	float:left;
+	overflow:hidden;
+	padding:7px 0px 10px 0px;
+}
+div.blogbody h4 {
+	color:#640D66;
+	font-size:20px;
+	font-weight:normal;
+	letter-spacing:0;
+	padding-bottom:0;
+	padding-top:24px;
+	text-transform:lowercase;
+}
+/*post by-line*/  div#content h4 + p {
+	padding-top:3px;
+	float:left;
+	clear:both;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+div.blogbody .post img {/*float:left;*/
+	padding:10px;
+	border:0 none;
+}/* default image alignment */
+div.blogbody div.post .alignleft {
+	float:left;
+}
+div.blogbody div.post .aligncenter {
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+div.blogbody div.post .alignright {
+	float:right;
+	margin-left:10px;
+}
+div.blogbody div.post div.wp-caption {
+	-moz-border-radius-bottomleft:3px;
+	-moz-border-radius-bottomright:3px;
+	-moz-border-radius-topleft:3px;
+	-moz-border-radius-topright:3px;
+	background-color:#F1F8E6;
+	border:1px solid #EEEEEE;
+	margin:10px;
+	padding-top:4px;
+	text-align:center;
+}
+div.blogbody div.post div.wp-caption img {
+	border:0 none;
+	margin:0;
+	padding:0;
+float;
+none;
+}
+div.blogbody div.post div.wp-caption p.wp-caption-text {
+	text-align:left;
+	padding:10px;
+}
+div.blogbody #postmeta {
+	clear:both;
+	padding-top:20px;
+}
+div.navigation {
+	font-size:14px;
+	margin-top:10px;
+}
+/* Social Tools - all posts */
+.social {
+	float:left; 
+}
+.article .social {
+	margin:10px 0;
+	width:100%;
+}
+.article .social > div {
+	float:left;
+}
+.social a{border-bottom:0 solid #DCDACD;}
+.social img {padding:0;}
+.clearall {clear:both; margin-bottom:10px;}
+.gig-button-container-facebook-like > fb\:like {
+	width: 80px !important;
+}
+.gig-button-container-google-plusone > div {
+	width: 70px !important;
+}
+.social .btn-print,
+.social .btn-comment,
+.social .btn-email {
+	padding:0 8px;
+	margin-left:10px;
+	float:left;
+}
+.btn-comment {
+	padding:0 10px;
+}
+/* Comments */
+p.commentStat {
+	font-weight:bold;
+	padding:10px 0 40px;
+	border-top:#efefef solid 1px;
+}
+div#commentsform {
+	margin-top:20px;
+}
+div.blogbody p.byLine {
+	font-size:10px;
+	margin:8px 0 -3px;
+}
+ol#commentlist,
+.commentlist {
+	margin-left:0;
+}
+ol#commentlist li,
+.commentlist li {
+	list-style:none;    
+	margin: 10px;
+	position:relative;
+	/* padding: 20px 10px 10px; */
+}
+.commentlist li em {
+	position:absolute;
+	bottom:20px;
+	right:0;
+}
+.commentlist li br {
+	display:none;
+}
+ol#commentlist li.alt,
+.commentlist li.odd {
+	/* background-color:#F6F6F6; */
+}
+#respond {
+	padding:10px 0;
+}
+.comment-form-comment label {
+	display:none;
+}
+.commentlist li {
+	border:none;
+	padding:0;
+	margin:0;
+}
+.commentlist li ul li div[id^="comment-"] {
+	padding-left:60px;
+}
+.commentlist li ul li div[id^="comment-"] .comment-author img {
+	left:60px;
+}
+.commentlist li ul li ul li div[id^="comment-"] {
+	padding-left:120px;
+}
+.commentlist li ul li ul li div[id^="comment-"] .comment-author img {
+	left:120px;
+}
+.commentlist li ul li ul li ul li div[id^="comment-"] {
+	padding-left:180px;
+}
+.commentlist li ul li ul li ul li div[id^="comment-"] .comment-author img {
+	left:180px;
+}
+.commentlist li ul li ul li ul li ul li div[id^="comment-"] {
+	padding-left:240px;
+}
+.commentlist li ul li ul li ul li ul li div[id^="comment-"] .comment-author img {
+	left:240px;
+}
+.commentlist li ul li ul li ul li ul li ul li div[id^="comment-"] {
+	padding-left:300px;
+}
+.commentlist li ul li ul li ul li ul li ul li div[id^="comment-"] .comment-author img {
+	left:300px;
+}
+.commentlist li .commentnumber {
+	color: #999999;
+	font-size:14px!important;
+	font-weight:bold;
+	height:30px;
+	line-height:30px;
+	margin: 0!important;
+	padding:0 12px 12px!important;
+	background:url(/blogs/daily-dish/wp-content/themes/BetterRecipes2/img/bg-comment-bubble.jpg) no-repeat center bottom #f3f3f3;
+	position:absolute;
+	top:0;
+	right:0;
+}
+.children .commentnumber {
+	display:none!important;
+}
+.comment-author,
+.commentmetadata {
+	display:inline-block;
+	padding:0 5px 0 0;
+}
+.commentmetadata {
+	border-right:solid 1px #e5e5e5;
+}
+.commentmetadata a {
+	color: #666666!important;
+	font-size: 10px;
+	text-transform: uppercase;
+	cursor:inherit;
+}
+.commentmetadata a:hover {
+	text-decoration:none;
+}
+.commentmetadata a.comment-edit-link {
+	cursor:pointer;
+}
+.commentmetadata a.comment-edit-link:hover {
+	text-decoration:underline;
+}
+.comment-pagination {
+	width:100%;
+	text-align:right;
+}
+.comment-pagination a,
+.comment-pagination span {
+	padding:10px;
+	display:inline-block;
+}
+.comment-pagination a.next {
+	padding:10px 0 10px 10px;
+}
+.comment-author {
+	margin:0 0 0 58px;
+}
+.comment-author .url,
+.comment-author cite {
+	font-style:normal;
+}
+.comment-author .says {
+	display:none;
+}
+div[id^="comment-"] > p {
+	margin: 0 58px;
+	padding: 5px 0 0;
+}
+.comment-author img {
+	position:absolute;
+	top:0;
+	left:0;
+}
+.commentlist  div[id^="comment-"] {
+	border-bottom:#eeeeee solid 1px;
+	position:relative;
+	min-height:48px;
+	padding-bottom:25px;
+	margin-bottom:25px;
+}
+#commentform fieldset {
+	margin:0 0 15px;
+}
+#commentform fieldset input {
+	margin:0 15px 0 0;
+}
+#commentform .comment-notes {
+	margin:5px 0 15px;
+}
+#commentform .required {
+	color:#660066;
+}
+/* Search */
+div#content div.post h2.widgettitle {
+	clear:both;
+	display:none;
+}
+div#content div.post #searchform {
+	clear:both;
+}
+div#content div.post #searchform #s {
+	width:70%;
+}
+/* -- [Sidebar] -- */
+div#adwell {
+	margin-left:5px;
+}
+/* -- Widgets -- */
+aside#rightColumn ul li.widget {
+	margin-bottom:15px;
+}
+aside#rightColumn hr.gradient {
+	margin-top: 10px;
+}
+aside#rightColumn ul {
+	list-style:none;
+	margin:0;
+	padding-top:5px;
+}
+aside#rightColumn h2.widgettitle {
+    color: #717171;
+    font: 900 15px/15px "arial black",arial,sans-serif;
+    letter-spacing: -1px;
+    padding-bottom: 8px;
+    text-transform: lowercase;
+}
+aside#rightColumn h2.widgettitle {
+    font: 900 15px/15px "arial black",arial,sans-serif;
+    letter-spacing: -1px;
+    padding-bottom: 8px;
+    text-transform: lowercase;
+}
+aside#rightColumn li.widget {
+	list-style: none;
+	margin-top: 10px;
+}
+/* Search */
+aside#rightColumn ul li.widget #searchform {
+	clear:both;
+	padding-top:5px;
+}
+aside#rightColumn ul li.widget #searchform #s {
+	width:70%;
+}
+/* Ad Tag Widget */
+aside#rightColumn ul li#add_html_javascript-1 h2 {
+	color:#666666;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-transform:uppercase;
+	border-bottom:0 solid;
+	margin-bottom:0;
+}
+/* Tag Cloud */
+aside#rightColumn ul li ul#newtagcloud li a {
+	font-weight:normal;
+	margin:0 3px;
+}
+/* Link Buttons */
+aside#rightColumn ul li.widget_text {
+	padding:0px;
+	border-bottom:0 hidden;
+}
+aside#rightColumn ul li.widget_text h2 {
+	border-bottom:0 hidden;
+}
+div.everydayicon {
+	float:left;
+	margin:5px;
+.margin:0px;
+.padding:10px;
+.clear:both;
+}
+div.ButtonLinks {
+	padding: 10px 0 20px;
+}
+aside#rightColumn ul li.widget_text div.ButtonLinks a {
+	border-bottom:0 hidden;
+.border-bottom-style:none;
+}
+aside#rightColumn ul li.widget_text div.ButtonLinks img {
+	margin:0 50px 1px 5px;
+}
+/* Google Ads (now controlled by bhgGoogle.css)
+div#wpGoogleAds {
+	padding-top:20px;
+}
+.mdpgooglesidebarWrap {
+	background:url('http://images.meredith.com/bhg/images/tmp/google/bhg.gif') top left no-repeat;
+	padding:0;
+	margin:0;
+	width:300px;
+	height:250px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#666;
+}
+.mdpgooglesidebarTop {
+	padding-top:22px;
+}
+.mdpgooglesidebarAd {
+	word-wrap:break-word;
+	padding:12px 10px 0 20px;
+}*/
+/* Twitter Widget */
+
+/* div.wp-caption {
+	-moz-border-radius-bottomleft:3px;
+	-moz-border-radius-bottomright:3px;
+	-moz-border-radius-topleft:3px;
+	-moz-border-radius-topright:3px;
+	background-color:#DDEEF6;
+	border:4px solid #DDDDDD; 
+} */
+.wp-caption-text {
+	font-size: 12px;
+	font-style: italic;
+	margin-top: 0;
+	padding-left: 10px;
+	color: #660066;
+}
+#twitter_div a {
+	text-decoration:none;
+	color:#666;
+	border-bottom:1px solid #edead6;
+}
+#twitter_div a:hover {
+	text-decoration:none;
+	color:#666;
+	border-bottom:1px solid #666;
+}
+#twitter_update_list {
+	list-style:none;
+	padding-left:0;
+}
+#twitter_update_list li {
+	clear:left;
+	border:1px;
+	padding-left:0;
+}
+.tweetBloc {
+	border-bottom:2px solid #FFFFFF;
+	display:table;
+	width:100%;
+	font-family:verdana;
+}
+div.tweetBloc:hover {
+	background:#F6F5DB none repeat scroll 0 0;
+}
+.twitteravatar {
+	margin:5px;
+}
+.twitteravatar img {
+	margin:5px 0;
+	border:none;
+	max-width:40px;
+.width: expression(this.width > 40 ? 40: true);
+	vertical-align:middle;
+}
+.tweettext {
+	display:block;
+	margin:5px;
+}
+.tweet {
+	font-size:11px;
+}
+.timestamp {
+	font-size: 10px;
+	display:block;
+	font-style:italic;
+	margin-top:2px;
+}
+#twitter_div .timestamp a {
+	color:gray;
+	text-decoration:none;
+}
+#twitter_div .timestamp a:hover {
+	color:red;
+	text-decoration:none;
+}
+.twitter-link {
+	text-align:right;
+	margin:5px;
+}
+#theme-wrap {
+    width: 100%;
+}
+#main-content {
+    background: url("http://www.betterrecipes.com/img/bg-mc.png") repeat-y scroll center top transparent;
+}
+.article h4 {
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.article h4 + p {
+	font-size:11px;
+	margin-bottom:10px;
+}
+#postmeta {
+	border-bottom:#efefef solid 1px;
+	padding-bottom:15px;
+	margin-bottom:5px;
+}
+/*---------==========//////////
+	Gigya Sharebar
+\\\\\\\\\\==========----------*/
+#gigya7345-2-reaction0-icon_img,
+.gig-button-container-facebook .gig-share-button-text,
+.gig-button-container-stumbleupon .gig-share-button-text,
+.gig-button-container-twitter .gig-share-button-text,
+.gig-button-container-email .gig-share-button-text {
+	display:none;
+}
+.gig-button-container-share .gig-share-button-text {
+	color: #660066;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#gigya-btn {
+	float:left;
+	padding-right:10px;
+}
+/*#gigya-btn img {
+	height:32px;
+	width:auto;
+}*/
+.pt5 {
+	padding-top:5px;
+}
+
+
+
+#relatedPosts {
+	width: 100%;
+	float: left;
+	display: block;
+	margin-bottom: 15px;
+}
+#relatedPosts h3 {
+	padding: 20px 0 5px;
+	font-size: 1.4em;
+	line-height: 1.571em;
+}
+#relatedPosts a {
+	float: left;
+	display: block;
+	border-right: 1px solid #DDDDDD;
+	padding: 6px;
+	text-align: left;
+}
+#relatedPosts a:hover {
+	background-color: #DDDDEE;
+}
+#relatedPosts a.last { border: none; }
+
+#relatedPosts a div.inner {
+	width: 106px;
+	height: 190px;
+	padding: 0;
+	margin: 0;
+}
+#relatedPosts a div div.img {
+	border: 1px solid #DDDDDD;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 2px 0 0 2px;
+}
+#relatedPosts a div div.img img {
+	width: 100px !important;
+	height: 100px !important;
+	margin: 0 !important;
+}
+#relatedPosts a div div.title {
+	margin-top: 4px;
+	font-size: 96%;
+}
+
+
+.search-bar form input[type="submit"] {
+    background: url("http://www.betterrecipes.com/img/copy-search.png") no-repeat scroll center center #EBEBEB;
+    float: left;
+    margin: 10px 0 0;
+    max-width: 78px;
+    padding: 3px 6px;
+    text-indent: -9999px;
+    width: 52px;
+}
+
+/* Pin It hover button on article images */
+
+.pin-it-wrapper {
+	margin: 0 auto;
+}
+.pin-it {
+	float: right;
+	position: relative;
+	height: 0;
+	z-index: 9999;
+	top: 5px;
+	right: 5px;
+}

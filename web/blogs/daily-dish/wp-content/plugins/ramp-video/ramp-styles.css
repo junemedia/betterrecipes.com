@@ -1,0 +1,9 @@
+.rampVideo {display: inline-block;}
+.rampVideo .heading3 {margin-top: 10px;}
+.rampVideo p {margin-top: 10px;}
+.rampVideo img {padding: 0 !important;}
+.rampPopup.rampVideo {display: inline; text-align: center;}
+.videoPlayer {display: inline-block;height: auto;}
+a.videoPlayer {display: none;}
+.mobile a.videoPlayer {display: inline-block;}
+.mobile div.videoPlayer {display: none;}

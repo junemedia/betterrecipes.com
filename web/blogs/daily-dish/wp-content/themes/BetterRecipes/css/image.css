@@ -1,0 +1,13 @@
+/* ---- [
+    !!** image.css used in conjunction with secureimage.css **!!
+        The following CSS files use this to display images
+            base.css
+			mainnav.css
+        make sure to add the same id or class calls into secureimage.css
+] ---- */
+
+/* ---- [ base.css ] ---- */
+.logophoto{background:url(http://images.meredith.com/betterrecipes/images/template/shell/logo_photo.jpg) no-repeat;}
+.logo{background:url(http://images.meredith.com/betterrecipes/images/template/shell/logo.gif) no-repeat bottom left;}
+
+#headerSearch{background:url(http://images.meredith.com/diy/images/temps/searchBoxbg.gif) no-repeat;}

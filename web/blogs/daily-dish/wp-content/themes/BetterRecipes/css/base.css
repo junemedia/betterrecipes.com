@@ -1,0 +1,164 @@
+/* ---- [ GLOBAL DEFINITIONS & RESETS ] ---- */
+body {padding:0px;margin:0;font-family:Arial, Helvetica, sans-serif;color:#000;font-size:12px;}
+body.blankShell{background:#fff url();}
+li, p, h1, h2, h3, h4, h5, form {border:0px none;margin:0px;padding:0px;}
+ul, ol{border:0px none;margin:0px 0px 0px 20px;padding:0px;}
+
+h1, .ACThead1{font-size:28px;font-weight:normal;letter-spacing:0;color:#FE6112;}
+h2, .ACThead2, .chunkhead{font-size:18px;font-weight:normal;letter-spacing:0;color:#FE6112;}
+h3, .ACThead3, .sidebar .chunkhead{font-size:16px;font-weight:normal;letter-spacing:0;color:#FE6112;}
+h4, .ACThead4{font-size:12px;font-weight:bold;letter-spacing:0;color:#666;}
+h5, .ACThead5{font-size:12px;font-weight:normal;letter-spacing:0;color:#FE6112;}
+span.ACThead2, span.ACThead3, span.ACThead4, span.ACThead5{display:block;}
+
+/* ---- [ UTILITY ] ---- */
+hr{clear:both;margin:0 0 5px;.margin:3px 0;padding:7px 0 0;height:1px;border:0px;border-bottom:1px solid #F0E3C5;}
+hr.dotted{clear:both;margin:0 0 5px;.margin:3px 0;padding:7px 0 0;height:1px;border:0px;border-bottom:1px dotted #F0E3C5;}
+
+.clearall {clear:both;font-size:1px;line-height:0px;}
+.smSpacer{font-size:1px;height:10px;}
+.spacer {padding:20px 0px;}
+
+ul.majlink, ul.topicsLinkList, .catAssocOneCol ul, .catAssocTwoCol ul{margin:0px; list-style:none;}
+ul.majlink li, ul.topicsLinkList li, .catAssocOneCol ul li, .catAssocTwoCol ul li{padding:0 0 3px 15px;}
+
+.imgBorder img, .imgtopholder img{border:1px solid #f0E3C5;padding:3px;}
+
+/* ---- [ SITE COLORS ] ----
+if you modify/add to these, please change the color description below  */
+.brandcol1 {background-color:#FE6112;}  /* Orange */
+.brandcol2 {background-color:#B70100;}     /* Red */
+.brandcol3 {background-color:#F0E3C5;}  /* Medium Tan */
+.brandcol4 {background-color:#FFFAEE;}  /* Light Tan */
+.brandcol7 {background-color:#666;}  /* Dark Gray */
+.brandcol6 {background-color:#000;}  /* black */
+.brandcol8 {background-color:#fff;}  /* white */
+
+.txtcol1 {color:#666;}               /* dark grey text */
+.txtcol2 {color:#FE6112;}            /* orange text */
+.txtcol3 {color:#B70100;}            /* red text */
+.txtcol4 {color:#fff;}               /* white text */
+
+strong{color:#000000;}
+
+/* ---- [ LINK STYLING ] ---- */
+a, a:visited, a:hover{color:#B70100;}
+
+/* [ Footer Links ] */
+#footer a, #footer a:visited, #footer a:hover{color:#999;}
+
+
+    /* ---- [ Link Overrides ] ---- */
+	ul#navmenu a, ul#navmenu a:visited{font-size:12px;color:#2264cd;border:0px none;margin:0px;text-decoration:none;}
+    ul#navmenu a:hover{color:#fff;}
+    #subnav a{color:#fff;}
+    #subnav a:hover{}
+	ul#subnav ul.childnav a, ul#subnav ul.childnav a:visited, ul#subnav ul.childnav a:hover{font-size:11px;font-weight:normal;border:0px none;}
+
+
+/* ---- [ BOX STYLES ] ---- */
+.box1{border:2px solid #F0E3C5;background-color:#FFFAEE;}
+.box2{border:1px solid #F0E3C5;background-color:#FFFAEE;}
+.box3{border:1px solid #F0E3C5;background-color:#FFF;}
+	
+
+/* ---- [ PAGE STRUCTURE ] ---- */
+#wrapper{width:995px;margin:0 auto;text-align:left;background-color:#fff;position:relative;}
+#wrapperwide{width:1134px;border:1px solid #ccc;border-top:0px none;margin:0 auto;text-align:left;background-color:#fff;position:relative;}
+#wrapperwide #singlecolumn{width:815px;}
+#wrapperwide #singlecolumnwell{width:805px;}
+
+#pagebody{}
+/* -------[Home/Channel/Parent/Child/Story Page Layout -- 165(170)/490(500)]------- */
+	#contentwell{width:502px;border-left:174px solid #fff; /* The width and color of the left rail */ border-right:319px solid #fff; /* The width and color of the right rail */}
+		#leftcolumn{float:left;width:170px;padding:5px 0 5px 5px;margin-left:-230px;.position:relative;}
+		#maincolumn{float:left;margin-right:-445px;overflow-x:auto;overflow-y:hidden;padding:5px 0 5px 0;width:500px;}
+			#maincontentwell{margin:0 auto;width:490px;text-align:left;position:relative;}
+/* -------[SingleColumn Page Layout -- 670(675)]------- */
+	#singlecolumn{width:676px;border-right:319px solid #fff; /* The width and color of the right rail */}
+		#singlecolumnwell{width:660px;padding:5px 0;margin:0 0 0 10px;_margin:0 0 0 5px;float:left;}
+/* -------[SingleColumn Page Store Layout -- 985(995)]------- */
+	#singlecolumn.store{width:995px;border-right:0 none;background:none;}
+        .store #singlecolumnwell{width:985px;}
+/* -------[SingleColumn Page Wide Layout -- 780(790)]------- */
+	#singlecolumn.wide{width:790px;}
+		#singlecolumnwell.wide{width:780px;padding:5px 0;margin:0 auto;float:left;}
+/* -------[Ad Column Layout -- 310(320)]------- */
+	#rightcolumn, #adwell{float:right;width:310px;padding:5px;margin-right:-320px;_position:relative;}
+	#adcolumn{margin-bottom:5px;}
+
+/* -------[Alternate Shell Overrides]------- */
+.recipePrintShell, .printableShell, .storePrintShell {background:#fff url();}
+#printstory, #ltcol{width:640px;padding: 0 0 0 10px;}
+.storePrintShell #singlecolumn{border-right:0 none;}
+.checkoutShell #singlecolumn{width:980px;border-right:0 none;background:url();}
+
+/* ---- [ COMMON PAGE ELEMENTS ] ---- */
+/* ---- [ Header ] ---- */
+#header{margin-bottom:1px;border-bottom:5px solid #B70100;}
+.logophoto{width:253px;height:142px;float:left;text-align:right;}
+.logophoto img{margin-top:90px;}
+
+#header.thinHead{border-bottom:1px dotted #B70100;}
+.thinHeadLogo{float:left;padding:5px;}
+.thinHead .utilLinks{float:right;padding-right:5px;}
+ul.utilLinks{list-style:none;}
+ul.utilLinks li{display:inline;}
+
+.headerContent{float:right;}
+/* ---- [ Banner ] ---- */
+#banner{width:730px;height:117px;}
+
+/* ---- [ Main Nav - See mainnav.css for complete styles ] ---- */
+#navwrap{height:25px;}
+
+/* ---- [ Search Form ] ---- */
+.searchContainer{padding:10px 0 0 0;}
+.searchButton{vertical-align:top;}
+
+/* ---- [ Add This Button ] ---- */
+#addthis{float:left;padding:4px 5px;}
+
+/* ---- [ Sponsor Logo ] ---- */
+#topadsponsorlogo{float:right;padding:0 5px;width:120px;height:60px;background-color:#fff;}
+
+/* ---- [ Breadcrumb ] ---- */
+.breadCrumb {padding-bottom:5px;font-size:11px;}
+.breadCrumb .bold{color:#B70100;}
+
+/* ---- [ Footer ] ---- */
+#footer{font-size:11px;margin-top:1px;color:#666}
+
+#footerSiteSearch {height:20px;padding:5px 0;margin:10px auto;text-align:center;width:475px;}
+#footerSiteSearch label{text-transform:uppercase;}
+#footerSiteSearch #srchtxt{border:1px solid #CDBD91;margin-right:5px;width:223px;}
+
+#footer #copyright, #footer #termsofservice{padding:10px 15px;}
+
+#footer #mainlinks{padding:5px 0;height:70px;border-top:1px solid #F0E3C5;}
+#footer #mainlinks ul{list-style:none;margin-left:0;}
+	#footer #mainlinks ul li{float:left;width:145px;}
+#footer .searchBar{background-color:#efece3;padding:5px 0;text-align:center;}
+#footer .disclaimer{padding:5px 0;}
+#footer .footercol, #footer .footercolmid{width:295px;padding:0 15px;}
+#footer .footercolmid{border-left:1px solid #F0E3C5;border-right:1px solid #F0E3C5;}
+#footer .linkcol{padding-left:14px;}
+
+#footer .floatright{float:right;}
+#footer .floatleft{float:left;}
+#footer #rgm{float:left; padding:3px 5px 0 0;}
+#footer .rgm{width:370px;}
+
+#footer #top, #footer #bottom {padding:15px 10px;}
+#footer .bhglogo, #footer .mwntext {width:170px;text-align:center;}
+#footer #top .linkcol {width:530px;padding:5px 0;}
+#footer .mwntext{font-weight:bold;}
+
+/* ---- [ COMMON PAGE MODULES ] ---- */
+
+/* ---- Image Left/Right/Top ---- */
+.imgleftholder{float:left;margin-right:10px;}
+.imgrightholder{float:right;margin-left:10px;margin-top:5px;}
+.imgtopholder{text-align:center;}
+.imgLeftbox ul.majlink, .imgRightbox ul.majlink{display:table;.display:inline-block;} /* Fixes lists next to floated images */
+.imgLeftbox p, .imgRightbox p, .imgTopbox p{padding-bottom:5px;}

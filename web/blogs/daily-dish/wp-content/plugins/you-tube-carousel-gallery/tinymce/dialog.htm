@@ -1,0 +1,243 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+	<title>Add You Tube Carousel gallery</title>
+	
+
+<link rel="stylesheet" href="../../../../wp-includes/js/tinymce/themes/advanced/skins/wp_theme/dialog.css">
+<script src="../../../../wp-includes/js/tinymce/tiny_mce_popup.js" type="text/javascript"></script>
+<script src="../../../../wp-includes/js/jquery/jquery.js" type="text/javascript"></script>
+<style media="screen" type="text/css">
+	fieldset{border:none; margin: 5px 0;}
+	.panel_wrapper{border: none; font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; height: 600px; margin-bottom: 20px; }
+	legend, .description{font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; color: #333; font-size: 12px;}
+	.description{color: #999; font-style: italic; font-size: 10px;}
+	fieldset input, fieldset select{font-size: 12px; padding: 4px; border: solid 1px #bbb;}
+	.donation{padding: 5px 10px; margin: 10px 5px; background: #DFFAFF; border: #8BD1DF solid 1px; display: inline-block;}
+</style>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$("#videoids").hide();
+		//$("#groupid").hide();
+		
+		$('#from').change(function() {
+			var val = $(this).val();
+			if(val=="user"){
+				$("#videoids").hide();
+				$("#channel").show();
+				$("#max-channel").show();
+				$("#start-index").show();				
+				$("#search-query").show();				
+			}else if(val=="vids"){
+				$("#videoids").show();
+				$("#channel").hide();
+				$("#max-channel").hide();
+				$("#start-index").hide();
+				$("#search-query").hide();	
+				}
+			else if( val=="search"){
+				$("#max-channel").show();
+				$("#start-index").show();				
+				$("#search-query").show();
+				$("#videoids").hide();
+				$("#channel").hide();
+				//$("#photoset").hide();
+				//$("#tagsfield").show();
+			}
+		})
+     
+     
+     
+
+     
+     });
+	function code_builder () {
+		val = document.getElementById('from').value;
+		channel_id='channel= '+ '"' + document.getElementById('channel_id').value + '"';
+		vids_id='vid= '+ '"' + document.getElementById('videos_ids').value + '"';
+		if(jQuery("#per_page").val() != '')
+			per_page = ' max='+  '"' + document.getElementById('per_page').value + '"';
+		else
+		    per_page='';
+		if(jQuery("#start_index").val() != '')
+			start_index = ' start='+  '"' + document.getElementById('start_index').value + '"';
+		else
+			start_index='';
+		if(jQuery("#query_id").val() != '')
+			query = ' query='+  '"' + document.getElementById('query_id').value + '"';
+		else
+			query='';
+		if(jQuery("#showscroller_id").val() != '')
+			showscroller = ' showscroller='+  '"' + document.getElementById('showscroller_id').value + '"';
+		else
+			showscroller='';
+		if(jQuery("#color1").val() != '')
+			captioncolor = ' captioncolor='+  '"' + document.getElementById('color1').value + '"';
+		else
+			captioncolor='';
+		if(jQuery("#color2").val() != '')
+			background = ' background='+  '"' + document.getElementById('color2').value + '"';
+		else
+			background='';	
+		/*photoset_id = 'photoset_id='+ '"' + document.getElementById('photoset_id').value + '"';
+		user_id = 'user_id='+  '"' + document.getElementById('user_id').value + '"';
+		group_id = 'group_id='+ '"' +  document.getElementById('group_id').value + '"';
+		tags = ' tags='+  '"' + document.getElementById('tags').value + '"';
+		sortby = ' sortby='+  '"' + document.getElementById('sortby').value + '"';
+		per_page = ' per_page='+  '"' + document.getElementById('per_page').value + '"';*/
+		
+		code = '[ytcarousel ';
+		if(val=="user"){
+			code += channel_id;
+		}
+		if(val=="vids"){
+			code += vids_id;
+		}
+		code += per_page;
+		code += start_index;
+		code += query;
+		code += showscroller;
+		code += captioncolor;
+		code += background;
+		/*if(val=="group"){
+			code += group_id;
+		}
+		if(val!="set"){
+		 code += tags;
+		}*/
+		
+		//code += sortby;
+		//code += per_page;
+		code += ']';
+		
+		//code += '[/ytcarousel]'
+		tinyMCEPopup.execCommand('mceInsertContent',false,code);
+		tinyMCEPopup.close();
+		return false;
+	};
+	</script>
+
+</head>
+<body style="" id="fmg-popup">
+<div class="panel_wrapper">
+		<div class="panel current" id="general_panel">
+<fieldset>
+    <legend>Get Videos from:</legend>
+     
+    <select name="from" id="from">
+    	<option value="user">Channel</option>
+    	<option value="vids">Video IDs</option>
+    	<option value="search">Search Only</option>
+    	<!--<option value="all">All Youtube</option>-->
+    </select>
+    
+</fieldset>
+
+<fieldset id="channel">
+	<legend> Channel Name:</legend>
+	<input type="text" size="30" id="channel_id" /><br />
+	<span class="description">eg: WWEFanNation</span>
+</fieldset>
+<fieldset id="search-query">
+	<legend>Search Query:</legend>
+	<input type="text" value="" size="30" id="query_id" /><br />
+	<span class="description">eg: wrath of the titans trailer ;Leave Empty If no Query</span>
+</fieldset>
+<fieldset id="max-channel">
+	<legend> Max Results:</legend>	
+	<input id="per_page" type="number" min="0" max="500" step="5" value="" size="4"/><br />
+	<span class="description">Is the max size of your gallery if it has more than the limit</span>
+</fieldset>
+<fieldset id="start-index">
+	<legend>Start From:</legend>	
+	<input id="start_index" type="number" min="0" max="500" step="1" value="" size="4"/><br />
+	<span class="description">Starting Index :Default- 1</span>
+</fieldset>
+
+
+<fieldset id="videoids">
+	<legend>Video Ids:</legend>
+	<textarea rows=5 cols=50  id="videos_ids" ></textarea><br />
+	<span class="description">Video Ids Comma Separated eg: FrN12tVhQPA,2JPo0kdB30c,Vts4J_x_ejk,V-YjBPIzL0M,y_SI2EDM6Lo,COqjmf9GUP0</span>
+</fieldset>
+<br/>
+<fieldset id="showscroller">
+	<legend>show Scroller:</legend>
+		<select id="showscroller_id" name="scrollershow">			
+			<option value="">Select Yes/No</option>
+			<option value="yes">YES</option>
+			<option value="no">NO</option>
+		</select>	
+	<span class="description">Leave it be for universal settings</span>		
+</fieldset>
+<fieldset id="captioncolor">
+	<legend>caption color:</legend>
+	<input type="text" size="30" id="color1" /><br />	
+	 <span class="description">Enter color code =eg:#000000 ;leave it empty for universal settings</span>
+</fieldset>
+<fieldset id="backgroundcolor">
+	<legend>Background color:</legend>
+	<input type="text" size="30" id="color2" /><br />	
+	 <span class="description">Enter color code =eg:#ececec;leave it empty for universal settings</span>
+</fieldset>
+<!--<fieldset id="photoset">
+	<legend>Channel/user Name:</legend>
+	<input type="text" size="30" id="photoset_id" /><br />
+	<span class="description">eg: WWEFanNation</span>
+</fieldset>
+
+<fieldset id="userid">
+	<legend>User ID</legend>
+	<input type="text" size="30" id="user_id" /><br />
+	<span class="description">eg: 56755410@N00 | <a href="http://idgettr.com/" target="_self">get your id</a></span>
+</fieldset>
+
+<fieldset id="groupid">
+	<legend>Group ID</legend>
+	<input type="text" size="30" id="group_id" /><br />
+	<span class="description">eg: 77185913@N00 | <a href="http://idgettr.com/" target="_self">get a group id</a></span>
+</fieldset>
+
+<fieldset id="tagsfield">
+	<legend>Tags</legend>
+	<input type="text" size="30" id="tags" /><br />
+	<span class="description">Tags followed by comma eg: tag1,tag2,tag3</span>
+</fieldset>-->
+
+<!--<fieldset id="sort">
+	<legend>Sort by</legend>
+	<select name="from" id="sortby">
+    	<option value="date-posted-asc">date-posted-asc</option>
+    	<option value="date-posted-desc">date-posted-desc</option>
+    	<option value="date-taken-asc">date-taken-asc</option>
+    	<option value="date-taken-desc">date-taken-desc</option>
+    	<option value="interestingness-desc">interestingness-desc</option>
+    	<option value="interestingness-asc">interestingness-asc</option>
+    	<option value="relevance">relevance</option>
+    </select>
+</fieldset>-->
+
+<!--<fieldset id="sort">
+	<legend>Max number of images</legend>
+	<input id="per_page" type="number" min="0" max="500" step="10" value="50" size="4"/><br />
+	<span class="description">Is the max size of your gallery if it has more than the limit</span>
+</fieldset>-->
+
+<!--<span class="donation"> If this plugin is useful for you please consider a <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WX3HCCLUEK6RC&lc=NZ&item_name=FMG%20Plugin&currency_code=NZD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">donation</a></span>-->
+</div>
+</div>
+
+<div class="mceActionPanel">
+		<div style="float: left;">
+			<input type="button" onclick="tinyMCEPopup.close();" value="Cancel" name="cancel" id="cancel">
+		</div>
+
+		<div style="float: right;">
+			<input type="submit" value="Insert" name="insert gallery" id="insert" onclick="code_builder ()">
+		</div>
+	</div>
+
+	
+	
+</body></html>

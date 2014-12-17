@@ -1,0 +1,64 @@
+/* ================================================================
+This copyright notice must be kept untouched in the stylesheet at
+all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/stamp-collecting.html
+Copyright (c) 2005-2009 Stu Nicholls. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any
+way to fit your requirements.
+=================================================================== */
+/* ----[Containers]---- */
+#mainnav li {margin:0; padding:0; list-style:none;font-weight:bold;}
+#mainnav li {display:inline-block; display:inline;}
+#mainnav ul {padding:0; margin:0; list-style:none; position:absolute; left:-9999px;}
+#mainnav :hover ul {left:0;}
+#mainnav :hover ul a {white-space:nowrap;}
+#mainnav :hover ul b {position:absolute;}
+#mainnav :hover ul.right {left:auto; right:0;}
+#mainnav table {border-collapse:collapse; margin-top:-1px;}/* IE6 */
+#mainnav iframe {display:none;/*sorry for IE5*/display/**/:block;/*sorry for IE5*/position:absolute;/*must have*/top:33;/*must have*/left:0;/*must have*/z-index:-1;/*must have*/filter:mask();/*must have*/width:150px;/*must have for any big value*/height:160px/*must have for any big value*/; }
+
+/* ----[Bar]---- */
+#mainnav {margin:0; padding:1px 0 0; list-style:none; white-space:nowrap; text-align:left; float:left;}
+
+/* All mainnav links */
+#mainnav a {display:block;float:left;text-decoration:none;padding:0 0 0 9px;color:#fff;}
+#mainnav a {background:url(http://images.meredith.com/betterrecipes/images/template/shell/tab_left.gif) no-repeat 0% -150px;}
+#mainnav a span{padding:4px 8px 4px 0;display:block;float:left;}
+#mainnav a span{background:url(http://images.meredith.com/betterrecipes/images/template/shell/tab_right.gif) no-repeat 100% -150px;}
+
+/* ----[Top Level Links]---- */
+#mainnav li.li-top {float:left; display:block;padding:0 2px 0 0;}
+#mainnav li.li-top a.top {float:left;color:#fff;font-size:13px;padding:0 0 0 9px;}
+#mainnav li.first {}
+#mainnav li.first a.top{}
+
+    /* Current Tab */
+    #mainnav li.current a {background-position:left top;color:#fff;}
+	#mainnav li.current a span {background-position:right top;color:#B70100;}
+
+    /* Top Level Link - Hover */
+	#mainnav :hover a:hover {background-position:left top;color:#fff;}
+	#mainnav :hover a:hover span {background-position:right top;color:#B70100;}
+	/* Top Level Link - IE6 Hover */
+	#mainnav li a.top:hover {position:relative;}
+	#mainnav li a.top:hover {background-position:left top;color:#fff;}
+	#mainnav li a.top:hover span {background-position:right top;color:#B70100;}
+	
+/* ----[Dropdown]---- */
+#mainnav ul.ul-sub {background:#FFFAEE;padding:3px 0;min-width:170px;_width:170px;border:1px solid #F0E3C5;border-top:0px none;}
+
+	/* Dropdown link */
+	#mainnav ul.ul-sub a{background:#FFFAEE url("");color:#B70100;font-size:12px;font-weight:normal;line-height:19px;padding:0 10px 0 15px;}
+
+	/* Dropdown Link - Hover */
+	#mainnav li.li-top:hover {position:relative;}
+	#mainnav li.li-top:hover > a {}
+	#mainnav li.li-top:hover > a{background-position:left top;color:#fff;}
+	#mainnav li.li-top:hover > a span {background-position:right top;color:#B70100;}
+	#mainnav li.li-top:hover ul :hover > a {text-decoration:underline;}
+	#mainnav li.li-top:hover ul {margin-top:24px;}
+
+	/* Dropdown Link - IE6 Hover */
+	#mainnav ul.ul-sub a:hover{color:#0044B0;text-decoration:underline;position:relative;z-index:5;}/* IE6 */
