@@ -104,7 +104,8 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
         <div class="sign-in">
           <ul class="hornav members">
             <li><a href="http://www.betterrecipes.com/signin" title="Log into your Better Recipes account" class="first">LOGIN</a></li>
-            <li><a href="http://www.betterrecipes.com/signup" title="Create your Better Recipes account">REGISTER</a></li>
+            <li><a href="http://www.betterrecipes.com/signup" title="Create your Better Recipes account" >REGISTER</a></li>
+			<li style="margin-left:10px;"><a href="http://www.betterrecipes.com/recipes/new" title="Add your own recipe">ADD RECIPE</a></li>
           </ul>
           <!-- /members nav -->
           <ul class="hornav social">
