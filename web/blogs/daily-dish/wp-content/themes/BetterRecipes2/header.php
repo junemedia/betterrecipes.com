@@ -145,10 +145,11 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
     </div> <!-- /.search-bar -->
                   
                                    
-                                   
+                  <!--                 
                   <div class="banner">
-                    <? include('ad-1000x45.php'); ?>
+                    <? //include('ad-1000x45.php'); ?>
                   </div><!-- /.banner -->
+				  
                   </div><!-- /.wrapper -->
                   </div><!-- /#main-header -->
                   <div id="main-content" class="recipe-detail">
