@@ -6,7 +6,9 @@
       <? if ($sf_user->isAuthenticated()): ?>
         <a id="view_thumbnails"><? if ($showall): ?>view all<? else: ?>hide<? endif; ?> thumbnails</a>
       <? else: ?>
+	  <!--
         <a href="<?= url_for('@slideshow_all?regSource=8292&slug=' . $slideshow->getSlug()) ?>" onclick="appendPageNo(this)">view all thumbnails</a>
+		-->
       <? endif; ?>
     </div>
   <? endif; ?>
