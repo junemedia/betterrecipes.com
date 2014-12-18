@@ -40,7 +40,7 @@ unitValues: {
   ?>
   
   <div id="featuredBlogger">
-  	<? include_partial('featured_blogger', compact('featured_blogger')) ?>
+  	<? //include_partial('featured_blogger', compact('featured_blogger')) ?>
   </div><!-- // #featuredBlogger -->
   <div class="clear-both"></div>
   
