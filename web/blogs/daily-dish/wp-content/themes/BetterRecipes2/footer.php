@@ -149,4 +149,13 @@ include(ABSPATH . 'wp-content/omniture.php');
 <!-- Begin Meebo sharebar -->
 <span id="meeboPreBodyClose"></span>
 <!-- End Meebo sharebar -->
+
+<!-- infolinks code -->
+<script type="text/javascript">
+var infolinks_pid = 1863387;
+var infolinks_wsid = 3;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- infolinks code -->
+
 </body></html>
