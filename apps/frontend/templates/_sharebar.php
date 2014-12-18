@@ -1,4 +1,4 @@
-<div id="recipe-sharebar" class="mt10 border-bottom">
+<div id="recipe-sharebar" class="mt10 border-bottom" style="display:none;">
   <div id="inlinesharebar"<? if (isset($slideshow)): ?> class="flle"<? endif; ?>></div>
   <? if (isset($slideshow)): ?>
     <!--
