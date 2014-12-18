@@ -2576,10 +2576,10 @@ form .no-style {
 }
 #slideshow-wrap #slideshow {
   padding:20px;
-  -moz-box-shadow: 0px 0px 4px #888;
-  -webkit-box-shadow: 0px 0px 4px #888;
-  box-shadow: 0px 0px 4px #888;
-  border: 1px solid #bbb;
+  /*-moz-box-shadow: 0px 0px 4px #888;*/
+  /*-webkit-box-shadow: 0px 0px 4px #888;*/
+  /*box-shadow: 0px 0px 4px #888;*/
+  /*border: 1px solid #bbb;*/
   *background:url(/img/bg-feat-moms.png) center no-repeat;
   *padding:6px;
   position:relative;
