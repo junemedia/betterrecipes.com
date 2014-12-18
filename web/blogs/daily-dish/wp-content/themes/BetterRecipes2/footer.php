@@ -15,12 +15,13 @@
 <div id="main-footer">
   <div class="wrapper">
     <div class="header search-bar">
+	<!--
       <form id="ft-search" method="get" action="http://www.betterrecipes.com/search"  onsubmit="return validateSearch(this)">
         <input type="text" onblur="clearText(this)" onfocus="clearText(this)" name="term" value="Search for recipe">
         <input type="hidden" value="Recipe" name="PageType">
         <input class="btn-grey28" type="submit" value="SEARCH">
       </form>
-
+	-->
       <!--
       <form id="ft-search" action="">
         <input type="text" value="Search for recipe" name="search" />
