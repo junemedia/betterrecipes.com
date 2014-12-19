@@ -1,4 +1,5 @@
 <? if (isset($poll) && sizeof($poll) > 0): ?>
+<!--
   <p class="title">Trending recipes</p>
   <div id="top-trending">
       <ul>
@@ -13,4 +14,5 @@
         <? endforeach; ?>
       </ul>
   </div>
+ --> 
 <? endif; ?>
