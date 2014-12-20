@@ -205,58 +205,7 @@
     /* ]]> */
     </script>
 
-    <script>
-      var adService = {
-      		 pubmaticEnabled: true,
-      		 pubmaticPub: 37576, 
-          kruxEnabled: true, /* Set if applicable */
-          yieldbotEnabled:true,  /* Set if applicable */
-          yieldbotPub:'d45f',  /* Set to the site's psn code. See table below for values */
-
-          <? if (has_slot('gpt')): ?>
-
-            <? include_slot('gpt') ?>
-
-          <? else: ?>
-
-          unitValues: {
-                channel: '', /* Set to the top level category id, if applicable */
-
-                parent: '', /* Set to the secondary level category id, if applicable */
-
-                child: '' /* Set to the tertiary level category id, if applicable */
-
-          },
-          pageTargetingValues: { /* Additional key-values can be added to this section if needed */
-        id: '<?=md5($sf_request->getPathInfo())?>', /* Set to a page-specific unique id*/
-              /*id: '<?php echo md5($sf_request->getUri())?>',//*/ /* Set to a page-specific unique id*/
-                type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
-                search: '' /* On search results, set to the search term */
-
-          }
-
-          <? endif; ?>
-      };
-      if (window.location.hostname.match(/\.resolute\.com$/)) {
-        adService.unitValues.adDomain = 'betterrecipes.mdp.com';
-      }
-      (function() {
-        var d = new Date(), dateBits = [], dow, diff, gadsCore, cdnPath;
-        d.setUTCHours(d.getUTCHours() - 9);
-        dow = d.getUTCDay();
-        diff = ((dow < 2) ? 2 : 5) - dow;
-        diff = (diff < 1) ? diff+4 : diff;
-        d.setUTCDate(d.getUTCDate() + diff);
-        dateBits.push(d.getUTCFullYear());
-        dateBits.push(d.getUTCMonth()+1);
-        dateBits.push(d.getUTCDate());
-        adService.cacheBuster = '?' + dateBits.join('-');
-        gadsCore = document.createElement('script');
-        gadsCore.src = 'http://s2.mdpcdn.com/web/js-min/js/mdp/app/gpt/gpt.core.js' + adService.cacheBuster;
-        var node = document.getElementsByTagName('script')[0];
-        node.parentNode.insertBefore(gadsCore, node);
-      })();
-    </script>
+    
 
     <script>
       var zflag_parent="zedo_loader";
