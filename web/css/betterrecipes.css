@@ -1077,6 +1077,7 @@ MAIN: editorials
 #editorials > div{
   float:left;
   width:310px;
+  height:160px;
   margin-bottom:10px;
 }
 #pop_stories > div{
