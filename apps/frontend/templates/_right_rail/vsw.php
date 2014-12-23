@@ -1,6 +1,6 @@
 
   <div class="vswAdContainer roundedCornerWithWhiteBG" id="vsw">
-  <?php if ( substr( $_SERVER['REQUEST_URI'], 0, 12) != "/slideshows/" ): ?>
+  
                 <style type="text/css">
                     body div.vsw-ad-rc .vsw-ad-title {color:#2C73BB !important; font-family:Arial !important;}
                     body div.vsw-ad-rc .vsw-ad-text {font-family:Arial !important; font-size:12px !important; color:black !important;}
@@ -75,5 +75,5 @@
           yieldbot.alternateSlot('300x250_vsw',doVswScript);
         });
       </script>
-	<?php endif; ?>
+	
 </div>	
