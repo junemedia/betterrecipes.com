@@ -46,9 +46,9 @@
 			  });
 			</script>
 
-			<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>
-			
+			<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>			
 			<!-- end openx -->
+			
         </div>
       <? endif; ?>
     </div><!-- /.logo-space -->
