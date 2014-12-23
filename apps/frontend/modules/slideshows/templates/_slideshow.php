@@ -110,7 +110,7 @@
         
         <p class="green" id="title"></p>
         <p id="content"></p>
-        <p class="mt10"><a id="sliderecipe">View Recipe &raquo;</a></p>
+        <p class="mt10"><a  target="_blank" id="sliderecipe">View Recipe &raquo;</a></p>
       </div>
     <? else: ?>
       <p class="mt10">Currently there are no slides for this slideshow</p>
