@@ -171,29 +171,7 @@
               <span class="save_button"><? include_partial('save_recipe', compact('is_saved')) ?></span>
             <? endif; ?>
           </li>
-          <li style="margin-left: 15px;">
-            <? if ($sf_user->isAuthenticated()): ?>
-              <? if (!$is_made): ?>
-                <div id="madeContainer">
-                  <a class="graphic-button" onclick="addToMadeThis(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">Made This!</a>
-                  <div class="madeMoreFeatures" style="display:none;">
-                    <a href="javascript:;" onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                  </div><!-- // madeMoreFeatures -->
-                </div><!-- // madeContainer -->
-              <? else: ?>
-                <div id="madeContainer">
-                  <a class="graphic-button" onclick="$('.madeMoreFeatures').show();">Made</a>
-                  <div class="madeMoreFeatures" style="display:none;">
-                    <a onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                  </div><!-- // madeMoreFeatures -->
-                </div><!-- // madeContainer -->
-              <? endif; ?>
-            <? else: ?>
-              <div id="madeContainer">
-                <a class="graphic-button" href="<?= getSigninUri($sf_request->getParameter('referrer', $sf_request->getUri())) ?>">Made</a>
-              </div><!-- // madeMoreFeatures -->
-            <? endif; ?>
-          </li>
+          
         </ul>
         <? if ($sf_user->isAuthenticated()): ?>
           <div id="savedModalContainer">
