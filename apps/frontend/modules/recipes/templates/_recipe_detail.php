@@ -158,10 +158,7 @@
     <div class="recipeHeader">
       <div class="utility">
         <ul>
-          <li style="padding-top:5px;">
-            <a class="grey" href="#" onclick="emailRecipe()" title="email this recipe">Email</a>
-          </li>
-          <li style="padding-top:5px;">|</li>
+          
           <li style="padding-top:5px;">
             <a class="grey" href="?print" title="Print this recipe" target="_blank" rel="<?= $recipe->getId() ?>|<?= $recipe->getName() ?>|<?= getUrl($recipe) ?>" <? if ($sf_user->isAuthenticated()): ?> id="printRecipeBtn" <? endif; ?>>Print</a>
           </li>
