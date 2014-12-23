@@ -28,7 +28,6 @@ unitValues: {
   <? include_partial('global/body_sharebar', compact('category')) ?>
   <? include_component('recipes', 'catlevel_category_block', compact('category')) ?>
   
-  <script id="mNCC" language="javascript"> medianet_width='656'; medianet_height= '175'; medianet_crid='342352778'; </script> <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUPTG615" language="javascript"></script>
   <div class="OUTBRAIN" data-src="<?= $sf_request->getUri() ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
   <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
   <?
