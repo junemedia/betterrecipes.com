@@ -222,7 +222,7 @@
           <div style="position:absolute;top:194px;left:0;display:none;" id="saveRecipeHover"><a <? if ($sf_user->isAuthenticated()): ?>onclick="addToSaved()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add recipe to my recipebox" onclick="addToSaved()"><img src="/img/save_recipe_hover.png" /></a></div>
         <? endif; ?>
       </div>
-      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a><? if (isset($main_img)): ?>  | <a onclick="displayPhotos()" title="View All Photos">View All Photos</a><? endif; ?></p>
+      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a></p>
     </div><!-- /.images -->
     <? if ($recipe->getSponsorId()): ?>
       <? $sponsor = $recipe->getSponsor() ?>
