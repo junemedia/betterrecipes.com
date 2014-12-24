@@ -46,5 +46,5 @@
 	<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>
 </div><!-- /.ad300x250 -->
 
-<div id="div-gpt-rightBanner"></div>
+<!-- <div id="div-gpt-rightBanner"></div> -->
 <!-- *** end of right side ad *** -->
