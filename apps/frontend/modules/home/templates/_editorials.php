@@ -58,8 +58,9 @@
       </div><!-- /.header -->
     </div>
 	
-	
+	<!--
 	<div id="ERA_AD_BLOCK2" style="width:650px; float:left; clear:both;"></div>
+	-->
 
 	<!-- NTENT ADS -->
 	<style type="text/css">
@@ -83,6 +84,19 @@
 	{if(era_rc.hasOwnProperty(p)){src+=decodeURIComponent('%26')+p.toLowerCase()+"="+encodeURIComponent(era_rc[p]);}};s.src=src;document.getElementsByTagName("head")[0].appendChild(s);})();
 	</script>
 	<!-- END NTENT ADS -->
+	
+	<!-- begin media.net -->
+	<div id="662071020">
+		<script type="text/javascript">
+		  try {
+			   window._mNHandle.queue.push(function () {
+				window._mNDetails.loadTag("662071020", "650x175", "662071020");
+				});
+			  }
+		  catch (error) {}
+		</script>
+	</div>
+	<!-- end media.net -->
 	
 	
   </div><!-- /#EDITORIALS -->	
