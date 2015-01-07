@@ -37,6 +37,10 @@ unitValues: {
 
 <div class="OUTBRAIN" data-src="<?= getUrl($slideshow) ?>" data-widget-id="AR_4" data-ob-template="BetterRecipes"></div>
 <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+
+<!-- begin media.net 4 -->
+<script id="mNCC" language="javascript">  medianet_width='656';  medianet_height= '175';  medianet_crid='132274854';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
+<!-- end media.net -->
     
     
     <? include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>

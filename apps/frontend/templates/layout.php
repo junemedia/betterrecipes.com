@@ -119,23 +119,6 @@
     (function () {var k = document.createElement('script');k.type = 'text/javascript';k.async = true;var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && (m[1]);k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=HzmEwRvl";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k, s);})(); </script>
 <!-- end krux tag -->
 
-	<!-- media.net code -->
-	<script type="text/javascript">
-    window._mNHandle = window._mNHandle || {};
-    window._mNHandle.queue = window._mNHandle.queue || [];
-    medianet_versionId = "121199"; 
-    (function() {
-        var sct = document.createElement("script"),
-        sctHl = document.getElementsByTagName("script")[0],
-        isSSL = 'https:' == document.location.protocol;
-        sct.type = "text/javascript";
-        sct.src = (isSSL ? 'https:' : 'http:') + '//contextual.media.net/dmedianet.js?cid=8CU52X6SM' + (isSSL ? '&https=1' : '')+'';
-        sct.async = "async";
-        sctHl.parentNode.insertBefore(sct, sctHl);
-    })();
-    </script>
-	<!-- end media.net code -->
-
 
   </head>
   <body>

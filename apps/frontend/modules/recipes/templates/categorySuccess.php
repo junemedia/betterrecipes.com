@@ -30,6 +30,11 @@ unitValues: {
   
   <div class="OUTBRAIN" data-src="<?= $sf_request->getUri() ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
   <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+  
+  <!-- begin media.net 3 -->
+  <script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='223633310';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> <script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='223633310';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
+  <!-- end media.net -->
+  
   <?
   /* as per Jira ticket: MERBETTERR-29 -> please remove trending recipes 
   <div id="trending-recipes">

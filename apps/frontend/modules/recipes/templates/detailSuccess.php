@@ -46,6 +46,10 @@ unitValues: {
   <div class="OUTBRAIN" data-src="<?= UrlToolkit::getUrl($recipe) ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
   <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
   
+  <!-- begin media.net 1 -->
+  <script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='223633310';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
+  <!-- end media.net -->
+  
   <div id="recipe-comments" class="clear mt20">
     <fb:comments href="<?= $sf_request->getUri() ?>" num_posts="5" width="660"></fb:comments>
   </div><!-- /#recipe-comments -->

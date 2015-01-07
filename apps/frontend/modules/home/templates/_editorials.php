@@ -85,17 +85,8 @@
 	</script>
 	<!-- END NTENT ADS -->
 	
-	<!-- begin media.net -->
-	<div id="662071020">
-		<script type="text/javascript">
-		  try {
-			   window._mNHandle.queue.push(function () {
-				window._mNDetails.loadTag("662071020", "650x175", "662071020");
-				});
-			  }
-		  catch (error) {}
-		</script>
-	</div>
+	<!-- begin media.net 6 -->
+	<script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
 	<!-- end media.net -->
 	
 	
