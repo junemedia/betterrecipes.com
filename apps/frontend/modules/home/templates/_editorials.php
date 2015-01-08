@@ -61,6 +61,10 @@
 	<!--
 	<div id="ERA_AD_BLOCK2" style="width:650px; float:left; clear:both;"></div>
 	-->
+	
+	<!-- begin media.net 6 -->
+	<script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
+	<!-- end media.net -->
 
 	<!-- NTENT ADS -->
 	<style type="text/css">
@@ -85,9 +89,6 @@
 	</script>
 	<!-- END NTENT ADS -->
 	
-	<!-- begin media.net 6 -->
-	<script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
-	<!-- end media.net -->
 	
 	
   </div><!-- /#EDITORIALS -->	
