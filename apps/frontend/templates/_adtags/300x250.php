@@ -55,6 +55,6 @@
   <a href=http://ad.doubleclick.net/N3865/jump/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=2;sz=300x600,300x250;ord=123456789? target="_top"><img src=http://ad.doubleclick.net/N3865/ad/betterrecipes.mdp.com/;channel=;parent=;site=betterrecipes;id=;tile=2;sz=300x600,300x250;ord=123456789? border="0"></a>
 </noscript>
 <!-- *** end of right side ad *** -->
-
-<div id="div-gpt-rightBanner"></div>*/
+*/
 ?>
+<div id="div-gpt-rightBanner"></div>
