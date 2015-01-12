@@ -62,3 +62,5 @@ http://betterrecipes.mydevstaging.com/
 
 More documentation on the [Resolute wiki](http://toc.resolute.com/wiki) for additional documentation including **OneSite**.
 
+Introduced auto-deploy on 2015-01-12
+
