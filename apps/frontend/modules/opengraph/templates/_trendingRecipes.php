@@ -6,6 +6,7 @@
     timeout: 0
   });   
 </script>
+<?php unset( $trending ); ?>
 <? if (isset($trending) && sizeof($trending) > 0):  ?>
   <p class="title">Trending recipes</p>
   <div class="recipe-slidesshow-container">

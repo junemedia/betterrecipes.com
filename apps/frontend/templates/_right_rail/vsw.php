@@ -1,12 +1,14 @@
-  
+
   <div class="vswAdContainer roundedCornerWithWhiteBG" id="vsw">
+  
                 <style type="text/css">
                     body div.vsw-ad-rc .vsw-ad-title {color:#2C73BB !important; font-family:Arial !important;}
                     body div.vsw-ad-rc .vsw-ad-text {font-family:Arial !important; font-size:12px !important; color:black !important;}
                     body div.vsw-ad-rc .vsw-ad-domain {font-family:Arial !important; color:black !important; font-size:11px !important;}
                 </style>
-                <span class="heading2">More Smart Savings</span>
-                
+                <!--
+				<span class="heading2">More Smart Savings</span>
+                -->
 				<div id="ERA_AD_BLOCK1"></div>
                  <!-- NTENT ADS -->
 				<style type="text/css">
@@ -73,4 +75,5 @@
           yieldbot.alternateSlot('300x250_vsw',doVswScript);
         });
       </script>
+	
 </div>	

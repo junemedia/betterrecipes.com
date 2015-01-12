@@ -63,9 +63,14 @@ unitValues: {
     <? include_component('opengraph', 'trendingRecipes', array('parent_category_id' => $category->getParentId())) ?>
   </div><!-- /#trending-recipes -->
   
-  <script id="mNCC" language="javascript"> medianet_width='656'; medianet_height= '175'; medianet_crid='342352778'; </script> <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUPTG615" language="javascript"></script>
+  <!-- begin media.net 2 -->
+  <script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='223633310';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
+  <!-- end media.net -->
+  
   <div class="OUTBRAIN" data-src="<?= $sf_request->getUri() ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
   <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+  
+  
   
 <? /*
   <? include_component('recipes', 'catlevel_recipes_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName(), 'is_main_cat' => false)) ?>

@@ -15,12 +15,13 @@
 <div id="main-footer">
   <div class="wrapper">
     <div class="header search-bar">
+	<!--
       <form id="ft-search" method="get" action="http://www.betterrecipes.com/search"  onsubmit="return validateSearch(this)">
         <input type="text" onblur="clearText(this)" onfocus="clearText(this)" name="term" value="Search for recipe">
         <input type="hidden" value="Recipe" name="PageType">
         <input class="btn-grey28" type="submit" value="SEARCH">
       </form>
-
+	-->
       <!--
       <form id="ft-search" action="">
         <input type="text" value="Search for recipe" name="search" />
@@ -149,4 +150,25 @@ include(ABSPATH . 'wp-content/omniture.php');
 <!-- Begin Meebo sharebar -->
 <span id="meeboPreBodyClose"></span>
 <!-- End Meebo sharebar -->
+
+<!-- BEGIN SiteCTRL Script tynt tag -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+ var Tynt=Tynt||[];Tynt.push('cvyMIgHsSr5lQVacwqm_6l');
+ (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+}
+</script>
+<!-- END SiteCTRL Script -->
+
+
+
+
+<!-- infolinks code -->
+<script type="text/javascript">
+var infolinks_pid = 1863387;
+var infolinks_wsid = 3;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- infolinks code -->
+
 </body></html>

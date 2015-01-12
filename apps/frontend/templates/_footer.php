@@ -166,8 +166,22 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
   </div>
 </div>
 </div><!-- /#main-footer -->
+
+<!-- BEGIN SiteCTRL Script tynt tag -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+ var Tynt=Tynt||[];Tynt.push('cvyMIgHsSr5lQVacwqm_6l');
+ (function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+}
+</script>
+<!-- END SiteCTRL Script -->
+
+
+
+<!-- infolinks -->
 <script type="text/javascript">
 var infolinks_pid = 1863387;
 var infolinks_wsid = 3;
 </script>
 <script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+<!-- end infolinks -->

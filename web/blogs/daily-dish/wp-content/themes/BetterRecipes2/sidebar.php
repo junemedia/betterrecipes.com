@@ -1,6 +1,6 @@
 <div class="sidebar">
 	<div class="sidebar-search">
-		<?php get_search_form( $echo ); ?> 
+		<?php/* get_search_form( $echo );*/ ?> 
   </div>
   <? include('ad-300x250.php'); ?>
  <ul>

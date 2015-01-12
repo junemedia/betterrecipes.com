@@ -158,10 +158,7 @@
     <div class="recipeHeader">
       <div class="utility">
         <ul>
-          <li style="padding-top:5px;">
-            <a class="grey" href="#" onclick="emailRecipe()" title="email this recipe">Email</a>
-          </li>
-          <li style="padding-top:5px;">|</li>
+          
           <li style="padding-top:5px;">
             <a class="grey" href="?print" title="Print this recipe" target="_blank" rel="<?= $recipe->getId() ?>|<?= $recipe->getName() ?>|<?= getUrl($recipe) ?>" <? if ($sf_user->isAuthenticated()): ?> id="printRecipeBtn" <? endif; ?>>Print</a>
           </li>
@@ -171,29 +168,7 @@
               <span class="save_button"><? include_partial('save_recipe', compact('is_saved')) ?></span>
             <? endif; ?>
           </li>
-          <li style="margin-left: 15px;">
-            <? if ($sf_user->isAuthenticated()): ?>
-              <? if (!$is_made): ?>
-                <div id="madeContainer">
-                  <a class="graphic-button" onclick="addToMadeThis(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">Made This!</a>
-                  <div class="madeMoreFeatures" style="display:none;">
-                    <a href="javascript:;" onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                  </div><!-- // madeMoreFeatures -->
-                </div><!-- // madeContainer -->
-              <? else: ?>
-                <div id="madeContainer">
-                  <a class="graphic-button" onclick="$('.madeMoreFeatures').show();">Made</a>
-                  <div class="madeMoreFeatures" style="display:none;">
-                    <a onclick="addToRecommend(<?= $recipe->getId() ?>, '<?= urlencode($recipe->getName()) ?>', '<?= getUrl($recipe) ?>')">I recommend this</a>
-                  </div><!-- // madeMoreFeatures -->
-                </div><!-- // madeContainer -->
-              <? endif; ?>
-            <? else: ?>
-              <div id="madeContainer">
-                <a class="graphic-button" href="<?= getSigninUri($sf_request->getParameter('referrer', $sf_request->getUri())) ?>">Made</a>
-              </div><!-- // madeMoreFeatures -->
-            <? endif; ?>
-          </li>
+          
         </ul>
         <? if ($sf_user->isAuthenticated()): ?>
           <div id="savedModalContainer">
@@ -247,7 +222,7 @@
           <div style="position:absolute;top:194px;left:0;display:none;" id="saveRecipeHover"><a <? if ($sf_user->isAuthenticated()): ?>onclick="addToSaved()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add recipe to my recipebox" onclick="addToSaved()"><img src="/img/save_recipe_hover.png" /></a></div>
         <? endif; ?>
       </div>
-      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a><? if (isset($main_img)): ?>  | <a onclick="displayPhotos()" title="View All Photos">View All Photos</a><? endif; ?></p>
+      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a></p>
     </div><!-- /.images -->
     <? if ($recipe->getSponsorId()): ?>
       <? $sponsor = $recipe->getSponsor() ?>
