@@ -1,9 +1,8 @@
 <? $slide_count = count($slides) ?>
 <script type="text/javascript">
-
   var slides = new Array();
   var curslide = 0;
-  $(window).load(function() {
+  $(document).ready(function() {
     pageno = parseInt(window.location.hash.replace("#",""));
     if (!isNaN(pageno) && pageno > 1) {
       curslide = pageno - 1;
@@ -33,8 +32,6 @@
     slides[<?= $key ?>] = slide;
 <? endforeach; ?>
   function getPrevious(){
-    $("#previous_arrow").addClass("inactive").removeAttr("onclick");
-    
     if(curslide > 0){
       curslide--;
       window.location.hash = parseInt(curslide) + 1;
@@ -43,12 +40,10 @@
     //setImages(true);
   }
   function getNext(){
-    $("#next_arrow").addClass("inactive").removeAttr("onclick");
-	
     if(curslide < slides.length-1){
       curslide++;
-      window.location.hash = parseInt(curslide) + 1;	  
-	  location.reload();	 
+      window.location.hash = parseInt(curslide) + 1;
+	  location.reload();
     }
     //setImages(true);
   }
@@ -105,7 +100,7 @@
     <li class="cta"><a id="previous_arrow" class="prev-slide btn-grey28 inactive" title="Previous Slide">PREV</a></li>
     <li><p id="caption1"><span id="page_no">1</span>/<?= $slide_count ?></p></li>
     <? if ($slide_count > 1): ?>
-      <li class="cta"><a id="next_arrow" class="next-slide btn-grey28 inactive" title="NEXT Slide">NEXT</a></li>
+      <li class="cta"><a id="next_arrow" onclick="getNext()" class="next-slide btn-grey28" title="NEXT Slide">NEXT</a></li>
     <? else: ?>
       <li class="cta"><a id="next_arrow" class="next-slide btn-grey28 inactive" title="NEXT Slide">NEXT</a></li>
     <? endif; ?>
