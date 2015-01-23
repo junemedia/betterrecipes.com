@@ -33,6 +33,8 @@
     slides[<?= $key ?>] = slide;
 <? endforeach; ?>
   function getPrevious(){
+    $("#previous_arrow").addClass("inactive").removeAttr("onclick");
+    
     if(curslide > 0){
       curslide--;
       window.location.hash = parseInt(curslide) + 1;
@@ -42,7 +44,6 @@
   }
   function getNext(){
     $("#next_arrow").addClass("inactive").removeAttr("onclick");
-	//$("#next_arrow").addClass("inactive");
 	
     if(curslide < slides.length-1){
       curslide++;
