@@ -35,15 +35,17 @@
     if(curslide > 0){
       curslide--;
       window.location.hash = parseInt(curslide) + 1;
+	  location.reload();
     }
-    setImages(true);
+    //setImages(true);
   }
   function getNext(){
     if(curslide < slides.length-1){
       curslide++;
       window.location.hash = parseInt(curslide) + 1;
+	  location.reload();
     }
-    setImages(true);
+    //setImages(true);
   }
   function goToSlide(slide_no){
     toggleThumbnails()

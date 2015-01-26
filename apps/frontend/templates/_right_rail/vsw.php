@@ -25,7 +25,7 @@
 				   BlockID: 'thumbnail',
 				   SearchWidgetPosition: '0',
 				   SearchBoxCaption: 'Find More ...',
-				   HeaderText: 'You Might Like'
+				   HeaderText: 'Our Readers Also Liked'
 				};
 				(function(){var v='ERA_AD_BLOCK1';var i=1;while(document.getElementById(v)){if(i==25)break;v='ERA_AD_BLOCK'+i++;}document.write("<"+"div id='"+v+"'><"+"/div>");
 				var sch=(location.protocol=='https:'?'https':'http');var host=sch=='http'?'as.ntent.com':'secure.ntent.com';var s=document.createElement('script');var src=sch+"://"+host+"/ERALinks/era_rl.aspx?elid="+v;for(var p in era_rc)

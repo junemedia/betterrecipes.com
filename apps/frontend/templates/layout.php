@@ -167,20 +167,7 @@
     <!-- END BAYNOTE INCLUDE -->
     <? include_partial('global/omniture') ?>
     <? include_partial('global/ga') ?>
-    <? if (isset($_SERVER['HTTPS']) && strpos($_SERVER['HTTPS'], 'on') === false): ?>
-      <!-- BEGIN CROWD_SCIENCE INCLUDE -->
-      <script>
-      (function() {
-        var cs = document.createElement('script'); cs.type = 'text/javascript';
-        cs.async = true;
-        cs.src = ('https:' == document.location.protocol ?  'https://secure-' : 'http://') +
-          'static.crowdscience.com/start-fa76ad0aab.js'
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(cs,s);
-      })();
-      </script>
-      <!-- END CROWD_SCIENCE INCLUDE -->
-    <? endif ?>
+    
     <!--<script>Meebo('domReady');</script>-->
 
     <? /* Google Analytics */ ?>
