@@ -183,6 +183,8 @@ class UrlToolkit
   {
     $host = $_SERVER['HTTP_HOST'];
     $domain = substr($host, strpos($host, 'betterrecipes'));
+   if ($host == $domain)        // test for staging URL if we're not at the real site - ben
+        $domain = substr($host, strpos($host, 'brstage'));
     if (strpos($domain, 'mixingbowl.com') !== false) {
       $domain = 'betterrecipes.com';
     }
