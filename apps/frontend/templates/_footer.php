@@ -38,13 +38,13 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
  * 'https://ox-d.junemedia.com/...'
  */ -->
 
-<div id="537278267_INSERT_SLOT_ID_HERE" style="width:728px;height:90px;margin:0;padding:0">
+<div id="537278267_728x90_BTF" style="width:728px;height:90px;margin:0;padding:0">
   <noscript><iframe id="0c7bcf3452" name="0c7bcf3452" src="http://ox-d.junemedia.com/w/1.0/afr?auid=537278267&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=0c7bcf3452&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.junemedia.com/w/1.0/ai?auid=537278267&cs=0c7bcf3452&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
 </div>
 <script type="text/javascript">
   var OX_ads = OX_ads || [];
   OX_ads.push({
-     slot_id: "537278267_INSERT_SLOT_ID_HERE",
+     slot_id: "537278267_728x90_BTF",
      auid: "537278267"
   });
 </script>
