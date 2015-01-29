@@ -5,7 +5,7 @@
     });
   </script>
 <? endif ?>
-<div class="sidebar">
+<div class="sidebar" style="width:305px;">
   <p class="title green">Already A Member?</p>
   <? if ($signinForm->hasGlobalErrors()): ?>
     <?= $signinForm->renderGlobalErrors() ?>
@@ -81,6 +81,10 @@
       <?= $signupForm['display_name']->render(array('id' => 'reg_display')) ?>
       <?= $signupForm['display_name']->renderError() ?>
     </fieldset>
+	<?php 
+	+	require_once("/var/www/html/betterrecipes/lib/solvemedia/solvemedialib.php");
+	+	echo solvemedia_get_html("NsRZf2VfCImbV.TXvNaxFrGkzAM8dNE.");
++	?>
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
     </fieldset>
