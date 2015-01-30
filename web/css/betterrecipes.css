@@ -5841,6 +5841,7 @@ div.gig-button-container { padding: 0 !important; }
   padding-bottom: 20px;
   width: 190px;
   white-space: nowrap;
+  float:left;
 }
 .blog_post_img {
   width: 190px;
