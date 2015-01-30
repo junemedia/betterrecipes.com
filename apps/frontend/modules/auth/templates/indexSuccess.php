@@ -5,7 +5,7 @@
     });
   </script>
 <? endif ?>
-<div class="sidebar">
+<div class="sidebar" style="width:305px;">
   <p class="title green">Already A Member?</p>
   <? if ($signinForm->hasGlobalErrors()): ?>
     <?= $signinForm->renderGlobalErrors() ?>
