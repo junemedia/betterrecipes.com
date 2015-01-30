@@ -1,4 +1,4 @@
-<div id="baynote_popular_recipes">
+<div id="baynote_popular_recipes" style="display: none;">
     <p class="title">Your favorite <?= $category->getName() ?></p>
         <?
             $memcache = new Memcache();
