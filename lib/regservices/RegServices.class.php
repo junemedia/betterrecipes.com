@@ -83,7 +83,26 @@ Class RegServices
       $xml = new SimpleXMLElement($result);
       $code = $this->simplexmlFindAttribute($xml, "code");
       $msg = $this->simplexmlFindAttribute($xml, "message");
+	  
+	  require_once("/var/www/html/betterrecipes/lib/solvemedia/solvemedialib.php");
+	  $privkey="PAy.wJPoA6xq57.6y-OJGyVup.RcAXWd";
+	  $hashkey="dIAunVJhmbGYrQftfJvFQpHgcetrn39Z";
+	  $solvemedia_response = solvemedia_check_answer($privkey,
+	  					$_SERVER["REMOTE_ADDR"],
+	  					$_POST["adcopy_challenge"],
+						$_POST["adcopy_response"],
+						$hashkey);
+						
+      if (!$solvemedia_response->is_valid) {
+			//handle incorrect answer
+			print "Error: ".$solvemedia_response->error;
+	  } 
+	  
+	  
       switch ($code) {
+		 case '100':
+          $error = "Please ";
+          break;
         case '0':
           $profile_id = strval($xml->profileid);
           break;
