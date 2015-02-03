@@ -6,7 +6,7 @@
 <div id="dailyDish" class="article daily-dish detail">
   
   <div class="header mb20">
-    <img src="/img/header-dailydish.jpg" height="100" width="660" alt="The Daily Dish with Kristina Vanni" />
+    <img src="/img/br_dd_logo.png" height="100" width="660" alt="The Daily Dish" />
   </div>
   <? include_partial('dish_sharebar') ?>
   <?php if (sizeof($post) > 0): ?>

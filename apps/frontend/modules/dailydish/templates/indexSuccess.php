@@ -1,6 +1,6 @@
 <div class="article daily-dish">
 	<div class="header">
-    <img src="/img/header-dailydish.jpg" height="100" width="660" alt="The Daily Dish with Kristina Vanni" />
+    <img src="/img/br_dd_logo.png" height="100" width="660" alt="The Daily Dish" />
   </div>
     <div class="sorting">
 		<? if (sizeof($items)>0): ?>

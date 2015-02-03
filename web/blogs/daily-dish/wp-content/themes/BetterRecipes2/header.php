@@ -182,7 +182,7 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
                       <div class="wrapper">
                         <div class="section">
                           <div class="masthead">
-                            <a href="http://www.betterrecipes.com/blogs/daily-dish/"> <img title="The Daily Dish" alt="The Daily Dish" src="http://www.betterrecipes.com/img/header-dailydish.jpg"> </a>
+                            <a href="http://www.betterrecipes.com/blogs/daily-dish/"> <img title="The Daily Dish" alt="The Daily Dish" src="/img/br_dd_logo.png"> </a>
                           </div>
                           <!-- /.theme-wrap in footer.php -->        
                           <!-- /.section in footer.php -->
