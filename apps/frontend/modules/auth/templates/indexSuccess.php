@@ -56,7 +56,7 @@
   <? if ($signupForm->hasGlobalErrors()): ?>
     <?= $signupForm->renderGlobalErrors() ?>
   <? endif ?>
-  <form class="standard-form reg-form" action="<?= getSignupUri() ?>" method="post">
+  <form class="standard-form reg-form" action="http://www.brstage.resolute.com/signup" method="post">
     <?= $signupForm->renderHiddenFields() ?>
     <? if (isset($social)): ?>
       <input type="hidden" name="social" value="1"/>
@@ -81,6 +81,8 @@
       <?= $signupForm['display_name']->render(array('id' => 'reg_display')) ?>
       <?= $signupForm['display_name']->renderError() ?>
     </fieldset>
+	
+	<br />
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
     </fieldset>
