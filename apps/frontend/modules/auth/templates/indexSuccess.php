@@ -60,7 +60,7 @@
     <?= $signupForm->renderHiddenFields() ?>
     <? if (isset($social)): ?>
       <input type="hidden" name="social" value="1"/>
-    <? endif ?>
+    <? endif ?>	
     <fieldset>
       <label for="reg_firstname">First Name:</label>
       <?= $signupForm['firstname']->render(array('id' => 'reg_firstname')) ?>
@@ -81,10 +81,11 @@
       <?= $signupForm['display_name']->render(array('id' => 'reg_display')) ?>
       <?= $signupForm['display_name']->renderError() ?>
     </fieldset>
-	<?php 
-	+	require_once("/var/www/html/betterrecipes/lib/solvemedia/solvemedialib.php");
-	+	echo solvemedia_get_html("NsRZf2VfCImbV.TXvNaxFrGkzAM8dNE.");
-+	?>
+	<?php
+		require_once("/var/www/html/betterrecipes/lib/solvemedia/solvemedialib.php");
+		echo solvemedia_get_html("NsRZf2VfCImbV.TXvNaxFrGkzAM8dNE.");
+	?>
+	<br />
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
     </fieldset>

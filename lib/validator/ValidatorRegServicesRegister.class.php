@@ -45,6 +45,9 @@ class ValidatorRegServicesRegister extends sfValidatorBase
 	//print_r($result);    
     if ( isset($result['code']) ) {
 	    switch ($result['code']) {
+		  case '888':
+			 $field = 'generic';
+			 break;
 	      case '0':
 	        $values['reg_source'] = $reg_source;
 	        $values['profile_id'] = $result['profile_id'];

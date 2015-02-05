@@ -94,14 +94,13 @@ Class RegServices
 						$hashkey);
 						
       if (!$solvemedia_response->is_valid) {
-			//handle incorrect answer
-			print "Error: ".$solvemedia_response->error;
+			$code = '888';
 	  } 
 	  
 	  
       switch ($code) {
-		 case '100':
-          $error = "Please ";
+		 case '888':
+          $error = "Please enter correct Captcha";
           break;
         case '0':
           $profile_id = strval($xml->profileid);
