@@ -81,8 +81,6 @@
       <?= $signupForm['display_name']->render(array('id' => 'reg_display')) ?>
       <?= $signupForm['display_name']->renderError() ?>
     </fieldset>
-	
-	<br />
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
     </fieldset>
