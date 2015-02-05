@@ -81,10 +81,7 @@
       <?= $signupForm['display_name']->render(array('id' => 'reg_display')) ?>
       <?= $signupForm['display_name']->renderError() ?>
     </fieldset>
-	<?php
-		require_once("/var/www/html/betterrecipes/lib/solvemedia/solvemedialib.php");
-		echo solvemedia_get_html("NsRZf2VfCImbV.TXvNaxFrGkzAM8dNE.");
-	?>
+	
 	<br />
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
