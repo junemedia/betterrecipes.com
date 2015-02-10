@@ -63,6 +63,7 @@
 
 
       <script type="text/javascript">
+	 /*
         (function() {
           var js = document.createElement('script');
           js.src = 'http://cdn.yb0t.com/js/yieldbot.intent.js';
@@ -74,6 +75,7 @@
           yieldbot.defineSlot('300x250_vsw', 'vsw');
           yieldbot.alternateSlot('300x250_vsw',doVswScript);
         });
+		*/
       </script>
 	
 </div>	

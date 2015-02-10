@@ -122,9 +122,9 @@
 	<!-- Yieldbot.com Intent Tag -->
     <script type="text/javascript" src="https://cdn.yldbt.com/js/yieldbot.intent.js"></script>
     <script type="text/javascript">
-        yieldbot.psn('e69d');
+        yieldbot.pub('d45f');
         yieldbot.defineSlot('LB');
-        //yieldbot.defineSlot('MR');
+        yieldbot.defineSlot('MR');
         yieldbot.go();
     </script>
     <!-- END Yieldbot.com Intent Tag -->
