@@ -394,6 +394,25 @@ class authActions extends sfActions
 
     if ($this->signupForm->isValid()) {
       $user_data = $this->signupForm->signup();
+	  
+	  //Use campaigner instead of ESP to collect newsletter emails
+	  $signUp_post = $request->getParameter($this->signupForm->getName());
+	  //var_dump($signUp_post);exit;
+	  if(!empty($signUp_post))
+		{
+			if(isset($signUp_post['email'])&&!empty($signUp_post['email']))
+			{
+				$listid = '504,505';
+				$user_ip = trim($request->getRemoteAddress());
+				$subcampid = '4184';
+				$email_addr = $signUp_post['email'];
+
+				$posting_url = "http://r4l.popularliving.com/br_api.php?email=$email_addr&ipaddr=".$user_ip."&keycode=if3lkj6i8hjnax&sublists=$listid&subcampid=$subcampid&source=BetterRecipesUserRegistration";
+				$response = file_get_contents($posting_url);
+				//echo $posting_url.'<br>'.$response;exit;
+			}
+		}	  
+	  
       if ($user_data) {
         $user->setFlash('regSourceCode', $user_data['reg_source']);
         $user->setFlash('regSourceName', $user->getRegSourceAttribute('name'));
@@ -403,15 +422,18 @@ class authActions extends sfActions
         $user->setFlash('onSignin', true);
 
         $values = $this->signupForm->getValues();
-        if (!empty($values['newsletter_ids'])) {
+
+		//Use campaigner instead of ESP to collect newsletter emails
+        /*if (!empty($values['newsletter_ids'])) {
           $reg_services = new RegServices();
           $data = $reg_services->newsletterSubscribe($user->getProfileId(), $values['newsletter_ids']);
           if (strpos($data, 'OK') !== false) {
             $user_data['newsletter_ids'] = $values['newsletter_ids'];
             $user->setUserData($user_data);
           }
-          $user->setFlash('onNewsletterSignup', $values['newsletter_ids']);
-        }
+          $user->setFlash('onNewsletterSignup', $values['newsletter_ids']);	  
+        }*/  
+		
         if ($signup_from_fb = $user->getAttribute('signup_from_fb')) {
           $local_user = UserTable::getUserByProfileId($user_data['profile_id']);
           $local_user->setFbId($signup_from_fb['fb_id']);

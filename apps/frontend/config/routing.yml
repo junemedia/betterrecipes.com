@@ -35,6 +35,15 @@ official_rules:
 
 # -------
 
+#Newsletter Routes	-----------------------------------------------------------------
+signup_newsletter:
+  url: /email-signup
+  params: { module: newsletter, action: index }
+  requirements:
+    sf_method: [get|post]
+
+# -------
+
 # User Routes -----------------------------------------------------------------
 canvas:
   url: /canvas
