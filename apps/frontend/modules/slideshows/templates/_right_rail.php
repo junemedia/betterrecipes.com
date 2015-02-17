@@ -59,6 +59,7 @@
 	<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>
 	  </div><!-- /.ad300x250 -->
   
+  <div id="vswContainer"><? include_partial('global/right_rail/vsw') ?></div><!-- // #vswContainer -->
   <? include_component('recipes', 'rr_recipes', compact('rr_recipes')) ?>
   <? include_partial('global/right_rail/contest') ?>
   
