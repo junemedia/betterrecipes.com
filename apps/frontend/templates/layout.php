@@ -119,7 +119,15 @@
     (function () {var k = document.createElement('script');k.type = 'text/javascript';k.async = true;var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && (m[1]);k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=HzmEwRvl";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k, s);})(); </script>
 <!-- end krux tag -->
 
-
+	<!-- Yieldbot.com Intent Tag -->
+    <script type="text/javascript" src="https://cdn.yldbt.com/js/yieldbot.intent.js"></script>
+    <script type="text/javascript">
+        yieldbot.pub('d45f');
+        yieldbot.defineSlot('LB');
+        yieldbot.defineSlot('MR');
+        yieldbot.go();
+    </script>
+    <!-- END Yieldbot.com Intent Tag -->
   </head>
   <body>
   <!-- Google Tag Manager -->

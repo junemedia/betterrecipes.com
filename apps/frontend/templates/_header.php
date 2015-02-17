@@ -34,6 +34,13 @@
 			 * to
 			 * 'https://ox-d.junemedia.com/...'
 			 */ -->
+			 
+			 <script type="text/javascript">
+				var LB_Params = {ybot_slot:"LB", ybot_size:"", ybot_cpm:""};
+				try{
+					LB_Params = yieldbot.getSlotCriteria('LB');
+				}catch(e){/*ignore*/}
+			</script>
 
 			<div id="537278266_728x90_ATF" style="width:728px;height:90px;margin:0;padding:0">
 			  <noscript><iframe id="0f4e0bd8bb" name="0f4e0bd8bb" src="http://ox-d.junemedia.com/w/1.0/afr?auid=537278266&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.junemedia.com/w/1.0/ai?auid=537278266&cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
@@ -42,7 +49,8 @@
 			  var OX_ads = OX_ads || [];
 			  OX_ads.push({
 				 slot_id: "537278266_728x90_ATF",
-				 auid: "537278266"
+				 auid: "537278266",
+				 vars: {"ybot_slot":LB_Params.ybot_slot, "ybot_size": LB_Params.ybot_size, "ybot_cpm": LB_Params.ybot_cpm}
 			  });
 			</script>
 
