@@ -219,4 +219,43 @@ class newsletterActions extends sfActions
 	}
   }
 
+  
+      /**
+   * Executes newsletter unsub thanks action
+   *
+   * @param sfWebRequest $request A request object
+   */
+  public function executeUnsub(sfWebRequest $request)
+  {
+	$this->success = '';
+	if ($request->isMethod(sfRequest::GET)) {
+		$this->post_string = "";
+		$email_addr = $request->getParameter('e');
+                $this->jid = $request->getParameter('jid');
+                $this->lid = $request->getParameter('lid');
+		if($email_addr)
+		{				
+			setcookie("EMAIL_ID", $email_addr, time()+642816000, "/", ".recipe4living.com");
+			$plant_cookie = "<img src='http://jmtkg.com/plant.php?email=$email_addr' width='0' height='0'></img>";
+
+			$pixel = "<!-- Google Tag Manager -->
+					<noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-PPMDBL\"
+					height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
+					<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+					'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+					})(window,document,'script','dataLayer','GTM-PPMDBL');
+					dataLayer.push({'event': 'formsubscriberecipe4living'});</script>
+					<!-- End Google Tag Manager -->";
+					
+			$this->success = 'Thank you for signing up!'.$plant_cookie.$pixel;
+                        $this->email = $email_addr;
+		}
+		else
+		{
+			$this->redirect('signup_newsletter', 'index');
+		}		
+	}
+  }
 }
