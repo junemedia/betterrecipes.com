@@ -56,7 +56,7 @@
   <? if ($signupForm->hasGlobalErrors()): ?>
     <?= $signupForm->renderGlobalErrors() ?>
   <? endif ?>
-  <form class="standard-form reg-form" action="http://www.brstage.resolute.com/signup" method="post">
+  <form class="standard-form reg-form" action="<?= getSignupUri() ?>" method="post">
     <?= $signupForm->renderHiddenFields() ?>
     <? if (isset($social)): ?>
       <input type="hidden" name="social" value="1"/>
