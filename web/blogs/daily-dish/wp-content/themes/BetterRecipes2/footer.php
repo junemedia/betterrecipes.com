@@ -97,27 +97,11 @@
       <ul>
         <li>YOUR ACCOUNT</li>
         <li><a href="http://www.betterrecipes.com/help">Help Resources</a></li>
-        <li><a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Update Your Account</a></li>
         <li><a href="http://www.betterrecipes.com/signup?referrer=http%3A%2F%2Fwww.betterrecipes.com%2Fblogs%2Fdaily-dish%2F2010%2F07%2F19%2Fdining-at-the-plaza%2Fp1050661">Register</a></li>
-        <li><a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
-        <li><a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Customer Service</a></li>
+        <li><a href="/email-signup">Free Newsletters</a></li>
         <li><a href="http://www.meredith.com/datapolicy.html">Data Policy</a></li>
         <!--<li id="footer_login"></li>-->
-        <li>
-          <!--
-           Ghostery Inc tag
-           cid: 1333
-           pid: 282
-          -->
-          <a id="_bapw-link" href="#" target="_blank"><img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;"/><span style="vertical-align:middle !important">AdChoices</span></a>
-          <script>
-           (function() {
-             var ev = document.createElement('script'); ev.async = true; ev.setAttribute('data-ev-tag-pid', 282); ev.setAttribute('data-ev-tag-ocid', 1333);
-             ev.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/pub/tag.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
-           })();
-           </script>
-        </li>
+        
       </ul>
       <ul>
         <li><img width="100" height="20" src="http://www.betterrecipes.com/img/logo-betterrecipes-footer.png" alt="BetterRecipes"></li>

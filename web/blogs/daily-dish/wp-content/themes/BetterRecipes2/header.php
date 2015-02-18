@@ -93,6 +93,16 @@ gigya.reporting.onSendDone = function(event) {
 };
 gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone });
 </script>
+
+	<!-- Yieldbot.com Intent Tag -->
+    <script type="text/javascript" src="https://cdn.yldbt.com/js/yieldbot.intent.js"></script>
+    <script type="text/javascript">
+        yieldbot.pub('d45f');
+        yieldbot.defineSlot('LB');
+        yieldbot.defineSlot('MR');
+        yieldbot.go();
+    </script>
+    <!-- END Yieldbot.com Intent Tag -->
   </head>
   <body>
     <!-- start body -->
@@ -112,7 +122,7 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
             <li>FOLLOW US:</li>
             <li><a href="http://www.facebook.com/betterrecipes" title="Follow us on Facebook" class="cta-fb">Facebook</a></li>
             <li class="bdrt"><a href="http://www.twitter.com/betterrecipes" title="Follow us on Twitter" class="cta-tw">Twitter</a></li>
-            <li><a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
+            <li><a href="/email-signup" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
           </ul>
           <!-- /social nav -->
         </div>
@@ -130,6 +140,13 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
 				 * to
 				 * 'https://ox-d.junemedia.com/...'
 				 */ -->
+				 
+				 <script type="text/javascript">
+					var LB_Params = {ybot_slot:"LB", ybot_size:"", ybot_cpm:""};
+					try{
+						LB_Params = yieldbot.getSlotCriteria('LB');
+					}catch(e){/*ignore*/}
+				</script>
 
 				<div id="537278266_728x90_ATF" style="width:728px;height:90px;margin:0;padding:0">
 				  <noscript><iframe id="0f4e0bd8bb" name="0f4e0bd8bb" src="http://ox-d.junemedia.com/w/1.0/afr?auid=537278266&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.junemedia.com/w/1.0/ai?auid=537278266&cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
@@ -138,7 +155,8 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
 				  var OX_ads = OX_ads || [];
 				  OX_ads.push({
 					 slot_id: "537278266_728x90_ATF",
-					 auid: "537278266"
+					 auid: "537278266",
+					 vars: {"ybot_slot":LB_Params.ybot_slot, "ybot_size": LB_Params.ybot_size, "ybot_cpm": LB_Params.ybot_cpm}
 				  });
 				</script>
 
