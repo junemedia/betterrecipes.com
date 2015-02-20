@@ -4,7 +4,7 @@ all:
     param:
       dsn: 'mysql:host=localhost;port=3307;dbname=betterrecipes'
       username: root
-      password: brstage112358!
+      password: rd112358
       encoding: utf8
       persistent:
         value:  true
