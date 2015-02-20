@@ -1,26 +1,5 @@
 <?php
 
-function leon_debug_check(){
-    $local = array(
-	'127.0.0.1',                // Local
-        '60.216.3.163',             // E5 Jinan Office
-        '66.54.186.254',            // SC Chicago office
-        '10.10.13.240',              // E5 Jinan Office internal IP 
-        '123.168.0.82'              // E5 Jinan Office  
-	 );    
-	$user = array('leonzw');    
-	$is_user = $is_local = false;    
-	if(isset($_SERVER['PHP_AUTH_USER']) && array_search($_SERVER['PHP_AUTH_USER'], $user) !== false) $is_user = true;    
-	if(isset($_SERVER['REMOTE_ADDR']) && array_search($_SERVER['REMOTE_ADDR'], $local) !== false) $is_local = true;        
-	//if($is_user && $is_local){    
-	if($is_user && $is_local){
-	        define('LEON_DEBUG', true);    
-	}else{
-	        define('LEON_DEBUG', false);    
-	}
-}
-leon_debug_check();
-
 require_once 'symfony1.4/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
@@ -172,11 +151,7 @@ class ProjectConfiguration extends sfProjectConfiguration
    */
   public static function isDebugging()
   {
-    if(LEON_DEBUG){
-	return true;
-    }else{
-    	return isset($_SERVER['DEBUG']) && $_SERVER['DEBUG'];
-    }
+    return isset($_SERVER['DEBUG']) && $_SERVER['DEBUG'];
   }
 
   /**

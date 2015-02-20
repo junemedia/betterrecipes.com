@@ -86,7 +86,7 @@
     <fieldset>
       <input type="submit" value="Continue" class="btn-purple28" />
     </fieldset>
-    <? if (false && !empty($signupForm['newsletter_ids'])): ?>
+    <? if (!empty($signupForm['newsletter_ids'])): ?>
       <fieldset class="newsletter">
         <p>Choose your FREE newsletter(s)</p>
         <?= $signupForm['newsletter_ids']->renderError() ?>
@@ -94,7 +94,7 @@
       </fieldset>
     <? endif ?>
     <fieldset class="fineprint signin-page">
-      <label for="sendregistrationemails"><?= $signupForm['optin']->render(array('id' => 'mailinglist')) ?>&nbsp;&nbsp;&nbsp;Yes! I'd like to receive site updates and special offers from the June Media Inc.</label>
+      <label for="sendregistrationemails"><?= $signupForm['optin']->render(array('id' => 'mailinglist')) ?>&nbsp;&nbsp;&nbsp;Yes! I'd like to receive site updates and special offers from the Meredith Women's Network.</label>
       <p class="ml20 mt5">&nbsp;&nbsp;Your email address will not be sold or rented to third parties. <a href="<?= getDomainUri() . url_for('@privacy-policy') ?>" target="_blank" title="Read our Privacy Policy">Privacy Policy</a></p>
     </fieldset>
   </form>

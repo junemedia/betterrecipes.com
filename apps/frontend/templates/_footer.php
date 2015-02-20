@@ -56,13 +56,29 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       <div class="title">YOUR ACCOUNT</div>
       <div class="links">
         <ul>
-          <li><a href="<?= getUrl('@help') ?>">Help Resources</a></li>          
+          <li><a href="<?= getUrl('@help') ?>">Help Resources</a></li>
+          <li>&nbsp;|&nbsp;<a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Update Your Account</a></li>
           <li>&nbsp;|&nbsp;<a href="<?= getSignupUri($sf_request->getUri()) ?>">Register</a></li>
-          <li>&nbsp;|&nbsp;<a href="/email-signup">Free Newsletters</a></li>
+          <li>&nbsp;|&nbsp;<a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
+          <li>&nbsp;|&nbsp;<a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Customer Service</a></li>
           <li id="footer_login"></li>
           <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html">Data Policy</a></li>
           <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html">Privacy Policy - New!</a></li>
-         
+          <li>&nbsp;|&nbsp;
+            <!--
+             Ghostery Inc tag
+             cid: 1333
+             pid: 282
+            -->
+            <a id="_bapw-link" href="#" target="_blank"><img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;"/><span style="vertical-align:middle !important">AdChoices</span></a>
+            <script type="text/javascript">
+            (function() {
+                var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', 282); ev.setAttribute('data-ev-tag-ocid', 1333);
+                ev.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/pub/tag.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+            })();
+            </script>
+          </li>
         </ul>
       </div>
     </div>

@@ -66,7 +66,6 @@ class SignupForm extends BaseForm
     if (!($values = $this->values)) {
       return;
     }
-	
     $user = new User();
     $user->setProfileId($values['profile_id']);
     $user->setDisplayName($values['display_name']);
