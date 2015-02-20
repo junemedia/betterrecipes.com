@@ -2,13 +2,7 @@
 
 // sessions stored on mc2 (rd2) temporarily
 ini_set('session.save_path', "tcp://mc2:11212");
-<<<<<<< HEAD
-=======
-
 ini_set("session.save_handler", "memcache");  
-//ini_set("session.save_path", "tcp://127.0.0.1:11211"); 
->>>>>>> br_newsletter_update
-
 
 if (strpos($_SERVER['HTTP_HOST'], 'mixingbowl.com') !== FALSE) {
   if ( ($_SERVER['REQUEST_URI'] == '/') || (substr($_SERVER['REQUEST_URI'],0,2) == '/?') || ($_SERVER['REQUEST_URI'] == '/home/view.castle') ) {
