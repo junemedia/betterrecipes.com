@@ -143,7 +143,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       <div class="links">
         <ul>
           <li>© Copyright <?= date('Y') ?>, Meredith Corporation.  All Rights Reserved</li>
-          <li>&nbsp;|&nbsp;By using this site, you agree to our <a href="<?= getUrl('@terms') ?>">Terms of Service</a>.</li>
+<li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html">Privacy Policy - Your California Rights</a>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html">Data Policy</a>&nbsp;|&nbsp;<a href="<?= getUrl('@terms') ?>">Terms of Service</a>.</li>
         </ul>
       </div>
     </div>
