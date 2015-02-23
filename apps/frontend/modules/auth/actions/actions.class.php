@@ -394,7 +394,7 @@ class authActions extends sfActions
 
     if ($this->signupForm->isValid()) {
       $user_data = $this->signupForm->signup();
-	  
+/*	  
 	  //Use campaigner instead of ESP to collect newsletter emails
 	  $signUp_post = $request->getParameter($this->signupForm->getName());
 	  //var_dump($signUp_post);exit;
@@ -412,7 +412,7 @@ class authActions extends sfActions
 				//echo $posting_url.'<br>'.$response;exit;
 			}
 		}	  
-	  
+//*/	  
       if ($user_data) {
         $user->setFlash('regSourceCode', $user_data['reg_source']);
         $user->setFlash('regSourceName', $user->getRegSourceAttribute('name'));
