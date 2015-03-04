@@ -18,4 +18,3 @@ all:
         DEFAULT_TABLE_TYPE: InnoDB
         DEFAULT_TABLE_CHARSET: utf8
         DEFAULT_TABLE_COLLATE: utf8_general_ci
-

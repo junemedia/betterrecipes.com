@@ -1,9 +1,0 @@
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/13-View
-
-default:
-  stylesheets:    [css-newsletter/newsletter.css]
-  
-  javascripts:    [jquery-1.6.2.min.js, jquery-ui-1.8.14.custom.min.js]
-  
-  
