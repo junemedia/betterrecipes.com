@@ -60,7 +60,6 @@
 	  </div><!-- /.ad300x250 -->
   
   <div id="vswContainer"><? include_partial('global/right_rail/vsw') ?></div><!-- // #vswContainer -->
-  <? include_component('recipes', 'rr_recipes', compact('rr_recipes')) ?>
   <? include_partial('global/right_rail/contest') ?>
   
   <div id="sponsor">

@@ -33,7 +33,6 @@
 	<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>
 	<!-- end openx -->
   </div><!-- /.ad300x250 -->
-  <? include_component('recipes', 'rr_recipes', compact('rr_recipes')) ?>
   <? include_partial('global/right_rail/contest') ?>
   
   <? /* include_partial('global/right_rail/user_raves', compact('contentId', 'comments', 'user_id', 'profile', 'my_profile')) REMOVED DURING OPEN-GRAPH PROJECT */ ?>
