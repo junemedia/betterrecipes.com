@@ -108,5 +108,4 @@ if ($sf_user->getFlash('onSignout')) {
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/ 
 <? if($omniture->getAutoload()): ?>var s_code=s.t();<? endif; ?>if(s_code)document.write(s_code)/* ]]> */</script> 
 <script type="text/javascript">/* <![CDATA[*/ if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-') /*]]>*/</script>
-<noscript><a href="http://www.omniture.com" title="Web Analytics"><img src="http://meredith.112.2o7.net/b/ss/bhgbrecipe/1/H.20.3--NS/0" height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/--> <!-- End SiteCatalyst code version: H.20.3. -->     
 <!--##### END OMNITURE CODE ##### -->
