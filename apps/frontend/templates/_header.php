@@ -13,10 +13,10 @@
       <ul id="header_user_area" class="hornav members"></ul><!-- /members nav -->
       <ul class="hornav social">
         <li>FOLLOW US:</li>
-        <li><a href="http://pinterest.com/kristinavanni/"><img src="http://passets-cdn.pinterest.com/images/small-p-button.png" width="16" height="16" alt="Follow Me on Pinterest" style="padding:7px 7px 0 7px;" /></a></li>
+        <li><a href="http://pinterest.com/BetterRecipes/" target="_blank"><img src="http://passets-cdn.pinterest.com/images/small-p-button.png" width="16" height="16" alt="Follow us on Pinterest" style="padding:7px 7px 0 7px;" /></a></li>
         <li><a href="http://www.facebook.com/betterrecipes" title="Follow us on Facebook" class="cta-fb" target="_blank">Facebook</a></li>
         <li class="bdrt"><a href="http://www.twitter.com/betterrecipes" title="Follow us on Twitter" class="cta-tw" target="_blank">Twitter</a></li>
-        <li><a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
+        <li><a href="<?php echo url_for('@signup_newsletter');?>" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
       </ul><!-- /social nav -->
     </div><!-- /.sign-in -->
     <div class="logo-space">
