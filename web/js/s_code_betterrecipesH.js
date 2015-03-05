@@ -82,6 +82,19 @@ s.p_gvf=new Function("t","k",""
 +"rue':t.substring(i+1);if(p.toLowerCase()==k.toLowerCase())return s."
 +"epa(v)}return ''");
 
+var disablingFunction = function () {
+        if (typeof console === 'object') {
+            console.log('omniture disabled...')
+        }
+    };
+    if (typeof mdp === 'object' && typeof mdp.s == 'object') {
+        mdp.s.t = mdp.s.tl = disablingFunction;
+    }
+    if (typeof s == 'object') {
+        s.t = s.tl = disablingFunction;
+    }
+
+
 /* WARNING: Changing any of the below variables will cause drastic
 changes to how your visitor data is collected.  Changes should only be
 made when instructed to do so by your account manager.*/
