@@ -254,7 +254,7 @@
         </div><!-- // activityRecipeDetailContainer -->
       <? endif ?>
     </div><!-- /.recipe-meta -->
-    <ul class="hornav meal-info">
+    <ul class="hornav meal-info"  style="width:620px;">
       <? list($preptime, $cooktime, $totaltime) = Microformat::times($recipe); ?>
       <? if ($recipe->getServings() && $recipe->getServings() != ''): ?>
         <li>Servings: <span itemprop="yield"><?= $recipe->getServings() ?></span></li>
