@@ -66,21 +66,7 @@
 	<script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
 	<!-- end media.net -->
 
-	 <!-- ZERGNET ADS -->
-	 <div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important; margin-bottom:5px;">Around The Web</div>
-	<div id="zergnet-widget-29018"></div>
 	 
-	<script language="javascript" type="text/javascript">
-	(function() {
-	var zergnet = document.createElement('script');
-	zergnet.type = 'text/javascript'; zergnet.async = true;
-	zergnet.src = 'http://www.zergnet.com/zerg.js?id=29018';
-	var znscr = document.getElementsByTagName('script')[0];
-	znscr.parentNode.insertBefore(zergnet, znscr);
-	})();
-	</script>
-	
-	<!-- ZERGNET NTENT ADS -->
 	
 	
 	

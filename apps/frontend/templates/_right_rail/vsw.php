@@ -10,7 +10,7 @@
 				<span class="heading2">More Smart Savings</span>
                 -->
 				<div id="ERA_AD_BLOCK1"></div>
-                 <!-- ZERGNET ADS -->
+                 <!-- ZERGNET ADS 2 -->
 				 <div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important; margin-bottom:5px;">Around The Web</div>
 				<div id="zergnet-widget-29018"></div>
 				 
