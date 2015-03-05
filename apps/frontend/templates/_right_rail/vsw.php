@@ -10,28 +10,21 @@
 				<span class="heading2">More Smart Savings</span>
                 -->
 				<div id="ERA_AD_BLOCK1"></div>
-                 <!-- NTENT ADS -->
-				<style type="text/css">
-				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-item {margin-right: -3px !important; margin-left: 8px !important; margin-bottom: -15px !important;}
-				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-header {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif !important; color: #666666 !important; font-size: 16px !important; text-transform: uppercase !important; line-height: 22px !important; font-weight: normal !important; }
-				body #ERA_AD_BLOCK1.thumbnail .vsw-ad-item:hover .vsw-ad-title {color: #660066 !important;}
-				</style>
-				<script type="text/javascript" language="JavaScript">
-				var era_rc = {
-				   ERADomain: 'as.vs4food.com',
-				   PubID: 'betterrecipes1',
-				   Layout: 'thumbnail',
-				   MaxRelatedItems: '4',
-				   BlockID: 'thumbnail',
-				   SearchWidgetPosition: '0',
-				   SearchBoxCaption: 'Find More ...',
-				   HeaderText: 'Our Readers Also Liked'
-				};
-				(function(){var v='ERA_AD_BLOCK1';var i=1;while(document.getElementById(v)){if(i==25)break;v='ERA_AD_BLOCK'+i++;}document.write("<"+"div id='"+v+"'><"+"/div>");
-				var sch=(location.protocol=='https:'?'https':'http');var host=sch=='http'?'as.ntent.com':'secure.ntent.com';var s=document.createElement('script');var src=sch+"://"+host+"/ERALinks/era_rl.aspx?elid="+v;for(var p in era_rc)
-				{if(era_rc.hasOwnProperty(p)){src+=decodeURIComponent('%26')+p.toLowerCase()+"="+encodeURIComponent(era_rc[p]);}};s.src=src;document.getElementsByTagName("head")[0].appendChild(s);})();
+                 <!-- ZERGNET ADS -->
+				 <div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important; margin-bottom:5px;">Around The Web</div>
+				<div id="zergnet-widget-29018"></div>
+				 
+				<script language="javascript" type="text/javascript">
+				(function() {
+				var zergnet = document.createElement('script');
+				zergnet.type = 'text/javascript'; zergnet.async = true;
+				zergnet.src = 'http://www.zergnet.com/zerg.js?id=29018';
+				var znscr = document.getElementsByTagName('script')[0];
+				znscr.parentNode.insertBefore(zergnet, znscr);
+				})();
 				</script>
-				<!-- END NTENT ADS -->
+				
+				<!-- ZERGNET NTENT ADS -->
 				
                 <script type="text/javascript">
         // <![CDATA[

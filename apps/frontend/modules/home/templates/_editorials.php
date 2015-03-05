@@ -66,28 +66,21 @@
 	<script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script> 
 	<!-- end media.net -->
 
-	<!-- NTENT ADS -->
-	<style type="text/css">
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-item {margin-bottom: -15px !important;}
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-header {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif !important; color: #666666 !important; font-size: 18px !important; text-transform: uppercase !important; line-height: 22px !important; font-weight: normal !important; }
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-item:hover .vsw-ad-title {color: #660066 !important;}
-	</style>
-	<script type="text/javascript" language="JavaScript">
-	var era_rc = {
-	   ERADomain: 'as.vs4food.com',
-	   PubID: 'betterrecipes1',
-	   Layout: 'thumbnail',
-	   MaxRelatedItems: '8',
-	   BlockID: 'thumbnail',
-	   SearchWidgetPosition: '2',
-	   SearchBoxCaption: 'Find More ...',
-	   HeaderText: 'You Might Like'
-	};
-	(function(){var v='ERA_AD_BLOCK2';var i=1;while(document.getElementById(v)){if(i==25)break;v='ERA_AD_BLOCK'+i++;}document.write("<"+"div id='"+v+"'><"+"/div>");
-	var sch=(location.protocol=='https:'?'https':'http');var host=sch=='http'?'as.ntent.com':'secure.ntent.com';var s=document.createElement('script');var src=sch+"://"+host+"/ERALinks/era_rl.aspx?elid="+v;for(var p in era_rc)
-	{if(era_rc.hasOwnProperty(p)){src+=decodeURIComponent('%26')+p.toLowerCase()+"="+encodeURIComponent(era_rc[p]);}};s.src=src;document.getElementsByTagName("head")[0].appendChild(s);})();
+	 <!-- ZERGNET ADS -->
+	 <div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important; margin-bottom:5px;">Around The Web</div>
+	<div id="zergnet-widget-29018"></div>
+	 
+	<script language="javascript" type="text/javascript">
+	(function() {
+	var zergnet = document.createElement('script');
+	zergnet.type = 'text/javascript'; zergnet.async = true;
+	zergnet.src = 'http://www.zergnet.com/zerg.js?id=29018';
+	var znscr = document.getElementsByTagName('script')[0];
+	znscr.parentNode.insertBefore(zergnet, znscr);
+	})();
 	</script>
-	<!-- END NTENT ADS -->
+	
+	<!-- ZERGNET NTENT ADS -->
 	
 	
 	
