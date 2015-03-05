@@ -1072,7 +1072,7 @@ MAIN: featured contests
 MAIN: editorials
 -----*/
 #editorials, #pop_stories {
-  margin-top:40px;
+  margin-top:20px;
 }
 #editorials > div{
   float:left;
