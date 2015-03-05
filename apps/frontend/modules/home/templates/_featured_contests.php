@@ -8,4 +8,3 @@
     <p class="cta"><a href="#" title="Enter Now!">ENTER NOW!</a></p>
 </div><!-- /#featured contest -->
 */?>
-<div style="height: 30px; clear: both;"></div>
