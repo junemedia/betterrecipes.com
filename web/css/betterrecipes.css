@@ -352,7 +352,7 @@ ul.social li .cta-nl {
 
 .search-bar form input[type=submit] {
   float:left;
-  margin:10px 0 0 0;
+  margin:10px 0 0 5px;
   max-width:78px;
   padding:3px 6px;
   background:#ebebeb url(/img/copy-search.png) no-repeat center;
@@ -2585,7 +2585,7 @@ form .no-style {
   *padding:6px;
   position:relative;
   clear:both;
-  margin-bottom:20px;
+  margin-bottom:-8px;
 }
 #slideshow-wrap #slideshow .slides,
 #slideshow-wrap #slideshow .slides .slide {
@@ -2673,7 +2673,7 @@ POPULAR RECIPES
   clear:both;
 }
 #popular-recipes ul li {
-  width:330px;
+  width:325px;
   float:left;
   margin-bottom:20px;
   min-height:60px;

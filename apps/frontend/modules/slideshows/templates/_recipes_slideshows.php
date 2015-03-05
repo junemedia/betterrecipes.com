@@ -5,7 +5,7 @@
     <? foreach($recipes as $recipe): ?>
     <li>
       <p class="mb5"><a href="<?= getUrl($recipe) ?>" title="<?= $recipe->getName() ?>"><?= $recipe->getName() ?></a></p>
-      <p><?= Utilities::truncateHtml($recipe->getIntroduction(), 100) ?></p>
+      <p><?= Utilities::truncateHtml($recipe->getIntroduction(), 95) ?></p>
     </li>
     <? endforeach; ?>
   <? endif; ?>
@@ -13,7 +13,7 @@
     <? foreach($slideshows as $slideshow): ?>
     <li>
       <p class="mb5"><a href="<?= getUrl($slideshow) ?>" title="<?= $slideshow->getName() ?>"><?= $slideshow->getName() ?></a></p>
-      <p><?= Utilities::truncateHtml($slideshow->getDescription(), 100) ?></p>
+      <p><?= Utilities::truncateHtml($slideshow->getDescription(), 95) ?></p>
     </li>
     <? endforeach; ?>
   <? endif; ?>
