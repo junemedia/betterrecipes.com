@@ -60,7 +60,35 @@
         </div>
       <? endif; ?>
     </div><!-- /.logo-space -->
-    <div class="search-bar">
+	<style>
+	#main-header .wrapper .search-bars {
+  background:url(/img/bg-mh-searchbar.jpg) repeat-y top left;
+  width:100%;
+  height:46px;
+  margin-top:15px;
+}
+
+.search-bars form input[type=submit] {
+  float:left;
+  margin:10px 0 0 5px;
+  max-width:78px;
+  padding:3px 6px;
+  background:#ebebeb url(/img/copy-search.png) no-repeat center;
+  text-indent:-9999px;
+  width:55px;
+  filter:none;
+  -ms-filter:none;
+}
+
+.search-bars form input[type=text] {
+  margin:10px 0 0 21px;
+  *margin:10px 0 0 13px;
+  float:left;
+}
+
+	
+	</style>
+    <div class="search-bars">
       <? include_partial('global/navigation') ?>
       <form id="hd-search" action="<?= getDomainUri() . '/search' ?>" method="get" onsubmit="return validateSearch(this)">
         <input type="text" value="Search for recipe" name="term" onFocus="clearText(this)" onBlur="clearText(this)" />

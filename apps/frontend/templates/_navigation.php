@@ -13,7 +13,7 @@
 	<li><a href="/">HOME</a></li>
 	<li><a href="<?= getDomainUri() . '/recipes' ?>">RECIPES</a></li>
 	<li><a href="<?= getDomainUri() . '/blogs/daily-dish' ?>">THE DAILY DISH</a></li>
-	<li style="margin-right:75px"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
+	<li style="margin-right:50px"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
 </ul>
 <!--INFOLINKS_ON-->
 
