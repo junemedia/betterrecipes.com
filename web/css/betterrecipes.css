@@ -319,6 +319,36 @@ ul.social li .cta-nl {
   float:left;
 }
 
+.nav_ul li{
+	float:left;
+	display: inline-block;
+	color:#FFFFFF;
+	font-size:22px;
+	font-family:""Trebuchet MS", Helvetica, sans-serif";
+	margin-left:50px;
+	padding-top :15px;
+}
+
+/* unvisited link */
+.nav_ul li a:link {
+    color: #FFFFFF;
+}
+
+/* visited link */
+.nav_ul li a:visited {
+    color: #FFFFFF;
+}
+
+/* mouse over link */
+.nav_ul li a:hover {
+    color: #FFFFFF;
+}
+
+/* selected link */
+.nav_ul li a:active {
+    color: #FFFFFF;
+}
+
 #sharebar form input[type=text] {
   float: none;
   display: inline-block;
@@ -377,36 +407,7 @@ ul.social li .cta-nl {
   margin-left:29px;
 }
 .searchbar ul li,
-.search-bar ul li a {
-  height:46px;
-  line-height:46px;
-  color:#FFF;
-  font-size:25px;
-  display:block;
-}
-.search-bar ul li a {
-  text-indent:-9999px;
-}
-.search-bar ul li a:hover,
-.search-bar ul li a.selected {
-  background-position:center -46px;
-}
-.search-bar .recipes a {
-  background:url(/img/cta-recipes.png) no-repeat top center;
-  width:127px;
-}
-.search-bar .dd a {
-  background:url(/img/cta-dd.png) no-repeat top center;
-  width:198px;
-}
-.search-bar .contests a {
-  background:url(/img/cta-contests.png) no-repeat top center;
-  width:141px;
-}
-.search-bar .sweeps a {
-  background:url(/img/cta-sweeps.png) no-repeat top center;
-  width:183px;
-}
+
 .mb-nav {
   height:38px;
   width:300px;
@@ -527,7 +528,7 @@ MAIN CONTENT ITEMS
 #main-content .article {
   width:650px;
   float:left;
-  margin:15px 0 20px 20px;
+  margin:0px 0 20px 20px;
   min-height:300px;
 }
 #main-content .article.create-group,
@@ -1072,12 +1073,12 @@ MAIN: featured contests
 MAIN: editorials
 -----*/
 #editorials, #pop_stories {
-  margin-top:20px;
+  margin-top:10px;
 }
 #editorials > div{
   float:left;
   width:310px;
-  height:160px;
+  height:110px;
   margin-bottom:10px;
 }
 #pop_stories > div{
@@ -1508,7 +1509,7 @@ some of this is above with #vote-box
 .recipeHeader { margin-bottom: 20px;  }
 .recipeHeader .utility { float: right; }
 .recipeHeader .utility li { float: left; display: inline; font-size: 14px; margin-right: 5px; }
-.recipeHeader p { margin-top: 20px; }
+.recipeHeader p { margin-top: 0px; }
 .recipeHeader .utility a.grey, .recipeHeader .utility a.grey:hover { color: #666666 !important; }
 #madeContainer { position: relative; }
 #madeContainer .madeMoreFeatures { z-index:1; padding: 20px 0 0 20px; position: absolute; top: 35px; left: -65px; width: 210px; height: 102px; background: url('/img/madeMoreFeaturesBg.png') 0 0 no-repeat; }

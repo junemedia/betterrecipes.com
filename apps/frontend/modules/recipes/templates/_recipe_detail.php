@@ -222,7 +222,7 @@
           <div style="position:absolute;top:194px;left:0;display:none;" id="saveRecipeHover"><a <? if ($sf_user->isAuthenticated()): ?>onclick="addToSaved()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add recipe to my recipebox" onclick="addToSaved()"><img src="/img/save_recipe_hover.png" /></a></div>
         <? endif; ?>
       </div>
-      <p><a <? if ($sf_user->isAuthenticated()): ?>onclick="addPhoto()"<? else: ?>href="<?= getSigninUri($sf_request->getUri()) ?>"<? endif; ?> title="Add a photo">Add a Photo</a></p>
+      
     </div><!-- /.images -->
     <? if ($recipe->getSponsorId()): ?>
       <? $sponsor = $recipe->getSponsor() ?>
@@ -243,7 +243,7 @@
           </span>
         <? endif; ?>
       </div>
-      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= SearchReplace::run($recipe->getIntroduction()) ?></span></p>
+      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><!--INFOLINKS_OFF--><?= SearchReplace::run($recipe->getIntroduction()) ?><!--INFOLINKS_ON--></span></p>
       <? if ($sf_user->isAuthenticated() && $sf_user->getAttribute('id') == $recipe->getUserId()): ?>
         <p class="w100 mt20 mb20"><a href="<?= getUrl('@edit_recipe', array('id' => $recipe->getId())) ?>" title="<?= $recipe->getName() ?>" class="btn-purple28">Edit Recipe</a></p>
       <? endif; ?>
@@ -287,7 +287,7 @@
 	<div id="zedo_loader"></div>    
     -->
 	
-    <p class="title mt35">Directions:</p>
+    <p class="title">Directions:</p>
     <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
       <p class="title mt20">Helpful Tips:</p>

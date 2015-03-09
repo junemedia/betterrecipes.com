@@ -1,168 +1,135 @@
+<!--INFOLINKS_OFF-->
+<style>
+
+h1{
+	font-size:16px;
+}
+</style>
+
 <div class="article fullwidth">
-  <p align="center"><font face="Arial" color="#FF0000" size="5"><b>Our Online Privacy Policy will be updated effective April 5, 2012. Click <a href="http://www.meredith.com/privacy.html">here</a> to view the new policy.</b></font></p><br/>
   <div id="privacy">
-    <h1><a name="top" id="top"></a>BetterRecipes.com Online Privacy Policy</h1>
-    <ul>
-      <li><a href="#Online_Privacy_Policy">Online Privacy Policy</a></li>
-      <li><a href="http://www.bhg.com/bhg/file.jsp?item=/privacy/policy">Offline Privacy Policy</a></li>
-      <li><a href="http://www.betterrecipes.com/terms">Visitor Agreement</a></li>
-      <li><a href="#Your_California_Privacy_Policy">Your California Privacy Rights</a></li>
-      <li><a href="#shinethelight">Meredith Corporation “Shine the Light” Customer Notice</a></li>
-    </ul>
-    <h2><a name="Online_Privacy_Policy"></a>ONLINE PRIVACY POLICY</h2>
-    <p>Welcome to our website! BetterRecipes.com is a service provided by Meredith Corporation ("Meredith," "we" or "us"). Since 1902, Meredith has been committed to providing our customers with products and services characterized by outstanding quality, customer service and value. Our Online Privacy Policy continues our commitment to serve you and to protect your privacy online. Please <a href="http://www.bhg.com/bhg/file.jsp?item=/privacy/policy">click here</a> to see our Offline Privacy Policy.</p>
-    <p>By visiting any of our sites, you agree that your visit, and any dispute over privacy, is governed by this Online Privacy Policy and our <a href="http://www.betterrecipes.com/terms">Visitor Agreement</a>. Please take a few minutes to read them before using or registering with any of our sites.</p>
-    <p>PLEASE NOTE THAT THIS PRIVACY POLICY APPLIES ONLY TO OUR ONLINE COLLECTION AND USE OF INFORMATION AND DOES NOT APPLY TO ANY INFORMATION THAT YOU MAY PROVIDE TO US BY OTHER MEANS, SUCH AS VIA MAIL OR TELEPHONE.  </p>
-    <p>Please read this Online Privacy Policy carefully so that you understand our privacy practices regarding:</p>
-    <ul>
-      <li><a href="#Children_Under_13">Children under 13 </a></li>
-      <li><a href="#Information_We_Collect">Information we collect </a></li>
-      <li><a href="#How_your_information_will_be_used">How your information will be used </a></li>
-      <li><a href="#How_to_correct_or_update_your_informati">How to correct or update your information </a></li>
-      <li><a href="#Newsletters_and_promotions">Newsletters and promotions </a></li>
-      <li><a href="#Security">Security </a></li>
-      <li><a href="#Miscellaneous">Miscellaneous</a> </li>
-    </ul>
-    <p>
-      If you have questions about this Online Privacy Policy, please contact us at <a href="mailto:privacy@meredith.com">privacy@meredith.com</a>.
-      <br>
-    </p>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="Children_Under_13"></a>Children Under 13:</h3>
-    <p>Meredith cares about protecting the privacy of children.
-      We won't knowingly allow anyone under 13 to provide
-      us any personally identifying information. Children
-      should always get permission from their parents before
-      sending any information about themselves (such as
-      their names, email addresses, and phone numbers)
-      over the Internet, to us or to anyone else. We encourage
-      you to become involved in your children's online
-      experience, and to share your interest in our sites
-      with your young ones. If you're under 13, please
-      do not register with any of our sites or provide
-      us with any personally identifying information (such
-      as your name, your email address or your phone number).
-    <p><a href="#top"> Return to top</a>
-    <h3><a name="Information_We_Collect"></a>Information We Collect:</h3>
-    <p>The information we gather on our sites falls into two categories: (1) information you supply when you register or initiate transactions, and (2) tracking information collected as you navigate through our sites. Third-party providers featured on, or linked to from, our sites, such as vendors of products and services offered through our sites, may gather information, as well.</p>
-    <h4>Personally Identifying Information</h4>
-    <div class="indent">
-      <p><strong>Registration Information.</strong> To use certain features on our sites, we ask you to register. When you register, we collect personally identifying information about you, including your name, mailing address, email address, user name and password. We may also ask for some additional information, such as, hobbies, age, browser type, and the like, but you're free to register without providing this information if you prefer. In addition, at various other points on our sites, we may ask you for personally identifying information, including when you: place an order for products, complete a survey, or report a problem with one of our sites. We use this information to process your orders, to tailor our sites to your interests and to make them more useful to you, and to help improve our sites generally.</p>
-      <p><strong>Contests and Other Promotions.</strong> From time to time, we may offer contests or other promotions involving marketing or advertising partners. If you choose to participate in one of these contests or promotions, you'll have to provide some information about yourself (such as your name, address, and email address). We may share this information with sponsors of the contest or other promotional partners, but we will always identify the other parties involved (for example, in the contest rules) and provide notice that your registration may be disclosed to these parties. We don't control these third parties' privacy practices, and our Privacy Policy does not apply to their collection and use of your information. We urge you to review their privacy policies and learn how they will use your information before participating. If you don't want us to collect the information requested in connection with a promotion, or to provide it to our co-sponsors or partners, please do not participate in the promotion.</p>
-    </div>
-    <h4>Tracking Information</h4>
-    <div class="indent">
-      <p><strong>Cookies.</strong> To help us serve your
-        needs better, we use "cookies" to store and
-        sometimes to track user information. A cookie
-        is a small amount of data that is sent to
-        your browser from a web server and stored
-        on your computer's hard drive. A cookie contains
-        a unique number that allows our sites to
-        identify your computer. For example, cookies
-        allow us to keep track of your user name
-        and password (if you are a registered visitor)
-        so you don't have to re-enter that information
-        each time you visit one of our sites. We
-        also use cookies to make sure you don't see
-        the same ads repeatedly when you visit our
-        sites. The help function on most browsers
-        contains information on how to set your browser
-        to notify you before accepting cookies or
-        to disable cookies entirely. However, if
-        you don't accept cookies, you may not be
-        able to take advantage of various features
-        on our sites that are available to other
-        visitors. In addition, our advertising and
-        marketing partners may use their own cookies. </p>
-      <p><strong>Third-Party Advertising Services.</strong> We
-        use the services of DoubleClick, a third-party
-        advertising and email delivery company
-        to serve and target advertisements that you see
-        on the pages of our sites, to serve and target
-        promotions or other marketing messages, and to
-        send e-mails from us. DoubleClick also collects "clickstream data," information about your visit to our sites and to third-party sites that can be aggregated and used to target advertising on this and other sites, and used for marketing research and other similar purposes. This clickstream data does not include personally identifying information such as your name, address, email address or telephone number. DoubleClick uses cookies for many of the same reasons we do, and collects information directly from our users. We share website usage information about visitors to our sites who have received a targeted promotional campaign with DoubleClick to facilitate targeting future campaigns and upgrading visitor information used in reporting statistics. For this purpose, we and DoubleClick note some of the pages you visit on our website through the use of pixel tags (also called "clear gifs" or "web beacons"). If you would like to know more about DoubleClick information gathering practices and "opt-out" procedures,
-        please see the privacy statement on the <a href="http://www.doubleclick.net/us/corporate/privacy/default.asp?asp_object_1=&" target="_blank">DoubleClick website</a>.</p>
-      <p><strong>Browser Level Information and IP Addresses.</strong> When
-        you use our sites, we may also collect
-        information about your access time and your computer
-        configuration, including the type of browser
-        software you use, the operating system that you're
-        running, the resolution of your computer monitor
-        and your Internet Protocol ("IP") address. Your
-        IP address is a number that is used by computers
-        connected to the Internet to identify your computer
-        so that data (such as the web pages you request)
-        can be sent to you. Your IP address does not tell
-        us who you are. Like the IP address, none of the
-        other information described in this paragraph identifies
-        you personally. We collect this information for
-        purposes of aggregated reporting on site activity
-        that we, and our advertisers, may use. For example,
-        we may want to know how long the average user
-        spends on our site, which pages or features get
-        the most attention, and the like. The aggregated
-        information helps to understand our audience and
-        confirm the value of advertising on our websites.</p>
-    </div>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="How_your_information_will_be_used"></a>How Your Information Will Be Used:</h3>
-    <p>Our primary goal in collecting information is to provide you with a customized experience when visiting our sites and to make our sites more valuable to you. </p>
-    <div class="indent">
-      <p><strong>Vendors and Service Providers.</strong> To
-        make your experience on our sites more useful and
-        enjoyable, we may offer some features (such as
-        chat rooms and email newsletters) in conjunction
-        with third party providers ("Provider Partners")
-        that specialize in operating such services. We
-        share with each of these Provider Partners such
-        information as is necessary to provide you with
-        the services we provide you in conjunction with
-        that Provider Partner. Their use of this information
-        will be subject to the terms of their respective
-        privacy policies, which you can find on their websites. <em>We will not provide your email address to such third parties unless it's necessary to provide the services you have requested, or to allow you to participate in a co-sponsored promotion.</em> </p>
-      <p><strong>Sites to Which We Link.</strong> We also may provide links to other websites, and provide access to products and services offered by third parties, whose privacy policies we don't control. When you access another website or purchase products or services or conduct other transactions through our websites, use of any information you provide is governed by the privacy policy of the operator of the site you're visiting or the provider of such products or services. When you provide information in the course of obtaining products or services through our sites, use of any information you provide may be governed by the privacy policy of the provider of those products or services, even if it appears that you're on one of our sites throughout the transaction. The provider's privacy policy may differ from ours. If you can't find the privacy policy of any of our providers via a link either from the site's homepage or from the pages on which the products or services are offered, you should contact the provider directly for more information.</p>
-      <p><strong>Shopping.</strong> When you are ready to make a purchase through one of our sites, we will ask you to provide us with certain information, including your contact details (such as your name, address, telephone and email), and your billing information (such as your credit card number and the date that your card expires). We will use the information you provide us to process your transaction and to contact you regarding your purchase if necessary. We will share this information with the relevant merchant to the extent necessary to facilitate your purchase (for purposes such as customer service, verification, fulfillment and billing purposes). We may share non-financial information with such merchants in accordance with this Privacy Policy. </p>
-      <p><strong>Our Other Websites.</strong> When you register for one of our sites, the information that you provide will be added to a centralized Meredith database so that you will simultaneously be registered for our other sites as well. We may share the information that we collect from you with other divisions of Meredith so that we and they can offer you products and services that we may believe may be of interest to you.</p>
-      <p><strong>Postal Address Lists.</strong> If you provide us with your postal address, we may include that address in postal address lists that we sell or rent to third parties. If you would like us to stop including your postal address in such lists, please send us a letter (which should be addressed to Meredith Corporation, Opt-Out Postal, Attn: Circulation, 1716 Locust Street, Des Moines, Iowa 50309), requesting that we remove your postal address from these lists. If we receive such a letter from you, we will act as promptly as possible to remove your postal address from future postal address lists that we sell or rent to third parties.</p>
-      <p><strong>Other Disclosures.</strong> We may occasionally release information about our visitors when release is appropriate to comply with law, to enforce our <a href="http://www.betterrecipes.com/terms">Visitor Agreement</a>, or to protect the rights, property or safety of visitors to our sites, the public, or Meredith Corporation. As our business grows, we may buy or sell various assets. In the unlikely event that Meredith Corporation, substantially all of our assets, or one or more of our sites (or substantially all of its assets) is acquired by another company, information on our visitors would be among the transferred assets. </p>
-    </div>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="How_to_correct_or_update_your_informati"></a>How to Correct or Update Your Information:</h3>
-    <p>Meredith Corporation believes strongly in providing you with the ability to access and edit the personally identifying information that you have provided to us through our websites. To update this information, please visit our <a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG"></a><a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">My Account</a> area. </p>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="Newsletters_and_promotions"></a>Newsletters and Promotions:</h3>
-    <div class="indent">
-      <p><strong>Newsletters.</strong> We may offer you the opportunity to subscribe to email newsletters on various topics that we believe are of interest to our visitors. If you have opted to receive a particular newsletter, you can always unsubscribe later either (1) by following the 'unsubscribe' link located near the bottom of each newsletter, or (2) by going to <a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">My Account</a> ,
-        selecting "Unsubscribe" from the Newsletter options, unchecking the relevant boxes and pressing the "Update" button.</p>
-      <p><strong>Promotional Emails.</strong> If you provide us with your email address, from time to time we may send you emails about Meredith products, services and special offers (such as special Meredith magazine subscription offers) that we believe may be of interest to you. When you register, you will also be given an opportunity to tell us whether you would like to receive emails about products, services and special offers from third-party providers. Though we hope that you will find both types of promotional emails helpful, if you decide that you no longer wish to receive either or both types of emails, please go to the <a href="https://secure.betterrecipes.com/common/profile/member/optout ">Email Preferences</a>  page and update your preferences. Of course, you may change your preferences at any time. We will make any changes you request as quickly as we can.</p>
-    </div>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="Security"></a>Security:</h3>
-    <p>The personally identifying information we collect is stored within a database that we control. We use standard, industry-wide procedures such as firewalls and SSL (Secure Sockets Layer) encryption to protect your information. However, as effective as encryption technology is, no security system is impenetrable. We cannot guarantee the security of our database, nor can we guarantee that information you supply won't be intercepted while being transmitted to us over the Internet. And, of course, any information you include in a message you post to any message board, discussion group, or other public posting area on our sites is available to anyone with Internet access. If you don't want people to know your name or email address, for example, make sure not to include it in any message you post publicly. Please see our <a href="http://www.betterrecipes.com/terms">Visitor Agreement</a> for more information related to posting materials on our sites, including our use of such materials.</p>
-    <p><a href="#top">Return to top </a></p>
-    <h3><a name="Miscellaneous"></a>Miscellaneous:</h3>
-    <p>The Internet is an evolving medium. If we need to change our Privacy Policy at some point in the future, we'll post the changes before they take effect.</p>
-    <p><a href="#top">Return to top </a></p>
-    <h2><a name="Your_California_Privacy_Policy"></a>YOUR CALIFORNIA PRIVACY RIGHTS</h2>
-    <p><strong>(As provided by California Civil Code Section 1798.83)</strong></p>
-    <p>Under California Civil Code Section 1798.83 – also known as the “Shine the Light” law –  California residents have a right to request certain information from each business they patronize regarding that business’s disclosures of personal information to third parties for the third parties’ direct marketing purposes.  Generally, if a business has disclosed personal information regarding its California customers to third parties for direct marketing purposes in the preceding calendar year, the business is required to provide, upon request and free of charge, a list of the names and addresses of all such third parties, together with a list of the categories of personal information that was disclosed.</p>
-    <p>The “Shine The Light” law creates an exception for businesses that adopt and disclose to the public (in their privacy policies) a policy of not sharing personal information for direct marketing purposes without offering their customers choices to prevent such disclosures.  These businesses are not obligated to provide the lists described above and may respond to requests from California customers by notifying them of their rights to prevent disclosures of personal information for direct marketing purposes and providing a cost-free means of exercising those rights.  </p>
-    <p>Meredith Corporation qualifies for this latter exception.  As further explained in our <a href="#Online_Privacy_Policy">Online Privacy Policy</a> and <a href="http://www.bhg.com/bhg/file.jsp?item=/privacy/policy">Offline
-        Privacy Policy</a>, we offer our customers choices to prevent the disclosure of their personal information to third parties for the third parties’ direct marketing purposes.  To prevent such disclosures of your information, please follow the instructions in our “Shine The Light” Customer Notice, which is included below for your convenience.  You can also request a copy of this Notice by emailing us at <a href="mailto:privacy@meredith.com">privacy@meredith.com</a>.  Please note that we are only required to respond to one request for per California customer during the course of any calendar year and we reserve the right not to respond to requests made by means other than through this email address.</p>
-    <p><a href="#top">Return to top </a></p>
-    <h2><a name="shinethelight"></a>MEREDITH CORPORATION "SHINE THE LIGHT" CUSTOMER NOTICE </h2>
-    <p>The following options are available to any customers who wish to prevent the disclosure of their personal information to third parties for direct marketing purposes:</p>
-    <div class="indent">
-      <h4>Disclosures of Name and Postal Address Information. </h4>
-      <p>If you subscribe to a magazine published by Meredith Corporation, or if you otherwise provide us with your name and postal address, we may share this information with other reputable companies that offer products and services that we believe may be of interest to you.  To remove your name and postal address from any marketing lists that we sell or rent to third parties, complete the online <a href="http://www.bhg.com/bhg/file.jsp?item=/privacy/policy">“opt-out”
-          form</a> or email your name and address to <a href="mailto:privacy@meredith.com">privacy@meredith.com</a>.  If you prefer to contact us by regular mail, send a postcard or letter including your name and postal address to Meredith Corporation, Opt-out Postal: Attn Circulation, 1716 Locust Street, Des Moines, Iowa 50309. </p>
-      <h4>Disclosures of Website Registration Information.</h4>
-      <p>When you register to become a member of one of our websites and when you use our sites, you may be invited to sign up to receive special offers from reputable third-party advertisers that we think may be of interest to you.  If you choose to register for these offers, we will share your registration information with the advertisers that sponsor the offers you elect to receive.  To prevent the disclosure of your registration information to these advertisers, please do not register to receive third-party offers when you sign up for membership and/or use our sites. </p>
-      <p>Many of the third-party offers promoted through our websites are brought to our visitors by a third-party agency, CoolSavings.com.  When you register to receive one or more offers from advertising clients of CoolSavings.com, your information will be disclosed to CoolSavings.com and CoolSavings.com may use your information and disclose it to its client advertisers subject to its privacy policy at <a href="http://www.coolsavings.com" target="_blank">http://www.coolsavings.com</a>.  If you do not wish to receive third-party offers through CoolSavings.com, please do not register for these offers when you use our websites.  </p>
-      <h4>Disclosures of Sweepstakes and Contest Registration Information. </h4>
-      <p>From time to time, we may offer co-sponsored sweepstakes, contests and other promotions with third-party advertisers and other partners.  We may share your registration information with third-parties involved in a co-sponsored promotion, who will always be identified in the promotion materials (for example, in the official rules).  If you do not want your registration information to be disclosed to these third-parties, please do not register for any of our co-sponsored promotions.</p>
-    </div>
-    <p><a href="#top">Return to top </a></p>
+	<br><br>
+	<h1 style="font-size:18px;"><a name="top" id="top"></a>BetterRecipes.com Online Privacy Policy - Effective March 09, 2015</h1>
+	
+	<p>
+	BetterRecipes.com, a property of June Media Inc, has created this Privacy Policy to demonstrate our firm commitment to your privacy and the protection of your personally identifiable information at the BetterRecipes.com website (the "Website"). As part of our business, we collect and, in some instances, may disclose information about you - but only as set forth in this Privacy Policy. To better protect your privacy, we provide this notice explaining our personal information collection and use practices and the choices that you can make concerning the use of your personal information. This Privacy Policy also applies to individuals that have agreed to receive e-mail marketing from BetterRecipes.com or one of our advertising partners, whether at the Website, via e-mail, on third-party websites or otherwise.
+	</p>
+	
+	<h1>Information Collected and Use of Your Information</h1>
+	
+	<p>
+	For each visitor to the Website, our servers automatically recognize only the visitor's domain name, but not the e-mail address (unless requested and supplied by the visitor as a part of registration).
+	</p>
+	
+	<p>
+	You must register to become a member at BetterRecipes.com in order to qualify to receive the products and services available through our Website.
+	</p>
+	
+	<p>
+	As part of our on-going efforts to ensure the best possible experience for all visitors to the Website, we collect data from browsers to aggregate statistical information. This includes the type of browser being used, its level of HTML support and what platform it is on. This Privacy Policy also applies to visitors to the Website that have agreed to receive e-mail marketing from BetterRecipes.com, but have not separately registered to become a BetterRecipes.com member. The personal profile information that you submit to BetterRecipes.com remains your property, but by submitting that information to BetterRecipes.com and June Media Inc,, you give BetterRecipes.com and June Media Inc. the right to use that information for marketing purposes.
+	</p>
+	
+	<p>
+	When visitors elect to become members of BetterRecipes.com, we request that they provide additional, personally-identifiable information. This includes name, address, e-mail address, telephone number, age bracket, day and month of birth. All registrants may receive e-mail confirming their registration, and subsequent correspondence. Certain information, such as your e-mail address, is collected in order to, among other functions, verify your identity in the future within our database. When you select to receive information about offerings from a third party company during the registration process, we will share your personal information with that third party company to carry out your information request. BetterRecipes.com may also use such information to directly market certain offers to you (via e-mail, direct mail and/or telemarketing), to monitor compliance with our Terms and Conditions and for content improvement and feedback purposes. We may sell the personal information that you supply to us and we may join together with other businesses to bring selected retail opportunities to our members. These businesses may include, but are not limited to: (a) providers of direct marketing services and applications, including lookup and reference, data enhancement, suppression and validation; (b) e-mail marketers; and (c) telemarketers.
+We may also employ other companies and individuals to perform certain functions on our behalf. Examples include sending direct and electronic mail, removing duplicate information from customer lists, analyzing data, and providing marketing analysis. These agents have access to our members' personal information as needed to perform their functions for BetterRecipes.com, but we do not permit them to use our members' personal information for other purposes.
+	</p>
+	
+	<p>
+	BetterRecipes.com reserves the right to release current or past member information in the event BetterRecipes.com believes that the membership is being or has been used in violation of the Website's terms and conditions, or to commit unlawful acts, if the information is subpoenaed, if BetterRecipes.com is sold or acquired, or when BetterRecipes.com deems it necessary or appropriate. By agreeing to these conditions, you hereby consent to disclosure of any record or communication to any third party, when BetterRecipes.com, in its sole discretion, determines the disclosure to be appropriate including, without limitation, sharing your e-mail address with other third-parties for suppression purposes in compliance with the CAN-SPAM Act of 2003, as amended from time to time, and Federal Trade Commission enabling regulations.
+	</p>
+	
+   <p>
+   In addition, by registering at the Website, you agree that such act constitutes an inquiry and/or application for purposes of the Amended Telemarketing Sales Rule (16 CFR §310 et seq.), as amended from time to time (the "Rule"). Notwithstanding that your telephone number may be listed at the Federal Trade Commission's Do-Not-Call List, we retain the right to contact you via telemarketing in accordance with the Rule.
+   </p>
+   
+   <p>
+   From time to time, we may receive personal information about you from outside sources and add it to your existing registration information on file at the Website. We do this to improve personalization of our services (for example, providing better newsletter content, advertising and/or special offers that we think may be of interest you).
+   </p>
+   
+   <p>
+   We may also collect other information such as your IP address, domain names, access times and referring third party website addresses. This information is used by BetterRecipes.com for the operation of the Website, to maintain the quality of our offerings, and to provide general aggregate statistics regarding BetterRecipes.com. Such information is not personally identifiable.
+   </p>
+   
+   <p>
+   We also collect information such as the identification of the server that your computer is logged onto and whether you opened a BetterRecipes.com e-mail message delivered to you. We also may compare our member list to various lists received from other third party companies, in an effort to avoid sending identical or similar e-mail messages to our members.
+   </p>
+   
+   <p>
+   When you visit the Site, we may collect certain non-personally-identifiable information from you, including your IP address, browser type and language, the domain name from which you accessed the Site and the date and time of your visit. In addition, we may collect information about your browsing behavior, such as the areas or pages of the Site that you visit, the amount of time you spend viewing the Site, the number of times you return to the Site and other clickstream data.
+   </p>
+   
+   <p>
+   We may use cookies to collect the non-personal information described above. Acookie is a small text file that is stored on the hard drive of your computer when you access the Site. We may also use cookies to: (1) allow you to use the Site without having to re-enter your user name and password; (2) monitor Site usage; (3) manage the Site; and (4) improve the Site and our services. You are free to decline cookies, but by doing so, you may not be able to use certain features on the Site. Check the “Help” menu of your browser to learn how to change your cookie preferences.
+   </p>
+   
+   <p>
+   We may also use web beacons on the Site, in our emails and in our advertisements on other websites. Web beacons are tiny graphic images that are used to collect information about your Site visit, such as the pages you view and the features you use, as well as information about whether you open and/or act upon one of our emails or advertisements. Web beacons help us analyze our Site visitors' behavior and measure the effectiveness of the Site and our advertising. We may work with service providers that help us track, collect and analyze this information. In addition, we may use third-party advertising companies to serve ads when you visit the Site and to serve our advertisements across the Internet. These companies may use non-personally identifiable information about your visits to the Site and other websites in order to provide advertisements about goods and services of interest to you. If you would like more information about this practice and to know your choices about not having this information used by these companies, <a href="http://www.allaboutcookies.org/web-beacons/" target="_blank">click here</a>.
+   </p>
+   
+   <p>
+   Notwithstanding any other provision, we may also engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content. These cookies contain no personally identifiable information. The cookies may reflect de-identified demographic or other data linked to data you voluntarily have submitted to us, e.g., your email address, that we may share with a data provider solely in hashed, non-human readable form. To opt-out of these data provider cookies, please go tohttp://www.aboutads.info/choices.
+   </p>
+   
+   <h1>Unsubscribe (Opt Out)</h1>
+   
+   <p>
+   If you do not want to receive e-mail from us in the future, please let us know by using the unsubscribe option on the bottom of every email. You can also request to be unsubscribed by mailing BetterRecipes@JuneMedia.com.
+   </p>
+   
+   <h1>Information Collection Processes</h1>
+   
+   <p>
+   BetterRecipes.com may employ "cookies" to help customize your access to the Website. A cookie is a piece of data stored on your hard drive containing information about you. Cookies have many benefits to enhance your experience at our Website. For instance, by setting a cookie on our Website, a member would not have to log in a password more than once, thereby saving time while on our Website. Even in the case where a member rejects a cookie, they may still use our Website. The only drawback to this is that the member will be limited in what he/she can access in some areas on our Website, much like visitor-level access.
+   </p>
+   
+   <p>
+	We occasionally use cookies to anonymously track and target the interests of our members to further enhance the experience on our Website or for advertising tracking purposes. To find out more about cookies, please visit www.cookiecentral.com.
+   </p>
+   
+   <p>
+   In addition to cookies, our Website pages and/or e-mails may contain electronic images known as "pixel tags" (also known as clear gifs) to track the pages that visitors and/or members visit at the Website for purposes of formatting future campaigns and upgrading visitor information used in reporting statistics.
+   </p>
+   
+   <p>
+   Our Website may also contain pixel tags placed there by third parties to help determine the effectiveness of a joint promotional or advertising campaign.
+   </p>
+   
+   <h1>Security</h1>
+   
+   <p>
+   BetterRecipes.com has security measures in place to protect the loss, misuse, and alteration of personal information under our control. Currently BetterRecipes.com uses Secure Socket Layer Software (SSL) to protect data and secure any transactions. SSL encrypts information, including credit card numbers, names and addresses as they are transmitted over the Internet. Please be advised that, although we take every reasonable technological precaution available to protect your data, no data transmission over the Internet can be guaranteed to be 100% secure. Therefore, BetterRecipes.com cannot warrant that your information will be absolutely secure. Any transmission of data at or through our Website is at your own risk. However, access to your information is strictly limited, and not accessible to the public. Our employees are dedicated to ensuring the security and privacy of all BetterRecipes.com user information. Employees not adhering to our firm policies are subject to disciplinary action.
+   </p>
+   
+   <h1>Minors</h1>
+   
+   <p>
+   Individuals under 18 years of age are not permitted to participate in obtaining products and/or services at BetterRecipes.com. No information should be submitted to, or posted at, BetterRecipes.com by visitors under 18 years of age without the prior consent of their parent or guardian. Notwithstanding the foregoing, children 13 years of age and younger are not permitted to access BetterRecipes.com for any reason and we do not knowingly collect personal information from such children. We encourage parents and guardians to spend time online with their children and to participate and monitor the interactive activities of their children.
+   </p>
+   
+   <h1>Third-Party Links</h1>
+   
+   <p>
+	BetterRecipes.com does not endorse, nor is BetterRecipes.com responsible for the accuracy of, the privacy policies and/or terms and conditions of each of the advertisers and/or third parties accessible through the BetterRecipes.com Website. The entities that advertise and/or place banner ads at BetterRecipes.com are independent third parties and not affiliated with BetterRecipes.com.
+   </p>
+   
+   <p>
+   We use third-party advertising companies to serve ads and collect data when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Web sites in order to provide advertisements on this site, other sites, and other forms of media about goods and services of interest to you. If you would like more information about this practice and to know your choices about not having this information used by these companies, please see:http://www.networkadvertising.org/managing/opt_out.asp.
+   </p>
+   
+   <h1>Acceptance of this Privacy Policy</h1>
+   
+   <p>
+   By using this Website including, without limitation, signing up for offers and/or continuing to receive information from BetterRecipes.com, you agree to the BetterRecipes.com Privacy Policy. We reserve the right, at our discretion, to change, modify, add, and/or remove portions of this Privacy Policy at any time. All changes will take effect immediately upon their posting on our Website. Please check this page periodically for changes. Your continued use of BetterRecipes.com or acceptance of our e-mails following the posting of changes to this Privacy Policy will mean that you accept any and all such changes and agree to continue receiving directing marketing from us and other third party companies. If you do not agree to the terms of this Privacy Policy, please unsubscribe at the bottom of our e-mail. If you have questions about this Privacy Policy, please contact us at:
+   </p>
+   
+   <p>
+   June Media Inc<br>
+Customer Service<br>
+209 W. Jackson Blvd. Suite 702<br>
+Chicago, IL. 60606-6907<br>
+(312) 724-9444
+   </p>  
+   
   </div>
 </div>
+<!--INFOLINKS_ON-->

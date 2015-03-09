@@ -180,13 +180,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                                    
                                    
                  <div class="search-bar">
-       
+				 
+
+
+<!--INFOLINKS_OFF-->
+<ul class="nav_ul">
+	<li><a href="/">HOME</a></li>
+	<li><a href="http://www.betterrecipes.com/recipes">RECIPES</a></li>
+	<li><a href="http://www.betterrecipes.com/blogs/daily-dish">THE DAILY DISH</a></li>
+	<li style="margin-right:75px"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
+</ul>
+<!--INFOLINKS_ON-->
+
+<!--				 
 <ul class="hornav upsell">
   <li class="recipes"><a href="http://www.betterrecipes.com/recipes" >RECIPES</a></li>
   <li class="dd"><a href="http://www.betterrecipes.com/blogs/daily-dish" >THE DAILY DISH</a></li>
   <li class="contests"><a href="http://www.betterrecipes.com/contests" >CONTEST</a></li>
   <li class="sweeps"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
 </ul>
+-->
 <!--</div><!-- /.search-bar -->
 <!--<ul class="mb-nav hornav">-->
 <!--</ul>-->      <form id="hd-search" action="http://www.betterrecipes.com/search" method="get" onsubmit="return validateSearch(this)">

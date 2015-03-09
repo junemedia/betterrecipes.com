@@ -15,6 +15,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
     });
   });
 </script>
+<!--INFOLINKS_OFF-->
 <div id="main-footer">
   <div class="wrapper pb60">
     <div class="header search-bar">
@@ -57,28 +58,11 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       <div class="links">
         <ul>
           <li><a href="<?= getUrl('@help') ?>">Help Resources</a></li>
-          <li>&nbsp;|&nbsp;<a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Update Your Account</a></li>
           <li>&nbsp;|&nbsp;<a href="<?= getSignupUri($sf_request->getUri()) ?>">Register</a></li>
           <li>&nbsp;|&nbsp;<a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
-          <li>&nbsp;|&nbsp;<a href="https://w1.buysub.com/servlet/CSGateway?cds_mag_code=BHG">Customer Service</a></li>
-          <li id="footer_login"></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html">Data Policy</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html">Privacy Policy - New!</a></li>
-          <li>&nbsp;|&nbsp;
-            <!--
-             Ghostery Inc tag
-             cid: 1333
-             pid: 282
-            -->
-            <a id="_bapw-link" href="#" target="_blank"><img id="_bapw-icon" style="border:0 !important;display:inline !important;vertical-align:middle !important;padding-right:5px !important;"/><span style="vertical-align:middle !important">AdChoices</span></a>
-            <script type="text/javascript">
-            (function() {
-                var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', 282); ev.setAttribute('data-ev-tag-ocid', 1333);
-                ev.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/pub/tag.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
-            })();
-            </script>
-          </li>
+          <li id="footer_login"></li>         
+          <li>&nbsp;|&nbsp;<a href="<?= getUrl('@privacy-policy') ?>">Privacy Policy - New!</a></li>
+          
         </ul>
       </div>
     </div>
@@ -87,8 +71,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       <div class="links">
         <ul>
           <li><a href="http://twitter.com/BetterRecipes">Follow Us on Twitter</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.facebook.com/betterrecipes">Find Us on Facebook</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.bhg.com/bhg/file.jsp?item=/partner/srds/index&temp=noo">Advertise</a></li>
+          <li>&nbsp;|&nbsp;<a href="http://www.facebook.com/betterrecipes">Find Us on Facebook</a></li>          
         </ul>
       </div>
     </div>
@@ -101,71 +84,20 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
         </ul>
       </div>
     </div>
-    <? if ($is_hp): ?>
-      <div class="nav lower">
-        <div class="title">BETTER HOME & GARDENS NETWORK</div>
-        <div class="links">
-          <ul>
-            <li><a href="http://www.bhg.com/" title="">BHG.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.midwestliving.com">MidwestLiving.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.traditionalhome.com">TraditionalHome.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.scrapbooksetc.com">ScrapbooksEtc.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.allpeoplequilt.com">AllPeopleQuilt.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.diyadvice.com">DIYAdvice.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.homeandfamilynetwork.com">HomeAndFamilyNetwork.com</a></li>
-          </ul>
-        </div>
-      </div>
-    <? endif; ?>
-    <div class="nav lower">
-      <div class="title">FOOD & RECIPE NETWORK</div>
-      <div class="links">
-        <ul>
-          <li><a href="http://www.recipe.com/" title="">Recipe.com</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.eatingwell.com/">EatingWell.com</a></li>
-          <li>&nbsp;|&nbsp;<a href="<?= getDomainUri() ?>">BetterRecipes.com</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.rachaelraymag.com/">RachaelRayMag.com</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.diabeticlivingonline.com/">DiabeticLivingOnline.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <? if ($is_hp): ?>
-      <div class="nav lower">
-        <div class="title">PARENTS NETWORK</div>
-        <div class="links">
-          <ul>
-            <li><a href="http://www.parents.com" title="">Parents.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.familycircle.com">FamilyCircle.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.topbabynames.com">TopBabyNames.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://serpadres.com">SerPadres.com</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="nav lower">
-        <div class="title">REAL GIRLS NETWORK</div>
-        <div class="links">
-          <ul>
-            <li><a href="http://www.fitnessmagazine.com" title="">FitnessMagazine.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.divinecaroline.com">DivineCaroline.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://www.more.com">More.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://lhj.com">LHJ.com</a></li>
-            <li>&nbsp;|&nbsp;<a href="http://siempremujer.com">SiempreMujer.com</a></li>
-          </ul>
-        </div>
-      </div>
-    <? endif; ?>
+      
     <div class="nav lower pt20">
-      <div class="title"><img src="/img/logo-womens-network.png" alt="Meredith Women's Network" class="mb0 pb20" style="vertical-align: middle;" /></div>
+      <div class="title"><img src="/img/logo-womens-network.png" alt="Meredith Women's Network" class="mb0 pb20" style="vertical-align: middle; visibility: hidden;" /></div>
       <div class="links">
         <ul>
-          <li>© Copyright <?= date('Y') ?>, Meredith Corporation.  All Rights Reserved</li>
-          <li>&nbsp;|&nbsp;<a href="http://www.meredith.com/privacy.html">Privacy Policy - Your California Rights</a>&nbsp;|&nbsp;<a href="http://www.meredith.com/datapolicy.html">Data Policy</a>&nbsp;|&nbsp;<a href="<?= getUrl('@terms') ?>">Terms of Service</a>.</li>
+          <li>© Copyright <?= date('Y') ?>, June Media Inc.  All Rights Reserved</li>
+          <li>&nbsp;|&nbsp;<a href="<?= getUrl('@privacy-policy') ?>">Privacy Policy - Your California Rights</a>&nbsp;|&nbsp;<a href="<?= getUrl('@terms') ?>">Terms of Service</a>.</li>
         </ul>
       </div>
     </div>
   </div>
 </div>
 </div><!-- /#main-footer -->
+<!--INFOLINKS_ON-->
 
 <!-- BEGIN SiteCTRL Script tynt tag -->
 <script type="text/javascript">

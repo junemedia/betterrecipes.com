@@ -1,10 +1,22 @@
-<? $curr_module = $sf_context->getModuleName() ?> 
+<? $curr_module = $sf_context->getModuleName() ?>
+<!--
 <ul class="hornav upsell">
   <li class="recipes"><a href="<?= getDomainUri() . '/recipes' ?>" <? if ($curr_module == 'recipes'): ?>class="selected"<? endif ?>>RECIPES</a></li>
   <li class="dd"><a href="<?= getDomainUri() . '/blogs/daily-dish' ?>" <? if ($curr_module == 'dailydish'): ?>class="selected"<? endif ?>>THE DAILY DISH</a></li>
   <li class="contests"><a href="<?= getDomainUri() . '/contests' ?>" <? if ($curr_module == 'contests'): ?>class="selected"<? endif ?>>CONTEST</a></li>
   <li class="sweeps"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
 </ul>
+-->
+
+<!--INFOLINKS_OFF-->
+<ul class="nav_ul">
+	<li><a href="/">HOME</a></li>
+	<li><a href="<?= getDomainUri() . '/recipes' ?>">RECIPES</a></li>
+	<li><a href="<?= getDomainUri() . '/blogs/daily-dish' ?>">THE DAILY DISH</a></li>
+	<li style="margin-right:75px"><a href="http://win.betterrecipes.com">SWEEPSTAKES</a></li>
+</ul>
+<!--INFOLINKS_ON-->
+
 <!--</div><!-- /.search-bar -->
 <!--<ul class="mb-nav hornav">-->
 <?php
