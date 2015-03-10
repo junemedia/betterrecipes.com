@@ -20,7 +20,7 @@
       </ul><!-- /social nav -->
     </div><!-- /.sign-in -->
     <div class="logo-space">
-      <h1><a href="<?= getHomepageUri() ?>" title="Better Recipes"><img src="/img/logo-betterrecipes.png" alt="BetterRecipes : better recipes - better meals" /></a></h1>
+      <h1><a href="<?= getHomepageUri() ?>" title="Better Recipes"><img src="/img/logo_betterrecipes.png" alt="BetterRecipes : better recipes - better meals" style="margin-top:35px; margin-left:10px"/></a></h1>
       <? if ($sf_context->getRouting()->getCurrentRouteName() == 'signin' || $sf_context->getRouting()->getCurrentRouteName() == 'signup'): ?>
 
       <? else: ?>

@@ -1,6 +1,6 @@
 <? if ($rWonder): ?>
   <div id="gallery">
-    <div class="marker"></div>
+    
     <div class="picture">
       <div class="picts">
         <? if ($rWonder->getSlotOneImg() != ''): ?><img src="<?= $rWonder->getImgSrc('one') ?>" alt="<?= $rWonder->getSlotOneTitle() ?>" /><? endif; ?>

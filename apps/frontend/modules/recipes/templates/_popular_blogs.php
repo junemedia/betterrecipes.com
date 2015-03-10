@@ -1,5 +1,5 @@
 <? if ($category): ?>
-  <p class="title mb10">Popular Blog posts</p>
+  <p style="display:none;" class="title mb10">Popular Blog posts</p>
   <div id="pop_blog_posts">
     <?
       $memcache = new Memcache();

@@ -1,13 +1,13 @@
 <? if ($hpWonder && (sizeof($hpWonder) > 0)): ?>
   <div id="gallery">
-    <div class="marker"></div>
+    
     <div class="picture">
       <div class="picts">
-        <? if ($hpWonder->getSlotOneImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('one') ?>" alt="<?= $hpWonder->getSlotOneTitle() ?>" style="height:225px;"/><? endif; ?>
-        <? if ($hpWonder->getSlotTwoImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('two') ?>" alt="<?= $hpWonder->getSlotTwoTitle() ?>" style="height:225px;"/><? endif; ?>
-        <? if ($hpWonder->getSlotThreeImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('three') ?>" alt="<?= $hpWonder->getSlotThreeTitle() ?>" style="height:225px;"/><? endif; ?>
-        <? if ($hpWonder->getSlotFourImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('four') ?>" alt="<?= $hpWonder->getSlotFourTitle() ?>" style="height:225px;"/><? endif; ?>
-        <? if ($hpWonder->getSlotFiveImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('five') ?>" alt="<?= $hpWonder->getSlotFiveTitle() ?>" style="height:225px;"/><? endif; ?>
+        <? if ($hpWonder->getSlotOneImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('one') ?>" alt="<?= $hpWonder->getSlotOneTitle() ?>" style="height:263px;"/><? endif; ?>
+        <? if ($hpWonder->getSlotTwoImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('two') ?>" alt="<?= $hpWonder->getSlotTwoTitle() ?>" style="height:263px;"/><? endif; ?>
+        <? if ($hpWonder->getSlotThreeImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('three') ?>" alt="<?= $hpWonder->getSlotThreeTitle() ?>" style="height:263px;"/><? endif; ?>
+        <? if ($hpWonder->getSlotFourImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('four') ?>" alt="<?= $hpWonder->getSlotFourTitle() ?>" style="height:263px;"/><? endif; ?>
+        <? if ($hpWonder->getSlotFiveImg() != ''): ?><img src="<?= $hpWonder->getImgSrc('five') ?>" alt="<?= $hpWonder->getSlotFiveTitle() ?>" style="height:263px;"/><? endif; ?>
       </div>
     </div>
     <ul>

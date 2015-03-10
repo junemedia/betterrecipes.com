@@ -137,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <!-- /.sign-in -->
         <div class="logo-space">
-          <h1><a href="http://www.betterrecipes.com" title="Better Recipes"><img src="/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/logo-betterrecipes.png" alt="BetterRecipes : better recipes - better meals"  /></a></h1>
+          <h1><a href="http://www.betterrecipes.com" title="Better Recipes"><img style="margin-top:25px; margin-left:10px" src="/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/logo_betterrecipes.png" alt="BetterRecipes : better recipes - better meals"  /></a></h1>
           <div class="hd-ad">
 		  	
 				<!--/* OpenX Asynchronous JavaScript tag */-->

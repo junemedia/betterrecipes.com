@@ -154,7 +154,7 @@
 ?>
 
 <div class="p402_premium">  
-  <div id="recipe-detail" itemscope itemtype="http://data-vocabulary.org/Recipe">
+  <div style="margin-bottom:25px;" id="recipe-detail" itemscope itemtype="http://data-vocabulary.org/Recipe">
     <div class="recipeHeader">
       <div class="utility">
         <ul>
@@ -254,7 +254,7 @@
         </div><!-- // activityRecipeDetailContainer -->
       <? endif ?>
     </div><!-- /.recipe-meta -->
-    <ul class="hornav meal-info"  style="width:620px;">
+    <ul class="hornav meal-info"  style="width:625px;">
       <? list($preptime, $cooktime, $totaltime) = Microformat::times($recipe); ?>
       <? if ($recipe->getServings() && $recipe->getServings() != ''): ?>
         <li>Servings: <span itemprop="yield"><?= $recipe->getServings() ?></span></li>
@@ -278,7 +278,9 @@
         <time class="microformat" style="display:none;" itemprop="totalTime" datetime="<?= $totaltime ?>"><?= Microformat::duration_to_pretty($totaltime) ?></time>
       <? endif; ?>
     </ul>
-    <p class="title">Ingredients:</p>
+    <!--INFOLINKS_OFF-->
+	<p class="title">Ingredients:</p>
+	<!--INFOLINKS_ON-->
     <p class="lh25"><?= SearchReplace::run(Microformat::tableIngredients($recipe->getIngredients())) ?></p>
     
     <? /* insert Zedo DIV ID placeholder (ad tag) */ ?>
@@ -286,8 +288,9 @@
 	<!--
 	<div id="zedo_loader"></div>    
     -->
-	
+	<!--INFOLINKS_OFF-->
     <p class="title">Directions:</p>
+	<!--INFOLINKS_ON-->
     <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
       <p class="title mt20">Helpful Tips:</p>
