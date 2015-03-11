@@ -40,12 +40,7 @@ unitValues: {
         category_name: "<?= $category_name = $category->getName() ?>"
       },
       success:  function(data){ 
-        $("#subcat-recipes").html(data);
-        if(pageno){
-          refreshAdtags('all');
-          $('html, body').animate({ scrollTop: 0 }, 0);
-          $('html,body').animate({scrollTop: $("#recent_recipes").offset().top}, 0);
-        }
+        $("#subcat-recipes").html(data);      
       }
     });
   }
