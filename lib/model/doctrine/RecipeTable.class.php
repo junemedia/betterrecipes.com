@@ -243,7 +243,7 @@ class RecipeTable extends Doctrine_Table
     }
   }
 
-  public static function getRecentRecipesPaginated($category_id, $page_no=1, $results_per_page=25)
+  public static function getRecentRecipesPaginated($category_id, $page_no=1, $results_per_page=8)
   {
     $recipes = new sfDoctrinePager('Recipe', $results_per_page);
     $recipes->setQuery(Doctrine_Core::getTable('Recipe')->createQuery('r')->leftJoin('r.Photo p')->innerJoin('r.CategoryRecipe c')->where('c.category_id = ?', $category_id)->andWhere('r.is_active = ?', 1)->orderby('p.image DESC, r.created_at DESC'));
