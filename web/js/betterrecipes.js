@@ -565,13 +565,15 @@ jQuery(document).ready(function($){
     $('#gallery .picture .picts').cycle({ 
       fx:      'scrollHorz', 
       speed:    500, 
-      timeout:  2000,
+      timeout:  4000,
       before: function(){
         $('#gallery ul li a').removeClass("current");
+		$('#gallery ul li').removeClass("curr");
         $("#gallery .marker, .featured-gallery .marker").stop();
       },
       after: function(curr, next, opts){
         $("#gallery ul > li:nth-child(" + (opts.currSlide + 1) + ") a").addClass("current");
+		$("#gallery ul > li:nth-child(" + (opts.currSlide + 1) + ")").addClass("curr");
         $("#gallery .marker, .featured-gallery .marker").animate({
           "top": opts.currSlide * 48.25 + "px"
         }, 300);
