@@ -95,7 +95,7 @@ class Recipe extends BaseRecipe
       return '/img/recipe-img-placeholders/' . $main_category->getSlug() . '.jpg';
     }
     return $this->getPhoto()->getFirst()->getImage();
-  }
+  } 
 
   public function getPrimaryImageSrc()
   {

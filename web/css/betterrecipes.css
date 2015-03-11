@@ -5941,3 +5941,20 @@ div.gig-button-container { padding: 0 !important; }
   display: inline-block;
   padding-right: 20px;
 }
+
+/*Our Best [Category] Recipes*/
+#sidebar-ourbest,
+#sidebar-ourbest ul{
+	clear: both;
+    margin-top: 10px;
+	text-align:center;
+}
+
+.ourbest_image img{
+	height:125px;
+	width:280px;
+}
+
+.ourbest_image{
+	margin-bottom: 5px;
+}

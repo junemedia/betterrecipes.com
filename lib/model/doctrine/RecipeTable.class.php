@@ -318,5 +318,56 @@ class RecipeTable extends Doctrine_Table
 		  //return $a = array('user' => $u, 'recipes' => $q->execute());
 	  }
   }
+  
+   /**
+   * Returns the list of the our best recipes.
+   *
+   * @param array $params
+   * @return list
+   */
+  public static function getOurBestRecipes($params=array())
+  {
+    $max_item_count = null;
+    $params['module'] = 'recipe';
+    $weight_count = 0;
+    $recipe_coll = array();
+   
+	$item_count = PositionCount::getDefault($params);
+    $q = Doctrine_Core::getTable(ucfirst($params['module']))->createQuery('r');
+    if (isset($params['category_id'])) {
+      $q->innerjoin('r.CategoryRecipe cr')->innerjoin('cr.Category c')->where('r.is_active = ?', 1)->andWhere('c.is_active = ?', 1);
+      // If the category is main category find the children category's recipes else its own recipes
+      if (CategoryTable::isMainCategory($params['category_id'])) {
+        $q->andWhere('c.parent_id = ?', $params['category_id']);
+      } else {
+        $q->andWhere('c.id = ?', $params['category_id']);
+      }
+    }else
+	{
+		$q->where('r.is_active = ?', 1);
+	}
+	
+    $q->orderBy('r.created_at DESC');
+	
+	 if (isset($params['limit'])) {
+      $q->limit($params['limit']);
+    } else {
+      $q->limit($item_count);
+    }
+	$unweighted_recipes = $q->execute();
+    foreach ($unweighted_recipes as $unweighted_recipe) {
+      $recipe_coll[] = $unweighted_recipe;
+    }
+    return $recipe_coll;
+  }
+  
+  public static function getRecipeCategory($recipeId)
+  {
+	$q = Doctrine_Core::getTable('Category')->createQuery('c');
+	return $q->innerJoin('c.CategoryRecipe cr')
+      ->where('c.is_active = ?', 1)
+      ->andWhere('cr.recipe_id = ?', $recipeId)
+      ->fetchOne();
+  }
 
 }

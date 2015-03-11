@@ -82,5 +82,26 @@ class recipesComponents extends sfComponents
   public function executeCatlevel_category_block()
   {
   }
+  
+    /**
+   * Executes Our_best_block action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executeOur_best_block()
+  {
+    $params = $this->ob_recipes;
+    if (!isset($params['is_global'])) {
+      $params['is_global'] = 1;
+    }
+    $this->ob_recipes = RecipeTable::getOurBestRecipes($params);
+	$this->ob_recipe = $this->ob_recipes[mt_rand(0,4)];
+	$this->ob_category = RecipeTable::getRecipeCategory($this->ob_recipe->getId());
+	$this->ob_title = $this->ob_category->getName();
+	if(substr(strtolower(trim($this->ob_title)),-7) != 'recipes')
+	{
+		$this->ob_title = trim($this->ob_title)." Recipes";
+	}
+  }
 
 }

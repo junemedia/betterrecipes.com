@@ -1,5 +1,5 @@
 <div class="sidebar">
-
+	<? include_component('recipes', 'our_best_block', compact('ob_recipes')) ?>
   <div class="ad300x250">
     <!--/* OpenX Asynchronous JavaScript tag */-->
 
