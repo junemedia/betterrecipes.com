@@ -821,14 +821,22 @@ HOMEPAGE: GALLERY
   left:304px\9;
 }
 #gallery ul {
-  width:290px;
+  width:299px;
   float:right;
   font-size:16px;
-  margin-top:28px;
+  margin-top:15px;
 }
 #gallery ul li {
-  margin-bottom:30px;
+  height:30px;
+  background-color:white;
+  padding-top:15px;
+  padding-left:12px
 }
+
+#gallery ul li.curr{  
+  background-color:#863987!important;
+}
+
 #gallery ul li a,
 #gallery ul li a:link,
 #gallery ul li a:hover,
@@ -842,7 +850,8 @@ HOMEPAGE: GALLERY
 #gallery ul li a.current:link,
 #gallery ul li a.current:hover,
 #gallery ul li a.current:visited {
-  color:#606!important;
+  /*color:#606!important;*/
+  color:#FFFFFF!important;
   text-decoration: underline;
   
 }
