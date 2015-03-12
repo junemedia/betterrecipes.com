@@ -1,5 +1,5 @@
 <div class="sidebar">
-	<? include_component('recipes', 'our_best_block', compact('ob_recipes')) ?>
+	
   <div class="ad300x250">
     <!--/* OpenX Asynchronous JavaScript tag */-->
 
@@ -33,6 +33,7 @@
 	<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>
 	<!-- end openx -->
   </div><!-- /.ad300x250 -->
+  <? include_component('slideshows', 'our_best_block', compact('ob_slideshows')) ?>
   <div class="ad300x250">
 <!--/* OpenX Asynchronous JavaScript tag */-->
 

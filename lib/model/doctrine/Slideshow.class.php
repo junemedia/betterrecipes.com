@@ -26,11 +26,13 @@ class Slideshow extends BaseSlideshow
 
   public function getImgSrc($size='400x300')
   {
-    if (empty($this->photo_id)) {
+	$slides = $this->getSortedSlides();
+	return $slides[0]->getImgSrc($size);
+    /*if (empty($this->photo_id)) {
       return $this->getSortedSlides()->getFirst()->getImgSrc($size);
     } else {
       return Doctrine_Core::getTable('Photo')->findOneIdAndIsActive($this->photo_id, 1)->getImgSrc($size);
-    }
+    }*/  //Can't find "findOneIdAndIsActive" method in Photo table
   }
 
   public function getSlideCount()

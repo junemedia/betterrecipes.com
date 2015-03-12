@@ -165,5 +165,28 @@ class SlideshowTable extends Doctrine_Table
     else
       return;
   }
+  
+   /**
+   * Returns the list of the our best recipes collections.
+   *
+   * @param array $params
+   * @return list
+   */
+  public static function getOurBestRecipesCollections($params=array())
+  {
+    $max_item_count = null;
+    $params['module'] = 'slideshow';
+    $weight_count = 0;
+    $slideshow_coll = array();
 
+    $item_count = 5;//PositionCount::getDefault($params);
+    
+    $q = Doctrine_Core::getTable(ucfirst($params['module']))->createQuery('s')->where('s.is_active = ?', 1);
+
+    $unweighted_slideshows = $q->orderBy('s.created_at DESC')->limit($item_count)->execute();
+    foreach ($unweighted_slideshows as $unweighted_slideshow) {
+      $slideshow_coll[] = $unweighted_slideshow;
+    }
+    return $slideshow_coll;
+  }
 }
