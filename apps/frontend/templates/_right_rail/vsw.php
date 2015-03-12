@@ -10,21 +10,31 @@
 				<span class="heading2">More Smart Savings</span>
                 -->
 				<div id="ERA_AD_BLOCK1"></div>
+				
+				
+				<style>
+					#zergnet-widget-29457 div{
+						margin-top:0px;
+					}
+				</style>
+				
                  <!-- ZERGNET ADS 2 -->
-				 <div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important; margin-bottom:5px;">Around The Web</div>
-				<div id="zergnet-widget-29018"></div>
-				 
+				 <div style="font-family:Arial color:#000000; font-size:18px; margin-top:20px; margin-bottom:-10px; margin-left:5px; text-transform: uppercase;">Around The Web</div>
+
+				<div id="zergnet-widget-29457"></div>
+
 				<script language="javascript" type="text/javascript">
 				(function() {
 				var zergnet = document.createElement('script');
 				zergnet.type = 'text/javascript'; zergnet.async = true;
-				zergnet.src = 'http://www.zergnet.com/zerg.js?id=29018';
+				zergnet.src = 'http://www.zergnet.com/zerg.js?id=29457';
 				var znscr = document.getElementsByTagName('script')[0];
 				znscr.parentNode.insertBefore(zergnet, znscr);
 				})();
 				</script>
+
 				
-				<!-- ZERGNET NTENT ADS -->
+				<!-- End ZERGNET ADS -->
 				
 				<?php if ($sf_params && $sf_params->get('module') == 'recipes'): ?>
 				

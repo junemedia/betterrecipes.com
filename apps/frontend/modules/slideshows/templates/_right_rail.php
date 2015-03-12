@@ -34,6 +34,8 @@
 	<!-- end openx -->
   </div><!-- /.ad300x250 -->
   
+  <? include_component('slideshows', 'our_best_block', compact('ob_slideshows')) ?>
+  
    <div class="ad300x250">
 	<!--/* OpenX Asynchronous JavaScript tag */-->
 
