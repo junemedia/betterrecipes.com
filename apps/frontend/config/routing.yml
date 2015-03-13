@@ -35,6 +35,14 @@ official_rules:
 
 # -------
 
+#Newsletter Routes	-----------------------------------------------------------------
+v
+signup_newsletter_unsub:
+  url: /email-signup-unsub
+  params: { module: newsletter, action: unsub }
+  requirements:
+    sf_method: [get|post]
+
 # User Routes -----------------------------------------------------------------
 canvas:
   url: /canvas
