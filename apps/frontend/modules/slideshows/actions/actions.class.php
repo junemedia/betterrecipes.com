@@ -147,5 +147,31 @@ class slideshowsActions extends sfActions
     $page = $request->getParameter('page', '') != '' ? '#' . $request->getParameter('page', '') : '';
     $this->redirect(UrlToolkit::getRoute($slideshow) . $page);
   }
+  
+  /**
+   * Executes feeds action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executeFeeds(sfWebRequest $request)
+  {
+    $limit = $request->getParameter('limit', 3);
+	$this->ob_slideshows = SlideshowTable::getOurBestRecipesCollections($params);
+	
+	$q = Doctrine_Core::getTable('Slideshow')->createQuery('s')->where('s.is_active = ?', 1);
+
+    $slideshows = $q->orderBy('s.created_at DESC')->limit($limit)->execute();
+	
+	$slideshow_coll = '';
+	foreach ($slideshows as $slideshow) {
+	  $item['id'] = $slideshow->getId();
+	  $item['title'] = $slideshow->getName();
+	  $item['link'] = UrlToolkit::getUrl($slideshow);
+	  $slideshow_coll[] = $item;
+    }
+    $this->renderText(json_encode($slideshow_coll));
+
+    return sfView::NONE;
+  }
 
 }

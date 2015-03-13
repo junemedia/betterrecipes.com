@@ -215,6 +215,10 @@ slideshow_detail:
   url: /slideshows/:slug/:mode
   param: { module: slideshows, action: detail, mode: null }
 
+slideshow_feeds:
+  url: /slideshows/feeds/:limit
+  param: { module: slideshows, action: feeds, mode: null }
+  
 recipes:
   url: /recipes
   param: { module: recipes, action: index }
