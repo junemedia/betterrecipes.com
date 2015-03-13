@@ -18,10 +18,11 @@
 					}
 				</style>
 				
-                 <!-- ZERGNET ADS 2 -->
-				 <div style="font-family:Arial color:#000000; font-size:18px; margin-top:20px; margin-bottom:-10px; margin-left:5px; text-transform: uppercase;">Around The Web</div>
+                 <!-- ZERGNET ADS 2 -->		 
+				 
+				<div style="font-family:Arial color:#000000; font-size:18px; margin-top:20px; margin-bottom:-10px; margin-left:5px; text-transform: uppercase;">Around The Web</div>
 
-				<div id="zergnet-widget-29457"></div>
+				<div id="zergnet-widget-29457" style="width:300px;"></div>
 
 				<script language="javascript" type="text/javascript">
 				(function() {
