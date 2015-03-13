@@ -36,6 +36,11 @@ official_rules:
 # -------
 
 #Newsletter Routes	-----------------------------------------------------------------
+signup_newsletter:
+  url: /email-signup
+  params: { module: newsletter, action: index }
+  requirements:
+    sf_method: [get|post]
 signup_newsletter_unsub:
   url: /email-signup-unsub
   params: { module: newsletter, action: unsub }
