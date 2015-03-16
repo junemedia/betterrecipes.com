@@ -131,7 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <li>FOLLOW US:</li>
             <li><a href="http://www.facebook.com/betterrecipes" title="Follow us on Facebook" class="cta-fb">Facebook</a></li>
             <li class="bdrt"><a href="http://www.twitter.com/betterrecipes" title="Follow us on Twitter" class="cta-tw">Twitter</a></li>
-            <li><a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
+            <li><a href="/email-signup" title="Sign up for our newsletter" class="cta-nl">SIGN UP FOR OUR NEWSLETTER</a></li>
           </ul>
           <!-- /social nav -->
         </div>

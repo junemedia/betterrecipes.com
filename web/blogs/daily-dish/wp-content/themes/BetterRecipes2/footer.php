@@ -98,7 +98,7 @@
         <li>YOUR ACCOUNT</li>
         <li><a href="http://www.betterrecipes.com/help">Help Resources</a></li>
         <li><a href="http://www.betterrecipes.com/signup?referrer=http%3A%2F%2Fwww.betterrecipes.com%2Fblogs%2Fdaily-dish%2F2010%2F07%2F19%2Fdining-at-the-plaza%2Fp1050661">Register</a></li>
-        <li><a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
+        <li><a href="/email-signup">Free Newsletters</a></li>
         <!--<li id="footer_login"></li>-->
        
       </ul>

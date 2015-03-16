@@ -35,7 +35,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
         <ul>
           <li><a href="<?= getUrl('@help') ?>">Help Resources</a></li>
           <li>&nbsp;|&nbsp;<a href="<?= getSignupUri($sf_request->getUri()) ?>">Register</a></li>
-          <li>&nbsp;|&nbsp;<a href="https://secure.recipes.betterrecipes.com/common/profile/quicksignup.jsp?regSource=8261">Free Newsletters</a></li>
+          <li>&nbsp;|&nbsp;<a href="/email-signup">Free Newsletters</a></li>
           <li id="footer_login"></li>         
           <li>&nbsp;|&nbsp;<a href="<?= getUrl('@privacy-policy') ?>">Privacy Policy - New!</a></li>
           
