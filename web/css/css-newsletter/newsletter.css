@@ -276,3 +276,37 @@ ul.social li .cta-nl{background:url(/img/img-newsletter/cta-nl.png) no-repeat ce
     width: 72px;
 	cursor: pointer;
 }
+
+ol, ul{
+	list-style:none;
+}
+
+.nav_ul li{
+	float:left;
+	display: inline-block;
+	color:#FFFFFF;
+	font-size:22px;
+	font-family:""Trebuchet MS", Helvetica, sans-serif";
+	margin-left:50px;
+	padding-top :15px;
+}
+
+/* unvisited link */
+.nav_ul li a:link {
+    color: #FFFFFF;
+}
+
+/* visited link */
+.nav_ul li a:visited {
+    color: #FFFFFF;
+}
+
+/* mouse over link */
+.nav_ul li a:hover {
+    color: #FFFFFF;
+}
+
+/* selected link */
+.nav_ul li a:active {
+    color: #FFFFFF;
+}
