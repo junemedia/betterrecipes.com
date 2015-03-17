@@ -156,7 +156,6 @@ class slideshowsActions extends sfActions
   public function executeFeeds(sfWebRequest $request)
   {
     $limit = $request->getParameter('limit', 3);
-	$this->ob_slideshows = SlideshowTable::getOurBestRecipesCollections($params);
 	
 	$q = Doctrine_Core::getTable('Slideshow')->createQuery('s')->where('s.is_active = ?', 1);
 
@@ -170,6 +169,24 @@ class slideshowsActions extends sfActions
 	  $slideshow_coll[] = $item;
     }
     $this->renderText(json_encode($slideshow_coll));
+
+    return sfView::NONE;
+  }
+  
+  /**
+   * Executes our best box ajax action
+   *
+   * @param sfRequest $request A request object
+   */
+  public function executeOurbestbox_ajax(sfWebRequest $request)
+  {
+	/*if (!isset($params['is_global'])) {
+      $params['is_global'] = 1;
+    }
+    $ob_slideshows = SlideshowTable::getOurBestRecipesCollections($params);
+	$ob_slideshow = $ob_slideshows[mt_rand(0,4)]; print_r($ob_slideshows);exit;*/
+    //$this->renderPartial('slideshows/our_best_block', compact('ob_slideshows','ob_slideshow'));
+	$this->renderComponent('slideshows','our_best_block', compact('ob_slideshows'));
 
     return sfView::NONE;
   }
