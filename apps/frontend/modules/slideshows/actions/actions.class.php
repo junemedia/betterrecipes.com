@@ -186,7 +186,9 @@ class slideshowsActions extends sfActions
     $ob_slideshows = SlideshowTable::getOurBestRecipesCollections($params);
 	$ob_slideshow = $ob_slideshows[mt_rand(0,4)]; print_r($ob_slideshows);exit;*/
     //$this->renderPartial('slideshows/our_best_block', compact('ob_slideshows','ob_slideshow'));
-	$this->renderComponent('slideshows','our_best_block', compact('ob_slideshows'));
+	$result['result'] = trim($this->getComponent('slideshows','our_best_block', compact('ob_slideshows')));
+	
+	$this->renderText("ourbestbox(".json_encode($result).");");
 
     return sfView::NONE;
   }
