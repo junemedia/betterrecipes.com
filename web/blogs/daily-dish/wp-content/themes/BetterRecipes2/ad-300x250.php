@@ -33,6 +33,8 @@
 
 </div><!-- /.ad300x250 -->
 
+<div id="br-right-box-results"></div>
+
 <div class="ad300x250">
 	<!--/* OpenX Asynchronous JavaScript tag */-->
 

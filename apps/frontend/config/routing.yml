@@ -230,6 +230,10 @@ slideshow_detail:
 slideshow_feeds:
   url: /slideshows/feeds/:limit
   param: { module: slideshows, action: feeds, mode: null }
+
+slideshow_ourbestbox_ajax:
+  url: /slideshows/ourbestbox_ajax/:limit
+  param: { module: slideshows, action: ourbestbox_ajax, mode: null }
   
 recipes:
   url: /recipes

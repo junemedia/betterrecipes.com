@@ -103,6 +103,29 @@ gigya.socialize.addEventHandlers({ onConnectionAdded: gigya.reporting.onSendDone
         yieldbot.go();
     </script>
     <!-- END Yieldbot.com Intent Tag -->
+	
+	<!-- right rail recipe box -->
+	
+	<script>
+	$(document).ready(function(){    
+									$.ajax({
+									   url: '/slideshows/ourbestbox_ajax/',
+									   jsonp: "ourbestbox",
+									   data: {                                               
+																	format: "json"
+									   },
+									   dataType: 'jsonp',
+									   success: function(data) {                                             
+									   },
+									   type: 'POST'
+									});
+	});
+	function ourbestbox(boxcontent)
+	{
+					$('#br-right-box-results').append(boxcontent.result);
+	}
+	</script>
+	<!-- end right rail recipe box -->
   </head>
   <body>
 <!-- Google Tag Manager D -->
