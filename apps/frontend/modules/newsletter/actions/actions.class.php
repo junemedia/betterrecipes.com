@@ -230,15 +230,15 @@ class newsletterActions extends sfActions
 	$this->success = '';
 	if ($request->isMethod(sfRequest::GET)) {
 		$this->post_string = "";
-		$email_addr = $request->getParameter('e');
+		//$email_addr = $request->getParameter('e');
                 $this->jid = $request->getParameter('jid');
                 $this->lid = $request->getParameter('lid');
-		if($email_addr)
-		{				
-			setcookie("EMAIL_ID", $email_addr, time()+642816000, "/", ".recipe4living.com");
-			$plant_cookie = "<img src='http://jmtkg.com/plant.php?email=$email_addr' width='0' height='0'></img>";
+		//if($email_addr)
+		//{				
+			//setcookie("EMAIL_ID", $email_addr, time()+642816000, "/", ".recipe4living.com");
+			//$plant_cookie = "<img src='http://jmtkg.com/plant.php?email=$email_addr' width='0' height='0'></img>";
 
-			$pixel = "<!-- Google Tag Manager -->
+			/*$pixel = "<!-- Google Tag Manager -->
 					<noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-PPMDBL\"
 					height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>
 					<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -247,15 +247,15 @@ class newsletterActions extends sfActions
 					'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 					})(window,document,'script','dataLayer','GTM-PPMDBL');
 					dataLayer.push({'event': 'formsubscriberecipe4living'});</script>
-					<!-- End Google Tag Manager -->";
+					<!-- End Google Tag Manager -->";*/
 					
-			$this->success = 'Thank you for signing up!'.$plant_cookie.$pixel;
-                        $this->email = $email_addr;
-		}
-		else
-		{
-			$this->redirect('signup_newsletter', 'index');
-		}		
+			//$this->success = 'Thank you for signing up!'.$plant_cookie.$pixel;
+                        //$this->email = $email_addr;
+		//}
+		//else
+		//{
+		//	$this->redirect('signup_newsletter', 'index');
+		//}		
 	}
   }
 }
