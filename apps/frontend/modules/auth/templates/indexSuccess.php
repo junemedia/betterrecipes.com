@@ -44,15 +44,9 @@
 <div class="banner signin-page mt20">
   <? include_component('static', 'topper') ?>
 </div>
-<div class="article signin-page">
-  <h3 class="title green">Make Better Recipes Social</h3>
-  <p>Share what you're making and see what recipes your friends are planning to make.</p>
-  <fieldset class="gigya">
-    <div id="gigya-auth"class="signin-page"></div>
-  </fieldset>
-</div>
+
 <div class="article registration signin-page">
-  <h3 class="title green">Or Create a New Account</h3>
+  <h3 class="title green">Create a New Account</h3>
   <? if ($signupForm->hasGlobalErrors()): ?>
     <?= $signupForm->renderGlobalErrors() ?>
   <? endif ?>
