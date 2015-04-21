@@ -418,7 +418,7 @@ MAIN CONTENT ITEMS
 #main-content .sidebar {
 	float:right;
 	width:300px;
-	margin:15px 0 0 0;
+	margin:15px 15px 0 0;
 }
 #main-content.has-breadcrumbs .sidebar {
 	margin-top:-10px;
