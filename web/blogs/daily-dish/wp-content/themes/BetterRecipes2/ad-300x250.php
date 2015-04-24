@@ -45,6 +45,13 @@
 	 * to
 	 * 'https://ox-d.junemedia.com/...'
 	 */ -->
+	 
+	 <script type="text/javascript">
+		var MR_BTF_Params = {ybot_slot:"MR_BTF", ybot_size:"", ybot_cpm:""};
+		try{
+			MR_BTF_Params = yieldbot.getSlotCriteria('MR_BTF');
+		}catch(e){/*ignore*/}
+	</script>
 
 	<div id="537278269_300x250_BTF" style="width:300px;height:250px;margin:0;padding:0">
 	  <noscript><iframe id="8bf1c9f424" name="8bf1c9f424" src="http://ox-d.junemedia.com/w/1.0/afr?auid=537278269&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="250"><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=8bf1c9f424&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.junemedia.com/w/1.0/ai?auid=537278269&cs=8bf1c9f424&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
@@ -53,7 +60,8 @@
 	  var OX_ads = OX_ads || [];
 	  OX_ads.push({
 		 slot_id: "537278269_300x250_BTF",
-		 auid: "537278269"
+		 auid: "537278269";
+		 vars: {"ybot_slot":MR_BTF_Params.ybot_slot, "ybot_size": MR_BTF_Params.ybot_size, "ybot_cpm": MR_BTF_Params.ybot_cpm}
 	  });
 	</script>
 
