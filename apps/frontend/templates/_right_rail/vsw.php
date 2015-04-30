@@ -54,7 +54,7 @@
 				 <script type="text/javascript">
 					var MR_300x600_Params = {ybot_slot:"MR_300x600", ybot_size:"", ybot_cpm:""};
 					try{
-						MR_360x600_Params = yieldbot.getSlotCriteria('MR_300x600');
+						MR_300x600_Params = yieldbot.getSlotCriteria('MR_300x600');
 					}catch(e){/*ignore*/}
 				</script>
 
