@@ -60,7 +60,7 @@
 	  var OX_ads = OX_ads || [];
 	  OX_ads.push({
 		 slot_id: "537278269_300x250_BTF",
-		 auid: "537278269";
+		 auid: "537278269",
 		 vars: {"ybot_slot":MR_BTF_Params.ybot_slot, "ybot_size": MR_BTF_Params.ybot_size, "ybot_cpm": MR_BTF_Params.ybot_cpm}
 	  });
 	</script>
