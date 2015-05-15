@@ -57,28 +57,7 @@
 	<!-- end media.net -->
 	<br>
 	<br>
-	<!-- NTENT ADS -->
-	<style type="text/css">
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-item {margin-bottom: -15px !important;}
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-header {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif !important; color: #666666 !important; font-size: 18px !important; text-transform: uppercase !important; line-height: 22px !important; font-weight: normal !important; }
-	body #ERA_AD_BLOCK2.thumbnail .vsw-ad-item:hover .vsw-ad-title {color: #660066 !important;}
-	</style>
-	<script type="text/javascript" language="JavaScript">
-	var era_rc = {
-	   ERADomain: 'as.vs4food.com',
-	   PubID: 'betterrecipes1',
-	   Layout: 'thumbnail',
-	   MaxRelatedItems: '8',
-	   BlockID: 'thumbnail',
-	   SearchWidgetPosition: '2',
-	   SearchBoxCaption: 'Find More ...',
-	   HeaderText: 'You Might Like'
-	};
-	(function(){var v='ERA_AD_BLOCK2';var i=1;while(document.getElementById(v)){if(i==25)break;v='ERA_AD_BLOCK'+i++;}document.write("<"+"div id='"+v+"'><"+"/div>");
-	var sch=(location.protocol=='https:'?'https':'http');var host=sch=='http'?'as.ntent.com':'secure.ntent.com';var s=document.createElement('script');var src=sch+"://"+host+"/ERALinks/era_rl.aspx?elid="+v;for(var p in era_rc)
-	{if(era_rc.hasOwnProperty(p)){src+=decodeURIComponent('%26')+p.toLowerCase()+"="+encodeURIComponent(era_rc[p]);}};s.src=src;document.getElementsByTagName("head")[0].appendChild(s);})();
-	</script>
-	<!-- END NTENT ADS --> 
+	
 	
 	
 	

@@ -1,3 +1,8 @@
+<style>
+#linkcat-2{
+	display:none;
+}
+</style>
 <div class="sidebar">
 	<div class="sidebar-search">
 		<?php/* get_search_form( $echo );*/ ?> 
