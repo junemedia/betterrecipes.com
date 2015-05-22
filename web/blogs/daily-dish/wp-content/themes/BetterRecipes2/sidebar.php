@@ -1,5 +1,5 @@
 <style>
-#linkcat-2{
+#linkcat-2, #linkcat-149208{
 	display:none;
 }
 </style>
@@ -13,5 +13,5 @@
   <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
   <?php endif; ?>
  </ul>
- <? include('ad-vsw.php'); ?>
+ <? //include('ad-vsw.php'); ?>
 </div>
