@@ -30,7 +30,7 @@ class slideshowsActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new SlideshowForm();
-    $this->slides = Doctrine_Core::getTable('SlideshowMedium')->createQuery('s')->execute();
+    $this->slides = Doctrine_Core::getTable('SlideshowMedium')->createQuery('s')->limit(10)->execute();
 
     $this->bread_crumbs = array(
       'Slideshows' => UrlToolkit::getDomainUri() . '/admin/slideshows',
