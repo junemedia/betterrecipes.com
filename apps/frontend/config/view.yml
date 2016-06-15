@@ -8,7 +8,7 @@ default:
   metas:
     title:        Better Recipes
     description:  "An online cookbook of recipes for any meal. Browse recipes by topic or search to find the perfect recipe at Better Recipes. Become a member to upload recipes and enter monthly recipe contests for cash prizes."
-    keywords:     
+    keywords:
     #language:     en
     #robots:       index, follow
 
@@ -16,7 +16,7 @@ default:
     - betterrecipes.css
     - print.css: { media: print }
     # - jquery.wysiwyg.css
-    
+
 
   javascripts:
     - jquery-1.6.2.min.js
@@ -27,9 +27,9 @@ default:
     - betterrecipes.js
     - s_code_betterrecipesH.js
     # - /jwysiwyg/src/jquery.wysiwyg.js
-    - http://resolute.com/js/rd.lazy.js
-    - http://resolute.com/js/rd.resize.js
-    
+    # - http://resolute.com/js/rd.lazy.js
+    # - http://resolute.com/js/rd.resize.js
+
 
   has_layout:     true
   layout:         layout

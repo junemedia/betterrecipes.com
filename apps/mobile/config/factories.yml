@@ -27,7 +27,7 @@ dev:
 #  storage:
 #    param:
 #      session_cookie_domain: .betterrecipes.mydevstaging.com
-      
+
   mailer:
     param:
       delivery_strategy: single_address
@@ -47,33 +47,26 @@ all:
     param:
       session_name: sid
       session_cookie_lifetime: <? echoln(sfConfig::get('app_session_ttl')) ?>
-  
+
   routing:
     class: sfPatternRouting
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
-      cache:
-        class: sfAPCCache
-        param:
-          prefix: betterrecipes/mobile
-          automatic_cleaning_factor: 0
-          lifetime: 300
 
   view_cache_manager:
     class: sfViewCacheManager
     param:
       cache_key_use_vary_headers: true
       cache_key_use_host_name:    true
-      
+
   view_cache:
-#    class: sfAPCCache
     class: sfFileCache
     param:
       prefix: betterrecipes/mobile
       automatic_cleaning_factor: 0
-      lifetime: 2400      
-        
+      lifetime: 2400
+
   mailer:
     class: sfMailer
     param:
@@ -83,7 +76,7 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       relay.jangosmtp.net 
+          host:       relay.jangosmtp.net
           port:       25
           encryption: ~
           username:   techyogi
