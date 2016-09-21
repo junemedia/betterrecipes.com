@@ -1,15 +1,58 @@
 // Throughout the admin I chose to use slow animations to make it clear that stuff is being hidden or shown depending on settings.
 jQuery(document).ready(function() {
-
   jQuery('.show_list').change(function() {
     if (jQuery('.show_list:checked').length == 0) {
       jQuery('.content_placement').hide('slow');
       jQuery('.content_placement input').attr('disabled','disabled');
+      jQuery('.show_template').attr('checked', 'checked');
     } else {
+      jQuery('.show_template').attr('checked', false);
       jQuery('.content_placement').show('slow');
       jQuery('.content_placement input').removeAttr('disabled');
     }
+
+    var postName = 'instaemail_option[show_on_posts]';
+    var homeName = 'instaemail_option[show_on_homepage]';
+
+    var optionName = jQuery(this).attr('name');
+    if (optionName == homeName || optionName == postName){
+      if(jQuery(this).is(':checked')) {
+        jQuery('#etp-categories').show('slow');
+      } else if(!jQuery('input[name="' + homeName + '"]').is(':checked')
+                && !jQuery('input[name="' + postName + '"]').is(':checked')) {
+        jQuery('#etp-categories').hide('slow');
+      }
+    }
   }).change();
+
+  jQuery('.show_template').change(function() {
+    if(jQuery(this).is(':checked')) {
+      jQuery('.show_list').attr('checked', false);
+      jQuery('.show_list').attr('disabled', 'disabled');
+      jQuery('.content_placement').hide('slow');
+      jQuery('.content_placement input').attr('disabled','disabled');
+      jQuery('#etp-categories').hide('slow');
+    } else {
+      jQuery('.show_list').removeAttr('disabled');
+    }
+  }).change();
+
+  jQuery('#toggle-categories').click(function() {
+    if(jQuery('#etp-categories-metabox').is(':visible')) {
+      jQuery('#etp-categories-metabox').hide('slow');
+    } else {
+      jQuery('#etp-categories-metabox').show('slow');
+    }
+  });
+
+  jQuery(document).mouseup(function (e) {
+    var container = jQuery("#etp-categories");
+
+    if (container.has(e.target).length === 0) {
+      jQuery('#etp-categories-metabox').hide('slow');
+    }
+  });
+
 
   jQuery('#colorSelector').ColorPicker({
     color: jQuery('#text_color').val(),
@@ -101,5 +144,51 @@ jQuery(document).ready(function() {
     size = jQuery('#text_size').val();
     jQuery('.printfriendly-text2').css('font-size',parseInt(size));
   }
+
+  // postboxes setup
+  jQuery('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+
+  // categories checkboxes
+  var category_ids = jQuery('#category_ids').val().split(',');
+  if(category_ids[0] == 'all') {
+    var ids = [];
+    jQuery('#categorydiv :checkbox').each(function() {
+      jQuery(this).attr('checked', 'checked');
+    });
+    jQuery('#category-all :checkbox').each(function() {
+      ids.push(jQuery(this).val());
+    });
+    // for older wp versions we do not have per category settings so
+    // ids array will be empty and in that case we shouldn't replace 'all'
+    if(ids.length != 0) {
+      jQuery('#category_ids').val(ids.join(','));
+    }
+  } else {
+
+    jQuery('#categorydiv :checkbox').each(function() {
+      if(jQuery.inArray(jQuery(this).val(), category_ids) != -1) {
+        jQuery(this).attr('checked', 'checked');
+      }
+    });
+  }
+
+  jQuery('#categorydiv :checkbox').click(function() {
+    var values = jQuery('#category_ids').val();
+    var ids = [];
+    if(values != '')
+      ids = values.split(',');
+
+    var id = jQuery(this).val();
+
+    if(jQuery(this).is(':checked'))
+      ids.push(id);
+    else {
+      ids = jQuery.grep(ids, function(value) {
+        return value != id;
+      });
+    }
+
+    jQuery('#category_ids').val(ids.join(','));
+  });
 
 });

@@ -1,5 +1,5 @@
 <?php
-/*  Loop template for the Meteor Slides slideshow
+/*  Loop template for the Meteor Slides 1.5.6 slideshow
 	
 	Copy "meteor-slideshow.php" from "/meteor-slides/" to your theme's directory to replace
 	the plugin's default slideshow loop.
@@ -12,25 +12,33 @@
 
 	global $post;
 	
-	$options = get_option( 'meteorslides_options' );
-	
-	$meteornav = $options['slideshow_navigation'];
-	
-	$i = 1;
-	
-	$loop = new WP_Query( array(
+	$meteor_posttemp = $post;
+	$meteor_options  = get_option( 'meteorslides_options' );
+	$meteor_nav      = $meteor_options['slideshow_navigation'];
+	$meteor_count    = 1;
+	$meteor_loop     = new WP_Query( array(
 	
 		'post_type'      => 'slide',
 		'slideshow'      => $slideshow,
-		'posts_per_page' => $options['slideshow_quantity']
+		'posts_per_page' => $meteor_options['slideshow_quantity']
 		
 	) ); ?>
+	
+	<?php // Check for slides
+	
+	if ( $meteor_loop->have_posts() ) : ?>
 	
 	<div id="meteor-slideshow<?php echo $slideshow; ?>" class="meteor-slides <?php
 	
 		// Adds classes to slideshow
 	
-		echo $slideshow . ' ' . $meteornav;
+		echo $slideshow . ' ' . $meteor_nav;
+		
+		if ( $meteor_loop->post_count == 1 ) {
+		
+			echo ' single-slide';
+		
+		}
 		
 		// Adds metadata to slideshow
 		
@@ -61,10 +69,14 @@
 		}
 			
 	?>">
+	
+	<?php // Check for multiple slides
+	
+	if ( $meteor_loop->post_count > 1 ) : ?>
 		
 		<?php // Adds Previous/Next and Paged navigation
 		
-		if ( $meteornav == "navboth" ) : ?>
+		if ( $meteor_nav == "navboth" ) : ?>
 	
 			<ul class="meteor-nav">
 		
@@ -78,7 +90,7 @@
 		
 		<?php // Adds Previous/Next navigation
 		
-		elseif ( $meteornav == "navprevnext" ) : ?>
+		elseif ( $meteor_nav == "navprevnext" ) : ?>
 	
 			<ul class="meteor-nav">
 		
@@ -90,45 +102,62 @@
 		
 		<?php // Adds Paged navigation
 		
-		elseif ( $meteornav == "navpaged" ): ?>
+		elseif ( $meteor_nav == "navpaged" ): ?>
 	
 			<div id="meteor-buttons<?php echo $slideshow; ?>" class="meteor-buttons"></div>
 			
 		<?php endif; ?>
+		
+	<?php endif; ?>
+		
+		<div class="meteor-clip">
 	
 		<?php // Loop which loads the slideshow
 			
-		while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		while ( $meteor_loop->have_posts() ) : $meteor_loop->the_post(); ?>
+		
+			<?php // Use first slide image as shim to scale slideshow
+			
+			// if ( $meteor_count == 1 ) {
+			
+			if ( $meteor_count == 1 && $meteor_loop->post_count > 1 ) {
+			
+				$meteor_shim = wp_get_attachment_image_src( get_post_thumbnail_id(), 'featured-slide');
+				
+				echo '<img style="visibility: hidden;" class="meteor-shim" src="' . $meteor_shim[0] . '" alt="" />';
+				
+			} ?>
 
-			<div class="mslide mslide-<?php echo $i; ?>">
+			<div class="mslide mslide-<?php echo $meteor_count; ?>">
 				
 				<?php // Adds slide image with Slide URL link
 					
 				if ( get_post_meta( $post->ID, "slide_url_value", $single = true ) != "" ): ?>
 						
-					<a href="<?php echo get_post_meta( $post->ID, "slide_url_value", $single = true ); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'featured-slide' ); ?></a>
+					<a href="<?php echo get_post_meta( $post->ID, "slide_url_value", $single = true ); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'featured-slide', array( 'title' => get_the_title() ) ); ?></a>
 			
 				<?php // Adds slide image without Slide URL link
 					
 				else: ?>
 					
-					<?php the_post_thumbnail( 'featured-slide' ); ?>
+					<?php the_post_thumbnail( 'featured-slide', array( 'title' => get_the_title() ) ); ?>
 					
 				<?php endif; ?>
-				
-				<div class="slideMeta">
-					<p class="title"><?php the_title(); ?></p>
-					<?php if ( get_post_meta($post->ID, 'description', true) ) : ?>
-						<p class="description"><?php echo get_post_meta($post->ID, 'description', true) ?></p>
-					<?php endif;  ?>
-				</div><!-- .slideMeta -->
 			
 			</div><!-- .mslide -->
 			
-			<?php $i++; ?>
+			<?php $meteor_count++; ?>
 			
 		<?php endwhile; ?>
+		
+		</div><!-- .meteor-clip -->
 				
-		<?php wp_reset_query(); ?>
+		<?php // Reset the slideshow loop
+		
+		$post = $meteor_posttemp;
+		
+		wp_reset_postdata(); ?>
 			
 	</div><!-- .meteor-slides -->
+	
+	<?php endif; ?>

@@ -1,19 +1,21 @@
 === Plugin Name ===
-Contributors: dlgoodchild, paultgoodchild
+Contributors: paultgoodchild, dlgoodchild
 Donate link: http://icwp.io/q
 Tags: CSS, WordPress Admin, Twitter Bootstrap, Twitter Bootstrap Javascript, Bootstrap CSS, WordPress Bootstrap, normalize, reset, YUI
 Requires at least: 3.2.0
-Tested up to: 3.5.1
-Stable tag: 2.3.1-1
+Tested up to: 4.6
+Stable tag: 3.3.7-0
 
 WordPress Twitter Bootstrap CSS lets you include the latest Twitter Bootstrap CSS and Javascript libraries in your WordPress site.
 
 == Description ==
 
+Support The Plugin: [Go Ad free](http://www.icontrolwp.com/2013/05/remove-ads-support-wordpress-twitter-bootstrap-plugin/)
+
 What is Twitter Bootstrap?
 It's a CSS and Javascript framework that helps boost your site design and functionality quickly.
 
-We love Twitter Bootstrap on our [WordPress sites at Worpit](http://icwp.io/2 "Worpit: Manage WordPress Better").
+We love Twitter Bootstrap on our [WordPress sites at iControlWP](http://icwp.io/2 "iControlWP: Secure WordPress Management").
 And we wanted a way to quickly link the latest Bootstrap CSS and Javascript to all pages, regardless of the WordPress Theme.
 
 With this plugin, now you can!
@@ -83,10 +85,19 @@ Alternatively using FTP:
 1.	Upload this whole folder to your '/wp-content/plugins/' directory
 1.	From the plugins page within Wordpress locate the plugin 'Wordpress Bootstrap CSS' and click Activate
 
-A new menu item will appear on the left-hand side called 'Worpit'.  Click this menu and select
+A new menu item will appear on the left-hand side called 'Twitter Bootstrap'.  Click this menu and select
 Bootstrap CSS.
 
 Select the CSS file as desired.
+
+= How can I remove the ads and marketing links? =
+
+Our bread and butter is iControlWP multiple WordPress site management, which costs a few cents a month. Whenever you use iControlWP
+to manage your sites and your site is connected to the service, the plugin will automatically remove all marketing / ads from the admin interface.
+
+So by using our services, you get a great service for one, and also support us by contributing and helping with the ongoing development of our plugins.
+
+To understand why it makes sense to financially support free plugin development, please read: http://blog.pinboard.in/2011/12/don_t_be_a_free_user/
 
 = How can I use the WordPress Twitter Bootstrap Shortcodes? =
 
@@ -130,7 +141,7 @@ styles applied to it will take precedence over any previous styles.
 
 = Is WordPress Twitter Bootstrap CSS compatible with caching plugins? =
 
-The only caching plugin that Worpit recommends, and has decent experience with, is W3
+The only caching plugin that iControlWP recommends, and has decent experience with, is W3
 Total Cache.
 
 This plugin will automatically flush your W3TC cache when you save changes on this plugin (assuming you have
@@ -138,9 +149,16 @@ the other plugin installed).
 
 Otherwise, consult your caching program's documentation.
 
+= How can I remove the debug HTML comment? =
+
+We add a debug HTML comment right before the Bootstrap file(s) are inserted. This helps debug frontend issues with the
+plugin. You can get rid of this easily using any sort of minify plugin or using a line of code in your theme functions.php
+
+`add_filter( 'icwp_wptb_show_debug_comment', '__return_false' );`
+
 = Do you make any other plugins? =
 
-We also created the [Multiple WordPress Site Manager (Worpit) ](http://icwp.io/3) to make it easier for you manage all your WordPress sites in one place.
+We also created the [Multiple WordPress Site Manager (iControlWP) ](http://icwp.io/3) to make it easier for you manage all your WordPress sites in one place.
 
 Yes, we created [Custom Content By Country](http://wordpress.org/extend/plugins/custom-content-by-country/ "Custom Content By Country WordPress Plugin")
 plugin that lets you display content to users in specific regions.
@@ -157,15 +175,6 @@ This is likely due to you not linking to the latest version of JQuery. Twitter B
 version (v1.7.2 at the time of writing). There is now ( plugin v2.0.3.1+ ) an option to replace the
 JQuery of your WordPress installation with the latest version served from Google CDN. Try this if you're
 having issues with Popovers etc., or better yet upgrade your WordPress to the latest version.
-
-= What's the reason for the Worpit menu? =
-
-We're planning on releasing more plugins in the future and they'll use much of the same code base. In this way
-we hope to minimize extra and unnecessary code and give your website a far superior browsing experience without
-the typical performance penalty that comes with too many plugins.
-
-Our plugin interface will be consistent and grouped together where possible so you don't have to hunt down the
-settings page each time (as is the case with most plugins out there).
 
 == Screenshots ==
 
@@ -188,13 +197,170 @@ Don't select this unless you know you need it - no harm if you do, but no point 
 
 [See Full Demos Of All Shortcodes Available In This Plugin](http://icwp.io/o).
 
+= !WARNING! =
+
+As of Twitter Bootstrap 3.0.0 and the release of the plugin with this Bootstrap library version, several things have changed which
+you should be aware of before you upgrade!
+
+*	The Twitter Bootstrap v3+ library is quite different to previous versions. If your current WordPress theme is heavily customized
+	and built around Bootstrap v2+ you should take great care before upgrading. Always have a [valid WordPress backup](http://www.worpdrive.com)
+	before upgrading your sites.
+*	Javascript-based Bootstrap components have also changed quite a bit. I've attempted to maintain the shortcodes, but they might
+	break. If something breaks for your site, please report them in the forums.
+*	Upgrade code I kept in previous versions for those that moved from v1 to v2 of the plugin has been completely removed.
+*	Future versions of the plugin v3+ will have an in-built automatic upgrade system for *minor* releases. Much the same as I've done
+	for the [WordPress Simple Firewall](http://wordpress.org/plugins/wp-simple-firewall/).
+
 = TODO =
+
 * Provide better upgrade support for customized Variable.less files. Currently if you've customized your Variables.less file manually
 you'll need to back it up before you upgrade your Bootstrap plugin.
-* Allow user to toggle include method for libraries.
+* Allow for a free entry LESS section for users to add their own completely custom variables.
+
+= 3.3.7-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.3.7
+* UPDATED:	Normalize.css to v4.4.1
+
+= 3.3.6-1 =
+
+* ADDED:	WordPress filter to remove HTML debug comment as desired.
+
+= 3.3.6-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.3.6
+
+= 3.3.5-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.3.5
+* UPDATED:	Normalize to v3.0.3
+* UPDATED:	Admin Bootstrap CSS is now updated to v3.3.5
+
+= 3.3.4-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.3.4
+* UPDATED:	Normalize to v3.0.2
+* UPDATED:	LESS PHP compiler to latest 1.7.0.3
+* FIX:      Small fixes to code.
+
+= 3.2.0-4 =
+
+* FIXED:	Non-critical errors and warning notices.
+
+= 3.2.0-2 =
+
+* FIXED:	Non-critical error in options processing.
+* CHANGED:	Slight code refactor
+
+= 3.2.0-1 =
+
+* UPDATED:	Twitter Bootstrap library to v3.2.0
+* UPDATED:	Normalize to v3.0.1
+* UPDATED:	LESS PHP compiler to latest 1.7.0.2
+* ADDED:	Option for automatic plugin updates for minor releases - i.e. features & bug fixes only.
+* CHANGED:	**Massive** code refactor and change how certain settings are applied - e.g. To use LESS compiled CSS it is chosen from the main CSS select option.
+
+= 3.1.1-1 =
+
+* FIX:      Reported bugs/errors.
+
+= 3.1.1-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.1.1
+* UPDATED:	Less.php compiler to latest stable (v1.7.0.1)
+* FIX:      Reported bugs/errors.
+
+= 3.1.0-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.1.0
+* UPDATED:	Normalize.css to version 3.0.0
+* UPDATED:	Less.php compiler to latest stable (v1.5.1.2)
+* FIX:      Reported bugs/errors.
+* FIX:      Minified CSS for Less compiler - the Less compiler now works when requested minified/compressed CSS.
+
+= 3.0.3-0 =
+
+* UPDATED:	Twitter Bootstrap library to v3.0.3
+* ADDED:	A new LESS Compiler for PHP for Bootstrap v3.0+ that works. (The previous one had issues).  NOTE: This library has a bug with
+			minimize the outputed CSS so even if you select to use minified CSS + LESS compiler, you'll not get minified CSS.
+* ADDED:	Time-based CSS caching expiration. This is where, for example, you're using CDNJS and the library isn't released the plugin
+			will automatically attempt every 48hrs to see if it can verify it exists. If it does, it'll update the cache.
+
+= 3.0.2-2 =
+
+* FIX:		A bug relating to preservation of LESS variables in compiler.
+
+= 3.0.2-1 =
+
+* UPDATED:	Twitter Bootstrap library to v3.0.2
+* UPDATED:	Admin Bootstrap CSS is now updated to v3.0.2
+* FIX:		Bug when saving LESS options that are "sizes". This means there is now much less validation.
+
+= 3.0.0-7 =
+
+* FIX:		LESS compiler for v2.0 of Bootstrap
+
+= 3.0.0-6 =
+
+* FIX:		For Multisite and wpDirAuth compatibility.
+* FIX:		Some other smaller tweaks and fixes.
+
+= 3.0.0-5 =
+
+* UPDATED:	Twitter Bootstrap LESS Compiler now better supports Bootstrap v3.0.  There are a lot of changes in this release - ensure to backup your
+			variable.less configuration and review the changes.
+
+= 3.0.0-4 =
+
+* UPDATED:	Normalize.css to v2.1.3
+* FIX:		Crash for links to Normalize and Yahoo Reset, due to variables not defined.
+
+= 3.0.0-3 =
+
+* UPDATED:	Given the [courteous](http://wordpress.org/support/topic/can-you-add-back-bootstrap-v2-as-an-option-in-the-new-plugin) and
+			[not-so-courteous](http://wordpress.org/support/topic/beware-of-short-codes) feedback that you'd like to have the option for
+			both Bootstrap v2.3.x and Bootstrap v3+ I've added the option for both.
+			It adds more complexity to the plugin and I cannot guarantee for how long both branches of the Bootstrap libraries will
+			remain in this v3 plugin branch.
+* UPDATED:	The plugin now employs our new Options Object system, so in place of 15+ WordPress options it now uses a single WordPress Option
+			to store everything. TODO: apply the same to the LESS compiler options.
+* UPDATED:	The version of the JQuery library included if you use the CDNJS option (to align with WordPress 3.6)
+* UPDATED:	Support for the latest W3 Total Cache plugin version.
+* CHANGED:	A lot of code refactoring to improve its reliability and performance (and also to cater for v2 and v3 of the Bootstrap libraries)
+* FIX:		LESS Compiler for Bootstrap v3.0
+
+= 3.0.0-2 =
+
+Skipped.
+
+= 3.0.0-1 =
+
+* UPDATED: Twitter Bootstrap library to version 3.0.0
+* UPDATED: Less compiler to v0.4.0 (although still doesn't work with Bootstrap v3.0.0)
+* CHANGED: Refactored a lot of code (with more to come!)
+
+= 2.3.2-2 =
+
+* UPDATED: Removed dashboard ad link.
+* UPDATED: Normalize CSS to version 2.1.2
+* FIX: Undefined variable warning.
+
+= 2.3.2-1 =
+* UPDATED: Bootstrap version to latest release v2.3.2
+
+= 2.3.1-3 =
+* ADDED: The ability/option to hide all ads - this is simply achieved by purchasing an iControlWP subscription. See FAQ.
+
+= 2.3.1-2 =
+* ADDED: The option to enqueue the CSS styles using the WordPress styles enqueue option. There's no guarantee that this will add the files so that they're first CSS, so not recommended.
+* CHANGED: Vastly simplified the logic for CSS files being included so it's a little easier to maintain.
+* CHANGED: references to Worpit are now iControlWP.
+* FIX: Using use the plugin's original method to include the CSS will only ever make the necessary code replacement on the head element once. (http://wordpress.org/support/topic/css-added-outside-the-head)
+* UPDATED: Normalize to version 2.1.1
+* CHANGED: Yahoo! Reset to version 3.10.0.
 
 = 2.3.1-1 =
-* FIX: CDNJS changed their path for their Bootstrap Javscript files since versin 2.3.0 so the code now reflects this.
+* FIX: CDNJS changed their path for their Bootstrap Javscript files since version 2.3.0 so the code now reflects this.
 
 = 2.3.1.b =
 * UPDATED: LESS PHP to version 0.3.9 for full compatibility with Twitter Bootstrap 2.3
@@ -293,9 +459,9 @@ The shortcodes are: [TBS_COLLAPSE] (parent) and {TBS_COLLAPSE_GROUP]. You need t
 * FIXED: Wasn't properly linking to Google Prettify CSS and JS files when the option was enabled.
 * UPDATED: Yahoo! YUI v3 to version 3.5.1.
 * UPDATED: Uses serialized data for the LESS CSS plugin options - greatly reducing database calls on the admin section and database usage.
-* UPDATED: Plugin now uses Worpit's standard plugin structure for dynamically creating plugin options pages. The whole plugin is more stable and more reliable.
+* UPDATED: Plugin now uses iControlWP's standard plugin structure for dynamically creating plugin options pages. The whole plugin is more stable and more reliable.
 * UPDATED: Now flushes W3 Total Cache (if installed) when you update your LESS CSS options also.
-* ADDED: Worpit feed to the news feed.
+* ADDED: iControlWP feed to the news feed.
 
 = 2.0.4.1 =
 
@@ -416,7 +582,7 @@ Skipped.
 * Shortcode [TBS_POPOVER] : produces a Twitter Bootstrap POPOVER window
 * Shortcode [TBS_DROPDOWN] + [TBS_DROPDOWN_OPTION] : produces a Twitter Bootstrap styled DROPDOWN MENU
 * Shortcode [TBS_TABGROUP] + [TAB] : produces a Twitter Bootstrap TAB! Now you can create TAB'd content in your posts!
-* More documentation will be forthcoming in the [Worpit WordPress Plugins Page](http://icwp.io/p "Worpit WordPress Twitter Bootstrap Plugin").
+* More documentation will be forthcoming in the [iControlWP WordPress Plugins Page](http://icwp.io/p "iControlWP WordPress Twitter Bootstrap Plugin").
 
 = 0.7 =
 * Quick fix for Login and Register pages - for now there is no Bootstrap added to the login/register pages whatsoever.
@@ -456,8 +622,5 @@ is temporary until we fix.
 
 == Upgrade Notice ==
 
-= 2.3.1 =
-* UPDATED: LESS PHP to version 0.3.9 for full compatibility with Twitter Bootstrap 2.3
-* UPDATED: Bootstrap version to latest release 2.3.1
-* UPDATED: Normalize CSS to latest release 2.1.0 (https://github.com/necolas/normalize.css/blob/v2.1.0/CHANGELOG.md)
-* ADDED: Optimization where the list of CSS links to be included is only created once and then saved in the options table. This is a nice optimization so it's not done on every page load.
+= 2.3.2-1 =
+* UPDATED: Bootstrap version to latest release v2.3.2

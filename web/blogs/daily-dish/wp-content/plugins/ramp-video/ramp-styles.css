@@ -3,7 +3,20 @@
 .rampVideo p {margin-top: 10px;}
 .rampVideo img {padding: 0 !important;}
 .rampPopup.rampVideo {display: inline; text-align: center;}
-.videoPlayer {display: inline-block;height: auto;}
-a.videoPlayer {display: none;}
-.mobile a.videoPlayer {display: inline-block;}
-.mobile div.videoPlayer {display: none;}
+.videoPlayer, .popupVideoPlayer {display: inline-block;height: auto;position: relative;}
+a.videoPlayer, a.popupVideoPlayer {display: none;}
+@media screen and (max-width: 1040px) {
+	a.videoPlayer, a.popupVideoPlayer {display: inline-block !important;}
+	div.videoPlayer, div.popupVideoPlayer {display: none !important;}
+}
+
+/* added from core.css for .popupVideoPlayer */
+
+.video .overlayButton, .video .playvideoLarge, .popupVideoPlayer .overlayButton, .popupVideoPlayer .playvideoLarge { position: relative; cursor: pointer; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video .overlayButton:before, .video .playvideoLarge:before, .popupVideoPlayer .overlayButton:before, .popupVideoPlayer .playvideoLarge:before { position: absolute; top: 50%; left: 50%; content: ""; width: 66px; height: 66px; margin: -33px; border: 5px solid #ddd; -moz-border-radius: 66px; -webkit-border-radius: 66px; border-radius: 66px; background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzc3Nzc3NyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #000000)); background-image: -moz-linear-gradient(#777777, #000000); background-image: -webkit-linear-gradient(#777777, #000000); background-image: linear-gradient(#777777, #000000); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60); opacity: 0.6; }
+.video .overlayButton:after, .video .playvideoLarge:after, .popupVideoPlayer .overlayButton:after, .popupVideoPlayer .playvideoLarge:after { position: absolute; top: 50%; left: 50%; width: 0; height: 0; display: inline-block; content: ""; border-top: 15.0px solid transparent; border-bottom: 15.0px solid transparent; border-left: 24px solid #f5f5f5; margin: -15.0px -8px; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); opacity: 0.8; }
+.video .playvideoSmall, .popupVideoPlayer .playvideoSmall { position: relative; cursor: pointer; display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.video .playvideoSmall:before, .popupVideoPlayer .playvideoSmall:before { position: absolute; top: 50%; left: 50%; content: ""; width: 30px; height: 30px; margin: -15px; border: 2.27273px solid #ddd; -moz-border-radius: 30px; -webkit-border-radius: 30px; border-radius: 30px; background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzc3Nzc3NyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA=='); background-size: 100%; background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #777777), color-stop(100%, #000000)); background-image: -moz-linear-gradient(#777777, #000000); background-image: -webkit-linear-gradient(#777777, #000000); background-image: linear-gradient(#777777, #000000); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60); opacity: 0.6; }
+.video .playvideoSmall:after, .popupVideoPlayer .playvideoSmall:after { position: absolute; top: 50%; left: 50%; width: 0; height: 0; display: inline-block; content: ""; border-top: 6.81818px solid transparent; border-bottom: 6.81818px solid transparent; border-left: 10.90909px solid #f5f5f5; margin: -6.81818px -3.63636px; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); opacity: 0.8; }
+.video .popupVideoPlayer { position: relative; }
+.video .popupVideoPlayer > iframe { max-width: 100%; }

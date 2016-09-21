@@ -14,12 +14,12 @@ class Alpine_PhotoTile_for_Instagram extends WP_Widget {
     $bot = $this->alpinebot;
 		$widget_ops = array('classname' => $bot->get_private('id'), 'description' => __($bot->get_private('wdesc')));
 		$control_ops = array('width' => 550, 'height' => 350);
-		$this->WP_Widget($bot->get_private('domain'), __($bot->get_private('name')), $widget_ops, $control_ops);
+		$this->__construct($bot->get_private('domain'), __($bot->get_private('name')), $widget_ops, $control_ops);
 	}
 /**
  * Widget
  *
- * @ Updated 1.2.5
+ * @ Updated 1.2.7
  */
 	function widget( $args, $options ) {
     $bot = new PhotoTileForInstagramBot();
@@ -27,6 +27,7 @@ class Alpine_PhotoTile_for_Instagram extends WP_Widget {
     
     // Set Important Widget Options    
     $bot->set_private('wid',$args['widget_id']);
+		$bot->set_private('cacheid',$args['widget_id']);
     $bot->set_private('options',$options);
     $bot->do_alpine_method( 'update_global_options' );
     $bot->do_alpine_method( 'enqueue_style_and_script' );  
@@ -72,7 +73,7 @@ class Alpine_PhotoTile_for_Instagram extends WP_Widget {
 /**
  * Form
  *
- * @ Updated 1.2.5
+ * @ Updated 1.2.7
  */
 	function form( $options ) {
 
@@ -127,10 +128,12 @@ class Alpine_PhotoTile_for_Instagram extends WP_Widget {
     }
     ?>
       <div class="bottom">
-        <div><?php $bot->admin_donate_button();?></div>
+        <div><?php //$bot->admin_donate_button();?></div>
         <div><?php _e('Add the plugin to a page or post using the ') ?><a href="<?php echo 'options-general.php?page='.$bot->get_private('settings').'&tab=generator' ?>" target="_blank">Shortcode Generator</a>.</div> 
-        <div><?php _e('Check the ') ?><a href="<?php echo 'options-general.php?page='.$bot->get_private('settings').'&tab=plugin-settings' ?>" target="_blank">Plugins Settings</a> <?php _e('page for additional options.') ?></div> 
-        <div><?php _e('Need Help? Visit ') ?><a href="<?php echo $bot->get_private('info'); ?>" target="_blank">the Alpine Press</a> <?php _e('for more about this plugin.') ?></div>     
+        <div><?php _e('Check the ') ?><a href="<?php echo 'options-general.php?page='.$bot->get_private('settings').'&tab=plugin-settings' ?>" target="_blank">Plugin Settings</a> <?php _e('page for additional options.') ?></div> 
+				<div><?php _e('Visit the ') ?><a href="<?php echo 'options-general.php?page='.$bot->get_private('settings').'&tab=plugin-tools' ?>" target="_blank">Plugin Tools</a> <?php _e('page to check the plugin\'s loading time on your server.') ?></div> 
+        <div><?php _e('Need Help? Visit ') ?><a href="<?php echo $bot->get_private('info'); ?>" target="_blank">the Alpine Press</a> <?php _e('for more about this plugin.') ?></div>
+				<div><b>**Please Note: This plugin is no longer being developed or maintained. If you are a WordPress developer, I encourage you to take this plugin and make it your own.**</b></div>
       </div>
     </div><?php // Close container
     

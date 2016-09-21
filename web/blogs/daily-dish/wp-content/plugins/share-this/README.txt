@@ -1,27 +1,25 @@
-=== ShareThis: Share, Email, Tweet, Like, +1 Made Simple ===
-Tags:share, share this, sharethis, addthis, addtoany, share this, bookmark facebook, like, send,google plus, +1, sharing
+=== ShareThis: Free Sharing Buttons and Tools ===
+
+Tags: share, share this, sharethis, addthis, addtoany, bookmark facebook, like, send, google plus, +1, sharing, pinterest, sharenow, share now, hoverbar, hover bar, hovering bar, floating buttons, copy and paste, copynshare, instagram, linkedin, social buttons, social sharing, sharing buttons
 
 Contributors:ShareThis
 Requires at least: 1.5
-Tested up to: 3.0.1
+Tested up to: 4.2.2
 Stable tag: trunk
 
-The ShareThis plugin seamlessly enables users to share your content through Email,Facebook,Twitter, Google +1, Like, Send and many more.
+ShareThis provides free sharing buttons and tools to drive traffic and increase engagement on your site.
+
 
 == Description ==
 
-Increase your audience engagement with our innovative sharing tools!
+**Updates 6/23/2016**
 
-Used on over 1,000,000 sites, the ShareThis plugin allows users to share your content through email and 50+ social networks including Facebook, Twitter, Digg, StumbleUpon and Reddit.
+ShareThis: free sharing tools are easy to implement and will increase traffic and engagement on your site.
 
-Now with simultaneous sharing to Facebook, Twitter, Email and more: you can broadcast your message more easily and widely than ever before.
+Customize your look and feel by selecting your preferred layout and over 80 social channels including Facebook, Pinterest, Twitter, Linkedin, WhatsApp and more. Start empowering users to share content and grow your traffic today
 
-New Features:
-- Added Facebook Like and Google +1 options
+More information about the [ShareThis plugin for WordPress](https://support.sharethis.com/hc/en-us/articles/217901048-How-to-Install-ShareThis-on-Wordpress)
 
-To get more information about the ShareThis plugin for WordPress, visit: http://help.sharethis.com/integration/wordpress
-
-You can customize the ShareThis widget on your site and register with ShareThis to get access to enhanced share related analytics for your site.
 
 == Installation ==
 
@@ -29,70 +27,235 @@ You can customize the ShareThis widget on your site and register with ShareThis 
 2. Put the 'sharethis.php' file into your wp-content/plugins/ directory.
 3. Go to the Plugins page in your WordPress Administration area and click 'Activate' for ShareThis.
 4. In the WordPress Administration area, open the ShareThis Options page, and customize the sharing buttons based on your need.
-
-== Stats and Reporting ==
-
-Once you have your ShareThis button set up you can register your domain under your account to receive reporting.
-
-Link to register domains:
-http://sharethis.com/account/domains
-
-You can also integrate your ShareThis button with Google Analytics. Visit http://help.sharethis.com/analytics/google-analytics for more information.
+5. Please refer this article for detailed instructions - [wordpress installation](https://support.sharethis.com/hc/en-us/articles/217901048-How-to-Install-ShareThis-on-Wordpress)
 
 
-== A Little About Us==
+== Changelog ==
 
-At ShareThis, we think sharing should be simple. We help more than 850,000 sites share their content everywhere on the web, increase their social traffic, and know more about their social visitors. We’re used by popular blogs and large publishers alike.
+7.7
 
-The new ShareThis plugin for Wordpress allows users to share your content through email and 50+ social networks including Facebook, Twitter, Digg, Stumbleupon and Reddit.   
+Change Call-to-Action text in Step 5 of sign up process
 
-You can read more about what we do and what we think about the value of sharing at www.sharethis.com or blog.sharethis.com.
 
-== Recent Feature Updates ==
+7.6
 
-At ShareThis we are always trying to develop a sharing product with our users and publishers needs in mind. We continue to improve the sharing experience to include features that we hope you like. 
+Fix for settings, css fix for button height
 
-In the most recent update we have some great features to share:
 
--	Simplified Wordpress installation: we now make registration optional and let you configure button options within Wordpress. 
--	More choices & flexibility in layout and styling 
--	Visual customization of sharing buttons through your CSS stylesheet: you control the look & feel of these buttons in your own domain
--	Native look and usage of the new Twitter button and Facebook button.
--	New Social Reach button styles: this lets you show your visitors how popular your content is. Social Reach measures the social impact of your content by combining outbound sharing and inbound visits from friends on social networks. See example screenshots in the updated documentation.
+7.5
 
-Some of our prior updates are below, with the promise of many more to come!
+Changes to emails
 
--	The widget is now 80% lighter for the fastest sharing out there!
--	Users can log in with Facebook, Twitter, Google or Yahoo! accounts
--	Saves recently shared to contacts
--	Users can now search for their favorite services 
--	ShareThis recommends other hot content on your site
+
+7.4
+
+Changes to README, updated screenshots and logo.
+
+
+7.3
+
+Additional drag and drop changes
+
+
+7.2
+
+Users can now drag and drop services for newer wordpress versions
+
+
+7.0.22
+
+User will no longer see the selection of MultiPost/Direct Post widget option. By default, new users will get MultiPost Widget.
+
+
+7.0.21
+
+1. Added support for HTTPS Wordpress Admin Panel
+2. Removed Google Analytics Tracking from Configuration page
+3. Updated Sign-in workflow
+4. Works with wordpress 4.2.2
+
+
+7.0.20
+
+1. Removed ShareNow Widget from configuration section
+2. Updated Direct Post screenshots
+
+
+7.0.19
+
+Added HTTPS Support for Publishers who manage the ShareThis Plugin over HTTPS Admin Panel.
+
+
+7.0.18
+
+1. Updated Help links in the Welcome Email
+2. Updated Screenshot of the New Updated Multi-Post Widget on Configuration page
+
+
+7.0.17
+
+Added option to Show/Hide Buttons on Post Excerpts. 
+
+User can now configure whether to show buttons on Post Excerpts by selecting the checkbox provided on Configuration Page Step 4.
+
+
+7.0.16
+
+Updated Configuration Page Screenshots.
+
+
+7.0.15
+
+1. Fix for conflict between Facebook and SEO Plugin and ShareThis Plugin
+
+
+7.0.14
+
+1. Fix for ShareThis Settings keeps Resetting after activation of any plugin
+2. Fix for Warning messages display
+
+
+7.0.13
+
+Maintenance Fix
+
+Buttons not showing up on the Page
+
+
+7.0.12
+
+Maintenance Fixes
+
+1. Hoverbar buttons get cut-off when placed on right position
+2. Unwanted <BR> Tags were getting inserted in button SPAN tags
+
+
+7.0.11
+
+Maintenance Fixes
+
+Fix for Conflict between Open Graph Plugin and ShareThis Plugin
+
+
+7.0.10
+
+Maintenance Fixes
+
+1. Social Plugins are showing-up on Hoverbar and messing the other buttons
+2. Wordpress Plugin Configuration Page Error when only Hoverbar option is selected
+3. Hover Bar Position (Left/Right) not getting updated on the actual website
+4. Pulldown Bar logo image not getting saved
+
+
+7.0.9
+
+1. Option to add or edit http/https option in code.
+2. Options to show buttons on selected pages.
+3. Advance configuration to edit code.
+4. Added option to show/hide 
+	a. Step 3 Sharing method.
+	b. Step 4 Manage page exceptions.
+	c. Step 6 View & Edit code.
+5. Removed drop downs for Page & Post selection from Step 4.
+6. Minor bug fixes.
+
+
+7.0.8
+
+Hot fix for plugin upgradation failure (content not displaying on website after plugin upgradation)
+
+
+7.0.7
+
+1. ShareThis plugin support for Wordpress 3.8
+2. Option to show buttons on Top or Below the post
+3. Option to Logout in Plugin
+
+
+7.0.6
+
+1. Secunia vulnerability issue resolved
+
+
+7.0.5
+
+1. New sharethis logo added
+
+
+7.0.4
+
+1. jQuery noConflict fixed 
+2. Yoast SEO conflict fixed
+
+
+7.0.3
+
+1. CSS Fixes
+
+
+7.0.2
+
+1. Versioning bug
+
+
+7.0.1
+
+1. Fixes for IE
+
+
+7.0
+
+1. Pulldown bar implementation
+2. Improved plugin configuration user interface
+3. Support for more social services
+
+
+6.0
+
+1. CNS implementation
+2. Bug Fixes.
+
+
+5.4.1
+
+1. Get the Instagram badge and link to your profile!
+2. Bug Fixes.
+
+
+5.4
+
+1. Now you know how many users share by copying and pasting. Introducing CopyNShare. Enable it and check your Analytics Dashboard to see those numbers pop up.
+2. Bug Fixes.
+
+
+5.3
+
+1. Introducing floating sharing buttons - Our Hovering Bar.
+2. Bug Fixes
+
+
+5.2.1
+
+1. Introducing ShareNow to the plugin. [Learn more] (http://sharethis.com/publishers/get-sharenow) 
+2. Ability to promote your twitter handle using the 'via', 'related' options on the Twitter share button.
+3. Bug Fixes
+
 
 == Frequently Asked Questions ==
 
-Check out our support area at http://help.sharethis.com and our Wordpress customization area here: http://help.sharethis.com/integration/wordpress
+**Do I need to create an account?**
 
-Still got questions? If you need technical help, check out the support info below or email us at support@sharethis.com.
+No, you do not need to create an account in order to control a limited number of ShareThis sharing tools from within WordPress and enable your site’s visitors to share the content. In order to see your site's analytics, you will need to create an account with ShareThis. Creating an account requires an email and password or you can choose to login with another social media or Google account, along with agreeing to our [Terms and Conditions](http://www.sharethis.com/pub-tos.html) and [Privacy Policy](http://www.sharethis.com/pri.html).  Oh, and you must be at least 13 years old.
 
-== Support ==
+Check out [our support page](http://support.sharethis.com) and [our Wordpress customization area](https://support.sharethis.com/hc/en-us/articles/217901048-How-to-Install-ShareThis-on-Wordpress)
 
-Have questions or suggestions for us? Perhaps it's already answered or being discussed in the ShareThis forums or on ShareThis Support:
+Still have questions? If you need technical help, email us at support@sharethis.com.
 
-http://forums.sharethis.com
-
-http://help.sharethis.com/integration/wordpress
-
-If you would like to contact the support team via email you can reach us at:
- 
-support@sharethis.com
 
 == Screenshots ==
-Check out some screenshots of our new widget in action!
 
-1. A view of the classic ShareThis button on your posts
-2. An example of large social icons on your posts
-3. An example of small social buttons
-4. An example of social reach buttons with counts in horizontal, compact layout
-5. An example of social reach buttons with vertical layout for counts
-6. A view of the widget when a user clicks or mouses over it
-7. Sample tracking reports available to registered ShareThis publishers
+Check out some screenshots of our widget in action!
+
+1. ShareThis on-page counters and share buttons.
+2. Example of the Hoverbar.
+3. ShareThis modal window after user clicks on ShareThis icon in the Hoverbar.

@@ -1,52 +1,37 @@
 <div class="wrap">
-    <div class="frmicon icon32"><br/></div>    
-    <h2><?php _e('Add New Form', 'formidable') ?></h2>
-    <?php require(FRM_VIEWS_PATH.'/shared/errors.php'); ?>
-    
-    <?php if (!$values['is_template']){ ?>
-        <div class="alignleft">
-            <?php FrmAppController::get_form_nav($id, true); ?>
-        </div>
-    <?php } 
-    
-    if(version_compare( $GLOBALS['wp_version'], '3.3.3', '<')){ ?>
-    <div id="poststuff" class="metabox-holder has-right-sidebar">
-    <?php   
-        require(FRM_VIEWS_PATH .'/frm-forms/add_field_links.php'); 
-    }else{ ?>
-    <div id="poststuff">
-<?php } ?>
+    <h2><?php _e( 'Build New Form', 'formidable' ) ?>
+		<a href="?page=formidable-new" class="add-new-h2 frm_invisible"><?php _e( 'Add New', 'formidable' ); ?></a>
+	</h2>
 
+    <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
     <div id="post-body-content">
-    <div class="frm_form_builder<?php echo ($values['custom_style']) ? ' with_frm_style' : ''; ?>">
-        <form method="post" >
-            <p style="margin-top:0;">
-                <input type="submit" value="<?php _e('Create', 'formidable') ?>" class="button-primary" />
-                <?php _e('or', 'formidable') ?>
-                <a class="button-secondary cancel" href="?page=formidable&amp;frm_action=destroy&amp;id=<?php echo $id; ?>"><?php _e('Cancel', 'formidable') ?></a>
-            </p>
-            
+        <?php
+        if ( ! $values['is_template'] ) {
+            FrmAppController::get_form_nav($id, true, 'hide');
+        }
+		require( FrmAppHelper::plugin_path() . '/classes/views/shared/errors.php' );
+
+        ?>
+
+        <div class="frm_form_builder with_frm_style">
+
+        <form method="post" id="frm_build_form">
             <input type="hidden" name="frm_action" value="create" />
             <input type="hidden" name="action" value="create" />
-            <input type="hidden" name="id" value="<?php echo $id; ?>" />
-            <?php wp_nonce_field('update-options'); ?>
+            <input type="hidden" name="id" id="form_id" value="<?php echo (int) $id; ?>" />
 
-            <?php require(FRM_VIEWS_PATH.'/frm-forms/form.php'); ?>
+			<?php require( FrmAppHelper::plugin_path() . '/classes/views/frm-forms/form.php' ); ?>
 
             <p>
-                <input type="submit" value="<?php _e('Create', 'formidable') ?>" class="button-primary" />
-                <?php _e('or', 'formidable') ?>
-                <a class="button-secondary cancel" href="?page=formidable&amp;frm_action=destroy&amp;id=<?php echo $id; ?>"><?php _e('Cancel', 'formidable') ?></a>
+				<input type="button" value="<?php esc_attr_e( 'Create', 'formidable' ) ?>" class="frm_submit_<?php echo ( isset( $values['ajax_load'] ) && $values['ajax_load'] ) ? '' : 'no_'; ?>ajax button-primary" />
+                <span class="frm-loading-img"></span>
             </p>
         </form>
+
+        </div>
+    </div>
+	<?php require( FrmAppHelper::plugin_path() . '/classes/views/frm-forms/add_field_links.php' ); ?>
     </div>
     </div>
-    <?php 
-    if(version_compare( $GLOBALS['wp_version'], '3.3.2', '>'))
-        require(FRM_VIEWS_PATH .'/frm-forms/add_field_links.php'); 
-    ?>
-    </div>
-    </div>
-</div> 
-<?php require(FRM_VIEWS_PATH .'/frm-forms/footer.php'); ?>
+</div>

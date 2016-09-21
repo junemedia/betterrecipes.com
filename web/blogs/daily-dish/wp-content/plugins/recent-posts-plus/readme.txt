@@ -3,7 +3,7 @@ Contributors: pjgalbraith
 Donate link: http://www.pjgalbraith.com/2011/08/recent-posts-plus/
 Tags: posts, recent, recent posts, widget, post-plugins
 Requires at least: 2.9.0
-Tested up to: 3.3
+Tested up to: 3.5
 Stable tag: trunk
 
 An advanced version of the WordPress Recent Posts widget, allows display of thumbnails, post excerpt, author, comment count, and more.
@@ -36,6 +36,9 @@ See documentation at http://www.pjgalbraith.com/2011/08/recent-posts-plus/ and e
 1. Widget options screen
 
 == Changelog ==
+
+= 1.0.11 =
+* Exclude sticky posts being included at the beginning of posts returned, but the sticky post will still be returned in the natural order of that list of posts returned
 
 = 1.0.10 =
 * Fixed excerpt ellipsis being added to the title incorrectly
@@ -86,6 +89,9 @@ See documentation at http://www.pjgalbraith.com/2011/08/recent-posts-plus/ and e
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.11 =
+Sticky posts won't stick to the top of the results the old functionality can be restored by modifing the WP_Query option
 
 = 1.0.10 =
 Fixed excerpt ellipsis being added to the title incorrectly

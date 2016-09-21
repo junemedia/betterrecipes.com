@@ -3,15 +3,17 @@ Contributors: simonwheatley, codeforthepeople, s1m0nd
 Tags: twitter, tweet, twitter search, hashtag, summize, twitter profile, tweet stream, tweet feed
 Requires at least: 3.1.0
 Tested up to: 3.5
-Stable tag: 3.2.1
+Stable tag: 3.3.6
 
 Track Twitter search results, a Twitter hashtag, or a Twitter profile using sidebar widgets.
 
 == Description ==
 
-A widget, Twitter Search Tracker, which allows you to specify and display a [Twitter search](http://search.twitter.com/) (or a Twitter hashtag) in your sidebar. Twitter searches are [very flexible](http://search.twitter.com/operators), and you can display anything from Hashtags to individual, or aggregated Twitter streams.
+A widget, Twitter Search Tracker, which allows you to specify and display a [Twitter search](http://twitter.com/) (or a Twitter hashtag) in your sidebar. Twitter searches are [very flexible](http://twitter.com/operators), and you can display anything from Hashtags to individual, or aggregated Twitter streams.
 
 Another widget, Twitter Profile Tracker, allows you to show the tweets from a specific user in your sidebar.
+
+With the profile and search widget, you can choose to only show tweets with a particular hashtag, to control which tweets get shown on your site. You can also elect not to show retweets or "@" replies.
 
 By default this plugin uses a Twitter API to provide avatar images, unfortunately this process triggers Twitter to drop some cookies on visitors. If you want to continue using avatars in your widgets are avoid Twitter cookies, you can use the partner plugin [Twitter Tracker Avatar Cache](http://wordpress.org/extend/plugins/twitter-tracker-avatar-cache/). If you want to avoid the use of cookies, and don't need avatars in your widget (or are hiding the avatars with CSS) then you can use the [Twitter Tracker Blank Avatars](http://wordpress.org/extend/plugins/twitter-tracker-blank-avatars/) partner plugin.
 
@@ -25,11 +27,18 @@ The HTML output is fairly well classed, but if you need to adapt it you can. Cre
 
 These notes mainly for developers:
 
-`tt_avatar_url` and `tt_avatar_bigger_url` filters – Use this to change the Twitter Avatar URLs provided to the template. The [Twitter Tracker Avatar Cache](http://wordpress.org/extend/plugins/twitter-tracker-avatar-cache/) partner plugin uses these filters to provide cookie stripping caching for these avatars.
+`tt_avatar_url` filters – Use this to change the Twitter Avatar URLs provided to the template. The [Twitter Tracker Avatar Cache](http://wordpress.org/extend/plugins/twitter-tracker-avatar-cache/) partner plugin uses these filters to provide cookie stripping caching for these avatars.
+
+(NOTE: The `tt_avatar_bigger_url` filter no longer exists, as I cannot find a way to access larger icons with the Twitter API.)
 
 `tt_post_types_with_override` filter – Add or remove post types which can override the search query in a search widget.
 
 `tt_allowed_html` filter – WARNING – incorrect use of this filter could make your website vulnerable to cross-site scripting attacks; if in doubt, do not use it. Amend the HTML elements and attributes allowed in the preamble and HTML after values. This filter passes a second param specifying the context the allowed HTML is for.
+
+`tt_cache_expiry` filter – The default cache for each widget is 300 seconds. Hook this filter to change this, but do not lower it too much on busy sites as you'll run out of API accesses and your site will be slower.
+
+`tt_no_tweets` filter – The string displayed in the search widget when no tweets are found.  The second parameter passed is the search string being used, and the third parameter is an array of other variables relating to this widget and search request.
+
 
 == Translations ==
 
@@ -46,25 +55,69 @@ Development for [this plugin is hosted on Github](https://github.com/cftp/twitte
 
 == Installation ==
 
-The plugin is simple to install:
+**IMPORTANT:** You need to authorise with Twitter for this plugin to work. Follow the authorisatiuon steps below.
+
+=== Installation: ===
 
 1. Download `twitter-tracker.zip`
 1. Unzip
 1. Upload `twitter-tracker` directory to your `/wp-content/plugins` directory
 1. Go to the plugin management page and enable the plugin
+1. Now go through the authorisation steps below
+
+OR:
+
+1. From your admin area, choose "Plugins" then "Add New"
+1. Search for "Twitter Tracker"
+1. Select "Install Now"
 1. Give yourself a pat on the back
+1. Now go through the authorisation steps below
+
+=== Authorisation: ===
+
+1. Go to "Settings" > "Twitter Tracker Auth"
+1. Click on "Authorise with Twitter" and follow the prompts
 
 == Upgrade Notice ==
 
-= v3.2.1 =
+= v3.3.6 =
 
-Tweaked some HTML in the template to make it valid. Props Milo van der Linden of [De OpenGeoGroep](http://www.opengeogroep.nl/).
+Fixes a bug to restore caching of requests to the Twitter API. Fixed a bug relating to displaying Emoji. 
 
-= v3.2 =
+= v3.3.5 =
 
-Added Slovak and Dutch translations, no other change.
+Fixes the plugin to work with Twitter's new API (and new constraints). After installing this update, you will be prompted to authorise with Twitter, just follow the prompts. Also adds an option to work with Emoji.
 
 == Change Log ==
+
+= v3.3.6 =
+
+Tuesday 13 August 2013
+
+* BUGFIX: Restore caching of requests to Twitter API
+* BUGFIX: Emoji no longer break tweets
+* ENHANCEMENT: Optionally show Emoji
+
+= v3.3.5 =
+
+Thursday 18 July 2013
+
+* BUGFIX: Fix name clash by renaming a class (hopefully the last one)
+* ENHANCEMENT: Show message in search widget when no tweets are found
+* ENHANCEMENT: Add `tt_no_tweets` filter to tailor "no tweets" message
+
+= v3.3.3 =
+
+Thursday 27 June 2013
+
+* Fix missing files
+
+= v3.3.2 =
+
+Thursday 27 June 2013
+
+* Now uses Twitter's API v1.1 (requires someone to authenticate their account with Twitter)
+* Adds the ability to show or filter out Emoji
 
 = v3.2.1 =
 
@@ -202,5 +255,5 @@ Added Slovak and Dutch translations, no other change.
 
 == Screenshots ==
 
-1. Showing the widget settings
-2. Showing the unstyled output (use your own CSS to make this look as you wish)
+1. The search widget
+2. The user profile widget

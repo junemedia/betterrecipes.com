@@ -4,7 +4,7 @@ jQuery(function($) {
 	//console.log("ramp-scripts fired");
 	var settings = {
 		videoModal: null,
-		videoPlayer: $(".videoPlayer"),
+		popupVideoPlayer: $(".popupVideoPlayer"),
 		modalWidth: 1016,
 		modalHeight: 645,
 		responsiveFlag: false,
@@ -40,7 +40,7 @@ jQuery(function($) {
         }
     };
     this.init = function() {
-        if(settings.videoPlayer.length > 0){
+        if(settings.popupVideoPlayer.length > 0){
             _self.getLibraries(function(){
                 if( !settings.videoModal ){
                     $("body").append("<div id='videoModal'></div>");
@@ -57,7 +57,7 @@ jQuery(function($) {
                         settings.videoModal.empty();
                     }
                 });
-                settings.videoPlayer.each(function(){
+                settings.popupVideoPlayer.each(function(){
 					var thisItem = $(this),
                         thisTitle = thisItem.find(".videoTitle"),
                         titleText = thisTitle.find("a").text();

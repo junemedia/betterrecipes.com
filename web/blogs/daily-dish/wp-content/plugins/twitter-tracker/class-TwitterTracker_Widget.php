@@ -59,10 +59,15 @@ class TwitterTracker_Widget extends TwitterTracker_SW_Widget {
 		$new_instance[ 'title' ] = $this->maybe_strip_tags( $new_instance[ 'title' ] );
 		$new_instance[ 'preamble' ] = $this->maybe_wp_kses( $new_instance[ 'preamble' ], 'preamble' );
 		$new_instance[ 'hide_replies' ] = isset( $new_instance[ 'hide_replies' ] ) ? (bool) $new_instance[ 'hide_replies' ] : false;
+		$new_instance[ 'include_retweets' ] = isset( $new_instance[ 'include_retweets' ] ) ? (bool) $new_instance[ 'include_retweets' ] : false;
 		$new_instance[ 'max_tweets' ] = absint( $new_instance[ 'max_tweets' ] );
 		$new_instance[ 'mandatory_hash' ] = strip_tags( $new_instance[ 'mandatory_hash' ] );
 		$new_instance[ 'html_after' ] = $this->maybe_wp_kses( $new_instance[ 'html_after' ], 'html_after' );
 		$new_instance[ 'class' ] = strip_tags( $new_instance[ 'class' ] );
+
+        $convert_emoji = 'hide' == $new_instance[ 'convert_emoji' ] ? 'hide' : 'convert';
+		update_option( 'tt_convert_emoji', $convert_emoji );
+
         return $new_instance;
     }
 
@@ -74,9 +79,12 @@ class TwitterTracker_Widget extends TwitterTracker_SW_Widget {
 		$twitter_search = isset( $twitter_search ) ? $twitter_search : '';
 		$max_tweets = isset( $max_tweets ) ? $max_tweets : 3;
 		$hide_replies = isset( $hide_replies ) ? (bool) $hide_replies : false;
+		$include_retweets = isset( $include_retweets ) ? (bool) $include_retweets : false;
 		$mandatory_hash = isset( $mandatory_hash ) ? $mandatory_hash : '';
 		$html_after = isset( $html_after ) ? $html_after : '';
 		$class = isset( $class ) ? $class : '';
+
+        $convert_emoji = 'hide' == get_option( 'tt_convert_emoji', 'hide' ) ? 'hide' : 'convert';
 
 		// Help out users of the previous plugin by presenting the previous values
 		$old_options = get_option( 'widget_config_twitter-tracker-1' );
@@ -94,11 +102,16 @@ class TwitterTracker_Widget extends TwitterTracker_SW_Widget {
 		// Now show the input fields
 		$this->input_text( __( 'Title:', 'twitter-tracker' ), 'title', $title );
 		$this->input_text( __( 'Preamble (HTML limited to <kbd>&lt;a&gt;</kbd>, <kbd>&lt;em&gt;</kbd>, <kbd>&lt;strong&gt;</kbd>, <kbd>&lt;p&gt;</kbd>, <kbd>&lt;br&gt;</kbd>):', 'twitter-tracker' ), 'preamble', $preamble );
-		$search_note = __( 'Enter any search term that works on <a href="http://search.twitter.com/" target="_blank">Twitter Search</a>, here&apos;s some <a href="http://search.twitter.com/operators" target="_blank">help with the syntax</a>.', 'twitter-tracker' );
+		$search_note = __( 'Enter any search term that works on <a href="http://twitter.com/" target="_blank">Twitter Search</a>, here&apos;s some <a href="http://twitter.com/operators" target="_blank">help with the syntax</a>.', 'twitter-tracker' );
 		$this->input_text( __( 'Twitter search:', 'twitter-tracker' ), 'twitter_search', $twitter_search, $search_note );
 		$this->input_conversational_mini_text( __( 'Max tweets to show:', 'twitter-tracker' ), 'max_tweets', $max_tweets );
 		$replies_note = __( 'When replies are hidden the widget will <em>attempt</em> to keep the number of tweets constant, however this may not be possible.', 'twitter-tracker' );
 		$this->input_checkbox( __( 'Hide @ replies:', 'twitter-tracker' ), 'hide_replies', $hide_replies, $replies_note );
+		$include_retweets_note = __( 'The widget can only hide new style retweets, <em>not</em> where somebody has "quote tweeted".', 'twitter-tracker' );
+		$this->input_checkbox( __( 'Include retweets:', 'twitter-tracker' ), 'include_retweets', $include_retweets, $include_retweets_note );
+		$options = array( 'hide' => __( 'Hide all Emoji', 'twitter-tracker' ), 'convert' => __( 'Show all Emoji as images', 'twitter-tracker' ) );
+		$emoji_note = sprintf( __( 'Showing Emoji is a setting which applies to <strong>all</strong> Twitter Tracker widgets in your site, it also involves downloading a 700kb image and a 40kb CSS file, which will increase page load times for your website. If you don’t know what Emoji are, this is <a href="%s" target="_blank">a good introduction</a>.', 'twitter-tracker' ), 'http://www.iamcal.com/emoji-in-web-apps/' );
+		$this->input_radios( __( 'Show or hide Emoji in ALL Twitter Tracker widgets?', 'twitter-tracker' ), 'convert_emoji', $options, $convert_emoji, $emoji_note, $no_selection = false );
 		$hashtag_note = __( 'Include the "#". Tweets without this #hashtag will not be shown.', 'twitter-tracker' );
 		$this->input_text( __( 'Mandatory hashtag:', 'twitter-tracker' ), 'mandatory_hash', $mandatory_hash, $hashtag_note );
 		$this->input_text( __( 'HTML to put after the results (limited to <kbd>&lt;a&gt;</kbd>, <kbd>&lt;em&gt;</kbd>, <kbd>&lt;strong&gt;</kbd>, <kbd>&lt;p&gt;</kbd>, <kbd>&lt;br&gt;</kbd>):', 'twitter-tracker' ), 'html_after', $html_after, __( 'Optional, use for things like a link to this Twitter search, etc.', 'twitter-tracker' ) );

@@ -4,13 +4,30 @@ Plugin Name: Twitter Tracker
 Plugin URI: http://wordpress.org/extend/plugins/twitter-tracker/
 Description: Tracks the search results on Twitter search or Twitter profile in a sidebar widget.
 Author: Simon Wheatley (Code for the People)
-Version: 3.2.1
+Version: 3.3.6
 Author URI: http://codeforthepeople.com/
 */
 
-// http://search.twitter.com/search.atom?q=wordcampuk
+// http://twitter.com/search.atom?q=wordcampuk
 
-/*  Copyright 2008 Simon Wheatley
+/*  Copyright 2013 Code For The People
+
+				_____________
+			   /      ____   \
+		 _____/       \   \   \
+		/\    \        \___\   \
+	   /  \    \                \
+	  /   /    /          _______\
+	 /   /    /          \       /
+	/   /    /            \     /
+	\   \    \ _____    ___\   /
+	 \   \    /\    \  /       \
+	  \   \  /  \____\/    _____\
+	   \   \/        /    /    / \
+		\           /____/    /___\
+		 \                        /
+		  \______________________/
+
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,11 +43,22 @@ Author URI: http://codeforthepeople.com/
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+	--------------------------------------------------------------------------
+
+	Emoji conversion library
+	https://github.com/iamcal/php-emoji/
+	By Cal Henderson cal@iamcal.com
+	Parser rewrite based on a fork by 杜志刚
+	This work is licensed under the GPL v3
+
+	Emoji images MIT licensed: https://github.com/github/gemoji/blob/master/LICENSE
+
 */
 
 require_once( dirname (__FILE__) . '/plugin.php' );
 require_once( dirname (__FILE__) . '/class-TwitterTracker_Widget.php' );
 require_once( dirname (__FILE__) . '/class-TwitterTracker_Profile_Widget.php' );
+require_once( dirname (__FILE__) . '/class.twitter-authentication.php' );
 
 /**
  *
@@ -44,6 +72,7 @@ class TwitterTracker extends TwitterTracker_Plugin
 
 	public function __construct()
 	{
+		$this->register_plugin( 'twitter-tracker', __FILE__ );
 		if ( is_admin() ) {
 			$this->register_activation (__FILE__);
 			$this->add_action( 'save_post', 'process_metabox', null, 2 );
@@ -52,6 +81,7 @@ class TwitterTracker extends TwitterTracker_Plugin
 		// Init
 		$this->register_plugin ( 'twitter-tracker', __FILE__ );
 		$this->add_action( 'init' );
+		$this->add_action( 'wp_enqueue_scripts', 'action_wp_enqueue_scripts' );
 		$this->add_filter( 'tt_allowed_post_types', 'warn_tt_allowed_post_types' );
 
 		// register widget
@@ -108,6 +138,19 @@ class TwitterTracker extends TwitterTracker_Plugin
 	}
 	
 	/**
+	 * Hooks the WP wp_enqueue_scripts action
+	 *
+	 * @action wp_enqueue_scripts
+	 *
+	 * @return void
+	 * @author Simon Wheatley
+	 **/
+	function action_wp_enqueue_scripts() {
+		if ( 'convert' == get_option( 'tt_convert_emoji', 'hide' ) )
+			wp_enqueue_style( 'tt_emoji', $this->url() .  '/emoji/emoji.css' , null, $this->filemtime( '/emoji/emoji.css' ) );
+	}
+
+	/**
 	 * Callback function providing the HTML for the metabox
 	 *
 	 * @return void
@@ -149,50 +192,120 @@ class TwitterTracker extends TwitterTracker_Plugin
 		if ( ! defined( 'MAGPIE_CACHE_AGE' ) )
 			define( 'MAGPIE_CACHE_AGE', 60 * 15 ); // Fifteen of your Earth minutes
 	}
-	
-	public function show( $args )
+		
+	public function show( $instance = array() ) {
+		// Backwards compatibility
+		return $this->show_search( $instance );
+	}
+
+	public function show_search( $instance = array() )
 	{
 		$defaults = array (
+			'convert_emoji' => 'hide',
 			'hide_replies' => false,
 			'include_retweets' => false,
 			'mandatory_hash' => '',
-			'max_tweets' => 3,
+			'max_tweets' => 30,
 			'html_after' => '',
 			'preamble' => '',
 		);
-		$args = wp_parse_args( $args, $defaults );
-		extract( $args );
+		$instance = wp_parse_args( $instance, $defaults );
+
+		extract( $instance );
+
+		// Allow the local custom field to overwrite the widget's query
+		if ( is_singular() && is_single() && $post_id = get_queried_object_id() )
+			if ( $local_query = trim( get_post_meta( $post_id, '_tt_query', true ) ) )
+				$twitter_search = $local_query;
 
 		// Let the user know if there's no search query
+		$twitter_search = trim( $twitter_search );
 		if ( empty( $twitter_search ) ) {
-			$this->render( 'widget-error', array() );
+			$vars = array( 
+				'msg' => __( 'For this Twitter Tracker search widget to work you need to set at least a Twitter Search in the widget settings.', 'twitter-tracker' ),
+				'additional_error_class' => '',
+				'strong' => true,
+			);
+			$this->render( 'widget-error', $vars );
 			return;
 		}
-		require_once( dirname( __FILE__ ) . '/model/twitter-search.php' );
-		require_once( dirname( __FILE__ ) . '/model/tweet.php' );
-		global $post;
-		// Allow the local custom field to overwrite the widget's query
-		if ( is_singular() || is_single() ) {
-			if ( $local_query = trim( get_post_meta( $post->ID, '_tt_query', true ) ) )
-				$twitter_search = $local_query;
-			if ( ! $local_query && ! $twitter_search )
-				return;
-		}
-		if ( ! $twitter_search )
+
+		// Let the user know if there's no auth
+		if ( ! TT_Twitter_Authentication::init()->is_authenticated() ) {
+			$vars = array( 
+				'msg' => __( 'For this Twitter Tracker search widget to work you need to authorise with Twitter in "Dashboard" -> "Settings" -> "Twitter Tracker Auth".', 'twitter-tracker' ),
+				'additional_error_class' => '',
+				'strong' => true,
+			);
+			$this->render( 'widget-error', $vars );
 			return;
-		$search = new TwitterSearch ( $twitter_search, $max_tweets, $hide_replies, $mandatory_hash );
+		}
+
+		require_once( 'class.oauth.php' );
+		require_once( 'class.wp-twitter-oauth.php' );
+		require_once( 'class.response.php' );
+		require_once( 'class.twitter-service.php' );
+
+		$args = array(
+			'params' => array(
+				'count' => max( ($max_tweets * 4), 200 ), // Get *lots* as we have to throw some away later
+				'q'     => $twitter_search,
+			),
+		);
+
+		$transient_key = 'tt_profile-' . md5( serialize( $instance ) . serialize( $args ) );
+
+		if ( $output = get_transient( $transient_key ) ) {
+			echo $output;
+			return;
+		}
+
+		$service = new TT_Service;
+		$response = $service->request_search( $args );
+
+		if ( is_wp_error( $response ) ) {
+			error_log( "Twitter Tracker response error: " . print_r( $response, true ) );
+			return;
+		}
+
+		if ( $hide_replies )
+			$response->remove_replies();
+		
+		if ( ! $include_retweets )
+			$response->remove_retweets();
+
+		$response->convert_emoji( $convert_emoji );
+
+		$mandatory_hash = strtolower( trim( ltrim( $mandatory_hash, '#' ) ) );
+		if ( $mandatory_hash )
+			$response->remove_without_hash( $mandatory_hash );
+
 		$vars = array( 
-			'tweets' => $search->tweets(), 
+			'tweets' => array_slice( $response->items, 0, $max_tweets ),
 			'preamble' => $preamble,
 			'html_after' => $html_after,
 		);
+		
 		$vars[ 'datef' ] = _x( 'M j, Y @ G:i', 'Publish box date format', 'twitter-tracker' );
-		$this->render( 'widget-contents', $vars );
+
+		if ( ! $response->have_tweets() ) {
+			$vars[ 'msg' ] = apply_filters( 'tt_no_tweets', __( 'No tweets found.', 'twitter-tracker' ), $twitter_search, $instance );
+			$vars[ 'additional_error_class' ] = 'no-tweets';
+			$vars[ 'strong' ] = false;
+			$output = $this->capture( 'widget-error', $vars );
+		} else {
+			$output = $this->capture( 'widget-contents', $vars );
+		}
+		echo PHP_EOL . "<!-- Regenerating cache $transient_key at " . current_time( 'mysql' ) . " -->" . PHP_EOL;
+		echo $output;
+		$output = PHP_EOL . "<!-- Retrieved from $transient_key, cached at " . current_time( 'mysql' ) . " -->" . PHP_EOL . $output;
+		set_transient( $transient_key, $output, apply_filters( 'tt_cache_expiry', 300, $transient_key, $args ) );
 	}
-	
-	public function show_profile( $args )
+
+	public function show_profile( $instance = array() )
 	{
 		$defaults = array (
+			'convert_emoji' => 'hide',
 			'hide_replies' => false,
 			'include_retweets' => false,
 			'mandatory_hash' => '',
@@ -200,12 +313,9 @@ class TwitterTracker extends TwitterTracker_Plugin
 			'html_after' => '',
 			'preamble' => '',
 		);
-		$args = wp_parse_args( $args, $defaults );
-		
-		extract( $args );
+		$instance = wp_parse_args( $instance, $defaults );
 
-		require_once( dirname( __FILE__ ) . '/model/twitter-profile.php' );
-		require_once( dirname( __FILE__ ) . '/model/api-tweet.php' );
+		extract( $instance );
 
 		// Allow the local custom field to overwrite the widget's query, but
 		// only on single post (of any type)
@@ -213,17 +323,77 @@ class TwitterTracker extends TwitterTracker_Plugin
 			if ( $local_username = trim( get_post_meta( $post_id, '_tt_username', true ) ) )
 				$username = $local_username;
 
-		if ( ! $username )
+		// Let the user know if there's no search query
+		$username = trim( $username );
+		if ( empty( $username ) ) {
+			$vars = array( 
+				'msg' => __( 'For this Twitter Tracker profile widget to work you need to set at least a Twitter screenname (username) in the widget settings.', 'twitter-tracker' ),
+				'additional_error_class' => '',
+				'strong' => true,
+			);
+			$this->render( 'widget-error', $vars );
 			return;
-		
-		$search = new TwitterProfile ( $username, $max_tweets, $hide_replies, $include_retweets, $mandatory_hash );
+		}
+
+		// Let the user know if there's no auth
+		if ( ! TT_Twitter_Authentication::init()->is_authenticated() ) {
+			$vars = array( 
+				'msg' => __( 'For this Twitter Tracker profile widget to work you need to authorise with Twitter in "Dashboard" -> "Settings" -> "Twitter Tracker Auth".', 'twitter-tracker' ),
+				'additional_error_class' => '',
+				'strong' => true,
+			);
+			$this->render( 'widget-error', $vars );
+			return;
+		}
+
+		require_once( 'class.oauth.php' );
+		require_once( 'class.wp-twitter-oauth.php' );
+		require_once( 'class.response.php' );
+		require_once( 'class.twitter-service.php' );
+
+		$args = array(
+			'count' => max( ($max_tweets * 4), 200 ), // Get *lots* as we have to throw some away later
+		);
+
+		$transient_key = 'tt_search-' . md5( serialize( $instance ) . $username . serialize( $args ) );
+
+		if ( $output = get_transient( $transient_key ) ) {
+			echo $output;
+			return;
+		}
+
+		$service = new TT_Service;
+		$response = $service->request_user_timeline( $username, $args );
+
+		if ( is_wp_error( $response ) ) {
+			error_log( "Twitter Tracker response error: " . print_r( $response, true ) );
+			return;
+		}
+
+		if ( $hide_replies )
+			$response->remove_replies();
+
+		if ( ! $include_retweets )
+			$response->remove_retweets();
+
+		$response->convert_emoji();
+
+		$mandatory_hash = strtolower( trim( ltrim( $mandatory_hash, '#' ) ) );
+		if ( $mandatory_hash )
+			$response->remove_without_hash( $mandatory_hash );
+
+		// @TODO Setup a method for the default vars needed
 		$vars = array( 
-			'tweets' => $search->tweets(), 
+			'tweets' => array_slice( $response->items, 0, $max_tweets ),
 			'preamble' => $preamble,
 			'html_after' => $html_after,
 		);
 		$vars[ 'datef' ] = _x( 'M j, Y @ G:i', 'Publish box date format', 'twitter-tracker' );
-		$this->render( 'widget-contents', $vars );
+		$output = $this->capture( 'widget-contents', $vars );
+		echo PHP_EOL . "<!-- Regenerating cache $transient_key at " . current_time( 'mysql' ) . " -->" . PHP_EOL;
+		echo $output;
+		$output = PHP_EOL . "<!-- Retrieved from $transient_key, cached at " . current_time( 'mysql' ) . " -->" . PHP_EOL . $output;
+		set_transient( $transient_key, $output, apply_filters( 'tt_cache_expiry', 300, $transient_key, $username, $args ) );
 	}
 
 	public function & get()
@@ -243,7 +413,7 @@ class TwitterTracker extends TwitterTracker_Plugin
 function twitter_tracker( $instance )
 {
 	$tracker = TwitterTracker::get();
-	$tracker->show( $instance );
+	$tracker->show_search( $instance );
 }
 
 function twitter_tracker_profile( $instance )

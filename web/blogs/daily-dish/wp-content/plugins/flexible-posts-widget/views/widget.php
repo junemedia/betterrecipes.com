@@ -1,6 +1,12 @@
 <?php
 /**
- * Flexible Posts Widget: Default widget template
+ * Flexible Posts Widget: Old Default widget template
+ * 
+ * @since 1.0.0
+ *
+ * This is the ORIGINAL default template used by the plugin.
+ * There is a new default template (default.php) that will be 
+ * used by default if no template was specified in a widget.
  */
 
 // Block direct requests

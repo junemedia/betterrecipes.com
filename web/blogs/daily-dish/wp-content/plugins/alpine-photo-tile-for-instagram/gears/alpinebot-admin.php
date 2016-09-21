@@ -1,6 +1,6 @@
 <?php
 /**
- *  AlpineBot Seconday
+ *  AlpineBot Secondary
  * 
  *  ADMIN Functions
  *  Contains ONLY UNIVERSAL ADMIN functions
@@ -122,6 +122,8 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
  */
   function admin_generate_shortcode( $options, $optiondetails ){
     $short = '['.$this->get_private('short');
+		$id = rand(100, 1000);
+		$short .= ' id='.$id;
     $trigger = '';
     foreach( $options as $key=>$value ){
       if($value && isset($optiondetails[$key]['short'])){
@@ -175,12 +177,13 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
  */
   function admin_display_general(){ 
     ?>
-      <h3><?php _e("Thank you for downloading the "); echo $this->get_private('name'); _e(", a WordPress plugin by the Alpine Press.");?></h3>
+      <h3><?php _e("Thank you for downloading the "); echo $this->get_private('name'); _e(", <br>a WordPress plugin by the Alpine Press.");?></h3>
       <?php if( $this->check_private('termsofservice') ) {
         echo '<p>'.$this->get_private('termsofservice').'</p>';
       }?>
       <p><?php _e("On the 'Shortcode Generator' tab you will find an easy to use interface that will help you create shortcodes. These shortcodes make it simple to insert the PhotoTile plugin into posts and pages.");?></p>
       <p><?php _e("The 'Plugin Settings' tab provides additional back-end options.");?></p>
+			<p><?php _e("The 'Plugin Tools' tab allows you to check for required PHP extensions on your server and to test the performance of the plugin (with step-by-step timestamps and messages).");?></p>
       <p><?php _e("Finally, I am a one man programming team and so if you notice any errors or places for improvement, please let me know."); ?></p>
       <p><?php _e('If you liked this plugin, try out some of the other plugins by ') ?><a href="http://thealpinepress.com/category/plugins/" target="_blank">the Alpine Press</a>.</p>
       <br>
@@ -217,7 +220,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
  * First function for printing options page
  *  
  * @ Since 1.1.0
- * @ Updated 1.2.4
+ * @ Updated 1.2.7
  *
  */
   function admin_setup_options_form($currenttab){
@@ -231,6 +234,9 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
 
     $buttom = (isset($_POST[$this->get_private('settings').'_'.$currenttab]['submit-'.$currenttab])?$_POST[$this->get_private('settings').'_'.$currenttab]['submit-'.$currenttab]:'');
     if( $buttom == 'Delete Current Cache' ){
+			//
+			// DELETE CACHE BUTTON HAS BEEN DISABLED ON USER-SIDE
+			//
       $bot = new PhotoTileForInstagramBot();
       $bot->clearAllCache();
       echo '<div class="announcement">'.__("Cache Cleared").'</div>';
@@ -251,7 +257,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
  * Second function for printing options page
  *  
  * @ Since 1.1.0
- * @ Updated 1.2.5
+ * @ Updated 1.2.7
  *
  */
   function admin_display_opt_form($options,$currenttab){
@@ -265,18 +271,19 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       if( $submitted && isset($_POST['shortcode']) && $preview ){
         $short = str_replace('\"','"',$_POST['shortcode']);
       }elseif( $submitted ){
-        $short = $this->admin_generate_shortcode( $_POST, $defaults );
+				// Use filtered $options, not unflitered $_POST
+        $short = $this->admin_generate_shortcode( $options, $defaults );
       }
       ?>
       <div>
         <h3>This tool allows you to create shortcodes for the Alpine PhotoTile plugin.</h3>
         <p>A shortcode is a line of text that tells WordPress how to load a plugin inside the content of a page or post. Rather than explaining how to put together a shortcode, this tool will create the shortcode for you.</p>
       </div>
-      <?php 
+      <?php       
       if( !empty($short) ){
         ?>
         <div id="<?php echo $this->get_private('settings');?>-shortcode" style="position:relative;clear:both;margin-bottom:20px;" ><div class="announcement" style="margin:0 0 10px 0;">
-          Now, copy (Crtl+C) and paste (Crtl+V) the following shortcode into a page or post. Or preview using the button below.</div>
+          Now, copy (Crtl+C) and paste (Crtl+V) the following shortcode into a page or post. <br>Or preview using the button below.</div>
           <div class="AlpinePhotoTiles-preview" style="border-bottom: 1px solid #DDDDDD;">
             <input type="hidden" name="hidden" value="Y">
             <textarea id="shortcode" class="auto_select" name="shortcode" style="margin-bottom:20px;"><?php echo $short;?></textarea>
@@ -299,7 +306,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       foreach( $positions as $position=>$positionsinfo){
         echo '<div class="'. $position .'">'; 
           if( !empty($positionsinfo['title']) ){ echo '<h4>'. $positionsinfo['title'].'</h4>'; } 
-          if( !empty($positionsinfo['description']) ){ echo '<div style="margin-bottom:15px;"><span class="description" >'. $positionsinfo['description'].'</span></div>'; } 
+          if( !empty($positionsinfo['description']) ){ echo '<div style="margin-bottom:15px;"><span class="describe" >'. $positionsinfo['description'].'</span></div>'; } 
           echo '<table class="form-table">';
             echo '<tbody>';
               if( !empty($positionsinfo['options']) && count($positionsinfo['options']) ){
@@ -344,7 +351,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       echo '<input name="'.$this->get_private('settings').'_'.$currenttab .'[submit-'. $currenttab.']" type="submit" class="button-primary" value="Generate Shortcode" />';
     }elseif( 'plugin-settings' == $currenttab ){
       echo '<input name="'.$this->get_private('settings').'_'.$currenttab .'[submit-'. $currenttab.']" type="submit" class="button-primary" value="Save Settings" />';
-      echo '<input name="'.$this->get_private('settings').'_'.$currenttab .'[submit-'. $currenttab.']" type="submit" class="button-primary" style="margin-top:15px;" value="Delete Current Cache" />';
+      //echo '<input name="'.$this->get_private('settings').'_'.$currenttab .'[submit-'. $currenttab.']" type="submit" class="button-primary" style="margin-top:15px;" value="Delete Current Cache" />';
     }
   }
     
@@ -352,11 +359,11 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
 //////////////////////      Menu Display Functions       /////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////  
 /**
-  * Function for displaying forms in the widget page
-  *
-  *  @ Since 1.0.0
-  *  @ Updated 1.2.5
-  */
+ * Function for displaying forms in the widget page
+ *
+ * @ Since 1.0.0
+ * @ Updated 1.2.6.1
+ */
   function MenuDisplayCallback($options,$option,$fieldname,$fieldid){
     $default = (isset($option['default'])?$option['default']:'');
     $optionname = (isset($option['name'])?$option['name']:'');
@@ -370,7 +377,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       ?>
       <input type="checkbox" id="<?php echo $fieldid; ?>" name="<?php echo $fieldname; ?>" value="1" <?php checked( $value ); ?> />
       <label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label>
-      <span class="description"><?php echo $optiondescription; ?></span>
+      <span class="describe"><?php echo $optiondescription; ?></span>
       <?php
     }
     // Output radio button form field markup
@@ -381,7 +388,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       foreach ( $valid_options as $valid_option ) {
         ?>
         <input type="radio" name="<?php echo $fieldname; ?>" <?php checked( $valid_option['name'] == $value ); ?> value="<?php echo $valid_option['name']; ?>" />
-        <span class="description"><?php echo $optiondescription; ?></span>
+        <span class="describe"><?php echo $optiondescription; ?></span>
         <?php
       }
     }
@@ -400,7 +407,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
         }
         ?>
         </select>
-        <div class="description"><span class="description"><?php echo $optiondescription; ?></span></div>
+        <div class="describe"><span class="describe"><?php echo $optiondescription; ?></span></div>
       <?php
     } // Output select form field markup
     else if ( 'range' == $fieldtype ) {     
@@ -415,7 +422,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
         }
         ?>
         </select>
-        <span class="description"><?php echo $optiondescription; ?></span>
+        <span class="describe"><?php echo $optiondescription; ?></span>
       <?php
     } 
     // Output text input form field markup
@@ -423,31 +430,31 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       ?>
       <label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label>
       <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" value="<?php echo ( $value ); ?>" />
-      <div class="description"><span class="description"><?php echo $optiondescription; ?></span></div>
+      <div class="describe"><span class="describe"><?php echo $optiondescription; ?></span></div>
       <?php
     } 
     else if ( 'textarea' == $fieldtype ) {
       ?>
       <label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label>
       <textarea id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_textarea" ><?php echo $value; ?></textarea><br>
-      <span class="description"><?php echo (function_exists('esc_textarea')?esc_textarea( $optiondescription ):$optiondescription); ?></span>
+      <span class="describe"><?php echo (function_exists('esc_textarea')?esc_textarea( $optiondescription ):$optiondescription); ?></span>
       <?php
     }   
     else if ( 'color' == $fieldtype ) {
       $value = ($value?$value:$default);
       ?>    
       <label for="<?php echo $fieldid ?>">
-      <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_color"  value="<?php echo ( $value ); ?>" /><span class="description"><?php echo $optiondescription; ?></span></label>
+      <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_color"  value="<?php echo ( $value ); ?>" /><span class="describe"><?php echo $optiondescription; ?></span></label>
       <div id="<?php echo $fieldid; ?>_picker" class="AlpinePhotoTiles_color_picker" ></div>
       <?php
     }
   }
 
 /**
- *  Function for displaying forms in the admin page
+ * Function for displaying forms in the admin page
  *  
- *  @ Since 1.0.0
- *  @ Updated 1.2.6
+ * @ Since 1.0.0
+ * @ Updated 1.2.6.1
  */
   function AdminDisplayCallback($options,$option,$fieldname,$fieldid){
     $default = (isset($option['default'])?$option['default']:'');
@@ -462,7 +469,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       ?>
       <div class="title"><label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label></div>
       <input type="checkbox" id="<?php echo $fieldid; ?>" name="<?php echo $fieldname; ?>" value="1" <?php checked( $value ); ?> />
-      <div class="admin-description" ><?php echo $optiondescription; ?></div>
+      <div class="admin-describe" ><?php echo $optiondescription; ?></div>
       <?php
     }
     // Output radio button form field markup
@@ -473,7 +480,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       foreach ( $valid_options as $valid_option ) {
         ?>
         <input type="radio" name="<?php echo $fieldname; ?>" <?php checked( $valid_option['name'] == $value ); ?> value="<?php echo $valid_option['name']; ?>" />
-        <span class="admin-description"><?php echo $optiondescription; ?></span>
+        <span class="admin-describe"><?php echo $optiondescription; ?></span>
         <?php
       }
     }
@@ -492,7 +499,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
         }
         ?>
         </select>
-        <div class="admin-description"><?php echo $optiondescription; ?></div>
+        <div class="admin-describe"><?php echo $optiondescription; ?></div>
       <?php
     } // Output select form field markup
     else if ( 'range' == $fieldtype ) {     
@@ -507,7 +514,7 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
         }
         ?>
         </select>
-        <div class="admin-description"><?php echo $optiondescription; ?></div>
+        <div class="admin-describe"><?php echo $optiondescription; ?></div>
       <?php
     } 
     // Output text input form field markup
@@ -515,21 +522,21 @@ class PhotoTileForInstagramAdminSecondary extends PhotoTileForInstagramPrimary{
       ?>
       <div class="title"><label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label></div>
       <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" value="<?php echo ( $value ); ?>" />
-      <div class="admin-description" style="width:50%;"><?php echo $optiondescription; ?></div>
+      <div class="admin-describe" style="width:50%;"><?php echo $optiondescription; ?></div>
       <?php
     } 
     else if ( 'textarea' == $fieldtype ) {
       ?>
       <div class="title"><label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label></div>
       <textarea id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_textarea" ><?php echo $value; ?></textarea><br>
-      <span class="admin-description"><?php echo (function_exists('esc_textarea')?esc_textarea( $optiondescription ):$optiondescription); ?></span>
+      <span class="admin-describe"><?php echo (function_exists('esc_textarea')?esc_textarea( $optiondescription ):$optiondescription); ?></span>
       <?php
     }   
     else if ( 'color' == $fieldtype ) {
       $value = ($value?$value:$default);
       ?>
       <div class="title"><label for="<?php echo $fieldid; ?>"><?php echo $optiontitle ?></label></div>
-      <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_color"  value="<?php echo ( $value ); ?>" /><div class="admin-description" style="width:40%;"><?php echo $optiondescription; ?></div></label>
+      <input type="text" id="<?php echo $fieldid ?>" name="<?php echo $fieldname; ?>" class="AlpinePhotoTiles_color"  value="<?php echo ( $value ); ?>" /><div class="admin-describe" style="width:40%;"><?php echo $optiondescription; ?></div></label>
       <div id="<?php echo $fieldid; ?>_picker" class="AlpinePhotoTiles_color_picker" ></div>
       <?php
     }
@@ -696,28 +703,40 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
  * Add User
  *  
  * @ Since 1.2.0
- * @ Updated 1.2.4
+ * @ Updated 1.2.6.2
  */
   function AddUser( $post_content ){
     /* $post_content = array(
-        'access_token' => $access_token,
-        'username' => $user->username,
-        'picture' => $user->profile_picture,
-        'fullname' => $user->full_name,
-        'client_id' => $client_id,
-        'client_secret' => $client_secret
-      );*/
-    if( !empty($post_content['access_token']) && !empty($post_content['username']) && !empty($post_content['user_id']) ){
-      $user = $post_content['username'];
+          'access_token' => $access_token,
+          'username' => $user->username,
+          'picture' => $user->profile_picture,
+          'fullname' => $user->full_name,
+          'client_id' => $client_id,
+          'client_secret' => $client_secret
+        );*/
+    if( isset($post_content['access_token']) && !empty($post_content['access_token']) && isset($post_content['username']) && !empty($post_content['username']) && isset($post_content['user_id']) && !empty($post_content['user_id']) ){
+      // All necessary data is accounted for
+      
+      // Empty array to store users
+      $currentUsers = array();
+
+      $username = $post_content['username'];
       $oldoptions = $this->get_all_options();
-      $currentUsers = $oldoptions['users'];
-      //if( empty($currentUsers[ $user ]) || ($currentUsers[ $user ]['access_token'] != $post_content['access_token']) ){
-        $post_content['name'] = $user;
-        $post_content['title'] = $user;
-        $currentUsers[ $user ] = $post_content;
-        $oldoptions['users'] = $currentUsers;
-        update_option( $this->get_private('settings'), $oldoptions);
-      //}
+     
+      if( isset($oldoptions['users']) && !empty($oldoptions['users']) ){
+        // Check current record of users
+        $currentUsers = $oldoptions['users'];
+      }
+      
+      $post_content['name'] = $username;
+      $post_content['title'] = $username;
+      // Add user to users array
+      $currentUsers[ $username ] = $post_content;
+      
+      // Re-assign users array
+      $oldoptions['users'] = $currentUsers;
+      update_option( $this->get_private('settings'), $oldoptions );
+
     }
     return true;
   } 
@@ -762,10 +781,15 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
    * Alpine PhotoTile: Options Page
    *
    * @ Since 1.1.1
-   * @ Updated 1.2.4
+   * @ Updated 1.2.7.6
    */
   function admin_build_settings_page(){
-    $currenttab = isset( $_GET['tab'] )?$_GET['tab']:'general'; 
+    $currenttab = isset( $_GET['tab'] )?$_GET['tab']:'general';
+    // Check for valid tab
+    $possible_tabs = array_keys( $this->admin_settings_page_tabs() );
+    if( !in_array($currenttab,$possible_tabs) ){
+        $currenttab = 'general';
+    }
     
     echo '<div class="wrap AlpinePhotoTiles_settings_wrap">';
     $this->admin_options_page_tabs( $currenttab );
@@ -776,14 +800,17 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
             $this->admin_display_general();
           }elseif( 'add' == $currenttab ){
             $this->admin_display_add();
+          }elseif( 'plugin-tools' == $currenttab ){
+            $this->admin_display_tools();
           }else{
             $this->admin_setup_options_form($currenttab);
           }
         echo '</div>';
         
         echo '<div class="bottom" style="position:relative;width:100%;margin-top:20px;">';
-          $this->admin_donate_button();
-          echo '<div class="help-link"><p>'.__('Need Help? Visit ').'<a href="'.$this->get_private('info').'" target="_blank">the Alpine Press</a>'.__(' for more about this plugin.').'</p></div>';  
+          //$this->admin_donate_button();
+          echo '<div class="help-link"><p>'.__('Need Help? Visit ').'<a href="'.$this->get_private('info').'" target="_blank">the Alpine Press</a>'.__(' for more about this plugin.').'</p></div>'; 
+					echo '<div><b>**Please Note: This plugin is no longer being developed or maintained. If you are a WordPress developer, I encourage you to take this plugin and make it your own.**</b></div>';
         echo '</div>';
       echo '</div>'; // Close Container
       
@@ -834,7 +861,7 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
  * Display Add User Page
  *  
  * @ Since 1.2.0
- * @ Updated 1.2.6
+ * @ Updated 1.2.7
  */
   function admin_display_add(){ 
   
@@ -868,11 +895,13 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
       }
     }
     elseif( isset($_POST['delete-user']) && isset($_POST['user']) ){
+      // Delete User button was pressed
       $delete = true;
       $user = $_POST['user'];
       $this->DeleteUser( $user );
     }
     elseif( isset($_POST['update-user']) && isset($_POST['user']) ){
+      // Update User button was pressed
       $user = $_POST['user'];
       $users = $this->get_instagram_users();
       if( !empty($users) && !empty($users[$user]) && !empty($users[$user]['access_token']) && !empty($users[$user]['user_id']) ){
@@ -898,12 +927,15 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
         }
         
         if( isset( $content ) ){
+          // Before decoding JSON, remove Emoji characters from content
+          $content = $this->removeEmoji($content);
+        
           if( function_exists('json_decode') ){
             $_instagram_json = @json_decode( $content, true );
+          }elseif( function_exists('alpine_json_decode') ){
+            $_instagram_json = @alpine_json_decode( $content, true );
           }
-          if( empty($_instagram_json) && method_exists( $this, 'json_decoder' ) ){
-            $_instagram_json = $this->json_decoder($content);
-          }
+					
           if( empty($_instagram_json) || 200 != $_instagram_json['meta']['code'] ){
             $errormessage = 'User not updated';
           }elseif( !empty($_instagram_json['data']) ){
@@ -925,6 +957,7 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
       $success = $this->AddUser($_POST);
     }
     elseif( isset($_GET['code']) ) {
+      // Callback has been received from Instagram
       $code = $_GET['code'];
       $client_id = $this->get_option('client_id');
       $client_secret = $this->get_option('client_secret');
@@ -962,13 +995,16 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
       }
         
       if( isset($content) ) {
-        if( function_exists('json_decode') ){
-          $auth = @json_decode( $content, true );
-        }
-        if( empty($auth) && method_exists( $this, 'json_decoder' ) ){
-          // Try alternative decode
-          $auth = $this->json_decoder($content);
-        }
+        // Before decoding JSON, remove Emoji characters from content
+        $content = $this->removeEmoji($content);
+
+				if( function_exists('json_decode') ){
+					$auth = @json_decode( $content, true );
+				}elseif( function_exists('alpine_json_decode') ){
+					$auth = @alpine_json_decode( $content, true );
+				}
+					
+        // If decoded correctly, should now have access token
         if( isset($auth['access_token']) ) {
           $access_token = $auth['access_token'];
           $user = $auth['user'];
@@ -987,7 +1023,12 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
           $errormessage = 'No access token found';
         }
       }elseif( !is_wp_error($response) && $response['response']['code'] >= 400 ) {
-        $error = json_decode($response['body']);
+        $error = '';
+				if( function_exists('json_decode') ){
+					$error = @json_decode( $response['body'], true );
+				}elseif( function_exists('alpine_json_decode') ){
+					$error = @alpine_json_decode( $response['body'], true );
+				}
         $errormessage = $error->error_message;
         $errortype = $error->error_type;
       }
@@ -1022,7 +1063,17 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
               }
               echo '</div>';
             }else{
-              echo '<div id="AlpinePhotoTiles-user-form" style="margin-bottom:20px;padding-bottom:20px;overflow:hidden;border-bottom: 1px solid #DDDDDD;">'; 
+            
+              echo '<div style="max-width:680px;">';
+              // Display Message about adding users
+              $this->admin_display_add_message();
+              // Show directions for Add User Method One
+              $this->admin_display_method_one($redirect);
+              echo '</div>';
+                      
+                      
+              // Display Form
+              echo '<div id="AlpinePhotoTiles-user-form" style="overflow:hidden;margin-top:20px;padding:20px;border: 1px solid #DDDDDD;">'; 
                 ?>
                 <form id="<?php echo $this->get_private('settings')."-add-user";?>" action="" method="post">
                 <input type="hidden" name="hidden" value="Y">
@@ -1055,25 +1106,34 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
           }
         }
     echo '</div>'; // close add div
-          ?>
-        <div style="max-width:680px;">
-          <h1><?php _e('How to get your Instagram Client ID and Client Secret');?> :</h1>
-          <h2>(<?php _e("Don't worry. I promise it's EASY");?>!!!)</h2>
-          <p><?php _e("Instagram is quite protective of its users. Before your WordPress website can retrieve images from Instagram, you must authorize your WordPress site to access your Instagram account. This is done by following these 5 simple steps: <br>(Please <a href=".$this->get_private('info'). ">let me know</a> if these directions become outdated)");?>
+
+    $this->admin_display_method_two();
+  }
+  
+  
+/**
+ * Display Add User Method One
+ *  
+ * @ Since 1.2.6.3
+ */
+  function admin_display_method_one($redirect){ 
+    ?>
+      <div style="margin-top:40px;padding-top:10px;border-top: 1px solid #DDDDDD;">
+          <h2><?php _e("Method One (Try this first)");?>:</h2>
           <ol>
             <li>
-              <?php _e('Before starting, go to Instagram.com and make sure you are logged into the account you wish to add. Once you are logged in, visit');?> <a href="http://instagram.com/developer" target="_blank">http://instagram.com/developer</a>.
+              <?php _e('Before starting, go to Instagram.com and make sure you are logged into the Instagram account you wish to add. Once you are logged in, visit');?> <a href="http://instagram.com/developer" target="_blank">http://instagram.com/developer</a>.
             </li>
             <li>
               <?php _e('Click on the "Manage Clients" link, as shown below.');?>
               <p><img src="<?php echo $this->get_private('url');?>/css/images/manage-clients.png"/></p>
               <p><?php _e('If this is the first time you are adding an app or plugin, Instagram will ask you a few questions. You can enter these responses, click "Sign Up", and then click "Manage Clients" again:');?></p>
               <dt><strong><?php _e('Your website:');?></strong></dt>
-              <dd><em><?php _e('Enter your website url');?></em></dd>
+              <dd><em style="color:#2ea2cc;"><?php _e('Enter your website url');?></em></dd>
               <dt><strong><?php _e('Phone number:');?></strong></dt>
-              <dd><em><?php _e('Enter your phone number (They have never called me...)');?></em></dd>
+              <dd><em style="color:#2ea2cc;"><?php _e('Enter your phone number (They have never called me...)');?></em></dd>
               <dt><strong><?php _e('What do you want to build with the API?');?></strong></dt>
-              <dd><em><?php _e('A plugin for my WordPress website.');?></em></dd>
+              <dd><?php _e('A plugin for my WordPress website.');?></dd>
               <p><img src="<?php echo $this->get_private('url');?>/css/images/sign-up.png"/></p>
             </li>
             <li>
@@ -1082,31 +1142,47 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
             </li>
             <li>
               <p><?php _e('Fill in the "Register new OAuth Client" form with the following infomation and click "Register":');?></p>
-              <dl>
-                <dt><strong><?php _e('Application name');?></strong></dt>
-                <dd><p><?php _e('Enter the name of your WordPress website');?></p></dd>
-                <dt><strong><?php _e('Description');?></strong></dt>
-                <dd><p><?php echo $this->get_private('name');?> WordPress plugin</p></dd>
-                <dt><strong><?php _e('Website');?></strong></dt>
-                <dd><p><?php _e('Enter your website url');?></p></dd>
-                <dt><strong><?php _e('OAuth redirect_url');?></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<?php _e('This must be copied exactly as shown below');?>**</dt>
-                
-                <dd><p style="color:red;"><?php echo $redirect; ?></p></dd>
-              </dl>
+              <dt><strong><?php _e('Application name');?></strong></dt>
+              <dd><em style="color:#2ea2cc;"><?php _e('Enter the name of your WordPress website');?></em></dd>
+              <dt><strong><?php _e('Description');?></strong></dt>
+              <dd><?php echo $this->get_private('name');?> WordPress plugin</dd>
+              <dt><strong><?php _e('Website');?></strong></dt>
+              <dd><em style="color:#2ea2cc;"><?php _e('Enter your website url');?></em></dd>
+              <dt><strong><?php _e('OAuth redirect_url');?></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<?php _e('This must be copied exactly as shown below');?>**</dt>
+              
+              <dd><span style="color:red;"><?php echo $redirect; ?></span></dd>
+
               <p><img src="<?php echo $this->get_private('url');?>/css/images/register.png"/></p>
             </li>
             <li>
-              <?php _e('Enter the Client ID and Client Secret into the form above and click "Add and Authorize New User". You will then be directed to an Instagram page where you can finish the authorization. I hope you enjoy the plugin.');?>
+              <?php _e('You have just created a new Instagram client. Enter the Client ID and Client Secret into the "Add New User" form below and click "Add and Authorize New User". You will then be directed to an Instagram page where you can finish the authorization. I hope you enjoy the Alpine PhotoTile plugin!');?>
             </li>
           </ol>
-        </div>
+      </div>
+     <?php
+  }
+  
+/**
+ * Display Add User Method Two
+ *  
+ * @ Since 1.2.6.3
+ */
+  function admin_display_method_two(){ 
+       ?>
+      <div style="margin-top:80px;padding-top:10px;border-top: 1px solid #DDDDDD;">
+        <h2><?php _e("Method Two (If Method One is not working)");?>:</h2>
+        <p>Your Internet browser or the server that your WordPress site is hosted on may cause Method One to fail. Therefore, in Method Two you will use a tool hosted at theAlpinePress.com to retrieve the information you need and then manually submit it to the plugin using the form below.</p>
+          <ol>
+            <li>
+              <?php _e('Follow directions 1 through 6 at');?> <a href="http://thealpinepress.com/instagram-tool/" target="_blank">the Alpine Press</a> <?php _e('to register another Instagram client and to retrieve your Instagram user information. Do not skip any of the steps.');?>
+            </li>
+            <li>
+              <?php _e('Once this is done, your Instagram information will be displayed in a green box. Fill out the "Manually Add New User" form below and click "Store User Information".');?> 
+            </li>
+          </ol>
 
-      <div style="margin-top:80px;border-top: 1px solid #DDDDDD;">
-        <h1>If the above method does not seem to be working:</h1>
-        <p>I have setup a troubleshooting tool at <a href="http://thealpinepress.com/instagram-tool/" target="_blank">the Alpine Press</a> that you can use to manually retrieve the information you need.</p>
-        <p>Once this is done, fill out and submit the form below.</p>
-        
-         <div id="AlpinePhotoTiles-manual-user-form" style="overflow:hidden;">
+         <div id="AlpinePhotoTiles-manual-user-form" style="overflow:hidden;padding:20px;border: 1px solid #DDDDDD;">
+            <h4>Manually Add New User</h4>
             <form id="alpine-photo-tile-for-instagram-settings-add-user" method="post" action="">
               <input type="hidden" value="Y" name="hidden">
                 <div class="center">
@@ -1120,7 +1196,7 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
                           <div class="title">
                           <label for="<?php echo $name;?>"><?php echo $title;?> : </label>
                           </div>
-                          <input id="<?php echo $name;?>" type="text" value="" name="<?php echo $name;?>">
+                          <input id="<?php echo $name;?>" type="text" value="" name="<?php echo $name;?>" style="width:400px">
                         </td>
                         </tr>
 
@@ -1128,16 +1204,168 @@ class PhotoTileForInstagramAdmin extends PhotoTileForInstagramAdminSecondary{
                     </tbody>
                   </table>
                 </div>
-              <input id="manual-form-submit" class="button-primary" type="submit" value="Add New User" style="margin-top:15px;" name="manual-user-form">
+              <input id="manual-form-submit" class="button-primary" type="submit" value="Store User Information" style="margin-top:15px;" name="manual-user-form">
             </form>
           <br style="clear:both;">
         </div>
 
       </div>
     <?php
-
   }
+  
+/**
+ * Display Add User Message
+ *  
+ * @ Since 1.2.6.3
+ */
+  function admin_display_add_message(){ 
+    ?>   
+      <h1><?php _e('How to add an Instagram User');?>:</h1>
+      <h3>(<?php _e("Don't worry. I promise it's EASY");?>!!!)</h3>
+      <p><?php _e("Below are two different methods for adding users to the Alpine PhotoTile for Instagram plugin. Try Method One first. If it does not work, try Method Two. Please <a href='http://wordpress.org/support/plugin/alpine-photo-tile-for-instagram'>let me know</a> if these directions become outdated.");?>
+    <?php      
+  }
+
+
+/**
+ * Display Tools Page
+ *  
+ * @ Since 1.2.7
+ */
+  function admin_display_tools(){ 
+		echo '<div class="top">'; 
+			echo '<h4>System Check</h4>';
+			echo '<div style="margin-bottom:15px;"><span class="describe" >Check the settings and extensions on your web server.</span></div>'; 
+			echo '<table class="form-table">';
+				echo '<tbody>';
+					// PHP Version
+					echo '<tr valign="top"><td class="unlinked "><div class="title">';
+					if ( function_exists('phpversion') ){
+						echo '<b>Current PHP version of your server:</b> '. phpversion();
+					}else{
+						echo '<b>Current PHP version of your server:</b> < 4';
+					}
+					echo '</div></td></tr>';
+					// cURL
+					echo '<tr valign="top"><td class="unlinked "><div class="title">';
+					if ( function_exists('curl_init') ){
+						echo '<b>Check:</b> <span style="color:green">curl_init function found</span>.';
+						$version = curl_version();
+						echo '<br><b>cURL Version:</b> '.$version['version'] ;
+						// Try connecting to Instagram.com
+						$request = 'http://instagram.com/';
+						$response = wp_remote_get($request,array('timeout' => 10));
+						if( is_wp_error( $response ) ){
+							echo '<br><b>Check:</b> <span style="color:red">Plugin failed to connect to Instagram.com.</span>';
+							echo '<br><b>WordPress Error Message:</b> '.$response->get_error_message().'.';
+						}else{
+							if( isset( $response['response'] ) && isset( $response['response']['code'] ) && isset( $response['response']['message'] )){
+								if( $response['response']['code'] == 200 ){
+									echo '<br><b>Check:</b> <span style="color:green">Plugin successfully connected to Instagram.com.</span>';
+								}else{
+									echo '<br><b>Check:</b> <span style="color:red">Plugin failed to connect to Instagram.com.</span>';
+									echo '<br><b>Code:</b> '.$response['response']['code'].', <b>Message:</b> '.$response['response']['message'].'.';
+								}
+							}
+						}
+					}else{
+						echo '<p><b>Check:</b> <span style="color:red">curl_init function not found.</span> To connect to Instagram.com, your server needs to have the cURL extension enabled. Unfortunately, this extension was not found on your server.</p>';
+						echo '<p><b>Recommendation(s):</b></p>';
+						echo '<ol>';
+							echo '<li>Contact your web host. They may need to simply enable a PHP extension or open a port.</li>';
+						echo '</ol>';
+					}
+					// JSON Decode
+					echo '<tr valign="top"><td class="unlinked "><div class="title">';
+					if ( function_exists('json_decode') ){
+						echo '<b>Check:</b> <span style="color:green">json_decode function found.</span>';
+						$m = json_decode('{"code":1}', true);
+						if( !empty( $m ) && isset($m['code']) && $m['code'] == 1 ){
+							echo '<br><b>Check:</b> <span style="color:green">Sample JSON successfully decoded and parsed.</span>';
+						}else{
+							echo '<br><b>Check:</b> <span style="color:red">Server failed to decode sample JSON.</span>';
+						}
+					}else{
+						echo '<p><b>Check:</b> <span style="color:red">json_decode function not found</span>. Instagram feeds are in a format known as JSON. Servers with PHP 5.2.0+ have a JSON extension that allows the server to quickly interpret the JSON feed. Unfortunately, this function was not found on your server.</p>';
+						echo '<p><b>Recommendation(s):</b></p>';
+						echo '<ol>';
+							echo '<li>Contact your web host. A good hosting provider should be using an updated version of PHP with JSON extensions enabled.</li>';
+							echo '<li>The Alpine plugin includes a backup function that can interpret JSON, but it is <b>very slow</b>. You can expect loading times of 20+ seconds. Therefore, I recommended visiting the Plugin Settings page and setting the cache time to between 24 and 48 hours.</li>';
+						echo '</ol>';
+						//echo '<div class="announcement"> PHP Server is missing . </div>';
+					}
+					echo '</div></td></tr>';
+					// Rec
+					echo '<tr valign="top"><td class="unlinked "><div class="title">';
+						echo '<p>If you are looking for a new/better web host, I recommend the following sites. (Full disclosure: I use these sites, am in their affiliate programs, and get paid a commision if you sign up using these links):</p>';
+						echo '<ul>';
+							echo '<li style="list-style-type:disc;margin-left:3em;"><a href="http://www.bluehost.com/track/thealpinepress" target="_blank">BlueHost</a> is one of the most popular hosting options on the Internet. They are also the most recommended hosting service by WordPress. BlueHost makes it quick and easy to install WordPress and I use them to host theAlpinePress.com.</li>';
+							echo '<li style="list-style-type:disc;margin-left:3em;"><a href="https://www.fatcow.com/join/index.bml?AffID=645572&amp;LinkName=alpineinstagram" target="_blank">FatCow</a> is a nice, cheap option. I have noticed that the servers go down a few times a year, but since I pay around $4 a month to host 3 WordPress sites (ElectricTreeHouse.com, Rebuild-US.net, and KylinUntitled.com), I am okay with it.</li>';
+						echo '</ul>';
+						
+					echo '</div></td></tr>';
+					
+				echo '</tbody>';
+			echo '</table>';
+		echo '</div>'; // Close top
+
+		
+		$currenttab = 'plugin-tools';
+
+    $defaults = $this->option_defaults();
+    $submitted = ( ( isset($_POST[ "hidden" ]) && ($_POST[ "hidden" ]=="Y") ) ? true : false );
+		
+      $test = (isset($_POST[ $this->get_private('settings').'_test']['submit-test']) && $_POST[ $this->get_private('settings').'_test']['submit-test'] == 'Test Plugin')?true:false;
+      if( $submitted && isset($_POST['shortcode']) && $test ){
+        $short = str_replace('\"','"',$_POST['shortcode']);
+      }else{
+				$short = '';
+			}
+			
+      ?>
+      <div>
+        <h3>Plugin Loading Test</h3>
+        <p>Create a shortcode using the Shortcode Generator and paste it into the box below. Then, click "Test Plugin" to use the tool. 
+				The plugin will be loaded once directly from the Instagram feed and once from the cache (unless disabled). 
+				This test shows the server-side loading times only and does not include delays from loading photos into a browser or running the JS/jQuery code 
+				(It should be clear that loading from the cache is much faster).</p>
+      </div>
+      <?php       
+
+        ?>
+			<form action="" method="post">
+        <input type="hidden" name="hidden" value="Y">
+        <div id="<?php echo $this->get_private('settings');?>-shortcode" style="position:relative;clear:both;margin-bottom:20px;" >
+          <div class="AlpinePhotoTiles-test" style="">
+            <input type="hidden" name="hidden" value="Y">
+            <textarea id="shortcode" name="shortcode" style="margin-bottom:20px;height:100px;"><?php echo $short;?></textarea>
+            <input name="<?php echo $this->get_private('settings');?>_test[submit-test]" type="submit" class="button-primary" value="Test Plugin" />
+            <br style="clear:both">
+          </div>
+        </div>
+			</form>
+        <?php 
+
+
+			if( $submitted && isset($_POST['shortcode']) && $test ){  
+				// Use "plugin-loading-test" as widget id and set "test" variable to true.
+				$plugin_id = "plugin-loading-test";
+				$short_one = str_replace(']',' id='.$plugin_id.' testmode=1]',$short); // No cache
+				$short_two = str_replace(']',' id='.$plugin_id.' testmode=2]',$short); // With cache
+				//echo $short;
+				
+				echo '<br>';
+				echo '<h3>Load from the Instagram feed</h3>';
+				echo '<div style="border-top: 1px solid #DDDDDD;padding-bottom:10px;margin-bottom:30px;">';
+				echo do_shortcode($short_one);
+				echo '</div>';
+				echo '<h3>Load from cache</h3>';
+				echo '<div style="border-top: 1px solid #DDDDDD;padding-bottom:0px;margin-bottom:0px;">';
+				echo do_shortcode($short_two);
+				echo '</div>';
+			}
+	}
+
+	
 }
-
-
 ?>

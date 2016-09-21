@@ -1,29 +1,35 @@
-<div class="wrap">
-    <div id="icon-edit-pages" class="icon32"><br/></div>
-    <h2><?php echo ($form) ? (FrmAppHelper::truncate($form->name, 25) .' ') : ''; _e('Entries', 'formidable'); ?></h2>
+<div id="form_entries_page" class="wrap">
+	<h1><?php _e( 'Entries', 'formidable' ); ?>
+        <?php do_action('frm_entry_inside_h2', $form); ?>
+	</h1>
 
-    <?php require(FRM_VIEWS_PATH.'/shared/errors.php'); ?>
+	<?php require( FrmAppHelper::plugin_path() . '/classes/views/shared/errors.php' ); ?>
 
-    <?php if($form) FrmAppController::get_form_nav($form->id, true); ?>
+    <form id="posts-filter" method="get">
+        <div id="poststuff">
+            <div id="post-body" class="metabox-holder columns-2">
+            <div id="post-body-content">
+                <?php FrmAppController::get_form_nav($form, true, 'hide'); ?>
+            </div>
+            <div id="postbox-container-1" class="postbox-container">
+                <input type="hidden" name="page" value="formidable-entries" />
+				<input type="hidden" name="form" value="<?php echo esc_attr( $form ? $form->id : '' ); ?>" />
+                <input type="hidden" name="frm_action" value="list" />
+                <?php $wp_list_table->search_box( __( 'Search', 'formidable' ), 'entry' ); ?>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <?php if ( $form ) { ?>
+            <div id="titlediv" class="frm-on-bottom">
+				<input id="title" type="text" value="<?php echo esc_attr( $form->name == '' ? __( '(no title)' ) : $form->name ) ?>" readonly="readonly" disabled="disabled" />
+            </div>
+            <?php } ?>
 
-    <?php FrmAppController::update_message('view, search, export, and bulk delete your saved entries'); ?>
+			<?php FrmTipsHelper::pro_tip( 'get_entries_tip' ); ?>
 
-    <?php if(!$form or $entry_count){ ?>
-    <img src="<?php echo FRM_URL ?>/screenshot-3.png" alt="Entries List" style="max-width:100%"/>
-    <?php }else{ ?>
-    <table class="wp-list-table widefat post fixed" cellspacing="0">
-        <thead>
-            <tr><th class="manage-column" scope="col"> </th></tr>
-        </thead>
-        <tbody>
-            <tr><td>
-            <?php include(FRM_VIEWS_PATH .'/frm-entries/no_entries.php'); ?>
-            </td></tr>
-        </tbody>
-        <tfoot>
-            <tr><th class="manage-column" scope="col"> </th></tr>
-        </tfoot>
-    </table>
-    <?php } ?>
+            <?php $wp_list_table->display(); ?>
+
+        </div>
+    </form>
+
 </div>
-

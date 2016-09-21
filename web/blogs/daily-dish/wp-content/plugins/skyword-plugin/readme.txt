@@ -2,8 +2,8 @@
 Contributors: skyword
 Tags: skyword, api
 Requires at least: 3.3
-Tested up to: 3.8
-Stable tag: 2.1.2
+Tested up to: 4.4.2
+Stable tag: 2.2.1
 
 Allows integration with the skyword publishing platform.
 
@@ -19,6 +19,52 @@ Allows integration with the skyword publishing platform.
 == Screenshots ==
 
 == Changelog ==
+
+= 2.2.1 =
+* Increase number of posts to return for sitemaps
+
+= 2.2 =
+* Add new method of syncing taxonomies by getting terms in chunks instead of all at once lowering client's memory usage
+
+= 2.1.14 =
+* Fix hyphens in custom fields
+* Use full image for og:image meta tag
+
+= 2.1.13 =
+* Use urldecode() instead of str_replace()
+
+= 2.1.12 =
+* Skip any taxonomies with over 50k terms during sync. Workaround till platform changes are completed.
+
+= 2.1.11 =
+* Fix version error for platform
+
+= 2.1.10 =
+* Fix sitemap errors
+
+= 2.1.9 =
+* Add check for thumbnail size for opengraph image tag
+
+= 2.1.8 =
+* Add method to get phpinfo() for diagnosis. Can only be called by authorized user using HTTPS
+
+= 2.1.7 =
+* Fix use of Coauthors Plus to create user
+
+= 2.1.6 =
+* Bug fix
+
+= 2.1.5 =
+* Can now send taxonomies by their id
+
+= 2.1.4 =
+* Fixed version number
+
+= 2.1.3 =
+* Added shortcode for tracking - [skyword_tracking id='12345'] or [skyword_tracking] (auto content_id retrieval)
+* Fixed line returns in open graph tags.
+* Fixed published date changing after a revision.
+
 = 2.1.2 =
 * Added configurable slugs
 

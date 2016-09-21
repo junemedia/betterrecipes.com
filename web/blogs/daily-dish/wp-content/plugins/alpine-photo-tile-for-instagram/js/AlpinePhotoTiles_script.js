@@ -1,8 +1,8 @@
 /*
  * Alpine PhotoTile : jQuery Tile Display Functions
  * By: Eric Burger, http://thealpinepress.com
- * Version: 1.0.3
- * Updated: April  2013
+ * Version: 1.0.4
+ * Updated: December  2013
  * 
  */
 
@@ -416,7 +416,7 @@
       }
       
       function newRow(height,i){
-        if(s.browser.msie && !d.querySelector){
+        if(!s.support.leadingWhitespace && !d.querySelector){
           currentRow = s('<div></div>');
           currentRow.css({'height':height+'px'});
           parent.append(currentRow);
@@ -428,7 +428,7 @@
         }  
       }
       function addDiv(i){
-        if(s.browser.msie && !d.querySelector){
+        if(!s.support.leadingWhitespace && !d.querySelector){
           newDiv = s('<div id="'+parent.attr('id')+'-image-'+i+'" class="AlpinePhotoTiles-image-div" style='+"'"+'background:'+url+' no-repeat center center;'+"'"+'></div>');                
         }else{
           newDiv = s('<div id="'+parent.attr('id')+'-image-'+i+'" class="AlpinePhotoTiles-image-div"></div>');   
@@ -442,8 +442,36 @@
         }
         
         newDivContainer = s('<div class="AlpinePhotoTiles-image-div-container '+theClasses+'"></div>');
-        
-        if(s.browser.msie && !d.querySelector){
+				
+        //options.captions = true;
+				if( options.captions ){
+					cap = s('<p>'+img.alt+'</p>');
+					cap.css({
+						"text-align":"left",
+						"display": "block",
+						"position": "absolute",
+						"margin": 0,
+						"padding": 5,
+						"font-size": "1em",
+						"bottom": 0,
+						"left": 0,
+						"background": "black",
+						"color": "white",
+						"opacity": 0
+					});
+					newDiv.append( cap );   
+					newDivContainer.hover(function(){
+						s('p',this).css({
+							"opacity": "0.8"
+						});
+					},function(){
+						s('p',this).css({
+							"opacity": 0
+						});
+					});
+				}
+				
+        if(!s.support.leadingWhitespace && !d.querySelector){
           newDivContainer.css({
             "height":(theHeight*0.99)+"px",
             "width":(theWidth)+"px",
@@ -461,10 +489,10 @@
         
         if(perm){
           if(options.lightbox){
-            newDiv.wrap('<a href="'+perm.href+'" title="'+perm.title+'" alt="'+perm.title+'"  class="AlpinePhotoTiles-link AlpinePhotoTiles-lightbox" target="_blank"></a>');
+            newDiv.wrap('<a href="'+perm.href+'" title="'+perm.title+'" alt="'+perm.title+'"  class="AlpinePhotoTiles-link AlpinePhotoTiles-lightbox" target="'+perm.target+'"></a>');
             s(perm).removeClass( 'AlpinePhotoTiles-lightbox' );
           }else{
-            newDiv.wrap('<a href="'+perm.href+'" class="AlpinePhotoTiles-link" target="_blank"></a>');
+            newDiv.wrap('<a href="'+perm.href+'" class="AlpinePhotoTiles-link" target="'+perm.target+'"></a>');
           }
         }
         /*if( img.title ){
@@ -486,9 +514,15 @@
               "background": options.highlight
             });
           },function(){
-            s(this).css({
-              "background-color": "#fff"
-            });
+            if( options.imageBorder ){
+              s(this).css({
+                'background-color': '#fff'
+              });
+            }else{
+              s(this).css({
+                'background-color': ''
+              });
+            }
           });
         }
         if(options.imageShadow){
@@ -504,6 +538,7 @@
           var link = s('<div class="AlpinePhotoTiles-pin-it small" ><a href="http://pinterest.com/pin/create/button/?media='+media+'&url='+(options.siteURL)+'" class="pin-it-button" count-layout="horizontal" target="_blank" style="height:100%;width:100%;display:block;"></a></div>');
           newDiv.append(link);
         }
+        
       }
       
       function updateHeight(aDiv,aHeight){
@@ -532,7 +567,8 @@
       s.each(images,function(){
         var currentImg = s(this);
         var width = currentImg.parent().width();
-        
+        var wBorder = false;
+        //console.log( this.alt );
         // Remove and replace ! important classes
         if( currentImg.hasClass('AlpinePhotoTiles-img-border') ){
           width -= 10;
@@ -540,9 +576,11 @@
           currentImg.css({
             'max-width':(width)+'px',
             'padding':'4px',
-            "margin-left": "1px",
-            "margin-right": "1px"
+            'margin-left': '1px',
+            'margin-right': '1px',
+            'background-color':'#fff'
           });
+          wBorder = true;
         }else if( currentImg.hasClass('AlpinePhotoTiles-img-noborder') ){
           currentImg.removeClass('AlpinePhotoTiles-img-noborder');
           currentImg.css({
@@ -586,11 +624,46 @@
               "background-color": options.highlight
             });
           },function(){
-            s(this).css({
-              "background-color": "#fff"
-            });
+            if( wBorder ){
+              s(this).css({
+                'background-color': '#fff'
+              });
+            }else{
+              s(this).css({
+                'background-color': ''
+              });
+            }
           });
         }
+				/*
+        options.captions = true;
+				if( options.captions ){
+					cap = s('<p>'+this.alt+'</p>');
+					cap.css({
+						"text-align":"left",
+						"display": "block",
+						"position": "absolute",
+						"margin": 0,
+						"padding": 5,
+						"font-size": "1em",
+						"bottom": 0,
+						"left": 0,
+						"background": "black",
+						"color": "white",
+						"opacity": 0
+					});
+					currentImg.parent().append( cap );   
+					currentImg.parent().hover(function(){
+						s('p',this).css({
+							"opacity": "0.8"
+						});
+					},function(){
+						s('p',this).css({
+							"opacity": 0
+						});
+					});
+				}*/
+				
       });
     });
   }

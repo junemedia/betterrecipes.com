@@ -161,7 +161,7 @@ function wp_rss_img_include (){
 		$statuscode = get_http_response_code($image_url);
 		if($enclosure && $statuscode && $statuscode != "404") 
 		{
-			$image_url = str_replace("my.wordpress.blog","blogs.mydevstaging.com", $image_url);
+			$image_url = str_replace("my.wordpress.blog","www.betterrecipes.com", $image_url);
 			echo '<enclosure url="' . $image_url . '" length="' . $filesize . '" type="image/jpg" />';				
 		}
 		if($media && $statuscode && $statuscode != "404"){

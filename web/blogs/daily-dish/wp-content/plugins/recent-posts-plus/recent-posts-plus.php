@@ -3,7 +3,7 @@
 Plugin Name: Recent Posts Plus
 Plugin URI: http://www.pjgalbraith.com/2011/08/recent-posts-plus/
 Description: Provides a replacement for the recent posts widget with advanced settings
-Version: 1.0.10
+Version: 1.0.11
 Author: Patrick Galbraith
 Author URI: http://www.pjgalbraith.com
 License: GPL2 
@@ -95,7 +95,8 @@ class RecentPostsPlus extends WP_Widget {
             'post_type' => 'post', 
             'posts_per_page' => $count, 
             'orderby' => 'date', 
-            'order' => 'DESC'
+            'order' => 'DESC',
+			'ignore_sticky_posts' => 1
         );
         $query_args = json_decode($wp_query_options, true);
         if($query_args == NULL) $query_args = array();

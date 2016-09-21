@@ -7,7 +7,7 @@ global $user_ID, $s2nonce;
 
 if ( isset($_GET['email']) ) {
 	global $wpdb;
-	$user_ID = $wpdb->get_var("SELECT ID FROM $wpdb->users WHERE user_email = '" . urldecode($_GET['email']) . "'");
+	$user_ID = $wpdb->get_var($wpdb->prepare("SELECT ID FROM $wpdb->users WHERE user_email = %s", $_GET['email']));
 } else {
 	get_currentuserinfo();
 }
@@ -43,7 +43,7 @@ if ( isset($_POST['s2_admin']) && 'user' == $_POST['s2_admin'] ) {
 					delete_user_meta($user_ID, $this->get_usermeta_keyname('s2_cat') . $cat);
 				}
 			}
-			delete_user_meta($user_ID, $this->get_usermeta_keyname('s2_subscribed'));
+			update_user_meta($user_ID, $this->get_usermeta_keyname('s2_subscribed'), '');
 		} elseif ( $cats == 'digest' ) {
 			$all_cats = $this->all_cats(false, 'ID');
 			foreach ( $all_cats as $cat ) {
@@ -92,13 +92,16 @@ if ( isset($_POST['s2_admin']) && 'user' == $_POST['s2_admin'] ) {
 
 // show our form
 echo "<div class=\"wrap\">";
-echo "<div id=\"icon-users\" class=\"icon32\"></div>";
+if ( version_compare($GLOBALS['wp_version'], '3.8', '<=') ) {
+	echo "<div id=\"icon-users\" class=\"icon32\"></div>";
+}
+
 echo "<h2>" . __('Notification Settings', 'subscribe2') . "</h2>\r\n";
 if ( isset($_GET['email']) ) {
 	$user = get_userdata($user_ID);
 	echo "<span style=\"color: red;line-height: 300%;\">" . __('Editing Subscribe2 preferences for user', 'subscribe2') . ": " . $user->display_name . "</span>";
 }
-echo "<form method=\"post\" action=\"\">";
+echo "<form method=\"post\">";
 echo "<p>";
 if ( function_exists('wp_nonce_field') ) {
 	wp_nonce_field('subscribe2-user_subscribers' . $s2nonce);
@@ -148,7 +151,8 @@ if ( $this->subscribe2_options['email_freq'] == 'never' ) {
 	} else {
 		echo "<h2>" . __('Subscribed Categories', 'subscribe2') . "</h2>\r\n";
 	}
-	$this->display_category_form(explode(',', get_user_meta($user_ID, $this->get_usermeta_keyname('s2_subscribed'), true)), $this->subscribe2_options['reg_override']);
+	('' == $this->subscribe2_options['compulsory']) ? $compulsory = array() : $compulsory = explode(',', $this->subscribe2_options['compulsory']);
+	$this->display_category_form(explode(',', get_user_meta($user_ID, $this->get_usermeta_keyname('s2_subscribed'), true)), $this->subscribe2_options['reg_override'], $compulsory);
 } else {
 	// we're doing daily digests, so just show
 	// subscribe / unnsubscribe
@@ -222,6 +226,7 @@ if ( $this->s2_mu && !isset($_GET['email']) ) {
 		restore_current_blog();
 	}
 
+	echo "<div class=\"s2_admin\" id=\"s2_mu_sites\">\r\n";
 	if ( !empty($blogs_subscribed) ) {
 		ksort($blogs_subscribed);
 		echo "<h2>" . __('Subscribed Blogs', 'subscribe2') . "</h2>\r\n";
@@ -263,6 +268,7 @@ if ( $this->s2_mu && !isset($_GET['email']) ) {
 		}
 		echo "</ul>\r\n";
 	}
+	echo "</div>\r\n";
 }
 
 echo "</div>\r\n";

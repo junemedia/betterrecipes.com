@@ -1,16 +1,25 @@
-<div class="frm_forms<?php echo ($values['custom_style']) ? ' with_frm_style' : ''; ?>" id="frm_form_<?php echo $form->id ?>_container">
-<form enctype="<?php echo apply_filters('frm_form_enctype', 'multipart/form-data', $form) ?>" method="post" class="frm-show-form <?php do_action('frm_form_classes', $form) ?>" id="form_<?php echo $form->form_key ?>" <?php echo ($frm_settings->use_html) ? '' : 'action=""'; ?>>
-<?php 
-include(FRM_VIEWS_PATH.'/frm-entries/errors.php');
-$form_action = 'create';
-require(FRM_VIEWS_PATH.'/frm-entries/form.php'); 
+<div class="frm_forms <?php echo FrmFormsHelper::get_form_style_class($values); ?>" id="frm_form_<?php echo esc_attr( $form->id ) ?>_container">
+<?php
+if ( ! isset( $include_form_tag ) || $include_form_tag ) {
 ?>
+<form enctype="<?php echo esc_attr( apply_filters( 'frm_form_enctype', 'multipart/form-data', $form ) ) ?>" method="post" class="frm-show-form <?php do_action('frm_form_classes', $form) ?>" id="form_<?php echo esc_attr( $form->form_key ) ?>" <?php echo $frm_settings->use_html ? '' : 'action=""'; ?>>
+<?php
+} else { ?>
+<div id="form_<?php echo esc_attr( $form->form_key ) ?>" class="frm-show-form <?php do_action('frm_form_classes', $form) ?>" >
+<?php
+}
 
-<?php if (!$form->is_template and $form->status == 'published'){ ?>
-<p class="submit">
-<?php $submit = apply_filters('frm_submit_button', $submit, $form); ?>
-<input type="submit" value="<?php echo esc_attr($submit) ?>" <?php do_action('frm_submit_button_action', $form, $form_action); ?>/>
-</p>
-<?php } ?>
+include( FrmAppHelper::plugin_path() . '/classes/views/frm-entries/errors.php' );
+$form_action = 'create';
+require( FrmAppHelper::plugin_path() . '/classes/views/frm-entries/form.php' );
+
+if ( ! isset( $include_form_tag ) || $include_form_tag ) {
+?>
 </form>
+<?php
+} else { ?>
+</div>
+<?php
+}
+?>
 </div>

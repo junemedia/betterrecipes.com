@@ -4,11 +4,11 @@
 
 	add_filter( 'post_updated_messages', 'meteorslides_updated_messages' );
 
-	function meteorslides_updated_messages( $messages ) {
+	function meteorslides_updated_messages( $meteor_messages ) {
 
 		global $post, $post_ID;
 
-		$messages['slide'] = array( 
+		$meteor_messages['slide'] = array( 
   
 			0  => '',
 			1  => sprintf( __( 'Slide updated. <a href="%s">View slide</a>', 'meteor-slides' ), esc_url( get_permalink($post_ID) ) ),
@@ -24,7 +24,7 @@
  
 		);
 
-		return $messages;
+		return $meteor_messages;
   
 	}
 	
@@ -34,13 +34,13 @@
 	
 	function meteorslides_image_box() {
 		
-		$options = get_option('meteorslides_options');
+		$meteor_image_options = get_option('meteorslides_options');
 		
-		$title = __( 'Slide Image', 'meteor-slides' ) . ' (' . $options['slide_width'] . 'x' . $options['slide_height'] . ')';
+		$meteor_image_title = __( 'Slide Image', 'meteor-slides' ) . ' (' . $meteor_image_options['slide_width'] . 'x' . $meteor_image_options['slide_height'] . ')';
 	
 		remove_meta_box( 'postimagediv', 'slide', 'side' );
 	
-		add_meta_box( 'postimagediv', $title, 'post_thumbnail_meta_box', 'slide', 'normal', 'high' );
+		add_meta_box( 'postimagediv', $meteor_image_title, 'post_thumbnail_meta_box', 'slide', 'normal', 'high' );
 	
 	}
 	
@@ -134,21 +134,21 @@
 
 			}
 
-			$data = $_POST[$meteorslides_meta_box['name'].'_value'];
+			$meteor_data = $_POST[$meteorslides_meta_box['name'].'_value'];
 
 			if ( get_post_meta( $post_id, $meteorslides_meta_box['name'].'_value' ) == "" ) {
 			
-				add_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', $data, true );
+				add_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', $meteor_data, true );
 			
 			}
 			
-			elseif ( $data != get_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', true ) ) {
+			elseif ( $meteor_data != get_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', true ) ) {
 
-				update_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', $data );
+				update_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', $meteor_data );
 			
 			}
 
-			elseif ( $data == "" ) {
+			elseif ( $meteor_data == "" ) {
 
 				delete_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', get_post_meta( $post_id, $meteorslides_meta_box['name'].'_value', true ) );
 			
@@ -162,9 +162,9 @@
 	
 	add_filter( 'manage_edit-slide_columns', 'meteorslides_edit_columns' );
  
-	function meteorslides_edit_columns( $columns ) {
+	function meteorslides_edit_columns( $meteor_columns ) {
 	
-		$columns = array(
+		$meteor_columns = array(
 		
 			'cb'         => '<input type="checkbox" />',
 			'slide'      => __( 'Slide Image', 'meteor-slides' ),
@@ -174,17 +174,17 @@
 
 		);
  
-		return $columns;
+		return $meteor_columns;
   
 	}
 	
 	add_action( 'manage_posts_custom_column', 'meteorslides_custom_columns' );
 	
-	function meteorslides_custom_columns( $column ) {
+	function meteorslides_custom_columns( $meteor_column ) {
 	
 		global $post;
  
-		switch ( $column ) {
+		switch ( $meteor_column ) {
 		
 			case 'slide' :
 			
@@ -212,78 +212,218 @@
 		
 	}
 	
-	//display contextual help for slides
+	// setup contextual help action
 	
-	add_action( 'contextual_help', 'meteorslides_add_help_text', 10, 3 );
+	add_action( 'current_screen', 'meteorslides_contextual_help_action' );
 
-	function meteorslides_add_help_text($contextual_help, $screen_id, $screen) { 
+	function meteorslides_contextual_help_action() {
 	
-		if ('slide' == $screen->id ) {
+		$meteor_screen_action = get_current_screen();
+	
+		if ( 'slide' == $meteor_screen_action->id && 'add' == $meteor_screen_action->action ) {
 		
-			$contextual_help =
-			'<h3>' . __( 'Add New Slide', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<strong>Title:</strong> Each slide needs a title in order to be published.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Slide Image:</strong> To add an image to a slide, click the <strong>Set featured image</strong> link. Upload an image, or browse the media library for one, click the <strong>Use as featured image</strong> link to add the image and then close the media uploader. The Slide Image metabox should now have a thumbnail image.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Slide Link:</strong> Add the full URL to the Slide Link metabox, such as <em>http://wordpress.org/</em> (Optional)', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Slideshows:</strong> A slide can be added to a slideshow by selecting the slideshow from the Slideshows metabox.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( "<strong>Slide Order:</strong> Slides are sorted chronologically, edit the slide's published date to change the order of the slide.", "meteor-slides" ) . '</p>' .
-			'<h3>' . __( 'For more information', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<a href="http://www.jleuze.com/plugins/meteor-slides/using-meteor-slides/" target="_blank">Using Meteor Slides Documentation</a>', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>';
-			
-		} elseif ( 'edit-slide' == $screen->id ) {
+			$meteor_load_action = 'load-post-new.php';
 		
-			$contextual_help =
+		} elseif ( 'slide' == $meteor_screen_action->id ) {
+
+			$meteor_load_action = 'load-post.php';	
 			
-			'<h3>' . __( 'Slides', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( 'Choose a slide to edit, or add a new slide.', 'meteor-slides' ) . '</p>' .
-			'<h3>' . __( 'For more information', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<a href="http://www.jleuze.com/plugins/meteor-slides/installation/" target="_blank">Meteor Slides Documentation</a>', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>';
+		} elseif ( 'edit-slide' == $meteor_screen_action->id ) {
+
+			$meteor_load_action = 'load-edit.php';
+
+		} elseif ( 'edit-slideshow' == $meteor_screen_action->id ) {
 			
-		} elseif ( 'edit-slideshow' == $screen->id ) {
+			$meteor_load_action = 'load-edit-tags.php';
 		
-			$contextual_help =
-			
-			'<h3>' . __( 'Slideshows', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( 'Slides can be organized into slideshows, just as posts can be organized into categories.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Add New Slideshow:</strong> Name the slideshow, specify a Slug or one will be generated from the name, skip the Parent and Description and click <strong>Add New Slideshow</strong>.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Add Slide to Slideshow:</strong> Edit a slide and select the slideshow in the Slideshows metabox.', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<strong>Adding a specific Slideshow:</strong> Add a slideshow slug to a template tag, shortcode, or widget to load a specific slideshow. Here is an example using the shortcode:', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<code>[meteor_slideshow slideshow="slug"]</code>', 'meteor-slides' ) . '</p>' .
-			'<h3>' . __( 'For more information', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<a href="http://www.jleuze.com/plugins/meteor-slides/multiple-slideshows/" target="_blank">Multiple Slideshows Documentation</a>', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>';
-			
-		} elseif ( 'slide_page_slides_settings' == $screen->id ) {
+		} elseif ( 'slide_page_slides_settings' == $meteor_screen_action->id ) {
 		
-			$contextual_help =
-			
-			'<h3>' . __( 'Configure Slideshow', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<em>Before adding any slides, enter the slide height and width in the settings so the slides are the correct dimensions.</em>', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( "<strong>Slideshow Quantity:</strong> Choose the number of slides that are loaded in the slideshow. (Leave this option blank to reset the settings)", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Slide Height:</strong> Enter the height of your slides in pixels. For slides of different heights, use the height of the tallest slide.", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Slide Width:</strong> Enter the width of your slides in pixels. Slides that are narrower than this will be centered in the slideshow.", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Transition Style:</strong> Choose the effect that is used to transition between slides.", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Transition Speed:</strong> Enter the number of seconds that it should take for a transition between slides to complete.", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Slide Duration:</strong> Enter the number of seconds that each slide should be paused on in the slideshow.", "meteor-slides" ) . '</p>' .
-			'<p>'  . __( "<strong>Slideshow Navigation:</strong> ", "meteor-slides" ) . '</p>' .
-			'<ul>' .
-			'<li>'  . __( "<strong>None:</strong> The default option, no navigation is added to the slideshow.", "meteor-slides" ) . '</li>' .
-			'<li>'  . __( "<strong>Previous/Next:</strong> Left and right buttons are added to the slideshow to cycle through the slides.", "meteor-slides" ) . '</li>' .
-			'<li>'  . __( "<strong>Paged:</strong> Small round buttons are added below the slideshow to choose a specific slide and highlight the current slide.", "meteor-slides" ) . '</li>' .
-			'<li>'  . __( "<strong>Both:</strong> Previous/Next and Paged navigation are both added to the slideshow.", "meteor-slides" ) . '</li>' .
-			'</ul>' .
-			'<h3>' . __( 'Add Slideshow', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( 'Check out the documentation for <a href="http://www.jleuze.com/plugins/meteor-slides/adding-a-slideshow/" target="_blank">adding a slideshow</a>.', 'meteor-slides' ) . '</p>' .
-			'<h3>' . __( 'For more information', 'meteor-slides' ) . '</h3>' .
-			'<p>'  . __( '<a href="http://www.jleuze.com/plugins/meteor-slides/installation/" target="_blank">Meteor Slides Documentation</a>', 'meteor-slides' ) . '</p>' .
-			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>';
+			$meteor_load_action = 'load-slide_page_slides_settings';
 			
 		}
 		
-		return $contextual_help;
+		if ( !empty( $meteor_load_action ) ) {
+		
+			add_action( $meteor_load_action, 'meteorslides_add_contextual_help' );
+		
+		}
+		
+	}
+	
+	// add contextual help for slides
+	
+	function meteorslides_add_contextual_help() {
+		
+			$meteor_contextual_screen = get_current_screen();
+			
+		if ('slide' == $meteor_contextual_screen->id ) {
+		
+			$meteor_contextual_first_id = 'slide';
+			
+			if ( 'add' == $meteor_contextual_screen->action ) {
+			
+				$meteor_contextual_first_title = __( 'Add New Slide', 'meteor-slides' );
+				
+			} else {
+			
+				$meteor_contextual_first_title = __( 'Edit Slide', 'meteor-slides' );
+			
+			}
+			
+			$meteor_contextual_first_content =
+			
+			'<p>'  . __( '<strong>Title</strong> - Name the slide so it can be easily found later.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slide Image</strong> - To add an image to a slide, click the "Set featured image" link. Upload an image, or browse the media library for one, click the "Use as featured image" link to add the image and then close the media uploader. The Slide Image metabox should now have a thumbnail image.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slide Link</strong> - Add the full URL to the Slide Link metabox, such as <em>http://jleuze.com/</em> (Optional)', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slideshows</strong> - A slide can be added <a href="http://jleuze.com/plugins/meteor-slides/multiple-slideshows/">to a slideshow</a> by selecting the slideshow from the Slideshows metabox.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( "<strong>Slide Order</strong> - Slides are sorted chronologically, edit the slide's published date to change the order of the slide.", "meteor-slides" ) . '</p>';
+			
+			$meteor_contextual_sidebar =
+			
+			'<p><strong>' . __( 'For more information', 'meteor-slides' ) . '</strong></p>' .
+			'<p>'  . __( '<a href="http://jleuze.com/plugins/meteor-slides/using-meteor-slides/" target="_blank">Documentation on Creating Slides</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a class="button" href="http://jleuze.com/go/paypal/" target="_blank">Donate</a>', 'meteor-slides' ) . '</p>';
+		
+			$meteor_contextual_screen->add_help_tab( array(
 
+				'id'      => $meteor_contextual_first_id,
+				'title'   => $meteor_contextual_first_title,
+				'content' => $meteor_contextual_first_content
+
+			) );
+		
+		} elseif ( 'edit-slide' == $meteor_contextual_screen->id ) {
+
+			$meteor_contextual_first_id      = 'edit-slide';
+			$meteor_contextual_first_title   = __( 'Slides Overview', 'meteor-slides' );		
+			$meteor_contextual_first_content =
+			
+			'<p>'  . __( 'From the slides overview the image, title, and link of each slide can be viewed. Choose a slide to edit, or add a new slide.', 'meteor-slides' ) . '</p>';
+			
+			$meteor_contextual_sidebar =
+			
+			'<p><strong>' . __( 'For more information', 'meteor-slides' ) . '</strong></p>' .
+			'<p>'  . __( '<a href="http://jleuze.com/plugins/meteor-slides/installation/" target="_blank">Meteor Slides Documentation</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a class="button" href="http://jleuze.com/go/paypal/" target="_blank">Donate</a>', 'meteor-slides' ) . '</p>';
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_first_id,
+				'title'   => $meteor_contextual_first_title,
+				'content' => $meteor_contextual_first_content
+
+			) );
+			
+		} elseif ( 'edit-slideshow' == $meteor_contextual_screen->id ) {
+			
+			$meteor_contextual_first_id      = 'edit-slideshow';
+			$meteor_contextual_first_title   = __( 'Multiple Slideshows', 'meteor-slides' );
+			$meteor_contextual_first_content =
+			
+			'<p>'  . __( 'Slides can be organized into slideshows, just as posts can be organized into categories.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Add New Slideshow</strong> - Name the slideshow, specify a Slug or one will be generated from the name, skip the Parent and Description and click "Add New Slideshow".', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Add Slide to Slideshow</strong> - Edit a slide and select the slideshow in the Slideshows metabox.', 'meteor-slides' ) . '</p>';
+
+			$meteor_contextual_second_id      = 'add-specific-slideshow';
+			$meteor_contextual_second_title   = __( 'Adding A Specific Slideshow', 'meteor-slides' );
+			$meteor_contextual_second_content =
+			
+			'<p>'  . __( 'Add a slideshow slug to a template tag, shortcode, or select a slideshow in the widget to load a specific slideshow. Here is an example using the shortcode:', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<code>[meteor_slideshow slideshow="slug"]</code>', 'meteor-slides' ) . '</p>';
+
+			
+			$meteor_contextual_sidebar =
+			
+			'<p><strong>' . __( 'For more information', 'meteor-slides' ) . '</strong></p>' .
+			'<p>'  . __( '<a href="http://jleuze.com/plugins/meteor-slides/multiple-slideshows/" target="_blank">Documentation on Adding Multiple Slideshows</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a class="button" href="http://jleuze.com/go/paypal/" target="_blank">Donate</a>', 'meteor-slides' ) . '</p>';
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_first_id,
+				'title'   => $meteor_contextual_first_title,
+				'content' => $meteor_contextual_first_content
+
+			) );
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_second_id,
+				'title'   => $meteor_contextual_second_title,
+				'content' => $meteor_contextual_second_content
+
+			) );
+			
+		} elseif ( 'slide_page_slides_settings' == $meteor_contextual_screen->id ) {
+		
+			$meteor_contextual_first_id      = 'slide_page_slides_settings';
+			$meteor_contextual_first_title   = __( 'Configure Slideshow', 'meteor-slides' );
+			$meteor_contextual_first_content =
+			
+			'<p>'  . __( '<em>Before adding any slides, enter the slide height and width in the settings so the slides are the correct dimensions.</em>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slideshow Quantity</strong> - Choose the number of slides that are loaded in the slideshow.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slide Height</strong> - Enter the height of your slides in pixels. For slides of different heights, use the height of the tallest slide.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slide Width</strong> - Enter the width of your slides in pixels. Slides that are narrower than this will be centered in the slideshow.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Transition Style</strong> - Choose the effect that is used to transition between slides.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Transition Speed</strong> - Enter the number of seconds that it should take for a transition between slides to complete.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slide Duration</strong> - Enter the number of seconds that each slide should be paused on in the slideshow.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Slideshow Navigation</strong> - Slideshows have no navigation by default, previous/next and/or paged navigation can be added.', 'meteor-slides' ) . '</p>';
+
+			$meteor_contextual_second_id      = 'slide_page_slides_settings_metadata';
+			$meteor_contextual_second_title   = __( 'Additional Options', 'meteor-slides' );
+			$meteor_contextual_second_content =
+			
+			'<p>'  . __( 'Only the options below are required, but jQuery Cycle has <a href="http://jquery.malsup.com/cycle/options.html">additional options</a> that can be changed <a href="http://jleuze.com/plugins/meteor-slides/using-metadata/">using metadata</a>.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( 'Here is an example using metadata with the shortcode to set the slide order to random:', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<code>[meteor_slideshow metadata="random: 1"]</code>', 'meteor-slides' ) . '</p>';
+			
+			$meteor_contextual_third_id      = 'slide_page_slides_settings_add';
+			$meteor_contextual_third_title   = __( 'Add Slideshow', 'meteor-slides' );
+			$meteor_contextual_third_content =
+			
+			'<p>'  . __( "<strong>Template Tag</strong> - Use this template tag in a theme file: <code><&#63;php if ( function_exists( 'meteor_slideshow' ) ) { meteor_slideshow(); } &#63;></code>", 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( "<strong>Shortcode</strong> - Use this shortcode to add a slideshow via the Post or Page editor: <code>[meteor_slideshow]</code>", 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<strong>Widget</strong> - Use the Meteor Slides Widget to add a slideshow to a widgetized area.', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( 'Check out the documentation on <a href="http://jleuze.com/plugins/meteor-slides/adding-a-slideshow/" target="_blank">adding a slideshow</a> for more info.', 'meteor-slides' ) . '</p>';
+		
+			$meteor_contextual_sidebar =
+			
+			'<p><strong>' . __( 'For more information', 'meteor-slides' ) . '</strong></p>' .
+			'<p>'  . __( '<a href="http://jleuze.com/plugins/meteor-slides/installation/" target="_blank">Documentation on Configuring Meteor Slides</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a href="http://wordpress.org/tags/meteor-slides" target="_blank">Plugin Support Forum</a>', 'meteor-slides' ) . '</p>' .
+			'<p>'  . __( '<a class="button" href="http://jleuze.com/go/paypal/" target="_blank">Donate</a>', 'meteor-slides' ) . '</p>';
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_first_id,
+				'title'   => $meteor_contextual_first_title,
+				'content' => $meteor_contextual_first_content
+
+			) );
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_second_id,
+				'title'   => $meteor_contextual_second_title,
+				'content' => $meteor_contextual_second_content
+
+			) );
+			
+			$meteor_contextual_screen->add_help_tab( array(
+
+				'id'      => $meteor_contextual_third_id,
+				'title'   => $meteor_contextual_third_title,
+				'content' => $meteor_contextual_third_content
+
+			) );
+		
+		}
+		
+		$meteor_contextual_screen->set_help_sidebar( $meteor_contextual_sidebar );
+		
 	}
 
 	// Adds Slideshow settings page
@@ -333,22 +473,7 @@
 	}
 	
 	// Add custom slide capabilities for the Members plugin
-	
-	add_action( 'admin_init', 'meteorslides_members_capabilities' );
-
-	function meteorslides_members_capabilities() {
-	
-		if ( function_exists( 'members_get_capabilities' ) ) {
-	
-			add_filter( 'members_get_capabilities', 'meteorslides_add_members_caps' );
-		
-		}
-	
-	}
-
 	function meteorslides_add_members_caps( $caps ) {
-	
-		$caps[] = 'meteorslides_manage_options';
 		$caps[] = 'meteorslides_edit_slide';
 		$caps[] = 'meteorslides_edit_slides';
 		$caps[] = 'meteorslides_edit_others_slides';
@@ -356,25 +481,70 @@
 		$caps[] = 'meteorslides_read_slides';
 		$caps[] = 'meteorslides_read_private_slides';
 		$caps[] = 'meteorslides_delete_slide';
+		$caps[] = 'meteorslides_delete_slides';
 		$caps[] = 'meteorslides_manage_slideshows';
+		$caps[] = 'meteorslides_manage_options';
 		
 		return $caps;
-		
 	}
+
+	// Unregister default Slides caps group from the Members plugin
+	function meteorslides_members_remove_slides_cap_group() {
+		members_unregister_cap_group( 'type-slide' );
+	}
+
+	// Registers Meteor Slides capabilities group for the Members plugin
+	function meteorslides_add_members_caps_group() {
+		$meteor_cap_group_caps = array(
+			'meteorslides_edit_slide',
+			'meteorslides_edit_slides',
+			'meteorslides_edit_others_slides',
+			'meteorslides_publish_slides',
+			'meteorslides_read_slide',
+			'meteorslides_read_private_slides',
+			'meteorslides_delete_slide',
+			'meteorslides_delete_slides',
+			'meteorslides_manage_slideshows',
+			'meteorslides_manage_options'
+		);
+
+		$meteor_cap_group_args = array(
+			'label'       => __( 'Meteor Slides', 'meteor-slides' ),
+			'icon'        => 'dashicons-images-alt2',
+			'caps'        => $meteor_cap_group_caps,
+			'merge_added' => true,
+			'diff_added'  => false,
+		);
+		members_register_cap_group( 'type-meteor-slide', $meteor_cap_group_args );
+	}
+
+	// Setup custom slide capabilities and capabilities group if the Members plugin is active
+	function meteorslides_members_capabilities() {
+		if ( function_exists( 'members_get_capabilities' ) ) {
+			add_filter( 'members_get_capabilities', 'meteorslides_add_members_caps' );
+		}
+		if ( function_exists( 'members_register_cap_group' ) ) {
+			add_action( 'members_register_cap_groups', 'meteorslides_add_members_caps_group' );
+		}
+		if ( function_exists( 'members_register_cap_group' ) ) {
+			add_action( 'members_register_cap_groups', 'meteorslides_members_remove_slides_cap_group' );
+		}
+	}
+	add_action( 'plugins_loaded', 'meteorslides_members_capabilities' );
 	
 	// Adds link to settings page on plugins page
 		
 	add_filter( 'plugin_action_links', 'meteorslides_settings_link', 10, 2 );
 	
-	function meteorslides_settings_link( $links, $file ) {
+	function meteorslides_settings_link( $meteor_links, $meteor_file ) {
 		
-		if ( $file == plugin_basename( 'meteor-slides/meteor-slides-plugin.php' ) ) {
+		if ( $meteor_file == plugin_basename( 'meteor-slides/meteor-slides-plugin.php' ) ) {
 		
-			$links[] = '<a href="edit.php?post_type=slide&page=slides_settings">'.__( 'Settings', 'meteor-slides' ).'</a>';
+			$meteor_links[] = '<a href="edit.php?post_type=slide&page=slides_settings">'.__( 'Settings', 'meteor-slides' ).'</a>';
 	
 		}
 		
-		return $links;
+		return $meteor_links;
 		
 	}
 	
@@ -388,85 +558,85 @@
 		
 		add_settings_section( 'meteorslides_slideshow', __( 'Configure Slideshow', 'meteor-slides' ), 'meteorslides_section_text', 'meteorslides' );
 		
-		add_settings_field( 'slideshow_quantity', __( 'Slideshow Quantity', 'meteor-slides' ), 'slideshow_quantity', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'slideshow_quantity', __( 'Slideshow Quantity', 'meteor-slides' ), 'meteorslides_slideshow_quantity', 'meteorslides', 'meteorslides_slideshow' );
 
-		add_settings_field( 'slide_height', __( 'Slide Height', 'meteor-slides' ), 'slide_height', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'slide_height', __( 'Slide Height', 'meteor-slides' ), 'meteorslides_slide_height', 'meteorslides', 'meteorslides_slideshow' );
 		
-		add_settings_field( 'slide_width', __( 'Slide Width', 'meteor-slides' ), 'slide_width', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'slide_width', __( 'Slide Width', 'meteor-slides' ), 'meteorslides_slide_width', 'meteorslides', 'meteorslides_slideshow' );
 
-		add_settings_field( 'transition_style', __( 'Transition Style', 'meteor-slides' ), 'transition_style', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'transition_style', __( 'Transition Style', 'meteor-slides' ), 'meteorslides_transition_style', 'meteorslides', 'meteorslides_slideshow' );
 
-		add_settings_field( 'transition_speed', __( 'Transition Speed', 'meteor-slides' ), 'transition_speed', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'transition_speed', __( 'Transition Speed', 'meteor-slides' ), 'meteorslides_transition_speed', 'meteorslides', 'meteorslides_slideshow' );
 
-		add_settings_field( 'slide_duration', __( 'Slide Duration', 'meteor-slides' ), 'slide_duration', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'slide_duration', __( 'Slide Duration', 'meteor-slides' ), 'meteorslides_slide_duration', 'meteorslides', 'meteorslides_slideshow' );
 	
-		add_settings_field( 'slideshow_navigation', __( 'Slideshow Navigation', 'meteor-slides' ), 'slideshow_navigation', 'meteorslides', 'meteorslides_slideshow' );
+		add_settings_field( 'slideshow_navigation', __( 'Slideshow Navigation', 'meteor-slides' ), 'meteorslides_slideshow_navigation', 'meteorslides', 'meteorslides_slideshow' );
 
 	}
 	
 	// Validates values for options on settings page
 	
-	function meteorslides_options_validate( $input ) {
+	function meteorslides_options_validate( $meteor_input ) {
 
-		$options = get_option( 'meteorslides_options' );
+		$meteor_options = get_option( 'meteorslides_options' );
 
-		$options['slideshow_quantity'] = trim( $input['slideshow_quantity'] );
+		$meteor_options['slideshow_quantity'] = trim( $meteor_input['slideshow_quantity'] );
 
-		if ( !preg_match( '/^[0-9]{1,3}$/i', $options['slideshow_quantity'] ) ) {
+		if ( !preg_match( '/^[0-9]{1,3}$/i', $meteor_options['slideshow_quantity'] ) ) {
 
-			$options['slideshow_quantity'] = '';
-
-		}
-		
-		$options['slide_height'] = trim( $input['slide_height'] );
-
-		if ( !preg_match( '/^[0-9]{1,4}$/i', $options['slide_height'] ) ) {
-
-			$options['slide_height'] = '';
+			$meteor_options['slideshow_quantity'] = '';
 
 		}
 		
-		$options['slide_width'] = trim( $input['slide_width'] );
+		$meteor_options['slide_height'] = trim( $meteor_input['slide_height'] );
 
-		if ( !preg_match( '/^[0-9]{1,5}$/i', $options['slide_width'] ) ) {
+		if ( !preg_match( '/^[0-9]{1,4}$/i', $meteor_options['slide_height'] ) ) {
 
-			$options['slide_width'] = '';
-
-		}
-		
-		$options['transition_style'] = trim( $input['transition_style'] );
-
-		if ( !preg_match( '/^[a-z]{4,20}$/i', $options['transition_style'] ) ) {
-
-			$options['transition_style'] = '';
+			$meteor_options['slide_height'] = '';
 
 		}
 		
-		$options['transition_speed'] = trim( $input['transition_speed'] );
+		$meteor_options['slide_width'] = trim( $meteor_input['slide_width'] );
 
-		if ( !preg_match( '/^[0-9]{1,3}$/i', $options['transition_speed'] ) ) {
+		if ( !preg_match( '/^[0-9]{1,5}$/i', $meteor_options['slide_width'] ) ) {
 
-			$options['transition_speed'] = '';
-
-		}
-		
-		$options['slide_duration'] = trim( $input['slide_duration'] );
-
-		if ( !preg_match( '/^[0-9]{1,3}$/i', $options['slide_duration'] ) ) {
-
-			$options['slide_duration'] = '';
+			$meteor_options['slide_width'] = '';
 
 		}
 		
-		$options['slideshow_navigation'] = trim( $input['slideshow_navigation'] );
+		$meteor_options['transition_style'] = trim( $meteor_input['transition_style'] );
 
-		if ( !preg_match( '/^[a-z]{4,20}$/i', $options['slideshow_navigation'] ) ) {
+		if ( !preg_match( '/^[a-z]{4,20}$/i', $meteor_options['transition_style'] ) ) {
 
-			$options['slideshow_navigation'] = '';
+			$meteor_options['transition_style'] = '';
+
+		}
+		
+		$meteor_options['transition_speed'] = trim( $meteor_input['transition_speed'] );
+
+		if ( !preg_match( '/^[0-9]{1,3}$/i', $meteor_options['transition_speed'] ) ) {
+
+			$meteor_options['transition_speed'] = '';
+
+		}
+		
+		$meteor_options['slide_duration'] = trim( $meteor_input['slide_duration'] );
+
+		if ( !preg_match( '/^[0-9]{1,3}$/i', $meteor_options['slide_duration'] ) ) {
+
+			$meteor_options['slide_duration'] = '';
+
+		}
+		
+		$meteor_options['slideshow_navigation'] = trim( $meteor_input['slideshow_navigation'] );
+
+		if ( !preg_match( '/^[a-z]{4,20}$/i', $meteor_options['slideshow_navigation'] ) ) {
+
+			$meteor_options['slideshow_navigation'] = '';
 
 		}
 
-		return $options;
+		return $meteor_options;
 		
 	}
 	

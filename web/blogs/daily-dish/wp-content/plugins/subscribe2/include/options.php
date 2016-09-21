@@ -15,7 +15,7 @@ if (!isset($this->subscribe2_options['wpregdef'])) {
 } // option to check registration form box by default
 
 if (!isset($this->subscribe2_options['autoformat'])) {
-	$this->subscribe2_options['autoformat'] = "text";
+	$this->subscribe2_options['autoformat'] = "post";
 } // option for default auto-subscription email format
 
 if (!isset($this->subscribe2_options['show_autosub'])) {
@@ -30,11 +30,15 @@ if (!isset($this->subscribe2_options['comment_subs'])) {
 	$this->subscribe2_options['comment_subs'] = "no";
 } // option for commenters to subscribe as public subscribers
 
+if (!isset($this->subscribe2_options['comment_def'])) {
+	$this->subscribe2_options['comment_def'] = "no";
+} // option for comments box to be checked by default
+
 if (!isset($this->subscribe2_options['one_click_profile'])) {
 	$this->subscribe2_options['one_click_profile'] = "no";
 } // option for displaying 'one-click' option on profile page
 
-if(!isset($this->subscribe2_options['bcclimit'])) {
+if (!isset($this->subscribe2_options['bcclimit'])) {
 	$this->subscribe2_options['bcclimit'] = 1;
 } // option for default bcc limit on email notifications
 
@@ -46,7 +50,7 @@ if (!isset($this->subscribe2_options['tracking'])) {
         $this->subscribe2_options['tracking'] = "";
 } // option for tracking
 
-if(!isset($this->subscribe2_options['s2page'])) {
+if (!isset($this->subscribe2_options['s2page'])) {
 	$this->subscribe2_options['s2page'] = 0;
 } // option for default WordPress page for Subscribe2 to use
 
@@ -62,6 +66,10 @@ if (!isset($this->subscribe2_options['password'])) {
 	$this->subscribe2_options['password'] = "no";
 } // option for sending notifications for posts that are password protected
 
+if (!isset($this->subscribe2_options['stickies'])) {
+	$this->subscribe2_options['stickies'] = "no";
+} // option for including sticky posts in digest notifications
+
 if (!isset($this->subscribe2_options['private'])) {
 	$this->subscribe2_options['private'] = "no";
 } // option for sending notifications for posts that are private
@@ -73,6 +81,10 @@ if (!isset($this->subscribe2_options['email_freq'])) {
 if (!isset($this->subscribe2_options['cron_order'])) {
 	$this->subscribe2_options['cron_order'] = "desc";
 } // option for ordering of posts in digest email
+
+if (!isset($this->subscribe2_options['compulsory'])) {
+	$this->subscribe2_options['compulsory'] = "";
+} // option for compulsory categories
 
 if (!isset($this->subscribe2_options['exclude'])) {
 	$this->subscribe2_options['exclude'] = "";
@@ -86,7 +98,7 @@ if (!isset($this->subscribe2_options['reg_override'])) {
 	$this->subscribe2_options['reg_override'] = "1";
 } // option for excluded categories to be overriden for registered users
 
-if(!isset($this->subscribe2_options['show_meta'])) {
+if (!isset($this->subscribe2_options['show_meta'])) {
 	$this->subscribe2_options['show_meta'] = "0";
 } // option to display link to subscribe2 page from 'meta'
 
@@ -99,14 +111,14 @@ if (!isset($this->subscribe2_options['ajax'])) {
 } // option to enable an AJAX style form
 
 if (!isset($this->subscribe2_options['widget'])) {
-	$this->subscribe2_options['widget'] = "0";
+	$this->subscribe2_options['widget'] = "1";
 } // option to enable Subscribe2 Widget
 
 if (!isset($this->subscribe2_options['counterwidget'])) {
 	$this->subscribe2_options['counterwidget'] = "0";
 } // option to enable Subscribe2 Counter Widget
 
-if(!isset($this->subscribe2_options['s2meta_default'])) {
+if (!isset($this->subscribe2_options['s2meta_default'])) {
 	$this->subscribe2_options['s2meta_default'] = "0";
 } // option for Subscribe2 over ride postmeta to be checked by default
 
@@ -127,7 +139,7 @@ if (!isset($this->subscribe2_options['mailtext'])) {
 } // Default notification email text
 
 if (!isset($this->subscribe2_options['notification_subject'])) {
-	$this->subscribe2_options['notification_subject'] = "[{BLOGNAME}] TITLE";
+	$this->subscribe2_options['notification_subject'] = "[{BLOGNAME}] {TITLE}";
 } // Default notification email subject
 
 if (!isset($this->subscribe2_options['confirm_email'])) {

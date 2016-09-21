@@ -1,11 +1,24 @@
-<?php if (isset($message) && $message != ''){ if(is_admin()){ ?><div id="message" class="updated fade" style="padding:5px;"><?php } echo $message; if(is_admin()){ ?></div><?php } } ?>
+<div class="clear"></div>
+<?php
+if ( isset($message) && $message != '' ) {
+    if ( FrmAppHelper::is_admin() ) {
+        ?><div id="message" class="updated frm_msg_padding"><?php
+        echo $message;
+        ?></div><?php
+    } else {
+        echo $message;
+    }
+}
 
-<?php if( isset($errors) && is_array($errors) && count($errors) > 0 ){ ?>
+if ( isset($errors) && is_array($errors) && count($errors) > 0 ) { ?>
     <div class="error">
         <ul id="frm_errors">
-            <?php foreach( $errors as $error )
-                echo '<li>' . stripslashes($error) . '</li>';
+            <?php
+            foreach ( $errors as $error ) {
+                echo '<li>' . $error . '</li>';
+            }
             ?>
         </ul>
     </div>
-<?php } ?>
+<?php
+}

@@ -1,33 +1,39 @@
-=== Parse.ly - Dash ===
+=== Parse.ly ===
 Contributors: parsely_mike
 Tags: analytics, post, page
-Requires at least: 3.0
-Tested up to: 3.4.1
+Requires at least: 4.0
+Tested up to: 4.5
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Parse.ly's Dash is the world's first analytics tool designed and built for digital publishers.  The plugin simplifies integration.
+The Parse.ly plugin real-time and historical analytics to your content through a platform designed and built for digital publishing.
 
 == Description ==
 
-[Parse.ly's Dash](http://www.parsely.com/ "Parse.ly - Dash") is an analytics tool designed and made for content publishers.   Tired of trying to figure out Google Analytics reports when all you really want to know is what's working and what isn't?  Then Dash was made for you.  It doesn't matter if you're CNN attracting millions of people per month or trying to build a following on a niche blog covering fashion and style, Dash will help you understand your audience and how your content is performing.
+Designed and built for digital publishers, Parse.ly helps you understand how your audience is connecting to your content.
+
+Thousands of writers, editors, site managers, and technologists already use Parse.ly to understand what content draws in website visitors, and why. Using our powerful dashboards and APIs, customers build successful digital strategies that allow them to grow and engage a loyal audience.
+
+Join industry leaders -- like Mashable, Slate, News Corp, and Conde Nast -- who already use Parse.ly to bring clarity to content, audience, and analytics.
 
 **Features**
 
-* Inserts the required parsely-page <meta> tag as well as JavaScript on all your published pages and posts.
+* Get started with Parse.ly right away: the plug-in automatically inserts the required parsely-page tag and JavaScript on all your published pages and posts.
 * Allows you to specify the JavaScript implementation to use: standard, DOM free or asynchronous.
 
 Feedback, suggestions, questions or concerns? E-mail us at [support@parsely.com](mailto:support@parsely.com) we always want to hear from you.
 
 == Installation ==
 
-1. If you haven't already done so, [sign up for your free trial of Dash](http://dash.parsely.com/try/)
+1. This plug-in requires an active version of Parse.ly. We offer a free trial, [sign up here](http://www.parsely.com/trial/?utm_medium=referral&utm_source=wordpress.org&utm_content=wp-parsely)
+
+1. If you haven't already done so, [sign up for a trial of Parse.ly](http://www.parsely.com/trial/?utm_medium=referral&utm_source=wordpress.org&utm_content=wp-parsely)
 1. Download the plugin
 1. Upload the entire `wp-parsely` folder to your `/wp-content/plugins` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress (look for "Parse.ly - Dash")
-1. Head to the settings page for the plugin (should be /wp-admin/options-general.php?page=parsely-dash)
-1. Add a your Site ID and choose a tracker implementation method (your Site ID can be found in [your settings screen](http://dash.parsely.com/settings/api).
+1. Activate the plugin through the 'Plugins' menu in WordPress (look for "Parse.ly")
+1. Head to the settings page for the plugin (should be /wp-admin/options-general.php?page=parsely)
+1. Set your Site ID, which is your own site domain name (e.g., `mysite.com`)
 1. Save your changes and enjoy your data!
 
 Feedback, suggestions, questions or concerns? E-mail us at [support@parsely.com](mailto:support@parsely.com) we always want to hear from you.
@@ -36,11 +42,7 @@ Feedback, suggestions, questions or concerns? E-mail us at [support@parsely.com]
 
 = Where do I find my Site ID? =
 
-Head to [your settings screen](http://dash.parsely.com/settings/api) and copy the value for Site ID.
-
-= What tracker implementation should I use? =
-
-It's really up to you and your requirements, but [this article in our documentation](http://www.parsely.com/api/tracker.html#javascript-tracker) should help you make a decision.  If you still have questions then reach out to us at [support@parsely.com](mailto:support@parsely.com).
+Your Site ID is your own site domain name (e.g., `mysite.com`).
 
 = Why can't I see Dash code on my post when I preview? =
 
@@ -54,6 +56,27 @@ Dash code will only be placed on pages and posts which have been published in Wo
 4. A sample `parsely-page` meta tag for an article or post
 
 == Changelog ==
+
+= 1.9 =
+* Adds ability to assign custom taxonomies as section
+* Fixes bug related to add section to tag field
+
+= 1.8 =
+* Updated documentation for installation
+* Allow developers to adjust the tag list and the category reported for a post
+* Added support for themes to extend the reported authors
+
+= 1.7 =
+* Use JSON-LD / schema.org for parsely-page data instead of proprietary format
+* Added support for multiple authors if using the Co-Authors Plus plugin https://wordpress.org/plugins/co-authors-plus/
+
+= 1.6 =
+* Maintenance release with multiple changes needed for WordPress VIP inclusion
+* Migrated to WP Settings API
+* Various syntax changes in line with Automattic's guidelines
+* Removed the tracker_implementation option, plugin now uses Standard implementation for all installs
+* Updated much of the copy in settings page
+* Updated screenshots
 
 = 1.5 =
 * Added support for new option - "Use Categories as Tags"
@@ -90,6 +113,25 @@ Dash code will only be placed on pages and posts which have been published in Wo
 * Support for parsely-page and JavaScript on home page and published pages and posts as well as archive pages (date/author/category/tag)
 
 == Upgrade Notice ==
+
+= 1.9 =
+This version adds:
+
+* Ability to assign custom taxonomies as section
+* Bug fix related to adding section to tag field
+
+= 1.8 =
+This version adds:
+
+* Documentation edits for installation
+* Ability for developers to adjust the tag list and the category reported for a post
+* Support for themes to extend the reported authors
+
+= 1.7 =
+This version adds:
+
+* Support for multiple authors if using the Co-Authors Plus plugin
+* JSON-LD / schema.org for parsely-page data instead of proprietary format
 
 = 1.5 =
 This version adds:

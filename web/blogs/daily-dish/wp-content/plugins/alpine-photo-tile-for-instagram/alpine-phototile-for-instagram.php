@@ -3,14 +3,14 @@
 Plugin Name: Alpine PhotoTile for Instagram
 Plugin URI: http://thealpinepress.com/alpine-phototile-for-instagram/
 Description: The Alpine PhotoTile for Instagram is capable of retrieving photos from a particular Instagram user or tag. The photos can be linked to the your Instagram page, a specific URL, or to a Fancybox slideshow. Also, the Shortcode Generator makes it easy to insert the widget into posts without learning any of the code. This lightweight but powerful widget takes advantage of WordPress's built in JQuery scripts to create a sleek presentation that I hope you will like.
-Version: 1.2.6
+Version: 1.2.7.7
 Author: the Alpine Press
 Author URI: http://thealpinepress.com/
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
-Copyright 2013  Eric Burger
+Copyright 2014  Eric Burger
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License, version 3, as 
@@ -42,27 +42,45 @@ Copyright 2013  Eric Burger
   if ( ! defined( 'WP_PLUGIN_DIR' ) )
     define( 'WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins' );
   
+	// Load the pieces
+  include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-primary.php' );
+  include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-display.php' );
+	include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-admin.php' );
+	include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/plugin-widget.php' );
+	include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/plugin-shortcode.php' );
+
 /**
  * Register Widget
  *  
  * @ Since 1.0.0
- * @ Updated 1.2.5
+ * @ Updated 1.2.7.3
  */
   function APTFINbyTAP_widget_register() {
-
-    include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-primary.php' );
-    include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-display.php' );
-    if( is_admin() ){
-      include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/alpinebot-admin.php' );
-    }
-    include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/plugin-widget.php' );
-    include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/plugin-shortcode.php' );
+		// Add JSON encoding functions, if necessary
+		if (!function_exists('json_decode')) {
+				// Check if already added
+				if (!function_exists('alpine_json_decode')) {
+					// Use Services_JSON by PEAR, http://pear.php.net/package/Services_JSON/
+					include_once( WP_PLUGIN_DIR.'/'.basename(dirname(__FILE__)).'/gears/JSON.php' );
+					function alpine_json_decode($content, $assoc=false) {
+							if( class_exists('Services_JSON') ){
+									if ($assoc) {
+											$json = new Services_JSON(SERVICES_JSON_LOOSE_TYPE);
+									}
+									else {
+											$json = new Services_JSON;
+									}
+									$result = $json->decode($content);
+									return $result;
+							}
+							return false;
+					}
+				}
+		}		
     register_widget( 'Alpine_PhotoTile_for_Instagram' );
   }
   add_action('widgets_init','APTFINbyTAP_widget_register');
 
-
-  
 /**
  * Load Admin JS and CSS
  *  
@@ -143,7 +161,9 @@ Copyright 2013  Eric Burger
   function APTFINbyTAP_enqueue_display_scripts() {
     $bot = new PhotoTileForInstagramPrimary();
     wp_enqueue_script( 'jquery' );
-
+    //wp_deregister_script('jquery');
+    //wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"), false, '1.3.2', true);
+    //wp_enqueue_script('jquery');
     $bot->do_alpine_method('register_style_and_script'); // Register widget styles and scripts
   }
   add_action('wp_enqueue_scripts', 'APTFINbyTAP_enqueue_display_scripts');
@@ -193,6 +213,7 @@ Copyright 2013  Eric Burger
  * Settings link on plugin page
  *
  * @ Since 1.2.5
+ * @ Updated 1.2.7
  */
   function APTFINbyTAP_plugin_settings_link($links) { 
     $bot = new PhotoTileForInstagramPrimary();
@@ -202,6 +223,8 @@ Copyright 2013  Eric Burger
     array_push($links, $generator_link); 
     $settings_link = '<a href="options-general.php?page='.$bot->get_private('settings').'&tab=plugin-settings">'. __('Settings') .'</a>'; 
     array_push($links, $settings_link);     
+    $tools_link = '<a href="options-general.php?page='.$bot->get_private('settings').'&tab=plugin-tools">'. __('Tools') .'</a>'; 
+    array_push($links, $tools_link);  
     return $links; 
   }
   $plugin = plugin_basename(__FILE__); 

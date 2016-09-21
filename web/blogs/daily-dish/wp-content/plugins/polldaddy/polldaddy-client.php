@@ -35,7 +35,7 @@ class api_client {
 				'body' => $this->request_xml
 			) );
 			if ( !$response || is_wp_error( $response ) ) {
-				$errors[-1] = "Can't connect";
+				$this->errors[-1] = "Can't connect";
 				return false;
 			}
 			$this->response_xml = wp_remote_retrieve_body( $response );
@@ -43,7 +43,7 @@ class api_client {
 			$parsed = parse_url( $this->polldaddy_url );
 
 			if ( !isset( $parsed['host'] ) && !isset( $parsed['scheme'] ) ) {
-				$errors[-1] = 'Invalid API URL';
+				$this->errors[-1] = 'Invalid API URL';
 				return false;
 			}
 			
@@ -56,7 +56,7 @@ class api_client {
 			);
 
 			if ( !$fp ) {
-				$errors[-1] = "Can't connect";
+				$this->errors[-1] = "Can't connect";
 				return false;
 			}
 
@@ -81,7 +81,7 @@ class api_client {
 
 
 			if ( !$response ) {
-				$errors[-2] = 'No Data';
+				$this->errors[-2] = 'No Data';
 			}
 
 			list($headers, $this->response_xml) = explode( "\r\n\r\n", $response, 2 );
@@ -91,13 +91,14 @@ class api_client {
 
 		$parser = new Polldaddy_XML_Parser( $this->response_xml );
 		
-		$this->response =& $parser->objects[0];
+		$this->response = $parser->objects[0];
 		if ( isset( $this->response->errors->error ) ) {
 			if ( !is_array( $this->response->errors->error ) )
 				$this->response->errors->error = array( $this->response->errors->error );
 			foreach ( $this->response->errors->error as $error )
 				$this->errors[$error->_id] = $error->___content;
 		}
+		return true;
 	}
 
 	function response_part( $pos ) {
@@ -130,7 +131,7 @@ class api_client {
 		if ( is_a( $object, 'Ghetto_XML_Object' ) )
 			$args = array( $object->___name => &$object );
 		elseif ( is_array( $object ) )
-			$args =& $object;
+			$args = $object;
 		else
 			$args = null;
 
@@ -795,7 +796,8 @@ function sync_rating( ){
 		
 		$pos = $this->add_request( 'getrating', new Polldaddy_Rating( null , compact( 'id' ) ) );
 
-		$this->send_request();
+		if ( false == $this->send_request() )
+			return false;
 
 		$demand = $this->response_part( $pos );
 
@@ -905,9 +907,12 @@ function sync_rating( ){
 	 * @return array|false Polldaddy Media or false on failure
 	 */
 
-    function upload_image( $name, $url, $type, $id = 0 ){
+    function upload_image( $name, $url, $type, $id = 0, $data = '' ){
 
-	    $pos = $this->add_request( 'uploadimageurl', new Polldaddy_Media( compact( 'name', 'type', 'url'  ) , compact( 'id' ) ) );
+		if ( !empty( $data ) )
+			$pos = $this->add_request( 'uploadimagebinary', new Polldaddy_Media( compact( 'name', 'type', 'data'  ) , compact( 'id' ) ) );
+		else
+	    	$pos = $this->add_request( 'uploadimageurl', new Polldaddy_Media( compact( 'name', 'type', 'url' ) , compact( 'id' ) ) );
 
 	    $this->send_request(30);
 
@@ -1166,9 +1171,7 @@ function &polldaddy_poll( $args = null, $id = null, $_require_data = true ) {
 				$args[$bool] = $defaults[$bool];
 		}
 		
-		global $wpdb;		
-		$public = (int) $wpdb->get_var( $wpdb->prepare( "SELECT public FROM wp_blogs WHERE blog_id = %d", $wpdb->blogid ) );
-		if( $public == -1 )
+		if ( '0' == get_option( 'blog_public' ) )
 			$args['makePublic'] = 'no';
 
 		foreach ( array( 'styleID', 'packID', 'folderID', 'languageID', 'choices', 'blockExpiration' ) as $int )
@@ -1312,7 +1315,7 @@ function wp_parse_args( $args, $defaults = '' ) {
 	if ( is_object( $args ) )
 		$r = get_object_vars( $args );
 	elseif ( is_array( $args ) )
-		$r =& $args;
+		$r = $args;
 	else
 		wp_parse_str( $args, $r );
 

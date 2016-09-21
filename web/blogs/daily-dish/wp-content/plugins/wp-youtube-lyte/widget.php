@@ -1,12 +1,13 @@
 <?php
 class WYLWidget extends WP_Widget {
-    function WYLWidget() {
-		parent::WP_Widget(false, $name = 'WP YouTube Lyte');
+    public function __construct() {
+	parent::__construct(false, $name = 'WP YouTube Lyte');
     }
 
     function widget($args, $instance) {
         extract( $args );
 	global $wSize, $wyl_version, $wp_lyte_plugin_url, $lyteSettings;
+	$lyteSettings['path']= plugins_url() . "/" . dirname(plugin_basename(__FILE__)) . '/lyte/';
 	$qsa="";
 
 	$WYLtitle = apply_filters('widget_title', $instance['WYLtitle']);
@@ -26,15 +27,25 @@ class WYLWidget extends WP_Widget {
 		$wHeight = "38";
 	}
 
-	$WYLurl=str_replace("httpv://","http://",$instance['WYLurl']);
+	$WYLurl=str_replace("httpv://","http://",trim($instance['WYLurl']));
 
         $WYLqs=substr(strstr($WYLurl,'?'),1);
         parse_str($WYLqs,$WYLarr);
 
         if (strpos($WYLurl,'youtu.be')) {
                 $WYLid=substr(parse_url($WYLurl,PHP_URL_PATH),1,11);
+		$PLClass="";
+		$WYLthumb="http://img.youtube.com/vi/".$WYLid."/mqdefault.jpg";
         } else {
-                $WYLid=$WYLarr['v'];
+		if (isset($WYLarr['v'])) {
+			$WYLid=$WYLarr['v'];
+			$PLClass="";
+			$WYLthumb="http://img.youtube.com/vi/".$WYLid."/mqdefault.jpg";
+		} else if (isset($WYLarr['list'])) {
+                	$WYLid=$WYLarr['list'];
+			$PLClass=" playlist";
+			$WYLthumb="";
+		}
         }
 
 	if (isset($WYLarr['start'])) $qsa="&amp;start=".$WYLarr['start'];
@@ -52,13 +63,11 @@ class WYLWidget extends WP_Widget {
 	}
 
 	$WYL_dom_id="YLW_".$WYLid;
-	$WYLthumb="http://img.youtube.com/vi/".$WYLid."/mqdefault.jpg";
 
-	$lyteSettings['path']=$wp_lyte_plugin_url."lyte/";
 	?>
 	<?php echo $before_widget; ?>
         <?php if ( $WYLtitle ) echo $before_title . $WYLtitle . $after_title; ?>
-	<div class="lyte-wrapper<?php echo $wrapperClass; ?>" style="width:<?php echo $wSize[$WYLsize]['w']; ?>px; height:<?php echo $wHeight; ?>px; min-width:200px; max-width:100%;"><div class="lyMe<?php echo $audioClass; echo $qsaClass; ?>" id="<?php echo $WYL_dom_id; ?>"><div id="lyte_<?php echo $WYLid; ?>" data-src="<?php echo $WYLthumb;?>" class="pL"><div class="play"></div><div class="ctrl"><div class="Lctrl"></div></div></div></div><noscript><a href="http://youtu.be/<?php echo $WYLid;?>"><img src="<?php echo $WYLthumb; ?>" alt="" /></a></noscript></div>
+	<div class="lyte-wrapper<?php echo $wrapperClass; ?>" style="width:<?php echo $wSize[$WYLsize]['w']; ?>px; height:<?php echo $wHeight; ?>px; min-width:200px; max-width:100%;"><div class="lyMe<?php echo $PLClass; echo $audioClass; echo $qsaClass; ?>" id="<?php echo $WYL_dom_id; ?>"><div id="lyte_<?php echo $WYLid; ?>" data-src="<?php echo $WYLthumb;?>" class="pL"><div class="play"></div><div class="ctrl"><div class="Lctrl"></div></div></div></div><noscript><a href="http://youtu.be/<?php echo $WYLid;?>"><img src="<?php echo $WYLthumb; ?>" alt="" /></a></noscript></div>
 	<div><?php echo $WYLtext ?></div>
         <?php echo $after_widget; ?>
         <?php
@@ -84,14 +93,37 @@ class WYLWidget extends WP_Widget {
     function form($instance) {
         global $wSize, $wDefault;
 
-        $WYLtitle = esc_attr($instance['WYLtitle']);
-	$WYLurl = esc_attr($instance['WYLurl']);
-	$WYLtext = format_to_edit($instance['WYLtext']);
+        if (isset($instance['WYLtitle'])) {
+		$WYLtitle = esc_attr($instance['WYLtitle']);
+	} else {
+		$WYLtitle = "";
+	}
 
-	$WYLaudio = esc_attr($instance['WYLaudio']);
+	if (isset($instance['WYLurl'])) {
+		$WYLurl = esc_attr($instance['WYLurl']);
+	} else {
+		$WYLurl = "";
+	}
+
+	if (isset($instance['WYLtext'])) {
+		$WYLtext = format_to_edit($instance['WYLtext']);
+        } else {
+                $WYLtext = "";
+        }
+
+	if (isset($instance['WYLaudio'])) {
+		$WYLaudio = esc_attr($instance['WYLaudio']);
+        } else {
+                $WYLaudio = "";
+        }
 	if ($WYLaudio!=="audio") $WYLaudio="";
 
-	$WYLsize = esc_attr($instance['WYLsize']);
+	if (isset($instance['WYLsize'])) {
+		$WYLsize = esc_attr($instance['WYLsize']);
+        } else {
+                $WYLsize = "";
+        }
+
 	if ($WYLsize=="") $WYLsize=$wDefault;
 
         ?>
