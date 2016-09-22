@@ -55,12 +55,25 @@ class ValidatorRegServicesUserAdmin extends sfValidatorBase
       }
       $user_profile = array_merge($user_info['user_profile'], $contact_info);
       unset($user_profile['contact_info']);
+		if (sfConfig::get('sf_logging_enabled'))
+		{
+			sfContext::getInstance()->getLogger()->info("BEN:".serialize($user_profile));
+		}
       $user->commitUserData($user_profile);
       $user_data = array_merge($user_profile, $user->toArray()); // The order of the values in array_merge is important. Don't change it. Otherwise the id field will not have the correct value Toros Tarpinyan
       return array_merge($values, compact('user_data'));
     } elseif ($result['code'] == 1) {
     	$field = 'password';
 	    $error = new sfValidatorError($this, 'The login and password do not match.');
+	    $errorschema = new sfValidatorErrorSchema($this, array($error));
+	    throw new sfValidatorErrorSchema($this, array($field => $errorschema));
+
+      //$this->setMessage('invalid', $result['message']);
+      //$this->setMessage('invalid', 'The login and password do not match.');
+      //throw new sfValidatorError($this, 'invalid');
+    } elseif ($result['code'] == 2) {
+    	$field = 'password';
+	    $error = new sfValidatorError($this, 'Your password has been reset for security. Please use \'Forgot Your Password\' below to reset it now.');
 	    $errorschema = new sfValidatorErrorSchema($this, array($error));
 	    throw new sfValidatorErrorSchema($this, array($field => $errorschema));
 

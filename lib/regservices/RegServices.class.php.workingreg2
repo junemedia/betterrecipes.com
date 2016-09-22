@@ -533,56 +533,8 @@ Class RegServices
 		}
 		else
 		{
-			if (sfConfig::get('sf_logging_enabled'))
-			{
-				sfContext::getInstance()->getLogger()->info("BEN-handle_forgot_user_noreg:".$login);
-			}			
-			//added case to handle a user needing forgotpassword who is in the User table but not in the MeredithReg table - so we add the entry. 
-			//Safe by assumption that only that user gets the reset email. - ben
-			$query = new Doctrine_Query();
-			$query->select('u.*')
-				  ->from('User u')
-				  ->where('u.email = ?', $login);
-			$users = $query->execute();
-			if (count($users)  > 0)
-			{
-				if (sfConfig::get('sf_logging_enabled'))
-				{
-					sfContext::getInstance()->getLogger()->info("BEN-handle_forgot_user_noreg:".$users[0]->email.":".$users[0]->first_name);
-				}			
-				//user is in user table, so create the reg entry
-				$udid = $users[0]->profile_id;
-				if (strlen($udid) < 1 || $udid == "")
-				{
-					$udid = uniqid();
-					//should update User table with this ID as well so the later joins work.
-					$q = Doctrine_Query::create()->update('User u');
-					$q->set('u.profile_id', '?', $udid);
-					$q->where('u.email = ?', $login)->execute();
-					
-				}
-				$d = new DateTime();
-				$display_date = $d->format("Y-m-d 00:00:00 T");
-			    $registration_source = $this->registration_source;
-
-				$mreg = new MeredithReg();
-		//		$mreg->set('id', $id); // maybe you don't need this line, if `id` is the primary key
-				$mreg->set('user_id', $udid);
-				$mreg->set('first_name', $users[0]->first_name);
-				$mreg->set('email', $users[0]->email);
-				$mreg->set('registration_date', $display_date);
-				$mreg->set('registration_source', $registration_source);
-				$mreg->set('password', "");// still needs to be reset, so blank is fine. - ben	//sha1($user_info['password']));
-				$mreg->save();
-
-
-				$result = "<result code=\"0\" message=\"OK\"></result>";
-			}
-			else
-			{
-				//user doesnt exist, so they should just register!
-				$result = "<result code=\"102\" message=\"Send Password Reset failed: User does not exist\"></result>";			
-			}
+				$result = "<result code=\"102\" message=\"Send Password Reset failed: User does not exist\"></result>";
+		
 		}
 		if (sfConfig::get('sf_logging_enabled'))
 		{

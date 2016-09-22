@@ -482,5 +482,10 @@ abstract class BaseUser extends sfDoctrineRecord
         $this->hasMany('Vote', array(
              'local' => 'id',
              'foreign' => 'user_id'));
+             
+        $this->hasOne('MeredithReg', array(
+             'local' => 'profile_id',
+             'foreign' => 'user_id'));
+
     }
 }

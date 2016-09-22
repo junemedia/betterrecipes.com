@@ -18,6 +18,7 @@ class homeActions extends sfActions
    */
   public function executeIndex(sfWebRequest $request)
   {
+
     // If the url has a subdomain with no detail attached forward it to the recipes module.
     $host_parts = explode('.', $request->getHost());
     if (UrlToolkit::getDomain() != $request->getHost() && $host_parts[0] != 'www') {

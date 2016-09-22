@@ -225,9 +225,12 @@ class authActions extends sfActions
 
     $this->processReferrer($request);
     if (!$request->isMethod(sfRequest::POST)) {
+	if (sfConfig::get('sf_logging_enabled'))
+        {
+		sfContext::getInstance()->getLogger()->info("BEN was here-redirect signin post");
+	}
       $this->forward('auth', 'index');
     }
-
     $this->signinForm = new SigninForm();
     $this->signinForm->bind($request->getParameter($this->signinForm->getName()));
     if ($this->signinForm->isValid()) {
@@ -235,6 +238,10 @@ class authActions extends sfActions
       $this->getUser()->signin($values['user_data']);
       $this->getUser()->setFlash('onSignin', true);
       $this->setLisCookie($values['user_data']);
+ 	if (sfConfig::get('sf_logging_enabled'))
+        {
+                sfContext::getInstance()->getLogger()->info("BEN was here- signin processed");
+        }
       $this->goToReferrer();
     } else {
 	    foreach( $this->signinForm->getFormFieldSchema( ) as $name => $formField ) {
@@ -249,6 +256,194 @@ class authActions extends sfActions
     $this->signupForm = new SignupForm();
     $this->passwordForm = new ForgotPasswordForm();
     $this->setTemplate('index');
+  }
+
+ /**
+   * Executes signin action
+   *
+   * @param sfWebRequest $request A request object
+   */
+  public function executeReset(sfWebRequest $request)
+  {
+	//http://www.betterrecipes.com/auth/reset?token=%242a%2410%24HiSOCQouB2I2NMS53C6wkOVarWLQJ2YHwD4Os%2FCy2NPL3pS%2FCffUq
+    $temp = $this->processReferrer($request);
+    if ($request->isMethod(sfRequest::POST)) {
+		//reset password from user entry
+//      $this->forward('auth', 'index');
+		$password = $request->getPostParameter('password');
+		$verify = $request->getPostParameter('verify');
+		$token = $request->getPostParameter('token');
+		
+//		echo $password."<BR>\n";
+//		echo $verify."<BR>\n";
+//		echo $token."<BR>\n";
+		if (sfConfig::get('sf_logging_enabled'))
+		{
+			sfContext::getInstance()->getLogger()->info("BEN-executeResetPOST:".$token);
+		}
+		$token = str_replace(" ","+", $token);
+		$this->passwordForm = new ForgotPasswordForm();
+		$data = $this->passwordForm->decrypt_token($token);
+		$parts = explode("|",$data);
+		$this->error = false;				
+		if (count($parts) != 3)
+		{
+			//invalid token
+//			echo "invalid";
+			$this->getUser()->setFlash('notice', 'This token is invalid or has been used.');
+			$this->error = true;
+			
+		}
+		else
+		{
+			$to = $parts[0];
+			$expire = $parts[1];
+
+			$query = new Doctrine_Query();
+			$query->select('r.*')
+				  ->from('MeredithReg r')
+				  ->where('r.email = ?', $to);
+			$users = $query->execute();
+			if (count($users)  > 0)
+			{
+				$testtoken = $users[0]->token;
+				if ($token == $testtoken)
+				{
+					if ($password != $verify)
+					{
+						$this->getUser()->setFlash('notice', 'Your password and verification must match.');
+						$this->error = true;
+		
+					}
+					else
+					{
+						$regex = '/^(?=.*[A-Z!@#$,.%\/^&\'"*()\-_=+`~\[\]{}?|]).{6,20}$/';     
+						if (preg_match($regex, $password))
+						{
+							$q = Doctrine_Query::create()->update('MeredithReg u');
+							$q->set('u.password', '?', sha1($password));
+							$q->set('u.token', '?', 'NULL');
+							$q->where('u.email = ?', $to)->execute();
+
+							$this->getUser()->setFlash('notice', 'Your password has been updated.');
+							$this->getUser()->removeReferrer(null);
+							$this->getUser()->setReferrer(null);
+							$this->error = 3;
+						} else {
+						    $this->issue= 'Must be from 6 to 20 characters in length. <br/>Must contain at least one capital letter or special character.<br/>';
+//							$this->getUser()->setFlash('error', 'Must be from 6 to 20 characters in length. Must contain at least one capital letter or special character.');
+//							$this->error = false;
+						}
+
+					}
+				}
+				else
+				{
+					$this->getUser()->setFlash('notice', 'This token may have been altered or replaced and is invalid.');
+					$this->error = true;
+				
+				}
+			}			
+			else
+			{
+				$this->getUser()->setFlash('notice', 'This token can not be located and is invalid.');
+				$this->error = true;
+			
+			}
+			//echo $data."<br>";
+			$this->term = $data;
+		}		
+    }
+    else
+    {
+    	//validate token - first time
+		$token = str_replace(" ","+",$this->getRequest()->getGetParameter('token'));
+		$this->passwordForm = new ForgotPasswordForm();
+		$data = $this->passwordForm->decrypt_token($token);
+		$parts = explode("|",$data);
+		$this->error = false;				
+		if (count($parts) != 3)
+		{
+			//invalid token
+//			echo "invalid";
+			$temp = $this->getUser()->getReferrer();
+			if (strlen($temp) < 1)
+			{
+				$this->redirect('@homepage');			
+			}
+			else
+			{
+				$this->getUser()->setFlash('notice', 'This token is invalid or has been used.');
+				$this->error = true;
+			}
+			
+		}
+		else
+		{
+			$to = $parts[0];
+			$expire = $parts[1];
+
+			$query = new Doctrine_Query();
+			$query->select('r.*')
+				  ->from('MeredithReg r')
+				  ->where('r.email = ?', $to);
+			$users = $query->execute();
+			if (count($users)  > 0)
+			{
+				$testtoken = $users[0]->token;
+				if ($token == $testtoken)
+				{
+					$this->getUser()->setFlash('notice', 'Please enter your new password below.');
+				}
+				else
+				{
+					$this->getUser()->setFlash('notice', 'This token may have been altered or replaced and is invalid.');
+					$this->error = true;
+				
+				}
+			}			
+			else
+			{
+				$this->getUser()->setFlash('notice', 'This token can not be located and is invalid.');
+				$this->error = true;
+			
+			}
+			//echo $data."<br>";
+		}
+/*
+		if (sfConfig::get('sf_logging_enabled'))
+		{
+			sfContext::getInstance()->getLogger()->info("BEN-executeResetGET:".$token);
+		}
+		$connection = Doctrine_Manager::connection();
+		$query = "SELECT * from meredith_reg r left join user u on r.user_id = u.profile_id where r.user_id = '".$profile_id."'";
+		$statement = $connection->execute($query);
+		$statement->execute();
+		$resultset = $statement->fetchAll(PDO::FETCH_ASSOC);	
+		if (count($statement)  > 0)
+		{
+	
+		}
+		$query = new Doctrine_Query();
+		$query->select('r.*')
+			  ->from('MeredithReg r')
+			  ->where('r.email = ?', $to);
+
+		$users = $query->execute();
+		if (count($users)  > 0)
+		{
+//			$users[0]->token;
+			$q = Doctrine_Query::create()->update('MeredithReg u');
+			$q->set('u.token', '?', $token);
+			$q->where('u.email = ?', $to)->execute();
+		}
+//*/
+
+    	
+    }
+
+
+//    $this->setTemplate('index');
   }
 
   /**

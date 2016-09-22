@@ -2,11 +2,11 @@
 # http://www.symfony-project.org/reference/1_4/en/05-Factories
 
 prod:
-  logger:
-    class:   sfNoLogger
-    param:
-      level:   err
-      loggers: ~
+#  logger:
+#    class:   sfNoLogger
+#    param:
+#      level:   err
+#      loggers: ~
 
 test:
   storage:
@@ -53,6 +53,12 @@ all:
     param:
       generate_shortest_url:            true
       extra_parameters_as_query_string: true
+      cache:
+        class: sfAPCCache
+        param:
+          prefix: betterrecipes/frontend
+          automatic_cleaning_factor: 0
+          lifetime: 300
 
   view_cache_manager:
     class: sfViewCacheManager
@@ -61,11 +67,12 @@ all:
       cache_key_use_host_name:    true
 
   view_cache:
+#    class: sfAPCCache
     class: sfFileCache
     param:
       prefix: betterrecipes/frontend
       automatic_cleaning_factor: 0
-      lifetime: 2400
+      lifetime: 2400      
 
   mailer:
     class: sfMailer
@@ -76,7 +83,7 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       relay.jangosmtp.net
+          host:       relay.jangosmtp.net 
           port:       25
           encryption: ~
           username:   techyogi

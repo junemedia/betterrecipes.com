@@ -82,8 +82,8 @@ class searchActions extends sfActions
 			$q = str_replace("+","%20",$q);
 			$q = str_replace(" ","%20",$q);
 		}	
-		
-		$url = 'http://23.251.155.98:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;
+                $url = 'http://162.209.125.67:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;		
+		//$url = 'http://23.251.155.98:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;
 //		$url = 'http://192.168.59.103:8080/solr/collection1/select?q=text%3A%22'.$q.'&sort=Rating+desc,Title+asc&wt=xml&indent=true&rows='.$perPage."&start=".$startingDoc."&fq=PageType:".$PageType;
 		if ($Rating)
 			$url .= "&Rating:[".$Rating."%20TO%20*]";

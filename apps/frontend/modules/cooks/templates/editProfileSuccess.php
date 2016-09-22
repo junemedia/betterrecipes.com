@@ -102,7 +102,7 @@ unitValues: {
       </fieldset>
       <fieldset>
         <label for="user_about">About me:</label>
-        <p><?= $user->getAboutMe() ?></p>
+        <p><?= $user_data['about_me'] ?></p>
       </fieldset>
     </fieldset>
     <fieldset class="user-details flle inline-changes editing<? if ($sf_user->hasFlash('notice')): ?> hidden<? endif ?>">

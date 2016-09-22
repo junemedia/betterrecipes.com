@@ -3,7 +3,7 @@
 
 prod:
   .settings:
-    error_reporting:        false
+    error_reporting:         <?php echo (E_ALL | E_STRICT)."\n" ?>
 
 dev:
   .settings:
@@ -24,7 +24,7 @@ all:
     module_disabled_action: disabled
 
   .settings:
-    logging_enabled:        false
+    logging_enabled:        true
     etag:                   false
     no_script_name:         true
     cache:                  false

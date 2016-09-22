@@ -149,6 +149,10 @@ class BetterrecipesUser extends sfBasicSecurityUser
     $options['is_signin'] = true;
     $sf_context->getStorage()->initialize($options);
 
+if (sfConfig::get('sf_logging_enabled'))
+{
+                        sfContext::getInstance()->getLogger()->info("BEN was here".serialize($user_data));
+}
     if (!$user_data) {
       throw new InvalidArgumentException('Invalid. User data cannot be null or empty.');
       return false;
@@ -161,6 +165,11 @@ class BetterrecipesUser extends sfBasicSecurityUser
       }
       $this->setUserData($user_data);
       $this->setAuthenticated(true);
+
+if (sfConfig::get('sf_logging_enabled'))
+{
+sfContext::getInstance()->getLogger()->info("BEN was here".$this->isAuthenticated());
+}
       return $this;
     }
   }

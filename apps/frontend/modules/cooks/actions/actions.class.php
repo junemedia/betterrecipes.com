@@ -29,11 +29,25 @@ class cooksActions extends sfActions
     // no need to handle is_active and 404 here because it is handled at the route
 
     $display_name = $request->getParameter('display_name');
-    $this->my_profile = ($this->getUser()->isAuthenticated() && $this->getUser()->getIsActive() && $this->getUser()->getDisplayName() === $display_name) ? true : false;
-
     $this->user = UserTable::getUserByDisplayName($display_name);
     $this->forward404Unless($this->user);
 //  $this->user->setRegServicesData();
+	$this->my_profile = ($this->getUser()->isAuthenticated() && $this->getUser()->getIsActive() && $this->getUser()->getDisplayName() === $display_name) ? true : false;
+//$this->getUser()->setAuthenticated(true);
+//print_r("auth:".$this->user->isAuthenticated());
+//print_r("active:".$this->user->getIsActive());
+//print_r("displ:".$this->user->getDisplayName());
+//print_r("prof:".$this->my_profile);
+                if (sfConfig::get('sf_logging_enabled'))
+                {
+                        sfContext::getInstance()->getLogger()->info("BEN was here");
+                        sfContext::getInstance()->getLogger()->info("BEN-isAuthenticated:".$this->user->isAuthenticated());
+                        sfContext::getInstance()->getLogger()->info("BEN-displ_name:".$display_name);
+                        sfContext::getInstance()->getLogger()->info("BEN-getdispl_name:".$this->user->getDisplayName());
+ 			sfContext::getInstance()->getLogger()->info("BEN-get_active:".$this->user->getIsActive());
+			sfContext::getInstance()->getLogger()->info("BEN-my_profile:".$this->my_profile);
+                }
+
     $response = $this->getResponse();
     $response->setTitle($display_name . ' | Cooks | Better Recipes');
 
@@ -55,7 +69,7 @@ class cooksActions extends sfActions
      * Omniture
      */
     $this->getOmniture()->setMany(array(
-      'pageName' => sprintf('MixingBowl:User:%s:%s', $this->my_profile ? 'Private' : 'Public', $this->user_data['display_name']),
+      'pageName' => sprintf('MixingBowl:User:%s:%s', $this->my_profile ? 'Private' : 'Public', $this->user['display_name']),
       'server' => 'www.betterrecipes.com',
       'channel' => 'Mixing Bowl',
       'prop1' => 'MixingBowl:User',
@@ -65,7 +79,7 @@ class cooksActions extends sfActions
       'prop18' => 'betterrecipes',
       'prop19' => 'Food',
       'prop20' => $this->getRequest()->getUri(),
-      'eVar9' => sprintf('MixingBowl:User:%s:%s', $this->my_profile ? 'Private' : 'Public', $this->user_data['display_name']),
+      'eVar9' => sprintf('MixingBowl:User:%s:%s', $this->my_profile ? 'Private' : 'Public', $this->user['display_name']),
       'eVar14' => 'Mixing Bowl',
       'eVar24' => $this->getUser()->isAuthenticated() ? true : false,
     ));
@@ -85,8 +99,28 @@ class cooksActions extends sfActions
     $this->user = UserTable::getUserByDisplayName($display_name);
     $this->redirectUnless($this->my_profile, UrlToolkit::getUrl('User', compact('display_name')));
     $user_data = $user->getUserData();
-
     $user_data['user_id'] = $user_data['id'];
+
+
+//ben added to query MeredithReg data as well
+   if ($user_data['profile_id'] > 0)
+   {
+		$results = Doctrine_Query::create()->select('*')->from('MeredithReg r')->where('r.user_id = ?', $user_data['profile_id'] )->limit(10)->fetchArray();
+		if (count($results) > 0 && $results[0])
+		{
+//			print_r($results[0]);
+			$user_data['address1'] 	= $results[0]['address1'];
+			$user_data['address2'] 	= $results[0]['address2'];
+			$user_data['city'] 		= $results[0]['city'];
+			$user_data['state'] 	= $results[0]['state'];
+			$user_data['zipcode'] 	= $results[0]['postal_code'];
+			$this->user_data = $user_data;
+
+		}
+
+	}
+//print_r($user_data);
+//end -ben add
 
     $this->userForm = new UserProfileForm($user_data);
     if ($request->isMethod(sfRequest::POST)) {

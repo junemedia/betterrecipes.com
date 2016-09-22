@@ -70,7 +70,8 @@ class UrlToolkit
           if ($params['display_name'] && $params['display_name'] != '') {
             $url = self::getDomainUri() . url_for('cook_profile', array('display_name' => $params['display_name']));
           } else {
-            $url = 'javascript:void(0);';
+            //$url = 'javascript:void(0);';
+	    $url = self::getDomainUri();
           }
           break;
         case '@cook_profile_recipes':

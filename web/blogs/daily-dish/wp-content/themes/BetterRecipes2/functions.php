@@ -1,5 +1,5 @@
 <?php
-// added to prevent blogs.mydevstaging.com from showing-up when WP tries to add a trailing slash to a blog entry
+// added to prevent www.betterrecipes.com from showing-up when WP tries to add a trailing slash to a blog entry
 remove_filter('template_redirect', 'redirect_canonical');
 
  if ( function_exists('register_sidebar') )
@@ -15,7 +15,7 @@ function show_first_image() {
   $first_img = $matches [1] [0];
 
   if(empty($first_img)){ //Defines a default image
-    $first_img = "http://blogs.mydevstaging.com/blogs/daily-dish/img/logo-betterrecipes.png";
+    $first_img = "http://www.betterrecipes.com/blogs/daily-dish/img/logo-betterrecipes.png";
   }
   return $first_img;
 }

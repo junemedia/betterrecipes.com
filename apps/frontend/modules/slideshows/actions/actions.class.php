@@ -51,16 +51,21 @@ class slideshowsActions extends sfActions
       $this->redirect(UrlToolkit::getProtocol() . $newroute_parts[0] . '.' . UrlToolkit::getDomain() . '/slideshows/' . $newroute_parts[1]);
     }
     $this->forward404Unless($this->slideshow = Doctrine_Core::getTable('slideshow')->findOneBySlug($request->getParameter('slug')), sprintf('Object slideshow does not exist (%s).', $request->getParameter('slug')));
+
     $this->forward404If(($request->getParameter('mode', '') == 'preview' && intval($request->getCookie('lis') < 2)) || ($request->getParameter('mode', '') != 'preview' && $this->slideshow->getIsActive() == 0));
+
+if (sfConfig::get('sf_logging_enabled'))
+                sfContext::getInstance()->getLogger()->info("BEN-testingif");
     $this->showall = strpos($request->getReferer(), $request->getParameter('slug') . '/all') !== false ? false : true;
     $this->category = $this->slideshow->getCategory();
     $this->slides = $this->slideshow->getSortedSlides();
     $host_parts = explode('.', $request->getHost());
-    $this->forward404Unless($this->category->getSlug() == $host_parts[0]);
+if (sfConfig::get('sf_logging_enabled'))
+                sfContext::getInstance()->getLogger()->info("BEN-testing:".$this->category.":".serialize($host_parts).":".$this->category->getSlug().":".$this->category->getId());
+    $this->forward404Unless($this->category->getSlug() == $host_parts[0]);	//ben - not sure why, but i had to disable to get to show up.
     // Increase the view count by one
     $this->slideshow->setViews($this->slideshow->getViews() + 1);
     $this->slideshow->save();
-
     $this->recipes = RecipeTable::getList(array('is_global' => 0, 'category_id' => $this->category->getId()));
     $this->slideshows = SlideshowTable::getList(array('is_global' => 1, 'category_id' => $this->category->getId()));
     $this->rr_recipes = array('category_id' => $this->category->getId(), 'is_global' => 1);
