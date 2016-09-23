@@ -15,3 +15,7 @@ web/blogs/daily-dish/wp-content/blogs.dir/*
 *.svg.gz
 *.ttf.gz
 *.woff.gz
+
+
+lb-mon.txt
+test.php
