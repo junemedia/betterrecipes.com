@@ -162,39 +162,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="logo-space">
           <h1><a href="http://www.betterrecipes.com" title="Better Recipes"><img style="margin-top:25px; margin-left:10px" src="/blogs/daily-dish/wp-content/themes/BetterRecipes2/dev-assets/img/logo_betterrecipes.png" alt="BetterRecipes : better recipes - better meals"  /></a></h1>
           <div class="hd-ad">
-		  	
-				<!--/* OpenX Asynchronous JavaScript tag */-->
+			<!--/* OpenX Asynchronous JavaScript tag */-->
 
-				<!-- /*
-				 * The tag in this template has been generated for use on a
-				 * non-SSL page. If this tag is to be placed on an SSL page, change the
-				 * 'http://ox-d.junemedia.com/...'
-				 * to
-				 * 'https://ox-d.junemedia.com/...'
-				 */ -->
-				 
-				 <script type="text/javascript">
-					var LB_Params = {ybot_slot:"LB", ybot_size:"", ybot_cpm:""};
-					try{
-						LB_Params = yieldbot.getSlotCriteria('LB');
-					}catch(e){/*ignore*/}
-				</script>
+			 <script type="text/javascript">
+				var LB_Params = {ybot_slot:"LB", ybot_size:"", ybot_cpm:""};
+				try{
+					LB_Params = yieldbot.getSlotCriteria('LB');
+				}catch(e){/*ignore*/}
+			</script>
 
-				<div id="537278266_728x90_ATF" style="width:728px;height:90px;margin:0;padding:0">
-				  <noscript><iframe id="0f4e0bd8bb" name="0f4e0bd8bb" src="http://ox-d.junemedia.com/w/1.0/afr?auid=537278266&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ox-d.junemedia.com/w/1.0/ai?auid=537278266&cs=0f4e0bd8bb&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
-				</div>
-				<script type="text/javascript">
-				  var OX_ads = OX_ads || [];
-				  OX_ads.push({
-					 slot_id: "537278266_728x90_ATF",
-					 auid: "537278266",
-					 vars: {"ybot_slot":LB_Params.ybot_slot, "ybot_size": LB_Params.ybot_size, "ybot_cpm": LB_Params.ybot_cpm}
-				  });
-				</script>
+      <div id="537278266_728x90_ATF" style="width:728px;height:90px;margin:0;padding:0">
+        <noscript>
+          <iframe id="6b3bc4c93e" name="6b3bc4c93e" src="//junemedia-d.openx.net/w/1.0/afr?auid=537278266&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90">
+            <a href="//junemedia-d.openx.net/w/1.0/rc?cs=6b3bc4c93e&cb=INSERT_RANDOM_NUMBER_HERE" >
+              <img src="//junemedia-d.openx.net/w/1.0/ai?auid=537278266&cs=6b3bc4c93e&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt="">
+            </a>
+          </iframe>
+        </noscript>
+      </div>
+      <script type="text/javascript">
+        var OX_ads = OX_ads || [];
+        OX_ads.push({
+         slot_id: "537278266_728x90_ATF",
+         auid: "537278266",
+         vars: {"ybot_slot":LB_Params.ybot_slot, "ybot_size": LB_Params.ybot_size, "ybot_cpm": LB_Params.ybot_cpm}
+        });
+      </script>
 
-				<script type="text/javascript" src="http://ox-d.junemedia.com/w/1.0/jstag"></script>			
-				<!-- end openx -->
-				
+      <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
+
+			<!-- end openx -->
 			
 		  </div>
         </div>

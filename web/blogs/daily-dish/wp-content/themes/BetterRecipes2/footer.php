@@ -31,33 +31,34 @@
     </div>
 
     <div style="margin:0 auto;width:728px;height:90px">
-    <!-- /* OpenX Asynchronous JavaScript tag
-          *
-          * The tag in this template has been generated for use on a
-          * non-SSL page. If this tag is to be placed on an SSL page, change the
-          * 'http://ox-d.junemedia.com/...'
-          * to
-          * 'https://ox-d.junemedia.com/...'
-          */ -->
-	<script type="text/javascript">
-		var LB_BTF_Params = {ybot_slot:"LB_BTF", ybot_size:"", ybot_cpm:""};
-		try{
-			LB_BTF_Params = yieldbot.getSlotCriteria('LB_BTF');
-		}catch(e){/*ignore*/}
-	</script>
-	
-    <div id="537278267_june_open_x_footer" style="width:728px;height:90px;padding:0">
-      <noscript><iframe id="0c7bcf3452" name="0c7bcf3452" src="//ox-d.junemedia.com/w/1.0/afr?auid=537278267&amp;cb=<?= time() ?>" frameborder="0" scrolling="no" width="728" height="90"/><a href="http://ox-d.junemedia.com/w/1.0/rc?cs=0c7bcf3452&amp;cb=<?= time() ?>"><img src="//ox-d.junemedia.com/w/1.0/ai?auid=537278267&amp;cs=0c7bcf3452&amp;cb=<?= time() ?>" border="0"/></a></iframe></noscript>
-    </div>
-    <script>
-      var OX_ads = OX_ads || [];
-          OX_ads.push({
-            slot_id: "537278267_june_open_x_footer",
-            auid: "537278267",
-			vars: {"ybot_slot":LB_BTF_Params.ybot_slot, "ybot_size": LB_BTF_Params.ybot_size, "ybot_cpm": LB_BTF_Params.ybot_cpm}
-          });
-    </script>
-    <script src="//ox-d.junemedia.com/w/1.0/jstag"></script>
+      <!--/* OpenX Asynchronous JavaScript tag */-->
+
+      <script type="text/javascript">
+        var LB_BTF_Params = {ybot_slot:"LB_BTF", ybot_size:"", ybot_cpm:""};
+        try{
+          LB_BTF_Params = yieldbot.getSlotCriteria('LB_BTF');
+        }catch(e){/*ignore*/}
+      </script>
+
+      <div id="537278267_june_open_x_footer" style="width:728px;height:90px;margin:0;padding:0">
+        <noscript>
+          <iframe id="68f77ad32d" name="68f77ad32d" src="//junemedia-d.openx.net/w/1.0/afr?auid=537278267&cb=<?= time() ?>" frameborder="0" scrolling="no" width="728" height="90">
+            <a href="//junemedia-d.openx.net/w/1.0/rc?cs=68f77ad32d&cb=<?= time() ?>" >
+              <img src="//junemedia-d.openx.net/w/1.0/ai?auid=537278267&cs=68f77ad32d&cb=<?= time() ?>" border="0" alt="">
+            </a>
+          </iframe>
+        </noscript>
+      </div>
+      <script type="text/javascript">
+        var OX_ads = OX_ads || [];
+        OX_ads.push({
+          slot_id: "537278267_june_open_x_footer",
+          auid: "537278267",
+          vars: {"ybot_slot":LB_BTF_Params.ybot_slot, "ybot_size": LB_BTF_Params.ybot_size, "ybot_cpm": LB_BTF_Params.ybot_cpm}
+        });
+      </script>
+
+      <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
     </div>
 
 
