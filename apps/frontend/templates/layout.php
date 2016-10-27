@@ -259,8 +259,8 @@
       <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6036305&amp;cv=2.0&amp;cj=1" />
     </noscript>
     <!-- End comScore Tag -->
-    
-    
+
+    <? include_partial('global/swoop') ?>
 
   </body>
 </html>
