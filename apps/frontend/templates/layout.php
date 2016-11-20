@@ -261,6 +261,7 @@
     <!-- End comScore Tag -->
 
     <? include_partial('global/swoop') ?>
+    <? include_partial('global/underdog') ?>
 
   </body>
 </html>
