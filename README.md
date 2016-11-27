@@ -38,6 +38,12 @@ http://betterrecipes.mydevstaging.com/
     mysql -e 'create database betterrecipes'
     mysqldump -Ch rd7 betterrecipes | mysql betterrecipes
 
+## Log file rotation
+Rotate symfony log files daily:
+
+    cd /etc/logrotate.d
+    ln -s /srv/sites/betterrecipes/etc/logrotate.d/sf2_betterrecipes
+
 ## Cron Jobs
 
     # betterrecipes: Export Baynote XML Catalog at 02:15
