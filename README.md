@@ -39,10 +39,12 @@ http://betterrecipes.mydevstaging.com/
     mysqldump -Ch rd7 betterrecipes | mysql betterrecipes
 
 ## Log file rotation
-Rotate symfony log files daily:
+Rotate nginx and symfony log files daily:
 
     cd /etc/logrotate.d
     ln -s /srv/sites/betterrecipes/etc/logrotate.d/sf2_betterrecipes
+    rm nginx
+    ln -s /srv/sites/betterrecipes/etc/logrotate.d/nginx
 
 ## Cron Jobs
 
