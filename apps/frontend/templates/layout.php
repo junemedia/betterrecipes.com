@@ -262,6 +262,7 @@
 
     <? include_partial('global/swoop') ?>
     <? include_partial('global/underdog') ?>
+    <? include_partial('global/liveconnect') ?>
 
   </body>
 </html>
