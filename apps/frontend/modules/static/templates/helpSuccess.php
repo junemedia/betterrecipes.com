@@ -15,6 +15,6 @@
   <h2>Uploading Your Own Recipes</h2>
   <p>Better Recipes invites members to upload their own recipes. You can even enter our contests with each recipe you upload. Member recipes that are uploaded may take up to 14 days before they appear on the site and in the searches. </p> 
   <p>To upload a recipe, click on the Upload Recipe button at the top of the page. Then, follow the instructions on the forms that appear.</p>
-  <p>If you have any questions or concerns not addressed above, please contact us at <a href="mailto:support@bhg.com">support@bhg.com</a>. </p>
+  <p>If you have any questions or concerns not addressed above, please contact us at <a href="mailto:support@betterrecipes.com">support@betterrecipes.com</a>. </p>
 </p>
 </div>
