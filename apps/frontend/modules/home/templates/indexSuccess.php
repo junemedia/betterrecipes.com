@@ -48,6 +48,8 @@ unitValues: {
   <div class="clear-both"></div>
   <? include_partial('editorials', compact('categoryWonder')) ?>
   
+  <?php include_partial('global/adtags/outbrain_TF_4') ?>
+
   <?
   /* MBR-57 -> Remove
   <p class="title">Trending Food</p>

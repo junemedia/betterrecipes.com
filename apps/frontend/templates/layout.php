@@ -263,6 +263,7 @@
     <? include_partial('global/swoop') ?>
     <? include_partial('global/underdog') ?>
     <? include_partial('global/liveconnect') ?>
+    <? include_partial('global/adtags/outbrain_js') ?>
 
   </body>
 </html>
