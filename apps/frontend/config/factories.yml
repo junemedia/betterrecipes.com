@@ -83,8 +83,8 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       relay.jangosmtp.net 
+          host:       express-relay.jangosmtp.net 
           port:       25
           encryption: ~
-          username:   techyogi
-          password:   wawwii21156
+          username:   jshearer-jm
+          password:   NC.TL>i8AP9b
