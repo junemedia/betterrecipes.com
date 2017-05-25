@@ -5,6 +5,16 @@
     });
   </script>
 <? endif ?>
+<script>
+  // prevent submitting multiple times, dumb way to do it
+  // but I got other stuff to do
+  $(document).ready(function() {
+    $('form.forgot-password.mb20').submit(function (e) {
+      $('#forgot-password-submit-btn').attr('disabled', true);
+      return true;
+    });
+  });
+</script>
 <div class="sidebar" style="width:305px;">
   <p class="title green">Already A Member?</p>
   <? if ($signinForm->hasGlobalErrors()): ?>
@@ -38,7 +48,7 @@
     <label for="forgot_email">E-mail Address</label>
     <?= $passwordForm['email']->render(array('id' => 'forgot_email')) ?>
     <?= $passwordForm['email']->renderError() ?>
-    <input type="submit" value="Send Password" class="btn-purple28" />
+    <input type="submit" value="Send Password" class="btn-purple28" id="forgot-password-submit-btn" />
   </form>
 </div>
 <div class="banner signin-page mt20">
