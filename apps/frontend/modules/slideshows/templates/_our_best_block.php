@@ -45,9 +45,7 @@
 	margin:0px;
 }
 </style>
-  <!--INFOLINKS_OFF-->
   <p class="title" style="width:300px; margin-bottom:-17px;">Our Best Recipe Collections</p>
-  <!--INFOLINKS_ON-->
   <? if (@$ob_slideshows): ?>
     <ul>
       <? //foreach ($ob_slideshows as $ob_slideshow): 

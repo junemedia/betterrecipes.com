@@ -1,4 +1,3 @@
-<!--INFOLINKS_OFF-->
 <style>
 h1{
 	font-size:16px;
@@ -133,4 +132,3 @@ h1{
 	
   </div>
 </div>
-<!--INFOLINKS_ON-->

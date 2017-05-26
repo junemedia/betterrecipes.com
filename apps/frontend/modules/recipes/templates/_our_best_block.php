@@ -1,7 +1,5 @@
 <div id="sidebar-ourbest">
-  <!--INFOLINKS_OFF-->
   <p class="title">Our Best Recipe Collections<?php //echo $ob_title;?></p>
-  <!--INFOLINKS_ON-->
   <? if (@$ob_recipes): ?>
     <ul>
       <? //foreach ($ob_recipes as $recipe): 

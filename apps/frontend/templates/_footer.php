@@ -15,7 +15,6 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
     });
   });
 </script>
-<!--INFOLINKS_OFF-->
 <div id="main-footer">
   <div class="wrapper pb60">
     <div class="header search-bar">
@@ -73,7 +72,6 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
   </div>
 </div>
 </div><!-- /#main-footer -->
-<!--INFOLINKS_ON-->
 
 <!-- BEGIN SiteCTRL Script tynt tag -->
 <script type="text/javascript">
@@ -85,13 +83,3 @@ if(document.location.protocol=='http:'){
 
 </script>
 <!-- END SiteCTRL Script -->
-
-
-
-<!-- infolinks -->
-<script type="text/javascript">
-var infolinks_pid = 1863387;
-var infolinks_wsid = 3;
-</script>
-<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
-<!-- end infolinks -->

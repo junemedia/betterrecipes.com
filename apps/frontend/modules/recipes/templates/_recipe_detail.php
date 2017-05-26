@@ -243,7 +243,7 @@
           </span>
         <? endif; ?>
       </div>
-      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><!--INFOLINKS_OFF--><?= SearchReplace::run($recipe->getIntroduction()) ?><!--INFOLINKS_ON--></span></p>
+      <p class="summary mb10"><span itemprop="summary" id="recipe_description"><?= SearchReplace::run($recipe->getIntroduction()) ?></span></p>
       <? if ($sf_user->isAuthenticated() && $sf_user->getAttribute('id') == $recipe->getUserId()): ?>
         <p class="w100 mt20 mb20"><a href="<?= getUrl('@edit_recipe', array('id' => $recipe->getId())) ?>" title="<?= $recipe->getName() ?>" class="btn-purple28">Edit Recipe</a></p>
       <? endif; ?>
@@ -278,9 +278,7 @@
         <time class="microformat" style="display:none;" itemprop="totalTime" datetime="<?= $totaltime ?>"><?= Microformat::duration_to_pretty($totaltime) ?></time>
       <? endif; ?>
     </ul>
-    <!--INFOLINKS_OFF-->
 	<p class="title">Ingredients:</p>
-	<!--INFOLINKS_ON-->
     <p class="lh25"><?= SearchReplace::run(Microformat::tableIngredients($recipe->getIngredients())) ?></p>
     
     <? /* insert Zedo DIV ID placeholder (ad tag) */ ?>
@@ -288,9 +286,7 @@
 	<!--
 	<div id="zedo_loader"></div>    
     -->
-	<!--INFOLINKS_OFF-->
     <p class="title">Directions:</p>
-	<!--INFOLINKS_ON-->
     <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
       <p class="title mt20">Helpful Tips:</p>

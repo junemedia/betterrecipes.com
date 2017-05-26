@@ -1,7 +1,5 @@
 <? if ($categoryWonder && (sizeof($categoryWonder) > 0)): ?>
-  <!--INFOLINKS_OFF-->
   <p class="title" style="margin-top:10px;">Popular Categories</p>
-  <!--INFOLINKS_ON-->
   <div id="editorials" style="width:650px;">
     <? $cat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneCatId()); ?>
     <? $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneSubcatOne()); ?>
