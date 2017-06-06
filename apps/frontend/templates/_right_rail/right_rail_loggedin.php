@@ -4,7 +4,5 @@
     <?php include_partial('global/adtags/openx_300x250atf') ?>
   </div>
 
-  <?php include_partial('global/right_rail/contest') ?>
-
 </div><!-- /.sidebar -->
 <div class="clearfix"></div>

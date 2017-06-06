@@ -228,11 +228,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div> <!-- /.search-bar -->
                   
                                    
-                  <!--                 
-                  <div class="banner">
-                    <? //include('ad-1000x45.php'); ?>
-                  </div><!-- /.banner -->
-				  
                   </div><!-- /.wrapper -->
                   </div><!-- /#main-header -->
                   <div id="main-content" class="recipe-detail">

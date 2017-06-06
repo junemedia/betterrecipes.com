@@ -55,7 +55,6 @@
   float:left;
 }
 
-	
 	</style>
     <div class="search-bars">
       <? include_partial('global/navigation') ?>
@@ -65,14 +64,6 @@
         <input type="submit" value="SEARCH" class="cssbutton" />
       </form>
     </div> <!-- /.search-bar -->
-    <? if ($sf_context->getRouting()->getCurrentRouteName() == 'signin' || $sf_context->getRouting()->getCurrentRouteName() == 'signup'): ?>
-
-    <? else: ?>
-	  <!--
-      <div class="banner ad1000x45">
-        <? include_partial('global/adtags/1000x45') ?>
-      </div><!-- /.banner -->
-    <? endif; ?>
     <div class="clearfix"></div>
   </div><!-- /.wrapper -->
 </div><!-- /#main-header -->
