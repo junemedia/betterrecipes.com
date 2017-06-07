@@ -144,7 +144,6 @@
   <script src="http://c5.zedo.com/jsc/c5/frd.js"></script>
 
 
-  <?php include_partial('global/comscore') ?>
   <?php include_partial('global/swoop') ?>
   <?php include_partial('global/underdog') ?>
   <?php include_partial('global/liveconnect') ?>
