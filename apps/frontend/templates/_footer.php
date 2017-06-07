@@ -1,4 +1,4 @@
-<?
+<?php
 $host_parts = explode('.', $sf_request->getHost());
 $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'www') ? true : false;
 ?>
@@ -17,17 +17,10 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
 </script>
 <div id="main-footer">
   <div class="wrapper pb60">
-    <div class="header search-bar">
-	<!--
-      <form id="ft-search" action="<?= getDomainUri() . '/search' ?>" method="get" onsubmit="return validateSearch(this)">
-        <input type="text" value="Search for recipe" name="term" onFocus="clearText(this)" onBlur="clearText(this)" />
-        <input type="hidden" name="PageType" value="Recipe" />
-        <input type="submit" value="SEARCH" class="cssbutton" />
-      </form>
-	-->
-    </div>
-  
-    <? include_component('recipes', 'footer_categories') ?>
+    <div class="header search-bar"> </div>
+
+    <?php include_component('recipes', 'footer_categories') ?>
+
     <div class="nav lower pt20">
       <div class="title">YOUR ACCOUNT</div>
       <div class="links">
@@ -35,33 +28,34 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
           <li><a href="<?= getUrl('@help') ?>">Help Resources</a></li>
           <li>&nbsp;|&nbsp;<a href="<?= getSignupUri($sf_request->getUri()) ?>">Register</a></li>
           <li>&nbsp;|&nbsp;<a href="/email-signup">Free Newsletters</a></li>
-          <li id="footer_login"></li>         
+          <li id="footer_login"></li>
           <li>&nbsp;|&nbsp;<a href="<?= getUrl('@privacy-policy') ?>">Privacy Policy - New!</a></li>
-          
+
         </ul>
       </div>
     </div>
+
     <div class="nav lower">
       <div class="title">BETTER RECIPES</div>
       <div class="links">
         <ul>
           <li><a href="http://twitter.com/BetterRecipes">Follow Us on Twitter</a></li>
-          <li>&nbsp;|&nbsp;<a href="http://www.facebook.com/betterrecipes">Find Us on Facebook</a></li>          
+          <li>&nbsp;|&nbsp;<a href="http://www.facebook.com/betterrecipes">Find Us on Facebook</a></li>
         </ul>
       </div>
     </div>
+
     <div class="nav lower pb20">
        <div class="title">&nbsp;</div>
       <div class="links">
         <ul>
-         <?php /* <li><a href="<?= getUrl('@rewards') ?>">Challenges</a></li> */ ?>
           <li><a href="<?= getUrl('@myrecipebox') ?>">My Recipe Box</a></li>
         </ul>
       </div>
     </div>
-      
+
     <div class="nav lower pt20">
-      <div class="title"><img src="/img/logo-womens-network.png" alt="Meredith Women's Network" class="mb0 pb20" style="vertical-align: middle; visibility: hidden;" /></div>
+      <div class="title">&nbsp;</div>
       <div class="links">
         <ul>
           <li>© Copyright <?= date('Y') ?>, June Media Inc.  All Rights Reserved</li>
