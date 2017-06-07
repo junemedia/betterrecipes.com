@@ -128,22 +128,6 @@
     /* ]]> */
   </script>
 
-  <script>
-    var zflag_parent="zedo_loader";
-    var zflag_vast_domain="http://xp1.zedo.com/";
-    var zflag_nid="2340";
-    var zflag_cid="127";
-    var zflag_sz="85";
-    var zflag_sid="44";
-    var zflag_width="426";
-    var zflag_height="340";
-    var zflag_bchan="128";
-    var zflag_breplay="1";
-    var zflag_dimension="1";
-  </script>
-  <script src="http://c5.zedo.com/jsc/c5/frd.js"></script>
-
-
   <?php include_partial('global/swoop') ?>
   <?php include_partial('global/underdog') ?>
   <?php include_partial('global/liveconnect') ?>

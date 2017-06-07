@@ -281,11 +281,6 @@
 	<p class="title">Ingredients:</p>
     <p class="lh25"><?= SearchReplace::run(Microformat::tableIngredients($recipe->getIngredients())) ?></p>
     
-    <? /* insert Zedo DIV ID placeholder (ad tag) */ ?>
-	
-	<!--
-	<div id="zedo_loader"></div>    
-    -->
     <p class="title">Directions:</p>
     <div class="instructions" itemprop="instructions"><?= SearchReplace::run(Microformat::parseInstructions($recipe->getInstructions())) ?></div>
     <? if ($notes = @$recipe->getNotes()): ?>
