@@ -17,12 +17,7 @@
   <?php include_stylesheets() ?>
   <?php include_javascripts() ?>
 
-  <script src="http://cdn.gigya.com/JS/socialize.js?apikey=<?= sfConfig::get('app_gigya_api_key') ?>">  </script>
-
-  <script>
-    brmb.gigya.conf.APIKey = '<?= sfConfig::get('app_gigya_api_key') ?>';
-  </script>
-
+  <?php include_partial('global/gigya_socialize'); ?>
   <?php include_component('adtags', 'header_code') ?>
 
   <!--[if lt IE 9]>
