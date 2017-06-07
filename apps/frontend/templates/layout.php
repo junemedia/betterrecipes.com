@@ -117,9 +117,10 @@
 
   <?php include_partial('global/omniture') ?>
   <?php include_partial('global/ga') ?>
-  <?php include_partial('global/swoop') ?>
-  <?php include_partial('global/underdog') ?>
-  <?php include_partial('global/liveconnect') ?>
+
+  <?php include_partial('global/adtags/swoop') ?>
+  <?php include_partial('global/adtags/underdog') ?>
+  <?php include_partial('global/adtags/liveconnect') ?>
   <?php include_partial('global/adtags/tynt') ?>
   <?php include_partial('global/adtags/outbrain_js') ?>
 
