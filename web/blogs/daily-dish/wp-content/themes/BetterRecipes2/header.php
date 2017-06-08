@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css"/>
     <link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('template_directory'); ?>/css/print.css" />
     <?php $brand = 'br'; ?>
-	<?php include(ABSPATH . 'wp-content/krux.php'); ?>
+
     <!-- [WP HEAD] -->
     <?php if (is_singular()) wp_enqueue_script('comment-reply'); wp_head(); ?>
     <!-- [Scripts] -->

@@ -40,12 +40,6 @@
   </script>
   <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6012117290081&amp;value=0&amp;currency=USD" /></noscript>
 
-  <!-- krux tag -->
-  <script class="kxct" data-id="HzmEwRvl" data-version="async:1.7">window.Krux || ((Krux = function () {Krux.q.push(arguments)}).q = []);
-    (function () {var k = document.createElement('script');k.type = 'text/javascript';k.async = true;var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && (m[1]);k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" : (location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=HzmEwRvl";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k, s);})();
-  </script>
-  <!-- end krux tag -->
-
   <?php include_partial('global/adtags/yieldbot_intent') ?>
 
 </head>
