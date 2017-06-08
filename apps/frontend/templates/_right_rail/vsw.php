@@ -6,8 +6,6 @@
     body div.vsw-ad-rc .vsw-ad-domain {font-family:Arial !important; color:black !important; font-size:11px !important;}
   </style>
 
-  <div id="ERA_AD_BLOCK1"></div>
-
   <?php include_partial('global/adtags/zergnet_2x2'); ?>
 
   <?php if ($sf_params && $sf_params->get('module') == 'recipes'):
