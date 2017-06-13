@@ -85,7 +85,7 @@
     </div><!-- /#theme-wrap -->
 
     <div class="banner" style="padding-bottom:15px;">
-      <center> <?php include_partial('global/adtags/outbrain_js') ?> </center>
+      <center> <?php include_partial('global/adtags/openx_728x90btf') ?> </center>
     </div>
   </div><!-- /#main-content -->
 
