@@ -24,10 +24,13 @@
 
   <?php include_component('recipes', 'catlevel_category_block', compact('category')) ?>
 
-  <!-- DEFY VIDEO -->
-  <div class="clear-both" style="margin: 30px auto;">
-    <?php include_partial("global/adtags/defy-clip_1847") ?>
-  </div>
+  <?php
+  // JS: turn defy video off 06/14/2017
+  /* <!-- DEFY VIDEO --> */
+  /* <div class="clear-both" style="margin: 30px auto;"> */
+  /*   <?php include_partial("global/adtags/defy-clip_1847") ?> */
+  /* </div> */
+  ?>
 
   <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => $sf_request->getUri())); ?>
 

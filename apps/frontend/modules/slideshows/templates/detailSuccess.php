@@ -28,10 +28,13 @@
     <?php include_partial('groups', compact('groups')) ?>
 
 
-    <!-- DEFY VIDEO -->
-    <div style="margin: 30px auto;">
-      <?php include_partial("global/adtags/defy-clip_1847") ?>
-    </div>
+    <?php
+    // JS: turn defy video off 06/14/2017
+    /* <!-- DEFY VIDEO --> */
+    /* <div style="margin: 30px auto;"> */
+    /*   <?php include_partial("global/adtags/defy-clip_1847") ?> */
+    /* </div> */
+    ?>
 
     <?php include_partial('global/adtags/outbrain_AR_4', array('datasrc' => getUrl($slideshow))); ?>
 

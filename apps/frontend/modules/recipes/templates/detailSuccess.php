@@ -37,10 +37,13 @@
   <?php include_partial('recipe_detail', compact('recipe', 'is_saved', 'is_made', 'user_rating', 'currentContest', 'recipeNext', 'recipePrev', 'showVoteButton', 'showPopup', 'msg')) ?>
   <a name="write_review"></a>
 
-  <!-- DEFY VIDEO -->
-  <div style="margin: 30px auto;">
-    <?php include_partial("global/adtags/defy-clip_1848") ?>
-  </div>
+  <?php
+  // JS: turn defy video off 06/14/2017
+  /* <!-- DEFY VIDEO --> */
+  /* <div style="margin: 30px auto;"> */
+  /*   <?php include_partial("global/adtags/defy-clip_1848") ?> */
+  /* </div> */
+  ?>
 
   <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => UrlToolkit::getUrl($recipe))); ?>
 

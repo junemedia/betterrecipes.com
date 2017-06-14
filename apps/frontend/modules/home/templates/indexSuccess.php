@@ -36,14 +36,6 @@
   <div class="clear-both"></div>
   <!-- end media.net -->
 
-  <?php if (false) { // take out for now ?>
-  <!-- DEFY VIDEO -->
-  <div class="clear-both" style="margin: 30px auto;">
-    <?php include_partial("global/adtags/defy-clip_1848") ?>
-  </div>
-  <div class="clear-both"></div>
-  <?php } ?>
-
   <?php include_partial('global/adtags/outbrain_TF_4') ?>
 
   <?php include_partial('opengraph/facebook_login_modal') ?>
