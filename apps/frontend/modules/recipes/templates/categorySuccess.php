@@ -29,8 +29,7 @@
     <?php include_partial("global/adtags/defy-clip_1847") ?>
   </div>
 
-  <div class="OUTBRAIN" data-src="<?= $sf_request->getUri() ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
-  <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+  <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => $sf_request->getUri())); ?>
 
   <? include_partial('baynote_recipes', compact('category')) ?>
   <? include_partial('popular_blogs', compact('category')) ?>

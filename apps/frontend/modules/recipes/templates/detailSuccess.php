@@ -42,8 +42,7 @@
     <?php include_partial("global/adtags/defy-clip_1848") ?>
   </div>
 
-  <div class="OUTBRAIN" data-src="<?= UrlToolkit::getUrl($recipe) ?>" data-widget-id="AR_3" data-ob-template="BetterRecipes"></div>
-  <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+  <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => UrlToolkit::getUrl($recipe))); ?>
 
   <div id="recipe-comments" class="clear mt20">
     <fb:comments href="<?= $sf_request->getUri() ?>" num_posts="5" width="660"></fb:comments>

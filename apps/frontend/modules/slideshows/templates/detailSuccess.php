@@ -33,8 +33,7 @@
       <?php include_partial("global/adtags/defy-clip_1847") ?>
     </div>
 
-    <div class="OUTBRAIN" data-src="<?= getUrl($slideshow) ?>" data-widget-id="AR_4" data-ob-template="BetterRecipes"></div>
-    <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+    <?php include_partial('global/adtags/outbrain_AR_4', array('datasrc' => getUrl($slideshow))); ?>
 
     <? include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>
   </div><!-- /#slideshow -->
