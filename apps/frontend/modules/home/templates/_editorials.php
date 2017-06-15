@@ -1,48 +1,48 @@
-<? if ($categoryWonder && (sizeof($categoryWonder) > 0)): ?>
+<?php if ($categoryWonder && (sizeof($categoryWonder) > 0)): ?>
   <p class="title" style="margin-top:10px;">Popular Categories</p>
   <div id="editorials" style="width:650px;">
-    <? $cat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneCatId()); ?>
-    <? $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneSubcatOne()); ?>
-    <? $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneSubcatTwo()); ?>
+    <?php $cat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneCatId()); ?>
+    <?php $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneSubcatOne()); ?>
+    <?php $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotOneSubcatTwo()); ?>
     <div >
       <div class="header">
-        <a href="<?= getUrl($cat1) ?>" title="<?= $cat1->getName() ?>"><img src="<?= $cat1->getImgSrc() ?>" alt="<?= $cat1->getName() ?>"  /></a>
-        <p class="mb10"><a href="<?= getUrl($cat1) ?>" title="<?= $cat1->getName() ?>"><?= $cat1->getName() ?></a></p>
-        <p><?= $categoryWonder->getSlotOneDescription() ?></p>
+        <a href="<?php echo getUrl($cat1) ?>" title="<?php echo $cat1->getName() ?>"><img src="<?php echo $cat1->getImgSrc() ?>" alt="<?php echo $cat1->getName() ?>"  /></a>
+        <p class="mb10"><a href="<?php echo getUrl($cat1) ?>" title="<?php echo $cat1->getName() ?>"><?php echo $cat1->getName() ?></a></p>
+        <p><?php echo $categoryWonder->getSlotOneDescription() ?></p>
 
       </div><!-- /.header -->
     </div><!-- /.mr40 -->
-    <? $cat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoCatId()); ?>
-    <? $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoSubcatOne()); ?>
-    <? $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoSubcatTwo()); ?>
+    <?php $cat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoCatId()); ?>
+    <?php $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoSubcatOne()); ?>
+    <?php $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotTwoSubcatTwo()); ?>
     <div>
       <div class="header">
-        <a href="<?= getUrl($cat2) ?>" title="<?= $cat2->getName() ?>"><img src="<?= $cat2->getImgSrc() ?>" alt="<?= $cat2->getName() ?>"  /></a>
-        <p class="mb10"><a href="<?= getUrl($cat2) ?>" title="<?= $cat2->getName() ?>"><?= $cat2->getName() ?></a></p>
-        <p><?= $categoryWonder->getSlotTwoDescription() ?></p>
+        <a href="<?php echo getUrl($cat2) ?>" title="<?php echo $cat2->getName() ?>"><img src="<?php echo $cat2->getImgSrc() ?>" alt="<?php echo $cat2->getName() ?>"  /></a>
+        <p class="mb10"><a href="<?php echo getUrl($cat2) ?>" title="<?php echo $cat2->getName() ?>"><?php echo $cat2->getName() ?></a></p>
+        <p><?php echo $categoryWonder->getSlotTwoDescription() ?></p>
 
       </div><!-- /.header -->
     </div>
-    <? $cat3 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeCatId()); ?>
-    <? $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeSubcatOne()); ?>
-    <? $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeSubcatTwo()); ?>
+    <?php $cat3 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeCatId()); ?>
+    <?php $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeSubcatOne()); ?>
+    <?php $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotThreeSubcatTwo()); ?>
     <div >
       <div class="header">
-        <a href="<?= getUrl($cat3) ?>" title="<?= $cat3->getName() ?>"><img src="<?= $cat3->getImgSrc() ?>" alt="<?= $cat3->getName() ?>"  /></a>
-        <p class="mb10"><a href="<?= getUrl($cat3) ?>" title="<?= $cat3->getName() ?>"><?= $cat3->getName() ?></a></p>
-        <p><?= $categoryWonder->getSlotThreeDescription() ?></p>
+        <a href="<?php echo getUrl($cat3) ?>" title="<?php echo $cat3->getName() ?>"><img src="<?php echo $cat3->getImgSrc() ?>" alt="<?php echo $cat3->getName() ?>"  /></a>
+        <p class="mb10"><a href="<?php echo getUrl($cat3) ?>" title="<?php echo $cat3->getName() ?>"><?php echo $cat3->getName() ?></a></p>
+        <p><?php echo $categoryWonder->getSlotThreeDescription() ?></p>
 
       </div><!-- /.header -->
     </div><!-- /.mr40 -->
-    <? $cat4 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourCatId()); ?>
-    <? $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourSubcatOne()); ?>
-    <? $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourSubcatTwo()); ?>
+    <?php $cat4 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourCatId()); ?>
+    <?php $subcat1 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourSubcatOne()); ?>
+    <?php $subcat2 = Doctrine_Core::getTable('Category')->find($categoryWonder->getSlotFourSubcatTwo()); ?>
     <div>
       <div class="header">
-        <a href="<?= getUrl($cat4) ?>" title="<?= $cat4->getName() ?>"><img src="<?= $cat4->getImgSrc() ?>" alt="<?= $cat4->getName() ?>"  /></a>
-        <p class="mb10"><a href="<?= getUrl($cat4) ?>" title="<?= $cat4->getName() ?>"><?= $cat4->getName() ?></a></p>
-        <p><?= $categoryWonder->getSlotFourDescription() ?></p>
+        <a href="<?php echo getUrl($cat4) ?>" title="<?php echo $cat4->getName() ?>"><img src="<?php echo $cat4->getImgSrc() ?>" alt="<?php echo $cat4->getName() ?>"  /></a>
+        <p class="mb10"><a href="<?php echo getUrl($cat4) ?>" title="<?php echo $cat4->getName() ?>"><?php echo $cat4->getName() ?></a></p>
+        <p><?php echo $categoryWonder->getSlotFourDescription() ?></p>
       </div><!-- /.header -->
     </div>
   </div><!-- /#EDITORIALS -->
-<? endif; ?>
+<?php endif; ?>

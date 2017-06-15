@@ -1,4 +1,4 @@
-<? slot('gpt') ?>
+<?php slot('gpt') ?>
   unitValues: {
     channel: 'Recipe', /* Set to the top level category id, if applicable */
     parent: '<?=UrlToolkit::getSubDomain($sf_request)?>', /* Set to the secondary level category id, if applicable */
@@ -9,20 +9,20 @@
     type: 'recipe', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
     search: '' /* On search results, set to the search term */
   }
-<? end_slot() ?>
+<?php end_slot() ?>
 
-<? include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
+<?php include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
 
 <div class="article">
-  <? if ($sf_user->isAuthenticated() && $sf_user->getFbId() && $sf_user->getRegSourceAttribute('auth_token')): ?>
+  <?php if ($sf_user->isAuthenticated() && $sf_user->getFbId() && $sf_user->getRegSourceAttribute('auth_token')): ?>
   <div id="friendRibbonContainer">
-    <? include_component('opengraph', 'friendRibbon', array('results_per_page' => 10)) ?>
+    <?php include_component('opengraph', 'friendRibbon', array('results_per_page' => 10)) ?>
   </div><!-- // friendRibbonContainer -->
-  <? endif; ?>
+  <?php endif; ?>
 
-  <? include_partial('global/body_sharebar', compact('category')) ?>
+  <?php include_partial('global/body_sharebar', compact('category')) ?>
 
-  <? include_component('recipes', 'catlevel_category_block', compact('category')) ?>
+  <?php include_component('recipes', 'catlevel_category_block', compact('category')) ?>
 
   <!-- DEFY VIDEO -->
   <div class="clear-both" style="margin: 30px auto;">
@@ -31,10 +31,10 @@
 
   <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => $sf_request->getUri())); ?>
 
-  <? include_partial('baynote_recipes', compact('category')) ?>
-  <? include_partial('popular_blogs', compact('category')) ?>
-  <? include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
+  <?php include_partial('baynote_recipes', compact('category')) ?>
+  <?php include_partial('popular_blogs', compact('category')) ?>
+  <?php include_component('recipes', 'catlevel_slideshows', array('category_id' => $category->getId(), 'category_name' => $category->getName())) ?>
 </div><!-- /.article -->
 
-<? include_partial('global/right_rail/right_rail') ?>
-<? include_partial('opengraph/facebook_login_modal') ?>
+<?php include_partial('global/right_rail/right_rail') ?>
+<?php include_partial('opengraph/facebook_login_modal') ?>

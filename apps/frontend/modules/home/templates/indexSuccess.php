@@ -1,4 +1,4 @@
-<? slot('gpt') ?>
+<?php slot('gpt') ?>
   unitValues: {
     channel: 'Homepage', /* Set to the top level category id, if applicable */
     parent: '', /* Set to the secondary level category id, if applicable */
@@ -9,27 +9,27 @@
     type: '', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
     search: '' /* On search results, set to the search term */
   }
-<? end_slot() ?>
+<?php end_slot() ?>
 
 <div class="article homepage">
-  <? include_partial('featured_contents', compact('hpWonder')) ?>
+  <?php include_partial('featured_contents', compact('hpWonder')) ?>
 
-  <? if ($sf_user->isAuthenticated() && $sf_user->getFbId() && $sf_user->getRegSourceAttribute('auth_token')): ?>
+  <?php if ($sf_user->isAuthenticated() && $sf_user->getFbId() && $sf_user->getRegSourceAttribute('auth_token')): ?>
   <div id="friends-activity">
-    <? include_component('opengraph', 'recipesByFriends', array('friends' => $friends, 'limit' => 15)) ?>
+    <?php include_component('opengraph', 'recipesByFriends', array('friends' => $friends, 'limit' => 15)) ?>
   </div><!-- /#todays-poll -->
   <div class="clear-both"></div>
-  <? endif; ?>
+  <?php endif; ?>
 
   <div id="trending-recipes">
-    <? include_component('opengraph', 'trendingRecipes', array('limit' => 15)) ?>
+    <?php include_component('opengraph', 'trendingRecipes', array('limit' => 15)) ?>
   </div><!-- /#trending-recipes -->
   <div class="clear-both"></div>
 
-  <? include_partial('featured_contests') ?>
+  <?php include_partial('featured_contests') ?>
   <div class="clear-both"></div>
 
-  <? include_partial('editorials', compact('categoryWonder')) ?>
+  <?php include_partial('editorials', compact('categoryWonder')) ?>
 
   <!-- begin media.net 6 -->
   <script id="mNCC" language="javascript">  medianet_width='650';  medianet_height= '175';  medianet_crid='662071020';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CU52X6SM" language="javascript"></script>
@@ -46,8 +46,8 @@
 
   <?php include_partial('global/adtags/outbrain_TF_4') ?>
 
-  <? include_partial('opengraph/facebook_login_modal') ?>
+  <?php include_partial('opengraph/facebook_login_modal') ?>
 </div><!-- /.article -->
 
-<? include_partial('global/right_rail/right_rail') ?>
+<?php include_partial('global/right_rail/right_rail') ?>
 <div class="clear-both"></div>

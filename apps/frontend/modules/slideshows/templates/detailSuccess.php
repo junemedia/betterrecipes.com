@@ -1,4 +1,4 @@
-<? slot('gpt') ?>
+<?php slot('gpt') ?>
   unitValues: {
     channel: 'recipe', /* Set to the top level category id, if applicable */
     parent: '', /* Set to the secondary level category id, if applicable */
@@ -9,23 +9,23 @@
     type: 'slideshow', /* Set the content type ( 'category', 'recipe', 'slideshow', etc.) */
     search: '' /* On search results, set to the search term */
   }
-<? end_slot() ?>
+<?php end_slot() ?>
 
-<? include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
+<?php include_partial('global/bread_crumbs', compact('bread_crumbs')) ?>
 
 <div class="article">
   <div id="slideshow-wrap">
-    <? if ($slideshow->getSponsorId()): ?>
-      <? $sponsor = $slideshow->getSponsor() ?>
-      <div id="sponsor_<?= $sponsor->getId() ?>"class="sponsor adsponsor">
-        <? include_partial('global/adtags/sponsor', compact('sponsor')) ?>
+    <?php if ($slideshow->getSponsorId()): ?>
+      <?php $sponsor = $slideshow->getSponsor() ?>
+      <div id="sponsor_<?php echo $sponsor->getId() ?>"class="sponsor adsponsor">
+        <?php include_partial('global/adtags/sponsor', compact('sponsor')) ?>
       </div>
-    <? endif; ?>
-    <? if ($sf_user->isAuthenticated()): ?>
-      <? include_partial('thumbnails', compact('slides', 'showall')) ?>
-    <? endif; ?>
-    <? include_partial('slideshow', compact('slideshow', 'slides', 'showall')) ?>
-    <? include_partial('groups', compact('groups')) ?>
+    <?php endif; ?>
+    <?php if ($sf_user->isAuthenticated()): ?>
+      <?php include_partial('thumbnails', compact('slides', 'showall')) ?>
+    <?php endif; ?>
+    <?php include_partial('slideshow', compact('slideshow', 'slides', 'showall')) ?>
+    <?php include_partial('groups', compact('groups')) ?>
 
 
     <!-- DEFY VIDEO -->
@@ -35,8 +35,8 @@
 
     <?php include_partial('global/adtags/outbrain_AR_4', array('datasrc' => getUrl($slideshow))); ?>
 
-    <? include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>
+    <?php include_partial('recipes_slideshows', compact('recipes', 'slideshows', 'category')) ?>
   </div><!-- /#slideshow -->
 </div><!-- /.section -->
 
-<? include_partial('right_rail', compact('rr_recipes')) ?>
+<?php include_partial('right_rail', compact('rr_recipes')) ?>
