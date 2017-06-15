@@ -27,7 +27,6 @@
     <?php include_partial('slideshow', compact('slideshow', 'slides', 'showall')) ?>
     <?php include_partial('groups', compact('groups')) ?>
 
-
     <?php
     // JS: turn defy video off 06/14/2017
     /* <!-- DEFY VIDEO --> */
@@ -35,6 +34,9 @@
     /*   <?php include_partial("global/adtags/defy-clip_1847") ?> */
     /* </div> */
     ?>
+    <div style="margin:20px auto;">
+      <?php include_partial('global/adtags/lockerdome'); ?>
+    </div>
 
     <?php include_partial('global/adtags/outbrain_AR_4', array('datasrc' => getUrl($slideshow))); ?>
 

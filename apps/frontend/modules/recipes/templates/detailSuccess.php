@@ -44,6 +44,9 @@
   /*   <?php include_partial("global/adtags/defy-clip_1848") ?> */
   /* </div> */
   ?>
+  <div style="margin:20px auto;">
+    <?php include_partial('global/adtags/lockerdome'); ?>
+ </div>
 
   <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => UrlToolkit::getUrl($recipe))); ?>
 

@@ -67,6 +67,9 @@
   /*   <?php include_partial("global/adtags/defy-clip_1847") ?> */
   /* </div> */
   ?>
+  <div class="clear-both" style="margin:20px auto;">
+    <?php include_partial('global/adtags/lockerdome'); ?>
+  </div>
 
   <?php include_partial('global/adtags/outbrain_AR_3', array('datasrc' => $sf_request->getUri())); ?>
 
