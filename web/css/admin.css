@@ -1,7 +1,7 @@
-/* Admin Style Sheet */ 
+/* Admin Style Sheet */
 /*-----===== BEGIN: reset =====-----*/
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -15,8 +15,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -49,7 +49,7 @@ time, mark, audio, video {
 
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -84,11 +84,11 @@ table {
 
 * { margin:0; padding:0; }
 
-body { 
+body {
   background: url('/img/navbgpattern.png') repeat-x;
   font-family: "Trebuchet MS",Helvetica,Jamrul,sans-serif;
   font-size: 14px;
-  color: #666666; 
+  color: #666666;
 }
 #wrapper{ width:980px; margin: 0 auto; }
 
@@ -109,23 +109,23 @@ form.standard-form fieldset label {
 
 /* -- Buttons -- */
 
-.btn-grey28 { 
-  padding:4px 6px; 
-  text-align:center; 
-  display:inline-block; 
-  background-color:#ebebeb;                               
-  border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9; 
-  border-style:solid; 
-  border-width:1px;                             
-  -moz-box-shadow: 1px 1px 0px #262626; 
-  -webkit-box-shadow: 1px 1px 0px #262626;                              
-  box-shadow: 1px 1px 0px #262626;                              
-  /* the below is added for the submit button in Daily Dish, it could mess up other pages, if yes, seperate */                             
-  color:#660066; 
-  cursor:pointer; 
-  font-size:14px; 
-  text-transform:uppercase; 
-  font-weight:bold; 
+.btn-grey28 {
+  padding:4px 6px;
+  text-align:center;
+  display:inline-block;
+  background-color:#ebebeb;
+  border-color:#e1e1e1 #c1c1c1 #a6a6a6 #b9b9b9;
+  border-style:solid;
+  border-width:1px;
+  -moz-box-shadow: 1px 1px 0px #262626;
+  -webkit-box-shadow: 1px 1px 0px #262626;
+  box-shadow: 1px 1px 0px #262626;
+  /* the below is added for the submit button in Daily Dish, it could mess up other pages, if yes, seperate */
+  color:#660066;
+  cursor:pointer;
+  font-size:14px;
+  text-transform:uppercase;
+  font-weight:bold;
   margin-top: 8px;
 }
 
@@ -209,8 +209,8 @@ fieldset.last {
 #mainHeading a.premium {float:left; margin-top: 0px; }
 
 .filterRow { width:940px; height:20px; padding: 10px 20px; }
-.filterRow .filter { 
-  display: inline-block; 
+.filterRow .filter {
+  display: inline-block;
   margin: 0 4px 0;
   *float:left;
   *width:auto;
@@ -245,7 +245,7 @@ fieldset.last {
 .container { float:left; width: 940px; padding: 10px 20px; margin: 15px 0; border: 1px solid #e1e1e1; }
 .container #subHeading { height: 30px; margin:0 0 20px 0; }
 .container #subHeading h2 { float: left; font-weight: bold; }
-.container #subHeading .detail { float: right; margin: 0; } 
+.container #subHeading .detail { float: right; margin: 0; }
 
 .container .list { width: 940px; }
 .container .list li { min-height: 35px; margin: 5px 0; display:inline-block;}
@@ -328,13 +328,13 @@ fieldset.last {
 #rightrailEdit #overrideModule #deleteRecipe { float: right; margin-top: -50px; }
 /* -- Sorting -- */
 #rightrailEdit #overrideModule #sortableNums { width: 60px; margin: 20px 0 0 0; }
-#rightrailEdit #overrideModule #sortableNums li { float:left; width: 60px; height: 50px; display: block; } 
+#rightrailEdit #overrideModule #sortableNums li { float:left; width: 60px; height: 50px; display: block; }
 #rightrailEdit #overrideModule #sortableNums li .num { padding: 10px 0;  display: block; }
 #rightrailEdit #overrideModule .items { margin: 20px 0 0 60px; }
 #rightrailEdit #overrideModule .items li { position: relative; height: 40px; width:875px; background: #e2e2e2; margin: 4px 0; border: 1px solid #B5B5B5; display: block; }
-#rightrailEdit #overrideModule .items li .data { padding: 13px;  display: inline-block; } 
+#rightrailEdit #overrideModule .items li .data { padding: 13px;  display: inline-block; }
 #rightrailEdit #overrideModule #sortable.items li:hover { cursor: pointer; }
-#rightrailEdit #overrideModule .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+#rightrailEdit #overrideModule .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent;
                                                                  width: 15px; height: 15px; }
 #rightrailEdit #overrideModule .items li a:hover .deleteWeightedItem { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
 
@@ -386,7 +386,7 @@ fieldset.last {
 #subcategoriesContainer .subcategory  { clear:both; height:280px; padding: 10px; background-color: #FFF;}
 #subcategoriesContainer .subcategory  .img { float:left; width:290px; height:260px; margin: 40px 0 0 10px; }
 #subcategoriesContainer .subcategory  .list { width: 640px; margin: 0 0 0 300px; color: #666666; }
-#subcategoriesContainer .subcategory  .list ul { color: #000; font-size: 14px; color: #666666; } 
+#subcategoriesContainer .subcategory  .list ul { color: #000; font-size: 14px; color: #666666; }
 #subcategoriesContainer .subcategory  .list ul .label { width: 150px;  float: left; display: block; font-weight: bold;}
 #subcategoriesContainer .subcategory  .list ul .data { width: 450px; }
 #subcategoriesContainer #accordion h3 { height: 30px; }
@@ -427,16 +427,16 @@ fieldset.last {
 .overrideEditSection .overrideModuleEdit #deleteRecipe { float: right; margin-top: -50px; }
 /* -- Sorting -- */
 .overrideEditSection .overrideModuleEdit .sortableNums { width: 60px; margin: 20px 0 0 0; }
-.overrideEditSection .overrideModuleEdit .sortableNums li { float:left; width: 60px; height: 50px; display: block; } 
+.overrideEditSection .overrideModuleEdit .sortableNums li { float:left; width: 60px; height: 50px; display: block; }
 .overrideEditSection .overrideModuleEdit .sortableNums li .num { padding: 10px 0;  display: block; }
 .overrideEditSection .overrideModuleEdit .items { margin: 20px 0 0 60px; }
 .overrideEditSection .overrideModuleEdit .items li { position: relative; height: 40px; width:875px; background: #e2e2e2; margin: 4px 0; border: 1px solid #B5B5B5; display: block; }
-.overrideEditSection .overrideModuleEdit .items li .data { padding: 13px;  display: inline-block; } 
+.overrideEditSection .overrideModuleEdit .items li .data { padding: 13px;  display: inline-block; }
 .overrideEditSection .overrideModuleEdit #sortable.items li:hover,
-.overrideEditSection .overrideModuleEdit #sortableArticles.items li:hover { 
-  cursor: pointer; 
+.overrideEditSection .overrideModuleEdit #sortableArticles.items li:hover {
+  cursor: pointer;
 }
-.overrideEditSection .overrideModuleEdit .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+.overrideEditSection .overrideModuleEdit .items li a .deleteWeightedItem { position: absolute; top: 12px; right: 10px;  background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent;
                                                                            width: 15px; height: 15px; }
 .overrideEditSection .overrideModuleEdit .items li a:hover .deleteWeightedItem { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
 /* ------------------------------------------------------------------------------ */
@@ -532,10 +532,10 @@ fieldset.last {
 #slidesSection { position: relative; width: 950px; overflow: hidden; }
 #slidesSection #sortable {}
 #slidesSection  form { height: 100%; }
-#slidesSection li { position: relative; width: 180px; height: 260px; margin: 10px 6px 10px 0; 
+#slidesSection li { position: relative; width: 180px; height: 260px; margin: 10px 6px 10px 0;
                     background-color: #e2e2e2; float:left; border: 1px solid #b5b5b5; cursor: pointer; }
 #slidesSection li.noSort { cursor: auto; }
-#slidesSection li a .deleteSlide { float:right; background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent; 
+#slidesSection li a .deleteSlide { float:right; background: url("/css/ui-darkness/images/ui-icons_660066_256x240.png") repeat scroll -94px -128px transparent;
                                    width: 15px; height: 15px;  margin-right: 5px; }
 #slidesSection li a:hover .deleteSlide { background: url("/css/ui-darkness/images/ui-icons_ffffff_256x240.png") repeat scroll -94px -128px transparent; }
 #slidesSection li img { width: 160px; height: auto; max-height: 170px; margin:10px; }
@@ -587,7 +587,7 @@ fieldset.last {
 
 /* ----------------------- Contests Detail Section ------------------------------------*/
 
-#contestRecipeHeadings { width: 940px; padding: 0; }  
+#contestRecipeHeadings { width: 940px; padding: 0; }
 #contestRecipeRows { width: 940px; padding: 0; }
 #contestRecipeRows li { width: 940px; padding: 0; }
 
@@ -600,7 +600,7 @@ fieldset.last {
 
 /*----- Sidebar -----*/
 #contestWinners { margin-top: 0; }
-#contestWinners #subHeading { margin-bottom: 0; } 
+#contestWinners #subHeading { margin-bottom: 0; }
 #contestWinners #subHeading #contestWeek { float: left; margin: 10px 0 0; width: 270px; text-align: center; }
 #contestWinners .subSide { position: relative; background-color: #FFF; width: 270px; height: 150px; margin: 20px 0; }
 #contestWinners .subSide .subHeading { width: 270px; height: 40px; border-bottom: 3px solid #e1e1e1; }
@@ -622,7 +622,7 @@ fieldset.last {
 /* ----------------------- Edit Section ------------------------------------*/
 
 #contestContainer.edit h2 { margin-bottom: 20px; }
-#contestContainer.edit #deleteContest { float: right; margin-top: -30px; } 
+#contestContainer.edit #deleteContest { float: right; margin-top: -30px; }
 #contestContainer.edit .endDate, #contestContainer.edit #endDate { margin: 10px 0;  }
 #contestContainer.edit .datepicker { width: 100px; }
 .contestImage { max-width: 400px; height: auto; }
@@ -776,12 +776,12 @@ fieldset.last {
 #poll_options .ui-widget { padding-bottom: 10px; }
 #poll_options ul.recipe-images li { float:left; padding-right: 5px; }
 #poll_options ul.recipe-images li.title { width: 250px; }
-.ui-autocomplete { 
-  max-height: 150px; 
+.ui-autocomplete {
+  max-height: 150px;
   overflow-y: auto;
-  /* prevent horizontal scrollbar */ 
-  overflow-x: hidden; 
-  /* add padding to account for vertical scrollbar */ 
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add padding to account for vertical scrollbar */
   padding-right: 20px;
   /* IE 6 doesn't support max-height
     * we use height instead, but this forces the menu to always be this tall
