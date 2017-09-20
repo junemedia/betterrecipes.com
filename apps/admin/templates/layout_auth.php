@@ -28,7 +28,7 @@
   <div id="wrapper">
     <!-- Masthead -->
     <div id="masthead">
-      <a href="<?= url_for('@homepage')?>"><img src="/img/meredithlogo.png" alt="meredith logo" /></a>
+      <a href="<?= url_for('@homepage')?>"><img src="/img/logo_betterrecipes.png" alt="BetterRecipes logo" /></a>
     </div>
     <!-- End Masthead -->
 

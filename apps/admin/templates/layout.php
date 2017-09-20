@@ -33,7 +33,7 @@
         <li><?= link_to('Signout' ,'signout') ?></li>
       </ul>
 
-      <a href="<?= url_for('@homepage')?>"><img src="/img/meredithlogo.png" alt="meredith logo" /></a>
+      <a href="<?= url_for('@homepage')?>"><img src="/img/logo_betterrecipes.png" alt="BetterRecipes logo" /></a>
 
       <div id="searchBar">
         <form id="recipeSearch" action="<?=url_for("recipes/index") ?>">
