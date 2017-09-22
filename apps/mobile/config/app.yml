@@ -11,15 +11,15 @@ all:
   facebook:
     appid:            175775159784
   meta:
-    category:     
+    category:
       title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
       description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
       keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
-    recipe:     
+    recipe:
       title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
       description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
       keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'
-    article:     
+    article:
       title:          'Breakfast Recipes | Lunch Recipes | Dinner Recipes | Dessert Recipes | Better Recipes'
       description:    'Enjoy our collection of online recipes from kitchens like yours. Browse breakfast recipes, lunch recipes, dinner recipes, dessert recipes and more.'
       keywords:       'breakfast recipes, lunch recipes, dinner recipes, dessert recipes, online recipes'

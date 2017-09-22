@@ -4,7 +4,7 @@ require_once 'symfony1.4/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();
 
 /**
- * 
+ *
  */
 class ProjectConfiguration extends sfProjectConfiguration
 {
@@ -51,8 +51,8 @@ class ProjectConfiguration extends sfProjectConfiguration
 
   /**
    * Listen to *.method_not_fount events.
-   * Returns the sfMemcacheCache, sfI18n, sfUser, components and forms: 
-   * 
+   * Returns the sfMemcacheCache, sfI18n, sfUser, components and forms:
+   *
    *  $this->getMemcache()
    *  $this->getI18n()
    *  $this->getUser()
@@ -94,7 +94,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
   /**
    * Creates a new instance or retrieves the current instance of Gigya
-   * 
+   *
    * @return Gigya
    */
   public function getGigya()
@@ -107,7 +107,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
   /**
    * Retrieves a Serializer instance capable of encoding and decoding xml
-   * 
+   *
    * @see Symfony\Component\Serializer\Serializer
    * @see http://api.symfony.com/2.0/index.html?q=serializer
    * @return Symfony\Component\Serializer\Serializer
@@ -122,7 +122,7 @@ class ProjectConfiguration extends sfProjectConfiguration
 
   /**
    * Just a way to keep memcache keys consistent
-   * 
+   *
    * @param string $key
    * @param string $default
    * @return string

@@ -4,7 +4,7 @@
 signin:
   url: /signin
   params: { module: auth, action: signin }
-    
+
 signout:
   url: /signout
   params: { module: auth, action: signout }
@@ -17,7 +17,7 @@ signout:
 #    prefix_path:          /recipes
 #    column:               id
 #    with_wildcard_routes: true
-#    
+#
 #category:
 #  class: sfDoctrineRouteCollection
 #  options:
@@ -31,7 +31,7 @@ signout:
 forgotpassword:
   url: /forgotpassword
   params: { module: auth, action: forgotPassword }
-  
+
 recipe:
   class: sfDoctrineRouteCollection
   options:
@@ -46,7 +46,7 @@ recipe:
 rightrail_index:
   url: /rightrail
   param: { module: rightrail, action: index }
-  
+
 category_index:
   url: /categories
   param: { module: categories, action: index }
@@ -58,38 +58,38 @@ sort_subcategories:
 recipes_index:
   url: /recipes
   param: {module: recipes, action: index }
-  
+
 recipephotos_index:
   url: /recipephotos/recipe/:recipe_id
   param: {module: recipephotos, action: index }
-  
+
 slideshows_index:
   url: /slideshows
   param: {module: slideshows, action: index }
-  
+
 contests_index:
   url: /contests
   param: {module: contests, action: index }
-  
+
 articles_index:
   url: /articles
   param: {module: articles, action: index }
-  
+
 tips_index:
   url: /tips
   param: {module: tips, action: index }
 meta_index:
   url: /meta
   param: {module: meta, action: index }
-  
+
 sponsors_index:
   url: /sponsors
   param: {module: sponsors, action: index }
-  
+
 polls_list:
   url: /polls
   param: {module: polls, action: index }
-  
+
 poll_feature_hp:
   url: /_poll_feature_hp/:id
   param: {module: polls, action: featureHp }
@@ -134,7 +134,7 @@ update_user_status:
   params: { module: users, action: updateUserStatus }
   requirements:
     sf_method: [get]
-    
+
 update_featured_recipe:
   url: /recipes/updateFeaturedRecipe
   params: { module: recipes, action: updateFeaturedRecipe }
@@ -164,7 +164,7 @@ users_new:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 users_edit:
   url: /users/edit/:id
   class: sfDoctrineRoute
@@ -172,7 +172,7 @@ users_edit:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 homepage:
   url:   /
   param: { module: index, action: index }

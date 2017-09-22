@@ -72,7 +72,7 @@ all:
     param:
       prefix: betterrecipes/frontend
       automatic_cleaning_factor: 0
-      lifetime: 2400      
+      lifetime: 2400
 
   mailer:
     class: sfMailer
@@ -83,7 +83,7 @@ all:
       transport:
         class: Swift_SmtpTransport
         param:
-          host:       express-relay.jangosmtp.net 
+          host:       express-relay.jangosmtp.net
           port:       25
           encryption: ~
           username:   jshearer-jm

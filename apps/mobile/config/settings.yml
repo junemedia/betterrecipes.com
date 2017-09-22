@@ -47,5 +47,5 @@ all:
 
     # Enable the database manager
     use_database:           true
-    
+
     standard_helpers: [Partial, Cache, UriUtils, Text]

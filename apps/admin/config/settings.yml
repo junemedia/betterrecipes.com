@@ -34,7 +34,7 @@ all:
 
     module_disabled_module: default
     module_disabled_action: disabled
-    
+
   .settings:
     timeout: 3600
     # Form security secret (CSRF protection)
@@ -46,5 +46,5 @@ all:
 
     # Enable the database manager
     use_database:           true
-    
+
     standard_helpers: [Partial, Cache, UriUtils, Text]

@@ -8,7 +8,7 @@ default:
   metas:
     title:        Better Recipes
     description:  "An online cookbook of recipes for any meal. Browse recipes by topic or search to find the perfect recipe at Better Recipes. Become a member to upload recipes and enter monthly recipe contests for cash prizes."
-    keywords:     
+    keywords:
     #language:     en
     #robots:       index, follow
 
@@ -16,7 +16,7 @@ default:
     - br-mobile.css
     #- br-mobile-print.css: { media: print }
 
-  javascripts:    
+  javascripts:
     - jquery-1.6.2.min.js
     - jquery.selectBox.js
     - brmobile.js

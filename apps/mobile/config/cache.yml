@@ -5,21 +5,21 @@ default:
   enabled:     false
   with_layout: false
   lifetime:    7200
-  
+
 #_header:
 #  contextual: true
 #  enabled: on
-  
+
 _footer-main:
   enabled: on
-  
+
 #_rr_recipes:
 #  contextual: true
 #  enabled: on
-  
+
 #_rr_cooks:
 #  enabled: on
 
-# note: Rusty Cage, had to turn off caching for _rr_activity because it has to evaluate if user is authenticated  
+# note: Rusty Cage, had to turn off caching for _rr_activity because it has to evaluate if user is authenticated
 #_rr_activity:
 #  enabled: on

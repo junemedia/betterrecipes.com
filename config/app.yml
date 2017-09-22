@@ -41,7 +41,7 @@ all:
 
   omniture:
     tracker:          page.track
-    defaults: 
+    defaults:
       server:         www.betterrecipes.com
       prop18:         betterrecipes
       prop19:         Food
@@ -66,7 +66,7 @@ all:
       8291: BR_reg_4762_InviteMy.jpg               # Invite Friends
       8292: BR_reg_4762_ViewAllSlides.jpg          # See All Thumbnails/Slides
 
-    source_codes: 
+    source_codes:
       # use preg_match agains referrer to get associated regSource code
       # ordering matter. First match is used
       '+recipes/new+':                            8251 # Add a Recipe              Done

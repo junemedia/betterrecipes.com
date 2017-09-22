@@ -8,7 +8,7 @@ rendering: ~
 # It must be place before the `security` filter so that the `security` filter will have data to work with.
 #onesite_session:
 #   class: SessionFilter
-   
+
 security:  ~
 
 cache:     ~

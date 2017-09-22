@@ -35,7 +35,7 @@ official_rules:
 
 # -------
 
-#Newsletter Routes	-----------------------------------------------------------------
+#Newsletter Routes  -----------------------------------------------------------------
 signup_newsletter:
   url: /email-signup
   params: { module: newsletter, action: index }
@@ -234,7 +234,7 @@ slideshow_feeds:
 slideshow_ourbestbox_ajax:
   url: /slideshows/ourbestbox_ajax
   param: { module: slideshows, action: ourbestbox_ajax, mode: null }
-  
+
 recipes:
   url: /recipes
   param: { module: recipes, action: index }
@@ -255,7 +255,7 @@ recipes_alt:
   url: /recipes/
   param: { module: recipes, action: index }
 
-mixing_bowl:  
+mixing_bowl:
   url:   /mixing-bowl
   param: { module: mixingbowl, action: index }
 

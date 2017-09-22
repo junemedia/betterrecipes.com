@@ -2,31 +2,31 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # Static Routes -----------------------------------------------------------------
-  
+
 privacy-policy:
   url: /privacy-policy
   params: { module: static, action: privacyPolicy }
   requirements:
     sf_method: [get]
-    
+
 terms:
   url: /terms
   params: { module: static, action: terms }
   requirements:
     sf_method: [get]
-    
+
 social:
   url: /social
   params: { module: static, action: social }
   requirements:
     sf_method: [get]
-    
+
 help:
   url: /help
   params: { module: static, action: help }
   requirements:
     sf_method: [get]
-    
+
 official_rules:
   url: /rules/0822/official-rules
   params: { module: static, action: officialRules }
@@ -36,7 +36,7 @@ official_rules:
 view_full_site:
   url: /auth/viewfullsite
   params: { module: auth, action: viewfullsite }
-    
+
 # -------
 
 # User Routes -----------------------------------------------------------------
@@ -52,13 +52,13 @@ forgot_password:
   params: { module: auth, action: forgotPassword }
   requirements:
     sf_method: [get|post]
-    
+
 signup_skip:
   url: /signup-skip
   params: { module: auth, action: signupSkip }
   requirements:
     sf_method: [get]
-    
+
 signup:
   url: /signup
   params: { module: auth, action: index }
@@ -76,17 +76,17 @@ signup_step3:
   params: { module: auth, action: signupStep3 }
   requirements:
     sf_method: [get]
-  
+
 signout:
   url: /signout
   params: { module: auth, action: signout }
   requirements:
     sf_method: [get|post]
-    
+
 get_auth_info:
   url: /_get-auth-info
   params: { module: auth, action: getAuthInfo }
-    
+
 # -------
 
 rave_redirect:
@@ -98,7 +98,7 @@ cooks_landing:
   param: { module: cooks, action: index }
   requirements:
     sf_method: [get]
-    
+
 cooks_search:
   url: /cooks/search.:sf_format
   param: { module: cooks, action: search }
@@ -108,39 +108,39 @@ cooks_search:
 cook_profile_recipes_paginate:
   url: /cooks/recipes_paginate
   params: { module: cooks, action: recipes_paginate }
-  
+
 cook_profile_discussions_paginate:
   url: /cooks/discussions_paginate
   params: { module: cooks, action: discussions_paginate }
-  
+
 cook_profile_photos_paginate:
   url: /cooks/photos_paginate
   params: { module: cooks, action: photos_paginate }
-  
+
 cook_profile_videos_paginate:
   url: /cooks/videos_paginate
   params: { module: cooks, action: videos_paginate }
-  
+
 cook_profile_journals_paginate:
   url: /cooks/journals_paginate
   params: { module: cooks, action: journals_paginate }
-  
+
 cook_profile_polls_paginate:
   url: /cooks/polls_paginate
   params: { module: cooks, action: polls_paginate }
-  
+
 cook_profile_groups_paginate:
   url: /cooks/groups_paginate
   params: { module: cooks, action: groups_paginate }
-  
+
 cook_profile_friends_paginate:
   url: /cooks/friends_paginate
   params: { module: cooks, action: friends_paginate }
-  
+
 cook_profile_raves_paginate:
   url: /cooks/raves_paginate
   params: { module: cooks, action: raves_paginate }
-    
+
 cook_profile:
   url: /cooks/:subdir
   class: sfDoctrineRoute
@@ -148,7 +148,7 @@ cook_profile:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
+
 cook_profile_private:
   url: /cooks/:subdir/private
   class: sfDoctrineRoute
@@ -156,7 +156,7 @@ cook_profile_private:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
+
 cook_profile_edit:
   url: /cooks/:subdir/edit
   class: sfDoctrineRoute
@@ -164,7 +164,7 @@ cook_profile_edit:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 cook_profile_email_settings:
   url: /cooks/:subdir/email-settings
   class: sfDoctrineRoute
@@ -175,7 +175,7 @@ cook_profile_email_settings:
 
 
 
-    
+
 cook_profile_recipes:
   url: /cooks/:subdir/recipes
   class: sfDoctrineRoute
@@ -183,9 +183,9 @@ cook_profile_recipes:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
 
-    
+
+
 cook_profile_raves:
   url: /cooks/:subdir/raves
   class: sfDoctrineRoute
@@ -193,7 +193,7 @@ cook_profile_raves:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
+
 cook_profile_saved_recipes:
   url: /cooks/:subdir/saved-recipes
   class: sfDoctrineRoute
@@ -209,7 +209,7 @@ cook_profile_discussions:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
+
 cook_profile_friends:
   url: /cooks/:subdir/friends
   class: sfDoctrineRoute
@@ -217,7 +217,7 @@ cook_profile_friends:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-  
+
 cook_profile_groups:
   url: /cooks/:subdir/groups
   class: sfDoctrineRoute
@@ -225,7 +225,7 @@ cook_profile_groups:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 cook_profile_photos:
   url: /cooks/:subdir/photos
   class: sfDoctrineRoute
@@ -249,7 +249,7 @@ cook_profile_polls:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 cook_profile_journals:
   url: /cooks/:subdir/journals
   class: sfDoctrineRoute
@@ -257,15 +257,15 @@ cook_profile_journals:
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
+
 make_friend:
   url: /cooks/makefriend
   params: {  module: cooks, action: makefriend }
-  
+
 accept_friend:
   url: /cooks/acceptfriend
   params: { module: cooks, action: acceptfriend }
-  
+
 drop_friend:
   url: /cooks/dropfriend
   params: { module: cooks, action: dropfriend }
@@ -279,7 +279,7 @@ mixingbowl_recipes:
   param: { module: recipes, action: mixingbowl }
 
 # End Mixingbowl-Forward Routes -------------------------------------------------------------
-  
+
 # Daily Dish-Forward Routes --------------------------------------------------------------
 
 dailydish:
@@ -309,7 +309,7 @@ delete_collection_recipe:
 #delete_saved_recipe:
 #  url: /myrecipebox/deleteSavedRecipe/:recipe/*
 #  param: { module: myrecipebox, action: deleteSavedRecipe }
-  
+
 delete_saved_recipe:
   url: /myrecipebox/deleteSavedRecipe
   param: { module: myrecipebox, action: deleteSavedRecipe }
@@ -325,17 +325,17 @@ move_recipe:
 paginate_saved:
   url: /myrecipebox/paginate_saved
   param: { module: myrecipebox, action: paginate_saved }
-  
+
 paginate_personal:
   url: /myrecipebox/paginate_personal
   param: { module: myrecipebox, action: paginate_personal }
 
-  
+
 # mobile version of myrecipebox (default)
 myrecipebox:
   url: /myrecipebox
   param: { module: myrecipebox, action: index }
-  
+
 # End Myrecipebox Routes -------------------------------------------------------------
 
 # Message Center --------------------------------------------------------------
@@ -343,20 +343,20 @@ myrecipebox:
 messages:
   url: /messages
   params: { module: message, action: index }
-  
+
 message_count:
   url: /messages/count
   params: { module: message, action: newMsgCount }
-  
-messages_inbox: 
+
+messages_inbox:
   url: /messages/inbox/:page
   class: sfDoctrineRoute
   params: { module: message, action: inbox, page: 1 }
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
-messages_sent: 
+
+messages_sent:
   url: /messages/sent/:page
   class: sfDoctrineRoute
   params: { module: message, action: sent, page: 1 }
@@ -364,23 +364,23 @@ messages_sent:
   requirements:
     sf_method: [get]
 
-messages_trash: 
+messages_trash:
   url: /messages/trash/:page
   class: sfDoctrineRoute
   params: { module: message, action: trash, page: 1 }
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get]
-    
-message_delete: 
+
+message_delete:
   url: /message/delete
   class: sfDoctrineRoute
   params: { module: message, action: delete }
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
-message_compose: 
+
+message_compose:
   url: /message/compose
   class: sfDoctrineRoute
   params: { module: message, action: compose }
@@ -388,7 +388,7 @@ message_compose:
   requirements:
     sf_method: [get,post]
 
-message_reply: 
+message_reply:
   url: /message/:message_id/reply
   class: sfDoctrineRoute
   params: { module: message, action: reply }
@@ -396,15 +396,15 @@ message_reply:
   requirements:
     sf_method: [get,post]
 
-message_forward: 
+message_forward:
   url: /message/:message_id/forward
   class: sfDoctrineRoute
   params: { module: message, action: forward }
   options: { model: User, type: object, method: retrieveUser, allow_empty: false }
   requirements:
     sf_method: [get,post]
-    
-message_read: 
+
+message_read:
   url: /message/:message_id
   class: sfDoctrineRoute
   params: { module: message, action: read }
@@ -424,11 +424,11 @@ create_comment:
 get_comments:
   url: /comment/getcomments
   param: { module: comment, action: getcomments}
-  
+
 comment_auth:
   url: /comment/auth
   param: { module: comment, action: commentauth }
-  
+
 recipe_photos:
   url: /recipes/photos/recipe_id/:recipe_id
   param: { module: recipes, action: photos }
@@ -512,11 +512,11 @@ mixingbowl_group:
 discussion_detail:
   url: /mixing-bowl/groups/:group_id/:group_slug/discussions/:thread_id/:thread_slug
   param: { module: groups, action: discussiondetail }
-  
+
 discussions:
   url: /discussions
   param: { module: discussions, action: index }
-  
+
 group_save_recipe:
   url: /groups-saverecipe
   param: { module: groups, action: saverecipe }
@@ -524,11 +524,11 @@ group_save_recipe:
 group_paginate_polls:
   url: /groups/paginate_polls
   param: { module: groups, action: paginatepolls }
-  
+
 group_paginate_members:
   url: /groups/paginate_members
   param: { module: groups, action: paginatemembers }
-  
+
 group_change_member_role:
   url: /groups/change_member_role
   param: { module: groups, action: changememberrole }
@@ -536,19 +536,19 @@ group_change_member_role:
 group_paginate_recipes:
   url: /groups/paginate_recipes
   param: { module: groups, action: paginaterecipes }
-  
+
 group_paginate_photos:
   url: /groups/paginate_photos
   param: { module: groups, action: paginatephotos }
-  
+
 group_paginate_videos:
   url: /groups/paginate_videos
   param: { module: groups, action: paginatevideos }
-  
+
 group_paginate_discussions:
   url: /groups/paginate_discussions
   param: { module: groups, action: paginatediscussions }
-  
+
 group_paginate_discussions_detail:
   url: /groups/paginate_discussions_detail
   param: { module: groups, action: paginatediscussionsdetail }
@@ -572,7 +572,7 @@ group_create_two:
 group_create_three:
   url: /groups/create-stepthree/:id
   param: { module: groups, action: createstepthree }
-  
+
 group_create_three_complete:
   url: /groups/create-stepthree-complete/:id
   param: { module: groups, action: createstepthreecomplete }
@@ -592,7 +592,7 @@ group_edit:
 group_detail_members:
   url: /groups/:slug/members
   param: { module: groups, action: members }
-  
+
 group_detail_photos:
   url: /groups/:slug/photos
   param: { module: groups, action: photos }
@@ -608,11 +608,11 @@ group_detail_recipes:
 group_detail_polls_detail:
   url: /groups/:slug/polls/:poll_slug/:id
   param: { module: groups, action: polldetail }
-  
+
 group_detail_polls:
   url: /groups/:slug/polls
   param: { module: groups, action: polls }
-  
+
 group_detail_discussions_detail:
   url: /groups/:slug/discussions/:title/:id
   param: { module: groups, action: discussiondetail }
@@ -620,7 +620,7 @@ group_detail_discussions_detail:
 group_detail_discussions:
   url: /groups/:slug/discussions
   param: { module: groups, action: discussions }
-  
+
 group_add_existing_recipes:
   url: /groups/:slug/add-more-recipes
   param: { module: groups, action: addrecipes }
@@ -629,19 +629,19 @@ group_invite_friends:
   url: /groups/:slug/invite-friends
   param: { module: groups, action: invitefriends }
 
-group_landing:  
+group_landing:
   url:   /groups
   param: { module: groups, action: index }
-  
+
 create_thread:
   url: /createthread
   param: { module: groups, action: createthread }
-  
+
 create_post:
   url: /createpost
   param: { module: groups, action: createpost }
-  
-mixing_bowl:  
+
+mixing_bowl:
   url:   /mixing-bowl
   param: { module: mixingbowl, action: index }
 
@@ -656,11 +656,11 @@ journal_detail:
 journal_add:
   url: /journals/addpost
   param: { module: journals, action: add }
-  
+
 journal_paginate_recent:
   url: /journals/paginate/recent
   param: { module: journals, action: paginate_recent_journal }
-  
+
 journal:
   url: /journals
   param: { module: journals, action: index }
@@ -668,11 +668,11 @@ journal:
 daily_dish_ajax_list:
   url: /blogs/daily-dish/ajaxlist
   param: { module: dailydish, action: paginate_dish_list }
-  
+
 daily_dish_detail:
   url: /blogs/daily-dish/:year/:month/:day/:slug
   param: { module: dailydish, action: detail }
-  
+
 daily_dish_archive:
   url: /blogs/daily-dish/:year/:month
   param: { module: dailydish, action: archive }
@@ -680,15 +680,15 @@ daily_dish_archive:
 daily_dish_category:
   url: /blogs/daily-dish/category/:category
   param: { module: dailydish, action: index }
-  
+
 daily_dish_tag:
   url: /blogs/daily-dish/tag/:tag
   param: { module: dailydish, action: index }
-  
+
 daily_dish:
   url: /blogs/daily-dish
   param: { module: dailydish, action: index }
-  
+
 poll_create:
   url: /polls/create/:group_id
   param: { module: polls, action: create }
@@ -696,24 +696,24 @@ poll_create:
 polls_vote:
   url: /polls/castvote
   param: { module: polls, action: castvote }
-  
+
 polls_vote_featured_home:
   url: /home/castvote
   param: { module: home, action: castvote }
-  
+
 polls_vote_featured_mb:
   url: /mixingbowl/castvote
   param: { module: mixingbowl, action: castvote }
-  
+
 
 polls_network_detail:
   url: /polls/:slug/:id
   param: { module: polls, action: detail }
-  
+
 polls:
   url: /polls
   param: { module: polls, action: index }
-  
+
 rewards:
   url: /rewards
   param: { module: rewards, action: index }
@@ -725,11 +725,11 @@ contests:
 contests_alt:
   url: /contest
   param: { module: contests, action: index }
-  
+
 contests_enter_contest:
   url: /contests/enterContest
   param: { module: contests, action: enterContest }
-  
+
 contests_autocomplete:
   url: /contests/autocomplete
   param: { module: contests, action: autocomplete }
@@ -737,27 +737,27 @@ contests_autocomplete:
 contests_past_winners:
   url: /contests/past-winners
   param: { module: contests, action: pastWinners }
-  
+
 contests_past_contests:
   url: /contests/past-contests
   param: { module: contests, action: pastContests }
-  
+
 paginate_contestants:
   url: /contests/paginate_contestants
   param: { module: contests, action: paginate_contestants }
-  
+
 paginate_pastcontests:
   url: /contests/paginate_pastcontests
   param: { module: contests, action: paginate_pastcontests }
-  
+
 paginate_pastwinners:
   url: /contests/paginate_pastwinners
   param: { module: contests, action: paginate_pastwinners }
-  
+
 contests_detail:
   url: /contests/:slug
   param: { module: contests, action: detail }
-  
+
 contests_rules:
   url: /contests/:slug/rules
   param: { module: contests, action: rules }
@@ -770,7 +770,7 @@ search_results:
 search:
   url: /search
   params: { module: search, action: index }
-  
+
 homepage:
   url:   /
   param: { module: home, action: index }
@@ -779,7 +779,7 @@ homepage:
 # default routes
 # This are useful for development but should be disable in production
 # -------------------------------------------------------------------
-  
+
 default:
   url:   /:module/:action/*
- 
+

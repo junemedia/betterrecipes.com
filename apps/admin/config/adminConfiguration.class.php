@@ -5,7 +5,7 @@ class adminConfiguration extends sfApplicationConfiguration
 
   public function configure()
   {
-    
+
   }
 
   protected $frontendRouting = null;
