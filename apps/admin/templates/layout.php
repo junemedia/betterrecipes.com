@@ -53,6 +53,7 @@
         <li><a href="<?=url_for("@slideshows_index") ?>" <? if ($this->moduleName == 'slideshows'): ?>class="selected"<? endif; ?>><div class="navText">Slideshows</div></a></li>
         <li><a href="<?=url_for("@contests_index") ?>" <? if ($this->moduleName == 'contests'): ?>class="selected"<? endif; ?>><div class="navText">Contests</div></a></li>
         <li><a href="<?=url_for("@articles_index") ?>" <? if ($this->moduleName == 'articles'): ?>class="selected"<? endif; ?>><div class="navText">Articles</div></a></li>
+        <li><a href="<?=url_for("@newsletters_index") ?>" <? if ($this->moduleName == 'newsletters'): ?>class="selected"<? endif; ?>><div class="navText">Newsletters</div></a></li>
         <li><a href="<?=url_for("@meta_index") ?>" <? if ($this->moduleName == 'meta'): ?>class="selected"<? endif; ?>><div class="navText">Meta</div></a></li>
         <li><a href="<?=url_for("@sponsors_index") ?>" <? if ($this->moduleName == 'sponsors'): ?>class="selected"<? endif; ?>><div class="navText">Sponsors</div></a></li>
         <li><a href="<?=url_for("administrators") ?>" <? if ($this->actionName == 'administrators'): ?>class="selected"<? endif; ?>><div class="navText">Admins</div></a></li>

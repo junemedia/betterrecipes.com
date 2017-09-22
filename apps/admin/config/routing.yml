@@ -75,6 +75,10 @@ articles_index:
   url: /articles
   param: {module: articles, action: index }
 
+newsletters_index:
+  url: /newsletters
+  param: {module: newsletters, action: index }
+
 tips_index:
   url: /tips
   param: {module: tips, action: index }
