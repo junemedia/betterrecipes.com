@@ -2,9 +2,9 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=10.223.241.120;port=3306;dbname=betterrecipes'
-      username: root
-      password: rd112358
+      dsn: 'mysql:host=localhost;dbname=betterrecipes'
+      username: br_dev
+      password: goodPassword
       encoding: utf8
       persistent:
         value:  true

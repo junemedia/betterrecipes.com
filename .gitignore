@@ -16,6 +16,7 @@ web/blogs/daily-dish/wp-content/blogs.dir/*
 *.ttf.gz
 *.woff.gz
 
+config/databases.yml
 
 lb-mon.txt
 test.php
