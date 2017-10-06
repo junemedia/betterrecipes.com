@@ -6,7 +6,10 @@ log/*
 web/uploads/*
 nbproject
 web/*.sql.*
+
 web/blogs/daily-dish/wp-content/blogs.dir/*
+web/blogs/daily-dish/local-config.php
+
 *.html.gz
 *.js.gz
 *.css.gz

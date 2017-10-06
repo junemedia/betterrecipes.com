@@ -19,18 +19,28 @@
 /**
  * MySQL settings
  */
-define('DB_NAME',       'blogs'                             );
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'rd112358');
-define('DB_HOST', '10.223.241.120');
-define('DB_CHARSET', 'utf8');
-define('DB_COLLATE', '');
 
-define('WP_HOME','http://www.betterrecipes.com/blogs/daily-dish');
+/*
+ * https://markjaquith.wordpress.com/2011/06/24/wordpress-local-dev-tips/
+ */
+if (file_exists(dirname(__FILE__) . '/local-config.php')) {
+  include (dirname(__FILE__) . '/local-config.php');
+}
+else {
+  define('DB_NAME',     'blogs'         );
+  define('DB_USER',     'root'          );
+  define('DB_PASSWORD', 'rd112358'      );
+  define('DB_HOST',     '10.223.241.120');
+}
+
+define('DB_CHARSET',  'utf8');
+define('DB_COLLATE',  '');
+
+define('WP_HOME',   'http://www.betterrecipes.com/blogs/daily-dish');
 define('WP_SITEURL','http://www.betterrecipes.com/blogs/daily-dish');
 
 
-$table_prefix =         'wp_';
+$table_prefix = 'wp_';
 
 
 /**
