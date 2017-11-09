@@ -15,6 +15,12 @@ terms:
   requirements:
     sf_method: [get]
 
+add-to-address-book:
+  url: /add-to-address-book
+  params: { module: static, action: addressBook }
+  requirements:
+    sf_method: [get]
+
 social:
   url: /social
   params: { module: static, action: social }

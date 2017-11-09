@@ -16,6 +16,11 @@ class staticActions extends sfActions
     
   }
 
+  public function executeAddressBook(sfWebRequest $request)
+  {
+
+  }
+
   public function executeSocial(sfWebRequest $request)
   {
     
