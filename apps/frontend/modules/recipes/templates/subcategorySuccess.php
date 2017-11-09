@@ -60,13 +60,6 @@
   <?php include_partial('baynote_recipes', compact('category')) ?>
   <div id="subcat-recipes" class="mt20 clear"></div><!-- /#subcat-recipes -->
 
-  <?php
-  // JS: turn defy video off 06/14/2017
-  /* <!-- DEFY VIDEO --> */
-  /* <div class="clear-both" style="margin: 30px auto;"> */
-  /*   <?php include_partial("global/adtags/defy-clip_1847") ?> */
-  /* </div> */
-  ?>
   <div class="clear-both" style="margin:20px auto;">
     <?php include_partial('global/adtags/lockerdome'); ?>
   </div>
