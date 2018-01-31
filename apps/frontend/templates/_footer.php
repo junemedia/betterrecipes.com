@@ -21,7 +21,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
 
     <?php include_component('recipes', 'footer_categories') ?>
 
-    <div class="nav lower pt20">
+    <div class="nav lower pt20" id="ftr-acct">
       <div class="title">YOUR ACCOUNT</div>
       <div class="links">
         <ul>
@@ -35,7 +35,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       </div>
     </div>
 
-    <div class="nav lower">
+    <div class="nav lower" id="ftr-social">
       <div class="title">BETTER RECIPES</div>
       <div class="links">
         <ul>
@@ -45,7 +45,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       </div>
     </div>
 
-    <div class="nav lower pb20">
+    <div class="nav lower pb20" id="ftr-recbox">
        <div class="title">&nbsp;</div>
       <div class="links">
         <ul>
@@ -54,7 +54,7 @@ $is_hp = ($sf_request->getParameter('module') == 'home' && $host_parts[0] == 'ww
       </div>
     </div>
 
-    <div class="nav lower pt20">
+    <div class="nav lower pt20" id="ftr-legal">
       <div class="title">&nbsp;</div>
       <div class="links">
         <ul>

@@ -1,4 +1,4 @@
-<div class="nav pt20 pb20">
+<div class="nav pt20 pb20" id="ftr-reccats">
   <div class="title">RECIPE CATEGORIES</div>
   <div class="links">
     <? foreach ($footer_categories as $category_column): ?>
