@@ -24,6 +24,8 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
+  <?php include_partial('global/adtags/adthrive_js') ?>
+
   <!-- Facebook Conversion Code for BetterRecipes Tracker -->
   <script>
     var fb_param = {};
