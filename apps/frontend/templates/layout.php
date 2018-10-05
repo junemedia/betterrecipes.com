@@ -94,7 +94,6 @@
   <?php include_partial('global/omniture') ?>
   <?php include_partial('global/ga') ?>
 
-  <?php include_partial('global/adtags/underdog') ?>
   <?php include_partial('global/adtags/liveconnect') ?>
   <?php include_partial('global/adtags/outbrain_js') ?>
 
