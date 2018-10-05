@@ -25,16 +25,6 @@
     <div class="logo-space">
       <h1><a href="<?= getHomepageUri() ?>" title="Better Recipes"><img src="/img/logo_betterrecipes.png" alt="BetterRecipes : better recipes - better meals" style="margin-top:35px; margin-left:10px"/></a></h1>
 
-      <?php
-      if ($sf_context->getRouting()->getCurrentRouteName() == 'signin' ||
-          $sf_context->getRouting()->getCurrentRouteName() == 'signup') {
-        // no op
-      }
-      else { ?>
-      <div class="hd-ad ad728x90">
-        <?php include_partial('global/adtags/openx_728x90atf') ?>
-      </div>
-      <?php } ?>
     </div><!-- /.logo-space -->
 
     <style>

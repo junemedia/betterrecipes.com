@@ -11,15 +11,3 @@
   adchild1id="<?= $ad_header_code['adchild1id'] ?>";
 </script>
 <!-- end head tag -->
-<?
-/*
-<!-- Yieldbot Intent Tag begin  -->
-<script type="text/javascript" src="http://cdn.yb0t.com/js/yieldbot.intent.js"></script>
-<script type="text/javascript">
-var ybotq = ybotq || [];
-ybotq.push(['psn', 'd45f']); //your pin
-ybotq.push(['init']);
-</script>
-<!-- Yieldbot Intent Tag end -->
-*/
-?>

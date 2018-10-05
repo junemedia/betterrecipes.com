@@ -8,7 +8,4 @@
 
   <?php include_partial('global/adtags/zergnet_2x2'); ?>
 
-  <?php if ($sf_params && $sf_params->get('module') == 'recipes'):
-    include_partial('global/adtags/openx_300x600');
-  endif; ?>
 </div>
