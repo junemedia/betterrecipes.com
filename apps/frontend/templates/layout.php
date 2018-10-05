@@ -96,7 +96,6 @@
 
   <?php include_partial('global/adtags/underdog') ?>
   <?php include_partial('global/adtags/liveconnect') ?>
-  <?php include_partial('global/adtags/tynt') ?>
   <?php include_partial('global/adtags/outbrain_js') ?>
 
 </body>
