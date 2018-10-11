@@ -25,6 +25,8 @@
     <div class="logo-space">
       <h1><a href="<?= getHomepageUri() ?>" title="Better Recipes"><img src="/img/logo_betterrecipes.png" alt="BetterRecipes : better recipes - better meals" style="margin-top:35px; margin-left:10px"/></a></h1>
 
+      <!-- ad holder -->
+      <div class="hd-ad"></div>
     </div><!-- /.logo-space -->
 
     <style>
