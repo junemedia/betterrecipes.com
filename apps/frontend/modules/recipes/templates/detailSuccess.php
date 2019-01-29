@@ -35,8 +35,8 @@
 
 <div class="article has-breadcrumbs">
 
-  <div style="margin:20px auto 30px; border-bottom: #ebebeb solid 1px;">
-    <?php include_partial('global/adtags/adthrive_video'); ?>
+  <div style="margin:0 auto 20px; border-bottom: #ebebeb solid 1px;">
+    <?php include_partial('global/adtags/connatix_infeed'); ?>
   </div>
 
   <?php include_partial('recipe_detail', compact('recipe', 'is_saved', 'is_made', 'user_rating', 'currentContest', 'recipeNext', 'recipePrev', 'showVoteButton', 'showPopup', 'msg')) ?>
