@@ -35,7 +35,7 @@
 
 <div class="article has-breadcrumbs">
 
-  <div style="margin:0 auto 20px; border-bottom: #ebebeb solid 1px;">
+  <div style="margin: 30px auto; padding-bottom: 20px; border-bottom: #ebebeb solid 1px;">
     <?php include_partial('global/adtags/connatix_infeed'); ?>
   </div>
 
