@@ -129,16 +129,15 @@ a:hover {
   width:1020px;
   margin:0 auto;
 }
-#main-header {
-  background:url(/img/bg-mh.jpg) repeat-x top left;
-}
 #main-header .wrapper {
   background:url(/img/bg-mc.png) repeat-y top left;
 }
 #main-header .wrapper .sign-in {
-  background:url(/img/bg-mh-signin.jpg) repeat-y top left;
   width:100%;
   height:30px;
+  background-color: #eee;
+  width: 1000px;
+  margin-left: 10px;
 }
 #main-header .wrapper .logo-space {
   background:url(/img/bg-mh-wrap.png) repeat-y top left;

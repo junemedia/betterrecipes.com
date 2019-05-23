@@ -31,10 +31,11 @@
 
     <style>
       #main-header .wrapper .search-bars {
-        background:url(/img/bg-mh-searchbar.jpg) repeat-y top left;
-        width:100%;
+        background: #863987;
+        width: 1000px;
         height:46px;
         margin-top:15px;
+        margin-left: 10px;
       }
       .search-bars form input[type=submit] {
         float:left;
